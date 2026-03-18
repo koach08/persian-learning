@@ -1,13 +1,17 @@
 "use client";
 
 import { useState, useRef } from "react";
+import { apiUrl } from "@/lib/api-config";
 
 interface AudioPlayerProps {
   text: string;
   className?: string;
+  voice?: string;
+  lang?: "fa" | "ja";
+  style?: "natural" | "slow" | "cheerful";
 }
 
-export default function AudioPlayer({ text, className = "" }: AudioPlayerProps) {
+export default function AudioPlayer({ text, className = "", voice, lang = "fa", style = "natural" }: AudioPlayerProps) {
   const [loading, setLoading] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -15,10 +19,10 @@ export default function AudioPlayer({ text, className = "" }: AudioPlayerProps) 
     if (loading) return;
     setLoading(true);
     try {
-      const res = await fetch("/api/tts", {
+      const res = await fetch(apiUrl("/api/tts"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text }),
+        body: JSON.stringify({ text, voice, lang, style }),
       });
       if (!res.ok) throw new Error("TTS failed");
       const blob = await res.blob();

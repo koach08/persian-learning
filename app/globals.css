@@ -19,6 +19,14 @@
   }
 }
 
+html {
+  /* iPhoneのセーフエリア対応 */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -72,4 +80,48 @@ body {
     var(--gauge-color) calc(var(--score) * 1%),
     #e5e7eb calc(var(--score) * 1%)
   );
+}
+
+/* Tutor avatar pulse animation (when AI is speaking) */
+@keyframes tutorPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(168, 85, 247, 0);
+  }
+}
+
+.tutor-pulse {
+  animation: tutorPulse 1.5s ease-in-out infinite;
+}
+
+/* Mic breathing animation (user-turn, waiting for input) */
+@keyframes micBreathing {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(168, 85, 247, 0);
+    transform: scale(1.03);
+  }
+}
+
+.mic-breathing {
+  animation: micBreathing 2.5s ease-in-out infinite;
+}
+
+/* Mic recording animation (red pulse) */
+@keyframes micRecording {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(239, 68, 68, 0);
+  }
+}
+
+.mic-recording {
+  animation: micRecording 1s ease-in-out infinite;
 }

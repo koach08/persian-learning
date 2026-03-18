@@ -6,9 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "build:mobile": "mv app/api app/_api_bak && CAPACITOR_BUILD=true next build; mv app/_api_bak app/api",
+    "cap:ios": "npx cap add ios && npx cap sync ios",
+    "cap:android": "npx cap add android && npx cap sync android",
+    "cap:sync": "npx cap sync",
+    "cap:open:ios": "npx cap open ios",
+    "cap:open:android": "npx cap open android"
   },
   "dependencies": {
+    "@capacitor/android": "^8.2.0",
+    "@capacitor/cli": "^8.2.0",
+    "@capacitor/core": "^8.2.0",
+    "@capacitor/ios": "^8.2.0",
     "@types/papaparse": "^5.5.2",
     "microsoft-cognitiveservices-speech-sdk": "^1.48.0",
     "next": "16.1.6",

@@ -5,6 +5,7 @@ import { loadVocabulary, VocabularyItem } from "@/lib/data-loader";
 import PersianText from "@/components/PersianText";
 import AudioPlayer from "@/components/AudioPlayer";
 import AudioRecorder from "@/components/AudioRecorder";
+import { apiUrl } from "@/lib/api-config";
 
 interface PronunciationResult {
   accuracyScore: number;
@@ -47,7 +48,7 @@ export default function PronunciationPage() {
       setResult(null);
 
       try {
-        const tokenRes = await fetch("/api/pronunciation");
+        const tokenRes = await fetch(apiUrl("/api/pronunciation"));
         const { token, region } = await tokenRes.json();
 
         if (!token) {

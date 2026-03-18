@@ -1,79 +1,181 @@
-import Link from "next/link";
+"use client";
 
-const modules = [
-  {
-    href: "/flashcard",
-    title: "フラッシュカード",
-    subtitle: "単語を覚えよう",
-    icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
-    color: "bg-emerald-500",
-  },
-  {
-    href: "/conjugation",
-    title: "動詞活用ドリル",
-    subtitle: "活用をマスター",
-    icon: "M4 6h16M4 10h16M4 14h16M4 18h16",
-    color: "bg-blue-500",
-  },
-  {
-    href: "/conversation",
-    title: "AIフリートーク",
-    subtitle: "会話を練習",
-    icon: "M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z",
-    color: "bg-purple-500",
-  },
-  {
-    href: "/pronunciation",
-    title: "発音評価",
-    subtitle: "発音をチェック",
-    icon: "M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 016 0v6a3 3 0 01-3 3z",
-    color: "bg-orange-500",
-  },
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import { getCEFRProgress, setCurrentLevel, CEFR_LEVELS } from "@/lib/level-manager";
+import type { CEFRLevel } from "@/lib/level-manager";
+import { getAllCards, getDueCount } from "@/lib/srs";
+import { getStreak, hasStudiedToday } from "@/lib/streak";
+import { getNextLesson, getLevelLessonStats } from "@/lib/guided-lessons";
+
+const SCENARIOS = [
+  { label: "カフェで注文", emoji: "☕", scenario: "cafe-order" },
+  { label: "道を聞く", emoji: "🗺️", scenario: "ask-directions" },
+  { label: "自己紹介", emoji: "👋", scenario: "self-intro" },
+  { label: "買い物", emoji: "🛒", scenario: "bazaar-shopping" },
+];
+
+const SKILLS = [
+  { href: "/flashcard", icon: "📖", label: "単語" },
+  { href: "/grammar", icon: "📝", label: "文法" },
+  { href: "/conjugation", icon: "🔤", label: "活用" },
+  { href: "/exercises", icon: "✏️", label: "ドリル" },
+  { href: "/reading", icon: "📚", label: "読解" },
+  { href: "/pronunciation", icon: "🎤", label: "発音" },
+  { href: "/shadowing", icon: "🎙️", label: "シャドー" },
+  { href: "/minimal-pairs", icon: "👂", label: "聞分け" },
+  { href: "/my-words", icon: "📋", label: "マイ単語" },
+  { href: "/dashboard", icon: "📊", label: "進捗" },
 ];
 
 export default function Home() {
+  const [progress, setProgress] = useState(getCEFRProgress());
+  const [dueCount, setDueCount] = useState(0);
+  const [streak, setStreak] = useState(0);
+  const [studiedToday, setStudiedToday] = useState(false);
+  const [lessonInfo, setLessonInfo] = useState<{ id: string; title: string; completed: number; total: number } | null>(null);
+
+  useEffect(() => {
+    const p = getCEFRProgress();
+    setProgress(p);
+    setDueCount(getDueCount(getAllCards()));
+    setStreak(getStreak());
+    setStudiedToday(hasStudiedToday());
+    const next = getNextLesson(p.currentLevel);
+    const stats = getLevelLessonStats(p.currentLevel);
+    if (next) {
+      setLessonInfo({ id: next.id, title: next.title, completed: stats.completed, total: stats.total });
+    }
+  }, []);
+
+  const handleLevelChange = (level: CEFRLevel) => {
+    if (progress.unlockedLevels.includes(level)) {
+      setCurrentLevel(level);
+      setProgress({ ...progress, currentLevel: level });
+    }
+  };
+
   return (
-    <div className="px-4 pt-8">
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          <span className="persian-text text-4xl text-emerald-600">فارسی</span>
-        </h1>
-        <p className="text-lg text-gray-600">ペルシア語学習</p>
-        <p className="text-sm text-gray-400 mt-1">Farsi Learning App</p>
+    <div className="px-5 pt-6 pb-8">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-8">
+        <h1 className="text-2xl font-black text-gray-900">ペルシア語</h1>
+        <div className="flex items-center gap-2">
+          {streak > 0 && (
+            <span className="text-sm font-bold text-orange-500">🔥{streak}</span>
+          )}
+          <span className="text-sm bg-emerald-500 text-white px-3 py-1.5 rounded-full font-bold">
+            {progress.currentLevel}
+          </span>
+        </div>
       </div>
 
-      <div className="grid gap-4">
-        {modules.map((mod) => (
+      {/* Level Selector */}
+      <div className="flex gap-2 mb-8">
+        {CEFR_LEVELS.map((level) => {
+          const unlocked = progress.unlockedLevels.includes(level);
+          const active = progress.currentLevel === level;
+          return (
+            <button
+              key={level}
+              onClick={() => handleLevelChange(level)}
+              disabled={!unlocked}
+              className={`flex-1 py-2.5 rounded-xl text-sm font-bold transition-all ${
+                active
+                  ? "bg-emerald-500 text-white shadow-lg shadow-emerald-200"
+                  : unlocked
+                  ? "bg-white text-gray-600 border border-gray-200"
+                  : "bg-gray-100 text-gray-300"
+              }`}
+            >
+              {level}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Main CTA */}
+      <Link
+        href="/conversation"
+        className="block mb-5 p-5 bg-gradient-to-br from-purple-600 to-pink-500 rounded-3xl shadow-xl text-white active:scale-[0.97] transition-transform"
+      >
+        <div className="flex items-center gap-4">
+          <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center text-3xl shrink-0">
+            👩‍🏫
+          </div>
+          <div className="flex-1">
+            <p className="text-lg font-black">ミーナ先生と話す</p>
+            <p className="text-white/70 text-sm mt-0.5">
+              {studiedToday ? "もう1セッション!" : "今日の会話を始めよう"}
+            </p>
+          </div>
+          <svg className="w-6 h-6 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+      </Link>
+
+      {/* Lesson Progress */}
+      {lessonInfo && (
+        <Link
+          href={`/guided-lesson?id=${lessonInfo.id}`}
+          className="block mb-5 p-4 bg-white rounded-2xl shadow-sm active:scale-[0.98] transition-transform"
+        >
+          <div className="flex items-center gap-3">
+            <span className="text-2xl">🎓</span>
+            <div className="flex-1">
+              <p className="font-bold text-gray-900 text-sm">{lessonInfo.title}</p>
+              <div className="flex items-center gap-2 mt-1.5">
+                <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-emerald-500 rounded-full"
+                    style={{ width: `${lessonInfo.total > 0 ? (lessonInfo.completed / lessonInfo.total) * 100 : 0}%` }}
+                  />
+                </div>
+                <span className="text-xs text-gray-400">{lessonInfo.completed}/{lessonInfo.total}</span>
+              </div>
+            </div>
+          </div>
+        </Link>
+      )}
+
+      {/* Scenarios */}
+      <div className="grid grid-cols-2 gap-2.5 mb-5">
+        {SCENARIOS.map((s) => (
           <Link
-            key={mod.href}
-            href={mod.href}
-            className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+            key={s.scenario}
+            href={`/conversation?scenario=${s.scenario}`}
+            className="p-4 bg-white rounded-2xl shadow-sm active:scale-95 transition-transform"
           >
-            <div
-              className={`${mod.color} w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0`}
-            >
-              <svg
-                className="w-6 h-6 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d={mod.icon} />
-              </svg>
-            </div>
-            <div>
-              <h2 className="font-semibold text-gray-900">{mod.title}</h2>
-              <p className="text-sm text-gray-500">{mod.subtitle}</p>
-            </div>
-            <svg
-              className="w-5 h-5 text-gray-400 ml-auto"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
+            <span className="text-2xl block mb-1.5">{s.emoji}</span>
+            <span className="text-sm font-semibold text-gray-800">{s.label}</span>
+          </Link>
+        ))}
+      </div>
+
+      {/* Due Review */}
+      {dueCount > 0 && (
+        <Link
+          href="/flashcard"
+          className="block mb-5 p-3.5 bg-amber-50 rounded-2xl active:scale-[0.98] transition-transform"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-amber-800 font-bold text-sm">復習待ち {dueCount}件</span>
+            <span className="text-amber-500 font-bold">→</span>
+          </div>
+        </Link>
+      )}
+
+      {/* Skills */}
+      <div className="grid grid-cols-5 gap-2">
+        {SKILLS.map((s) => (
+          <Link
+            key={s.href}
+            href={s.href}
+            className="p-2.5 bg-white rounded-2xl text-center shadow-sm active:scale-90 transition-transform"
+          >
+            <span className="text-lg block">{s.icon}</span>
+            <span className="text-[10px] text-gray-500 font-medium mt-0.5 block">{s.label}</span>
           </Link>
         ))}
       </div>
