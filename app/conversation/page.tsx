@@ -158,6 +158,52 @@ const THEMES_BY_LEVEL: Record<CEFRLevel, ScenarioTheme[]> = {
       roleDescription: "あなた＝本人、ミーナ＝親友",
     },
   ],
+  C1: [
+    {
+      label: "学術論文について議論",
+      emoji: "🎓",
+      instruction: "Discuss a research paper or academic topic. Use formal academic Persian, complex sentence structures, and specialized vocabulary. Challenge the student with nuanced questions.",
+      roleDescription: "あなた＝研究者、ミーナ＝同僚研究者",
+    },
+    {
+      label: "政治と人権を議論",
+      emoji: "🏛️",
+      instruction: "Engage in a sophisticated discussion about democracy, human rights, or political philosophy. Use formal register with complex arguments and counterarguments in Persian.",
+      roleDescription: "あなた＝政治学者、ミーナ＝ジャーナリスト",
+    },
+    {
+      label: "文学作品を批評する",
+      emoji: "📖",
+      instruction: "Discuss Persian literature — Hafez, Rumi, or modern Iranian novels. Analyze themes, symbolism, and cultural significance using literary Persian.",
+      roleDescription: "あなた＝文学愛好家、ミーナ＝文学教授",
+    },
+    {
+      label: "ビジネス戦略を提案",
+      emoji: "📊",
+      instruction: "Present and discuss a business strategy for the Iranian market. Use formal business Persian with economic terminology and strategic analysis.",
+      roleDescription: "あなた＝コンサルタント、ミーナ＝CEO",
+    },
+  ],
+  C2: [
+    {
+      label: "ハーフェズの詩を解釈する",
+      emoji: "🌹",
+      instruction: "Engage in deep literary analysis of Hafez's ghazals. Use highly poetic Persian with classical references, metaphors (تمثیل), and mystical vocabulary (عرفان). Quote actual verses when possible.",
+      roleDescription: "あなた＝詩の愛好家、ミーナ＝文学研究者",
+    },
+    {
+      label: "風刺とユーモアで社会を語る",
+      emoji: "🎭",
+      instruction: "Use sophisticated Persian satire and humor to discuss social issues. Employ wordplay (جناس), irony, and cultural references that only a near-native speaker would catch.",
+      roleDescription: "あなた＝コメディアン、ミーナ＝知識人",
+    },
+    {
+      label: "哲学的対話：存在と自由",
+      emoji: "💎",
+      instruction: "Engage in an existential philosophical dialogue about freedom, identity, and meaning. Use the highest register of Persian with abstract concepts and rhetorical sophistication.",
+      roleDescription: "あなた＝哲学者、ミーナ＝思想家",
+    },
+  ],
 };
 
 // Scenario keys for URL-based navigation from home page

@@ -6,6 +6,7 @@ import { getCEFRProgress, CEFR_LEVELS } from "@/lib/level-manager";
 import type { CEFRLevel } from "@/lib/level-manager";
 import { getAllCards, saveAllCards, calculateSRS, createNewCard, isDue, isMastered } from "@/lib/srs";
 import type { SRSCard, SRSQuality } from "@/lib/srs";
+import { addXP } from "@/lib/xp";
 import PersianText from "@/components/PersianText";
 import AudioPlayer from "@/components/AudioPlayer";
 
@@ -88,6 +89,7 @@ export default function FlashcardPage() {
 
       // Mark session as started
       sessionStartRef.current = true;
+      addXP("flashcardReview");
 
       // Update session stats
       const isCorrect = quality >= 3;

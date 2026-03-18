@@ -6,6 +6,8 @@ import { getCEFRProgress } from "@/lib/level-manager";
 import type { CEFRLevel } from "@/lib/level-manager";
 import { getAllCards, saveAllCards, calculateSRS, createNewCard } from "@/lib/srs";
 import type { SRSCard } from "@/lib/srs";
+import { addXP } from "@/lib/xp";
+import { recordMistake } from "@/lib/mistake-tracker";
 import PersianText from "@/components/PersianText";
 import AudioPlayer from "@/components/AudioPlayer";
 import { extractRoman } from "@/lib/parse-cell";
@@ -77,6 +79,13 @@ export default function ClozePage() {
     const isCorrect = normalized === target;
     setResult(isCorrect ? "correct" : "wrong");
     setScore((s) => ({ correct: s.correct + (isCorrect ? 1 : 0), total: s.total + 1 }));
+
+    if (isCorrect) {
+      addXP("exerciseCorrect");
+    } else {
+      const word = items.find((i) => i.ペルシア語 === cloze.answer);
+      recordMistake(cloze.answer, word?.ローマ字 || "", word?.日本語 || cloze.hint, "cloze", 0);
+    }
 
     const key = cloze.answer;
     const existing = srsCards[key] || createNewCard(key);

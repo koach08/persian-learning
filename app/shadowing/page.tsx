@@ -41,6 +41,15 @@ const PHRASES: Record<CEFRLevel, ShadowPhrase[]> = {
     { persian: "به نظر من، یادگیری زبان نه تنها مهارت ارتباطی را تقویت می‌کند، بلکه دید فرهنگی ما را وسیع‌تر می‌کند", romanization: "be nazar-e man, yâdgiri-ye zabân na tanhâ mahârat-e ertebâti râ taqviyat mi-konad, balke did-e farhangi-ye mâ râ vasi'-tar mi-konad", japanese: "言語学習はコミュニケーション能力を高めるだけでなく、文化的視野を広げると思います" },
     { persian: "با وجود اینکه فارسی و عربی الفبای مشترکی دارند، ساختار دستوری آنها کاملاً متفاوت است", romanization: "bâ vojud-e inke fârsi-o arabi alefbâ-ye moshtaraki dârand, sâkhtâr-e dasturi-ye ânhâ kâmelan motefâvet ast", japanese: "ペルシア語とアラビア語は文字を共有していますが、文法構造は全く異なります" },
   ],
+  C1: [
+    { persian: "با توجه به تحولات اخیر در حوزه هوش مصنوعی، لازم است سیاست‌گذاران چارچوب‌های اخلاقی مناسبی تدوین کنند", romanization: "bâ tavajoh be tahavvolât-e akhir dar howze-ye hush-e masnui, lâzem ast siyâsat-gozârân châr-chub-hâ-ye akhlâqi-ye monâsebi tadvin konand", japanese: "AI分野の最近の発展を踏まえ、政策立案者は適切な倫理的枠組みを策定する必要がある" },
+    { persian: "تجربه زیسته مهاجران ایرانی در کشورهای مختلف حکایت از تنوع چشمگیر در فرآیند سازگاری فرهنگی دارد", romanization: "tajrobe-ye ziste-ye mohâjerân-e irâni dar keshvarhâ-ye mokhtalef hekâyat az tanavvo'-e cheshmgir dar farâyand-e sâzgâri-ye farhangi dârad", japanese: "各国のイラン移民の生きた経験は、文化適応プロセスの著しい多様性を物語っている" },
+    { persian: "پژوهش‌های میان‌رشته‌ای نشان داده که رابطه بین زبان و تفکر بسیار پیچیده‌تر از آنچه قبلاً تصور می‌شد است", romanization: "pazhuhesh-hâ-ye miyân-reshte-i neshân dâde ke râbete-ye beyn-e zabân va tafakkor besyâr pichide-tar az ânche qablan tasavvor mi-shod ast", japanese: "学際的研究により、言語と思考の関係は以前考えられていたよりもはるかに複雑であることが示されている" },
+  ],
+  C2: [
+    { persian: "حافظ در غزلیات خود با ظرافتی بی‌نظیر، عشق عرفانی را با نقد اجتماعی درآمیخته و زبانی خلق کرده که قرن‌ها پس از او همچنان تازگی دارد", romanization: "Hâfez dar ghazaliyât-e khod bâ zarâfati bi-nazir, eshq-e erfâni râ bâ naqd-e ejtemâi darâmikhte va zabâni khalq karde ke qarnhâ pas az u hamchenân tâzegi dârad", japanese: "ハーフェズはその抒情詩において比類なき繊細さで、神秘的な愛と社会批評を融合させ、何世紀経っても色褪せない言語を創造した" },
+    { persian: "در بطن هر تحول اجتماعی، تضادی نهفته است میان آرمان‌گرایی نسل جوان و محافظه‌کاری نسل پیشین که خود بازتابی از پویایی ذاتی جوامع بشری‌ست", romanization: "dar batn-e har tahavvol-e ejtemâi, tazâdi nahoftast miyân-e ârmân-garâyi-ye nasl-e javân va mohâfeze-kâri-ye nasl-e pishin ke khod bâztâbi az puyâyi-ye zâti-ye javâme'-e basharist", japanese: "あらゆる社会変革の根底には、若い世代の理想主義と前世代の保守主義の間に隠れた矛盾があり、それ自体が人間社会の本質的なダイナミズムの反映である" },
+  ],
 };
 
 type Phase = "select" | "practice";

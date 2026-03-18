@@ -3,6 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { getCEFRProgress } from "@/lib/level-manager";
 import type { CEFRLevel } from "@/lib/level-manager";
+import { addXP } from "@/lib/xp";
+import { recordMistake } from "@/lib/mistake-tracker";
 import PersianText from "@/components/PersianText";
 import AudioPlayer from "@/components/AudioPlayer";
 import { apiUrl } from "@/lib/api-config";
@@ -76,6 +78,12 @@ export default function SentenceBuildPage() {
     const isCorrect = builtSentence === data.sentence;
     setResult(isCorrect ? "correct" : "wrong");
     setScore((s) => ({ correct: s.correct + (isCorrect ? 1 : 0), total: s.total + 1 }));
+
+    if (isCorrect) {
+      addXP("exerciseCorrect");
+    } else {
+      recordMistake(data.sentence, data.romanization, data.translation, "sentence-build", 0);
+    }
   };
 
   return (

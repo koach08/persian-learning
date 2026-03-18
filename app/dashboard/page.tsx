@@ -14,6 +14,8 @@ const LEVEL_COLORS: Record<CEFRLevel, { bg: string; bar: string; text: string }>
   A2: { bg: "bg-blue-50", bar: "bg-blue-500", text: "text-blue-700" },
   B1: { bg: "bg-purple-50", bar: "bg-purple-500", text: "text-purple-700" },
   B2: { bg: "bg-orange-50", bar: "bg-orange-500", text: "text-orange-700" },
+  C1: { bg: "bg-rose-50", bar: "bg-rose-500", text: "text-rose-700" },
+  C2: { bg: "bg-amber-50", bar: "bg-amber-500", text: "text-amber-700" },
 };
 
 // Simple heatmap for last 7 days

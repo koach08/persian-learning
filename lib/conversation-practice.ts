@@ -85,6 +85,20 @@ export const SCENARIO_LIST: ScenarioMeta[] = [
   { id: "b2-news", title: "ニュースを討論する", titlePersian: "بحث درباره اخبار", level: "B2", icon: "📺" },
   { id: "b2-compare", title: "文化を比較する", titlePersian: "مقایسه فرهنگ‌ها", level: "B2", icon: "🌍" },
   { id: "b2-business", title: "ビジネス交渉をする", titlePersian: "مذاکره تجاری", level: "B2", icon: "🤝" },
+  // C1
+  { id: "c1-academic", title: "学術的に議論する", titlePersian: "بحث آکادمیک", level: "C1", icon: "🎓" },
+  { id: "c1-negotiation", title: "条件交渉する", titlePersian: "مذاکره شرایط", level: "C1", icon: "📋" },
+  { id: "c1-analysis", title: "時事問題を分析する", titlePersian: "تحلیل مسائل روز", level: "C1", icon: "📊" },
+  { id: "c1-philosophy", title: "哲学的に語る", titlePersian: "بحث فلسفی", level: "C1", icon: "🧠" },
+  { id: "c1-literature", title: "文学を批評する", titlePersian: "نقد ادبی", level: "C1", icon: "📖" },
+  { id: "c1-history", title: "歴史を議論する", titlePersian: "بحث تاریخی", level: "C1", icon: "🏛️" },
+  // C2
+  { id: "c2-nuance", title: "微妙なニュアンスで議論", titlePersian: "بحث با ظرافت", level: "C2", icon: "💎" },
+  { id: "c2-rhetoric", title: "説得力ある主張をする", titlePersian: "استدلال قانع‌کننده", level: "C2", icon: "⚡" },
+  { id: "c2-poetry", title: "詩と文化を深く語る", titlePersian: "شعر و فرهنگ", level: "C2", icon: "🌹" },
+  { id: "c2-satire", title: "風刺とユーモアを使う", titlePersian: "طنز و شوخی", level: "C2", icon: "🎭" },
+  { id: "c2-identity", title: "アイデンティティを語る", titlePersian: "هویت و تعلق", level: "C2", icon: "🪞" },
+  { id: "c2-diplomacy", title: "外交的に話す", titlePersian: "گفت‌وگوی دیپلماتیک", level: "C2", icon: "🕊️" },
 ];
 
 export function getScenariosByLevel(level: CEFRLevel): ScenarioMeta[] {

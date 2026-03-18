@@ -11,6 +11,8 @@ import {
   type GrammarQuestion,
   type GrammarProgress,
 } from "@/lib/grammar-data";
+import { addXP } from "@/lib/xp";
+import { recordMistake } from "@/lib/mistake-tracker";
 import PersianText from "@/components/PersianText";
 import AudioPlayer from "@/components/AudioPlayer";
 import { apiUrl } from "@/lib/api-config";
@@ -119,6 +121,12 @@ export default function GrammarPage() {
       correct: s.correct + (isCorrect ? 1 : 0),
       total: s.total + 1,
     }));
+
+    if (isCorrect) {
+      addXP("exerciseCorrect");
+    } else if (q.type === "fill-in" && q.answer) {
+      recordMistake(q.answer, "", q.question, "grammar", 0);
+    }
   };
 
   const nextQuestion = () => {

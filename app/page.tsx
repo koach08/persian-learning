@@ -7,6 +7,7 @@ import type { CEFRLevel } from "@/lib/level-manager";
 import { getAllCards, getDueCount } from "@/lib/srs";
 import { getStreak, hasStudiedToday } from "@/lib/streak";
 import { getNextLesson, getLevelLessonStats } from "@/lib/guided-lessons";
+import { getTodayXP, getDailyGoal } from "@/lib/xp";
 
 const SCENARIOS = [
   { label: "カフェで注文", emoji: "☕", scenario: "cafe-order" },
@@ -23,7 +24,7 @@ const SKILLS = [
   { href: "/reading", icon: "📚", label: "読解" },
   { href: "/pronunciation", icon: "🎤", label: "発音" },
   { href: "/shadowing", icon: "🎙️", label: "シャドー" },
-  { href: "/minimal-pairs", icon: "👂", label: "聞分け" },
+  { href: "/conversation", icon: "👩‍🏫", label: "会話" },
   { href: "/my-words", icon: "📋", label: "マイ単語" },
   { href: "/dashboard", icon: "📊", label: "進捗" },
 ];
@@ -33,6 +34,8 @@ export default function Home() {
   const [dueCount, setDueCount] = useState(0);
   const [streak, setStreak] = useState(0);
   const [studiedToday, setStudiedToday] = useState(false);
+  const [todayXP, setTodayXP] = useState(0);
+  const [dailyGoal, setDailyGoal] = useState(100);
   const [lessonInfo, setLessonInfo] = useState<{ id: string; title: string; completed: number; total: number } | null>(null);
 
   useEffect(() => {
@@ -41,6 +44,8 @@ export default function Home() {
     setDueCount(getDueCount(getAllCards()));
     setStreak(getStreak());
     setStudiedToday(hasStudiedToday());
+    setTodayXP(getTodayXP());
+    setDailyGoal(getDailyGoal());
     const next = getNextLesson(p.currentLevel);
     const stats = getLevelLessonStats(p.currentLevel);
     if (next) {
@@ -55,12 +60,15 @@ export default function Home() {
     }
   };
 
+  const xpPercent = Math.min((todayXP / dailyGoal) * 100, 100);
+
   return (
     <div className="px-5 pt-6 pb-8">
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <h1 className="text-2xl font-black text-gray-900">ペルシア語</h1>
         <div className="flex items-center gap-2">
+          <span className="text-sm font-bold text-amber-500">⚡{todayXP}/{dailyGoal}</span>
           {streak > 0 && (
             <span className="text-sm font-bold text-orange-500">🔥{streak}</span>
           )}
@@ -71,7 +79,7 @@ export default function Home() {
       </div>
 
       {/* Level Selector */}
-      <div className="flex gap-2 mb-8">
+      <div className="flex gap-1.5 mb-8">
         {CEFR_LEVELS.map((level) => {
           const unlocked = progress.unlockedLevels.includes(level);
           const active = progress.currentLevel === level;
@@ -80,7 +88,7 @@ export default function Home() {
               key={level}
               onClick={() => handleLevelChange(level)}
               disabled={!unlocked}
-              className={`flex-1 py-2.5 rounded-xl text-sm font-bold transition-all ${
+              className={`flex-1 py-2 rounded-xl text-xs font-bold transition-all ${
                 active
                   ? "bg-emerald-500 text-white shadow-lg shadow-emerald-200"
                   : unlocked
@@ -94,20 +102,27 @@ export default function Home() {
         })}
       </div>
 
-      {/* Main CTA */}
+      {/* Main CTA — Today's Study */}
       <Link
-        href="/conversation"
-        className="block mb-5 p-5 bg-gradient-to-br from-purple-600 to-pink-500 rounded-3xl shadow-xl text-white active:scale-[0.97] transition-transform"
+        href="/today"
+        className="block mb-5 p-5 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl shadow-xl text-white active:scale-[0.97] transition-transform"
       >
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center text-3xl shrink-0">
-            👩‍🏫
+            🎯
           </div>
           <div className="flex-1">
-            <p className="text-lg font-black">ミーナ先生と話す</p>
+            <p className="text-lg font-black">今日の学習を始める</p>
             <p className="text-white/70 text-sm mt-0.5">
-              {studiedToday ? "もう1セッション!" : "今日の会話を始めよう"}
+              {studiedToday ? "もう少し頑張ろう!" : "SRS復習 → レッスン → 会話"}
             </p>
+            {/* XP progress bar */}
+            <div className="mt-2 h-1.5 bg-white/20 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-white/80 rounded-full transition-all"
+                style={{ width: `${xpPercent}%` }}
+              />
+            </div>
           </div>
           <svg className="w-6 h-6 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />

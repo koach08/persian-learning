@@ -7,6 +7,8 @@ import type { CEFRLevel } from "@/lib/level-manager";
 import type { VocabularyItem } from "@/lib/data-loader";
 import { getAllCards, saveAllCards, calculateSRS, createNewCard } from "@/lib/srs";
 import type { SRSCard } from "@/lib/srs";
+import { addXP } from "@/lib/xp";
+import { recordMistake } from "@/lib/mistake-tracker";
 import AudioPlayer from "@/components/AudioPlayer";
 import PersianText from "@/components/PersianText";
 
@@ -48,6 +50,12 @@ export default function DictationPage() {
     const isCorrect = normalize(answer) === normalize(current.ペルシア語);
     setResult(isCorrect ? "correct" : "wrong");
     setScore((s) => ({ correct: s.correct + (isCorrect ? 1 : 0), total: s.total + 1 }));
+
+    if (isCorrect) {
+      addXP("exerciseCorrect");
+    } else {
+      recordMistake(current.ペルシア語, current.ローマ字, current.日本語, "dictation", 0);
+    }
 
     const key = current.ペルシア語;
     const existing = srsCards[key] || createNewCard(key);

@@ -16,6 +16,8 @@ import {
 } from "@/lib/conversation-practice";
 import { useAudioRecorder } from "@/lib/use-audio-recorder";
 import { useTTS } from "@/lib/use-tts";
+import { addXP } from "@/lib/xp";
+import { recordMistake } from "@/lib/mistake-tracker";
 import type { TTSOptions } from "@/lib/use-tts";
 import { PERSIAN_VOICES, JAPANESE_VOICES, detectGender } from "@/lib/voice-config";
 import type { Gender } from "@/lib/voice-config";
@@ -153,6 +155,7 @@ export default function ConversationPracticePage() {
       };
       setFeedback({ score: localScore, feedback: result.feedback });
       setTurnResults((prev) => [...prev, result]);
+      addXP("conversationTurn");
       return;
     }
 
@@ -180,6 +183,10 @@ export default function ConversationPracticePage() {
       };
       setFeedback(data);
       setTurnResults((prev) => [...prev, result]);
+      addXP("conversationTurn");
+      if (data.score < 50) {
+        recordMistake(turn.persian, turn.romanization, turn.japanese, "conversation", data.score);
+      }
     } catch {
       setFeedback({ score: localScore, feedback: "評価に失敗しましたが、続けましょう！" });
       setTurnResults((prev) => [...prev, {

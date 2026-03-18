@@ -1,15 +1,17 @@
 import type { SRSCard } from "./srs";
 import { isMastered } from "./srs";
 
-export type CEFRLevel = "A1" | "A2" | "B1" | "B2";
+export type CEFRLevel = "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
 
-export const CEFR_LEVELS: CEFRLevel[] = ["A1", "A2", "B1", "B2"];
+export const CEFR_LEVELS: CEFRLevel[] = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
 export const CEFR_LABELS: Record<CEFRLevel, string> = {
   A1: "入門",
   A2: "初級",
   B1: "中級",
   B2: "中上級",
+  C1: "上級",
+  C2: "マスター",
 };
 
 export const CEFR_COLORS: Record<CEFRLevel, string> = {
@@ -17,6 +19,8 @@ export const CEFR_COLORS: Record<CEFRLevel, string> = {
   A2: "blue",
   B1: "purple",
   B2: "orange",
+  C1: "rose",
+  C2: "amber",
 };
 
 const STORAGE_KEY = "cefr-progress";

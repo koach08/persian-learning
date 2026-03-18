@@ -18,82 +18,13 @@ import { useTTS } from "@/lib/use-tts";
 import { apiUrl } from "@/lib/api-config";
 import { recordActivity } from "@/lib/streak";
 import { createNewCard, getAllCards, saveAllCards } from "@/lib/srs";
+import { addXP } from "@/lib/xp";
+import { recordMistake } from "@/lib/mistake-tracker";
+import { normalizePersian, levenshteinDistance, getSimilarity } from "@/lib/persian-utils";
+
 type StepState = "intro" | "playing" | "ready" | "recording" | "checking" | "success" | "retry";
 
-// --- Client-side phrase matching (no API roundtrip) ---
-function normalizePersian(text: string): string {
-  return text
-    .replace(/\u200c/g, "")
-    .replace(/\u0643/g, "\u06A9")
-    .replace(/\u064A/g, "\u06CC")
-    .replace(/[\u064B-\u065F\u0670]/g, "")
-    .replace(/[.،؟!؛:«»\-\s]+/g, " ")
-    .trim()
-    .toLowerCase();
-}
-
-function levenshteinDistance(a: string, b: string): number {
-  const matrix: number[][] = [];
-  for (let i = 0; i <= a.length; i++) matrix[i] = [i];
-  for (let j = 0; j <= b.length; j++) matrix[0][j] = j;
-  for (let i = 1; i <= a.length; i++) {
-    for (let j = 1; j <= b.length; j++) {
-      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
-      matrix[i][j] = Math.min(
-        matrix[i - 1][j] + 1,
-        matrix[i][j - 1] + 1,
-        matrix[i - 1][j - 1] + cost
-      );
-    }
-  }
-  return matrix[a.length][b.length];
-}
-
-/** Word-level similarity: checks how many expected words appear in what was spoken */
-function getSimilarity(target: string, spoken: string, mode?: string, clozeWord?: string): number {
-  const na = normalizePersian(target);
-  const nb = normalizePersian(spoken);
-  if (na === nb) return 100;
-
-  // Word-level matching (much more forgiving for non-native speakers)
-  const expectedWords = na.split(" ").filter(Boolean);
-  const spokenWords = nb.split(" ").filter(Boolean);
-  if (expectedWords.length === 0) return 0;
-  if (spokenWords.length === 0) return 0;
-
-  let matchedWords = 0;
-  for (const ew of expectedWords) {
-    // Check if any spoken word is >= 50% similar to this expected word
-    const bestWordMatch = Math.max(
-      ...spokenWords.map((sw) => {
-        if (ew === sw) return 1;
-        const maxLen = Math.max(ew.length, sw.length);
-        if (maxLen === 0) return 0;
-        return (maxLen - levenshteinDistance(ew, sw)) / maxLen;
-      }),
-      0
-    );
-    if (bestWordMatch >= 0.5) matchedWords++;
-  }
-
-  let score = (matchedWords / expectedWords.length) * 100;
-
-  // Cloze bonus: if the key word is in the spoken text, big boost
-  if (mode === "cloze" && clozeWord && nb.includes(normalizePersian(clozeWord))) {
-    score = Math.max(score, 80);
-  }
-
-  // Also try full-string Levenshtein as fallback (for short phrases)
-  const maxLen = Math.max(na.length, nb.length);
-  if (maxLen > 0) {
-    const charSimilarity = ((maxLen - levenshteinDistance(na, nb)) / maxLen) * 100;
-    score = Math.max(score, charSimilarity);
-  }
-
-  return Math.round(score);
-}
-
-const PASS_THRESHOLD = 70; // 70%以上で合格（通じるレベル）
+const PASS_THRESHOLD = 70;
 
 export default function GuidedLessonPage() {
   return (
@@ -115,14 +46,20 @@ function GuidedLessonContent() {
   const [praiseText, setPraiseText] = useState("");
   const [showTranslation, setShowTranslation] = useState(false);
   const [retryCount, setRetryCount] = useState(0);
-  const [lastHeard, setLastHeard] = useState(""); // What Whisper heard — for feedback
+  const [lastHeard, setLastHeard] = useState("");
+
+  // New step type states
+  const [chosenIndex, setChosenIndex] = useState<number | null>(null);
+  const [reorderBuilt, setReorderBuilt] = useState<string[]>([]);
+  const [reorderAvailable, setReorderAvailable] = useState<string[]>([]);
+  const [dictationInput, setDictationInput] = useState("");
+  const [interactiveResult, setInteractiveResult] = useState<"correct" | "wrong" | null>(null);
 
   const { isRecording, isTranscribing, transcribedText, startRecording, stopRecording, clearText } = useAudioRecorder();
   const { isPlaying, play: playTTS, unlock: unlockAudio } = useTTS();
   const autoFlowTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const hasStarted = useRef(false);
 
-  // Japanese TTS — independent from Persian TTS to avoid shared state conflicts
   const speakJapanese = useCallback(async (text: string): Promise<void> => {
     if (!text) return;
     try {
@@ -140,12 +77,9 @@ function GuidedLessonContent() {
         audio.onerror = () => { URL.revokeObjectURL(url); resolve(); };
         audio.play().catch(() => resolve());
       });
-    } catch {
-      // Japanese TTS failed — continue silently
-    }
+    } catch { /* silent */ }
   }, []);
 
-  // Level-based display
   const isBeginnerLevel = currentLevel === "A1" || currentLevel === "A2";
 
   useEffect(() => {
@@ -163,49 +97,67 @@ function GuidedLessonContent() {
   const totalSteps = lesson?.steps.length ?? 0;
   const progress = totalSteps > 0 ? ((stepIndex) / totalSteps) * 100 : 0;
 
-  // Cleanup timers
   useEffect(() => {
     return () => {
       if (autoFlowTimer.current) clearTimeout(autoFlowTimer.current);
     };
   }, []);
 
+  // Reset interactive states when step changes
+  const resetInteractiveState = useCallback(() => {
+    setChosenIndex(null);
+    setReorderBuilt([]);
+    setReorderAvailable([]);
+    setDictationInput("");
+    setInteractiveResult(null);
+  }, []);
+
   // Auto-flow: when step changes, start the flow automatically
   useEffect(() => {
     if (!currentStep || !hasStarted.current) return;
     setShowTranslation(false);
+    resetInteractiveState();
 
     if (currentStep.type === "tip") {
       setStepState("intro");
-      // First read Japanese explanation, then play Persian phrase
       speakJapanese(currentStep.tipText || currentStep.translation).then(() => {
         return playTTS(currentStep.phrase);
       }).then(() => {
-        autoFlowTimer.current = setTimeout(() => {
-          goNext();
-        }, 2000);
+        autoFlowTimer.current = setTimeout(() => goNext(), 2000);
       });
     } else if (currentStep.type === "listen") {
       setStepState("playing");
       playTTS(currentStep.phrase).then(() => {
-        // After listen, auto-advance to next step after 1 second
-        autoFlowTimer.current = setTimeout(() => {
-          goNext();
-        }, 1200);
+        autoFlowTimer.current = setTimeout(() => goNext(), 1200);
       });
     } else if (currentStep.type === "speak" || currentStep.type === "speak-cloze") {
       setStepState("playing");
-      // Play model first, then prompt to speak
       playTTS(currentStep.phrase).then(() => {
-        autoFlowTimer.current = setTimeout(() => {
-          setStepState("ready");
-        }, 800);
+        autoFlowTimer.current = setTimeout(() => setStepState("ready"), 800);
+      });
+    } else if (currentStep.type === "choose") {
+      // Play the Persian phrase, then show choices
+      setStepState("playing");
+      playTTS(currentStep.phrase).then(() => {
+        setStepState("ready");
+      });
+    } else if (currentStep.type === "reorder") {
+      // Set up reorder words
+      setStepState("ready");
+      if (currentStep.words) {
+        setReorderAvailable([...currentStep.words]);
+      }
+    } else if (currentStep.type === "dictation") {
+      // Play audio, user types
+      setStepState("playing");
+      playTTS(currentStep.phrase).then(() => {
+        setStepState("ready");
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stepIndex, hasStarted.current]);
 
-  // When recording stops → go to checking (wait for Whisper)
+  // When recording stops → go to checking
   useEffect(() => {
     if (stepState !== "recording" || isRecording) return;
     setStepState("checking");
@@ -227,12 +179,25 @@ function GuidedLessonContent() {
         currentStep.clozeWord
       );
 
+      addXP("lessonStep");
+
       if (score >= 80) {
         setPraiseText(currentStep.praiseText || "آفرین! 🎉");
       } else if (score >= 50) {
         setPraiseText("خوبه! 👍");
       } else {
         setPraiseText("👏");
+      }
+
+      // Track mistakes for low scores
+      if (score < PASS_THRESHOLD) {
+        recordMistake(
+          currentStep.phrase,
+          currentStep.romanization,
+          currentStep.translation,
+          "guided-lesson",
+          score
+        );
       }
     } else {
       setPraiseText("👏");
@@ -262,6 +227,7 @@ function GuidedLessonContent() {
     if (nextIdx >= lesson.steps.length) {
       saveLessonProgress(lesson.id, lesson.steps.length, lesson.steps.length);
       recordActivity();
+      addXP("sessionComplete");
       setCompleted(true);
     } else {
       setStepIndex(nextIdx);
@@ -280,12 +246,11 @@ function GuidedLessonContent() {
     }
   }, [stepIndex, clearText]);
 
-  // Start the lesson (first tap activates audio context + begins flow)
   const handleStart = () => {
     unlockAudio();
     hasStarted.current = true;
-    // Trigger the first step
     if (currentStep) {
+      resetInteractiveState();
       if (currentStep.type === "tip") {
         setStepState("intro");
         speakJapanese(currentStep.tipText || currentStep.translation).then(() => {
@@ -298,11 +263,20 @@ function GuidedLessonContent() {
         playTTS(currentStep.phrase).then(() => {
           autoFlowTimer.current = setTimeout(() => goNext(), 1200);
         });
-      } else {
+      } else if (currentStep.type === "speak" || currentStep.type === "speak-cloze") {
         setStepState("playing");
         playTTS(currentStep.phrase).then(() => {
           autoFlowTimer.current = setTimeout(() => setStepState("ready"), 800);
         });
+      } else if (currentStep.type === "choose") {
+        setStepState("playing");
+        playTTS(currentStep.phrase).then(() => setStepState("ready"));
+      } else if (currentStep.type === "reorder") {
+        setStepState("ready");
+        if (currentStep.words) setReorderAvailable([...currentStep.words]);
+      } else if (currentStep.type === "dictation") {
+        setStepState("playing");
+        playTTS(currentStep.phrase).then(() => setStepState("ready"));
       }
     }
   };
@@ -321,6 +295,84 @@ function GuidedLessonContent() {
     if (currentStep && !isPlaying) {
       playTTS(currentStep.phrase);
     }
+  };
+
+  // --- Choose handler ---
+  const handleChoose = (index: number) => {
+    if (!currentStep || interactiveResult !== null) return;
+    setChosenIndex(index);
+    const isCorrect = index === currentStep.correctChoiceIndex;
+    setInteractiveResult(isCorrect ? "correct" : "wrong");
+    addXP("lessonStep");
+
+    if (isCorrect) {
+      setPraiseText(currentStep.praiseText || "آفرین! 🎉");
+      addXP("exerciseCorrect");
+    } else {
+      setPraiseText("");
+      recordMistake(currentStep.phrase, currentStep.romanization, currentStep.translation, "guided-lesson", 0);
+    }
+
+    autoFlowTimer.current = setTimeout(() => goNext(), 2000);
+  };
+
+  // --- Reorder handlers ---
+  const addReorderWord = (word: string, index: number) => {
+    setReorderBuilt([...reorderBuilt, word]);
+    const next = [...reorderAvailable];
+    next.splice(index, 1);
+    setReorderAvailable(next);
+  };
+
+  const removeReorderWord = (index: number) => {
+    const word = reorderBuilt[index];
+    const next = [...reorderBuilt];
+    next.splice(index, 1);
+    setReorderBuilt(next);
+    setReorderAvailable([...reorderAvailable, word]);
+  };
+
+  const checkReorder = () => {
+    if (!currentStep) return;
+    const builtSentence = reorderBuilt.join(" ");
+    const expected = currentStep.phrase.replace(/\u200c/g, "");
+    const isCorrect = normalizePersian(builtSentence) === normalizePersian(expected);
+    setInteractiveResult(isCorrect ? "correct" : "wrong");
+    addXP("lessonStep");
+
+    if (isCorrect) {
+      setPraiseText(currentStep.praiseText || "آفرین! 🎉");
+      addXP("exerciseCorrect");
+    } else {
+      setPraiseText("");
+      recordMistake(currentStep.phrase, currentStep.romanization, currentStep.translation, "guided-lesson", 0);
+    }
+
+    autoFlowTimer.current = setTimeout(() => goNext(), 2500);
+  };
+
+  // --- Dictation handler ---
+  const checkDictation = () => {
+    if (!currentStep) return;
+    const normalized = normalizePersian(dictationInput);
+    const expected = normalizePersian(currentStep.phrase);
+    const maxLen = Math.max(normalized.length, expected.length);
+    const distance = levenshteinDistance(normalized, expected);
+    const similarity = maxLen > 0 ? ((maxLen - distance) / maxLen) * 100 : 0;
+    const isCorrect = similarity >= 80;
+
+    setInteractiveResult(isCorrect ? "correct" : "wrong");
+    addXP("lessonStep");
+
+    if (isCorrect) {
+      setPraiseText(currentStep.praiseText || "آفرین! 🎉");
+      addXP("exerciseCorrect");
+    } else {
+      setPraiseText("");
+      recordMistake(currentStep.phrase, currentStep.romanization, currentStep.translation, "guided-lesson", Math.round(similarity));
+    }
+
+    autoFlowTimer.current = setTimeout(() => goNext(), 2500);
   };
 
   const handleAddToSRS = useCallback(() => {
@@ -347,7 +399,7 @@ function GuidedLessonContent() {
     );
   }
 
-  // Start screen (before audio context unlocked)
+  // Start screen
   if (!hasStarted.current) {
     return (
       <div className="flex flex-col min-h-screen bg-gray-50">
@@ -424,24 +476,15 @@ function GuidedLessonContent() {
         </div>
 
         <div className="space-y-2">
-          <button
-            onClick={handleAddToSRS}
-            className="w-full py-3.5 rounded-2xl bg-emerald-500 text-white font-bold"
-          >
+          <button onClick={handleAddToSRS} className="w-full py-3.5 rounded-2xl bg-emerald-500 text-white font-bold">
             SRSに追加
           </button>
           {nextLesson && (
-            <Link
-              href={`/guided-lesson?id=${nextLesson.id}`}
-              className="block w-full py-3.5 rounded-2xl bg-purple-600 text-white font-bold text-center"
-            >
+            <Link href={`/guided-lesson?id=${nextLesson.id}`} className="block w-full py-3.5 rounded-2xl bg-purple-600 text-white font-bold text-center">
               次のレッスンへ
             </Link>
           )}
-          <Link
-            href="/"
-            className="block w-full py-3.5 rounded-2xl bg-gray-100 text-gray-600 font-bold text-center"
-          >
+          <Link href="/" className="block w-full py-3.5 rounded-2xl bg-gray-100 text-gray-600 font-bold text-center">
             ホームへ
           </Link>
         </div>
@@ -456,7 +499,6 @@ function GuidedLessonContent() {
 
     const clozeDisplay = currentStep.type === "speak-cloze" && currentStep.clozeWord;
 
-    // Cloze: ローマ字は隠す、意味はヒントとして表示
     if (clozeDisplay) {
       const parts = currentStep.phrase.split(currentStep.clozeWord!);
       return (
@@ -470,28 +512,36 @@ function GuidedLessonContent() {
     }
 
     if (isBeginnerLevel) {
-      // A1/A2: ローマ字メイン、ペルシア語サブ
       return (
         <div className="text-center">
-          <p className="text-2xl font-black text-gray-900 mb-2 tracking-wide">
-            {currentStep.romanization}
-          </p>
-          <p className="persian-text text-base text-gray-400 mb-1" dir="rtl">
-            {currentStep.phrase}
-          </p>
+          <p className="text-2xl font-black text-gray-900 mb-2 tracking-wide">{currentStep.romanization}</p>
+          <p className="persian-text text-base text-gray-400 mb-1" dir="rtl">{currentStep.phrase}</p>
         </div>
       );
     } else {
-      // B1/B2: ペルシア語メイン
       return (
         <div className="text-center">
-          <p className="persian-text text-2xl font-bold text-gray-900 mb-2" dir="rtl">
-            {currentStep.phrase}
-          </p>
+          <p className="persian-text text-2xl font-bold text-gray-900 mb-2" dir="rtl">{currentStep.phrase}</p>
           <p className="text-sm text-gray-400 mb-1">{currentStep.romanization}</p>
         </div>
       );
     }
+  };
+
+  const stepBadge = () => {
+    if (!currentStep) return null;
+    const badges: Record<string, { bg: string; text: string; label: string }> = {
+      tip: { bg: "bg-blue-100", text: "text-blue-700", label: "ポイント" },
+      listen: { bg: "bg-emerald-100", text: "text-emerald-700", label: "聞いてみよう" },
+      speak: { bg: "bg-purple-100", text: "text-purple-700", label: "声に出そう" },
+      "speak-cloze": { bg: "bg-yellow-100", text: "text-yellow-700", label: "穴埋めで声に出そう" },
+      choose: { bg: "bg-pink-100", text: "text-pink-700", label: "意味を選ぼう" },
+      reorder: { bg: "bg-amber-100", text: "text-amber-700", label: "並べ替えよう" },
+      dictation: { bg: "bg-cyan-100", text: "text-cyan-700", label: "書き取り" },
+    };
+    const b = badges[currentStep.type];
+    if (!b) return null;
+    return <span className={`px-4 py-1.5 ${b.bg} ${b.text} text-xs rounded-full font-bold`}>{b.label}</span>;
   };
 
   return (
@@ -500,53 +550,26 @@ function GuidedLessonContent() {
       <div className="flex items-center gap-3 px-4 pt-4 pb-2">
         <Link href="/" className="text-gray-400 text-xl">×</Link>
         <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-emerald-500 transition-all duration-500 rounded-full"
-            style={{ width: `${progress}%` }}
-          />
+          <div className="h-full bg-emerald-500 transition-all duration-500 rounded-full" style={{ width: `${progress}%` }} />
         </div>
         <span className="text-xs text-gray-400">{stepIndex + 1}/{totalSteps}</span>
       </div>
 
       {/* Main content */}
       <div className="flex-1 px-5 py-6 flex flex-col items-center justify-center">
-        {/* Step indicator */}
-        <div className="mb-4">
-          {currentStep?.type === "tip" && (
-            <span className="px-4 py-1.5 bg-blue-100 text-blue-700 text-xs rounded-full font-bold">
-              ポイント
-            </span>
-          )}
-          {currentStep?.type === "listen" && (
-            <span className="px-4 py-1.5 bg-emerald-100 text-emerald-700 text-xs rounded-full font-bold">
-              聞いてみよう
-            </span>
-          )}
-          {currentStep?.type === "speak" && (
-            <span className="px-4 py-1.5 bg-purple-100 text-purple-700 text-xs rounded-full font-bold">
-              声に出そう
-            </span>
-          )}
-          {currentStep?.type === "speak-cloze" && (
-            <span className="px-4 py-1.5 bg-yellow-100 text-yellow-700 text-xs rounded-full font-bold">
-              穴埋めで声に出そう
-            </span>
-          )}
-        </div>
+        <div className="mb-4">{stepBadge()}</div>
 
         {/* Tip content */}
         {currentStep?.type === "tip" && (
           <div className="w-full max-w-sm animate-slide-in">
             <div className="bg-white rounded-2xl p-6 shadow-sm mb-4">
-              <p className="text-gray-700 leading-relaxed text-center">
-                {currentStep.tipText}
-              </p>
+              <p className="text-gray-700 leading-relaxed text-center">{currentStep.tipText}</p>
             </div>
             {renderPhrase()}
           </div>
         )}
 
-        {/* Listen content — 初出フレーズなので意味を表示 */}
+        {/* Listen content */}
         {currentStep?.type === "listen" && (
           <div className="animate-slide-in">
             <div className={`w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-all ${
@@ -561,7 +584,7 @@ function GuidedLessonContent() {
           </div>
         )}
 
-        {/* Speak / speak-cloze content — 練習フェーズ */}
+        {/* Speak / speak-cloze content */}
         {(currentStep?.type === "speak" || currentStep?.type === "speak-cloze") && (
           <div className="animate-slide-in w-full max-w-sm">
             {stepState === "playing" && (
@@ -571,15 +594,9 @@ function GuidedLessonContent() {
                 </svg>
               </div>
             )}
-
             {renderPhrase()}
-
-            {/* speak: タップで意味、cloze: renderPhrase内で既に表示 */}
             {currentStep.type === "speak" && (
-              <button
-                onClick={() => setShowTranslation(!showTranslation)}
-                className="block mx-auto mt-2"
-              >
+              <button onClick={() => setShowTranslation(!showTranslation)} className="block mx-auto mt-2">
                 {showTranslation ? (
                   <span className="text-sm text-gray-500">{currentStep.translation}</span>
                 ) : (
@@ -590,13 +607,142 @@ function GuidedLessonContent() {
           </div>
         )}
 
-        {/* Success */}
+        {/* Choose content — 4択 */}
+        {currentStep?.type === "choose" && (
+          <div className="animate-slide-in w-full max-w-sm">
+            {stepState === "playing" && (
+              <div className="w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center mx-auto mb-4 animate-pulse">
+                <svg className="w-6 h-6 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
+                </svg>
+              </div>
+            )}
+
+            {stepState !== "playing" && (
+              <>
+                {isBeginnerLevel ? (
+                  <p className="text-xl font-bold text-gray-900 text-center mb-2">{currentStep.romanization}</p>
+                ) : (
+                  <p className="persian-text text-2xl font-bold text-gray-900 text-center mb-2" dir="rtl">{currentStep.phrase}</p>
+                )}
+                <button onClick={handleReplay} disabled={isPlaying} className="text-xs text-emerald-500 mx-auto block mb-4">
+                  もう一度聞く
+                </button>
+
+                <div className="space-y-2">
+                  {currentStep.choices?.map((choice, i) => {
+                    let cls = "bg-white border-gray-200 text-gray-700";
+                    if (interactiveResult !== null) {
+                      if (i === currentStep.correctChoiceIndex) cls = "bg-emerald-50 border-emerald-300 text-emerald-800";
+                      else if (i === chosenIndex && i !== currentStep.correctChoiceIndex) cls = "bg-red-50 border-red-300 text-red-800";
+                    } else if (i === chosenIndex) {
+                      cls = "bg-pink-50 border-pink-300 text-pink-700";
+                    }
+                    return (
+                      <button
+                        key={i}
+                        onClick={() => handleChoose(i)}
+                        disabled={interactiveResult !== null}
+                        className={`w-full p-3 rounded-xl border text-left transition-all ${cls}`}
+                      >
+                        {choice}
+                      </button>
+                    );
+                  })}
+                </div>
+              </>
+            )}
+          </div>
+        )}
+
+        {/* Reorder content */}
+        {currentStep?.type === "reorder" && (
+          <div className="animate-slide-in w-full max-w-sm">
+            <p className="text-sm text-gray-600 text-center mb-4">{currentStep.translation}</p>
+
+            {/* Built sentence */}
+            <div className="min-h-[52px] p-3 bg-amber-50 rounded-xl border-2 border-dashed border-amber-200 mb-4 flex flex-wrap gap-2" dir="rtl">
+              {reorderBuilt.length === 0 && <span className="text-amber-300 text-sm">ここに単語が並びます</span>}
+              {reorderBuilt.map((word, i) => (
+                <button key={`b-${i}`} onClick={() => removeReorderWord(i)}
+                  className="px-3 py-1.5 bg-amber-200 text-amber-900 rounded-lg persian-text text-lg active:scale-95 transition-transform">
+                  {word}
+                </button>
+              ))}
+            </div>
+
+            {/* Available words */}
+            <div className="flex flex-wrap gap-2 mb-4 justify-center" dir="rtl">
+              {reorderAvailable.map((word, i) => (
+                <button key={`a-${i}`} onClick={() => addReorderWord(word, i)}
+                  className="px-4 py-2 bg-white border border-gray-200 rounded-lg persian-text text-lg active:scale-95 transition-transform shadow-sm">
+                  {word}
+                </button>
+              ))}
+            </div>
+
+            {interactiveResult && (
+              <div className={`rounded-xl p-3 mb-3 text-center text-sm font-semibold ${
+                interactiveResult === "correct" ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"
+              }`}>
+                {interactiveResult === "correct" ? "正解!" : "不正解"}
+                {interactiveResult === "wrong" && (
+                  <p className="persian-text text-base text-gray-800 mt-1 font-normal" dir="rtl">{currentStep.phrase}</p>
+                )}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Dictation content */}
+        {currentStep?.type === "dictation" && (
+          <div className="animate-slide-in w-full max-w-sm">
+            {stepState === "playing" && (
+              <div className="w-16 h-16 rounded-full bg-cyan-100 flex items-center justify-center mx-auto mb-4 animate-pulse">
+                <svg className="w-6 h-6 text-cyan-500" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
+                </svg>
+              </div>
+            )}
+
+            {stepState !== "playing" && (
+              <>
+                <p className="text-sm text-gray-500 text-center mb-2">{currentStep.translation}</p>
+                <button onClick={handleReplay} disabled={isPlaying} className="text-xs text-cyan-500 mx-auto block mb-4">
+                  もう一度聞く
+                </button>
+
+                <input
+                  type="text"
+                  value={dictationInput}
+                  onChange={(e) => setDictationInput(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && !interactiveResult && checkDictation()}
+                  placeholder="ペルシア語で入力..."
+                  className="w-full p-3 rounded-lg border border-gray-200 bg-white text-lg persian-text mb-3"
+                  dir="rtl"
+                  disabled={interactiveResult !== null}
+                />
+
+                {interactiveResult && (
+                  <div className={`rounded-xl p-3 mb-3 text-sm ${
+                    interactiveResult === "correct" ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"
+                  }`}>
+                    <p className="font-semibold">{interactiveResult === "correct" ? "正解!" : "不正解"}</p>
+                    <p className="persian-text text-base text-gray-800 mt-1" dir="rtl">{currentStep.phrase}</p>
+                    <p className="text-xs text-gray-500 mt-0.5">{currentStep.romanization}</p>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
+        )}
+
+        {/* Success feedback */}
         {stepState === "success" && praiseText && (
           <div className="mt-2 animate-bounce">
             <span className="persian-text text-3xl text-emerald-500 font-black">{praiseText}</span>
           </div>
         )}
-
       </div>
 
       {/* Bottom action area */}
@@ -619,17 +765,27 @@ function GuidedLessonContent() {
                stepState === "checking" ? "チェック中..." :
                "タップして話す"}
             </button>
-
-            {/* Replay model */}
-            <button
-              onClick={handleReplay}
-              disabled={isPlaying || stepState === "recording"}
-              className="w-full py-2.5 rounded-xl bg-gray-100 text-gray-500 text-sm font-medium disabled:opacity-30"
-            >
+            <button onClick={handleReplay} disabled={isPlaying || stepState === "recording"}
+              className="w-full py-2.5 rounded-xl bg-gray-100 text-gray-500 text-sm font-medium disabled:opacity-30">
               {isPlaying ? "再生中..." : "お手本をもう一度聞く"}
             </button>
-
           </>
+        )}
+
+        {/* Reorder: submit button */}
+        {currentStep?.type === "reorder" && reorderAvailable.length === 0 && interactiveResult === null && (
+          <button onClick={checkReorder}
+            className="w-full py-4 rounded-2xl bg-amber-500 text-white font-bold text-lg active:scale-95 transition-transform">
+            回答を確認
+          </button>
+        )}
+
+        {/* Dictation: submit button */}
+        {currentStep?.type === "dictation" && stepState !== "playing" && interactiveResult === null && (
+          <button onClick={checkDictation} disabled={!dictationInput.trim()}
+            className="w-full py-4 rounded-2xl bg-cyan-500 text-white font-bold text-lg active:scale-95 transition-transform disabled:opacity-50">
+            回答する
+          </button>
         )}
 
         {/* Tip step: auto-advances, but show skip button */}
@@ -654,10 +810,7 @@ function GuidedLessonContent() {
 
         {/* Back button */}
         {stepIndex > 0 && stepState !== "recording" && stepState !== "checking" && (
-          <button
-            onClick={goBack}
-            className="w-full py-2 text-gray-400 text-sm font-medium"
-          >
+          <button onClick={goBack} className="w-full py-2 text-gray-400 text-sm font-medium">
             ← 前のステップ
           </button>
         )}
