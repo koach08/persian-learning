@@ -15,7 +15,6 @@ import { getCEFRProgress } from "@/lib/level-manager";
 import { useTTS } from "@/lib/use-tts";
 import { apiUrl } from "@/lib/api-config";
 import { getSupportedMimeType } from "@/lib/audio-utils";
-import { convertToWav } from "@/lib/audio-convert";
 import { recordActivity } from "@/lib/streak";
 import { createNewCard, getAllCards, saveAllCards } from "@/lib/srs";
 import { addXP } from "@/lib/xp";
@@ -167,58 +166,33 @@ function GuidedLessonContent() {
     else { startRec(); setStepState("recording"); }
   };
 
-  // Azure Pronunciation Assessment — scores are reference only
+  // Server-side pronunciation assessment (avoids all WebView/format issues)
   const runPronunciationAssessment = async (audioBlob: Blob) => {
     if (!currentStep) { setStepState("done"); return; }
     try {
-      const tokenRes = await fetch(apiUrl("/api/pronunciation"));
-      const { token, region } = await tokenRes.json();
-      if (!token) throw new Error("No token");
+      const formData = new FormData();
+      const ext = audioBlob.type.includes("mp4") ? "mp4" : audioBlob.type.includes("webm") ? "webm" : "wav";
+      formData.append("audio", audioBlob, `recording.${ext}`);
+      formData.append("referenceText", currentStep.phrase);
 
-      const SpeechSDK = await import("microsoft-cognitiveservices-speech-sdk");
-      const speechConfig = SpeechSDK.SpeechConfig.fromAuthorizationToken(token, region);
-      speechConfig.speechRecognitionLanguage = "fa-IR";
+      const res = await fetch(apiUrl("/api/pronunciation-assess"), {
+        method: "POST",
+        body: formData,
+      });
 
-      const pronConfig = new SpeechSDK.PronunciationAssessmentConfig(
-        currentStep.phrase,
-        SpeechSDK.PronunciationAssessmentGradingSystem.HundredMark,
-        SpeechSDK.PronunciationAssessmentGranularity.Word,
-        true
-      );
-
-      // Convert iOS mp4/aac → WAV PCM 16kHz mono
-      const wavBuffer = await convertToWav(audioBlob);
-      const audioFormat = SpeechSDK.AudioStreamFormat.getWaveFormatPCM(16000, 16, 1);
-      const pushStream = SpeechSDK.AudioInputStream.createPushStream(audioFormat);
-      pushStream.write(wavBuffer.slice(44)); // skip WAV header, send raw PCM
-      pushStream.close();
-      const audioConfig = SpeechSDK.AudioConfig.fromStreamInput(pushStream);
-      const recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
-      pronConfig.applyTo(recognizer);
-
-      recognizer.recognizeOnceAsync(
-        (result) => {
-          if (result.reason === SpeechSDK.ResultReason.RecognizedSpeech) {
-            const pronResult = SpeechSDK.PronunciationAssessmentResult.fromResult(result);
-            setOverallAccuracy(Math.round(pronResult.accuracyScore));
-            try {
-              const json = JSON.parse(result.properties.getProperty(SpeechSDK.PropertyId.SpeechServiceResponse_JsonResult));
-              const words = json?.NBest?.[0]?.Words || [];
-              setWordScores(words.map((w: { Word: string; PronunciationAssessment?: { AccuracyScore: number } }) => ({
-                word: w.Word, accuracy: w.PronunciationAssessment?.AccuracyScore ?? 0,
-              })));
-            } catch { setWordScores([]); }
-            addXP("lessonStep");
-          }
-          setStepState("done");
-          recognizer.close();
-        },
-        () => { setStepState("done"); }
-      );
+      if (res.ok) {
+        const data = await res.json();
+        setOverallAccuracy(data.accuracyScore ?? 0);
+        setWordScores(data.words ?? []);
+        if (data.accuracyScore > 0) addXP("lessonStep");
+        if (data.accuracyScore < 40) {
+          recordMistake(currentStep.phrase, currentStep.romanization, currentStep.translation, "guided-lesson", data.accuracyScore);
+        }
+      }
     } catch {
-      // Azure failed — still go to done (user can retry or advance)
-      setStepState("done");
+      // Server failed — still allow retry/advance
     }
+    setStepState("done");
   };
 
   // Safety timeout for evaluation
