@@ -39,7 +39,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "سلام",
         romanization: "salaam",
         translation: "こんにちは",
-        tipText: "「サラーム」— 最も基本的な挨拶です。どんな場面でも使えます。",
+        tipText: "最も基本的な挨拶です。どんな場面でも使えます。",
       },
       {
         type: "listen",
@@ -59,7 +59,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "حالت چطوره؟",
         romanization: "haalet chetore?",
         translation: "元気？",
-        tipText: "「ハーレト チェトレ？」— 親しい相手に使うカジュアルな表現です。",
+        tipText: "元気？と聞くカジュアルな表現です。親しい相手に使います。",
       },
       {
         type: "listen",
@@ -116,7 +116,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "اسمم ... هست",
         romanization: "esmam ... hast",
         translation: "私の名前は...です",
-        tipText: "「エスマム ... ハスト」— 名前を言う時の基本パターンです。",
+        tipText: "名前を言う時の基本パターンです。...の部分に名前が入ります。",
       },
       {
         type: "listen",
@@ -149,7 +149,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "از آشنایی‌تون خوشبختم",
         romanization: "az aashnaayitun khoshbakhtam",
         translation: "お会いできて嬉しいです",
-        tipText: "「アズ アーシュナーイートゥン ホシュバフタム」— 初対面の挨拶です。",
+        tipText: "お会いできて嬉しいです、という初対面の挨拶です。",
       },
       {
         type: "listen",
@@ -269,7 +269,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "ممنون",
         romanization: "mersi",
         translation: "ありがとう",
-        tipText: "「メルシ」— フランス語由来の「ありがとう」。日常で一番使います。",
+        tipText: "フランス語由来の「ありがとう」です。日常で一番よく使います。",
       },
       {
         type: "listen",
@@ -345,7 +345,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "مادر",
         romanization: "maadar",
         translation: "お母さん",
-        tipText: "「マーダル」— ペルシア語で母。家族の呼び方を覚えましょう。",
+        tipText: "お母さんという意味です。ここでは家族の呼び方を覚えましょう。",
       },
       {
         type: "listen",
@@ -421,7 +421,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "غذا",
         romanization: "ghazaa",
         translation: "食べ物",
-        tipText: "「ガザー」— 食べ物全般を指す言葉です。",
+        tipText: "食べ物全般を指す言葉です。",
       },
       {
         type: "listen",
@@ -499,7 +499,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "قرمز",
         romanization: "ghermez",
         translation: "赤",
-        tipText: "「ゲルメズ」— 赤色。色の名前は買い物でも役立ちます。",
+        tipText: "赤色です。色の名前は買い物でも役立ちます。",
       },
       {
         type: "listen",
@@ -570,7 +570,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "بله",
         romanization: "bale",
         translation: "はい",
-        tipText: "「バレ」が丁寧な「はい」、「アーレ」がカジュアルな「うん」です。",
+        tipText: "丁寧な「はい」とカジュアルな「うん」があります。場面で使い分けましょう。",
       },
       {
         type: "listen",
@@ -646,7 +646,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "سر",
         romanization: "sar",
         translation: "頭",
-        tipText: "「サル」— 頭。体調が悪い時にも使うので覚えましょう。",
+        tipText: "頭という意味です。体調が悪い時にも使うので覚えましょう。",
       },
       {
         type: "listen",
@@ -724,7 +724,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "هوا خوبه",
         romanization: "havaa khoobe",
         translation: "天気がいい",
-        tipText: "「ハヴァー ホーベ」— 天気の話は挨拶の定番です。",
+        tipText: "天気がいい、という意味です。天気の話は挨拶の定番です。",
       },
       {
         type: "listen",
@@ -802,7 +802,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "یه قهوه لطفاً",
         romanization: "ye qahve lotfan",
         translation: "コーヒーを1つお願いします",
-        tipText: "「イェ」は「1つの」のカジュアルな言い方です。",
+        tipText: "「1つの」のカジュアルな言い方です。注文する時によく使います。",
       },
       {
         type: "listen",
@@ -878,7 +878,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "ببخشید",
         romanization: "bebakhshid",
         translation: "すみません",
-        tipText: "道を聞く時は必ず「ベバフシード」から始めましょう。",
+        tipText: "道を聞く時は「すみません」から始めましょう。",
       },
       {
         type: "listen",
@@ -1018,7 +1018,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "ساعت چنده؟",
         romanization: "saa'at chande?",
         translation: "何時ですか？",
-        tipText: "「サーアト チャンデ？」— 時間を聞く定番フレーズです。",
+        tipText: "何時ですか？と聞く定番フレーズです。",
       },
       {
         type: "listen",
@@ -1081,7 +1081,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "این چقدره؟",
         romanization: "in cheqadre?",
         translation: "これはいくらですか？",
-        tipText: "「イン チェガドレ？」— 買い物で値段を聞く定番フレーズです。",
+        tipText: "これいくらですか？と聞く買い物の定番フレーズです。",
       },
       {
         type: "listen",
@@ -1159,7 +1159,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "حالم خوب نیست",
         romanization: "haalam khoob nist",
         translation: "体調が悪い",
-        tipText: "「ハーラム ホーブ ニースト」— 病院で最初に伝えるフレーズです。",
+        tipText: "具合が悪い、と伝えるフレーズです。病院で最初に使います。",
       },
       {
         type: "listen",
@@ -1235,7 +1235,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "آخر هفته چیکار می‌کنی؟",
         romanization: "aakhare hafte chikaar mikoni?",
         translation: "週末は何するの？",
-        tipText: "「アーハレ ハフテ チーカール ミコニ？」— 予定を聞く定番です。",
+        tipText: "週末何するの？と予定を聞く定番フレーズです。",
       },
       {
         type: "listen",
@@ -1313,7 +1313,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "الو",
         romanization: "alo",
         translation: "もしもし",
-        tipText: "「アロー」— 電話に出る時の第一声です。",
+        tipText: "電話に出る時の第一声です。日本語の「もしもし」に相当します。",
       },
       {
         type: "listen",
@@ -1393,7 +1393,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "می‌خوام برم سفر",
         romanization: "mikhaam beram safar",
         translation: "旅行に行きたい",
-        tipText: "「می‌خوام」(mikhaam) = 〜したい。日常会話で最頻出の表現です。",
+        tipText: "〜したい、という意味です。日常会話で最もよく使う表現の一つです。",
       },
       {
         type: "listen",
@@ -1638,7 +1638,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "دانشگاه",
         romanization: "daaneshgaah",
         translation: "大学",
-        tipText: "「ダーネシュガーフ」— 大学。「ダーネシュジュー」が大学生です。",
+        tipText: "大学という意味です。教育に関する語彙を覚えましょう。",
       },
       {
         type: "listen",
@@ -1716,7 +1716,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "ورزش می‌کنم",
         romanization: "varzesh mikonam",
         translation: "運動しています",
-        tipText: "「ヴァルゼシュ ミコナム」— 健康の話題は日常会話でよく出ます。",
+        tipText: "運動するという意味です。健康の話題は日常会話でよく出ます。",
       },
       {
         type: "listen",
@@ -1794,7 +1794,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "آلودگی هوا",
         romanization: "aaludegi-ye havaa",
         translation: "大気汚染",
-        tipText: "「アールーデギーイェ ハヴァー」— 環境問題の定番トピック。テヘランでもよく話題になります。",
+        tipText: "大気汚染のことです。テヘランでもよく話題になる環境問題の定番トピックです。",
       },
       {
         type: "listen",
@@ -1870,7 +1870,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "ژانر",
         romanization: "zhaanr",
         translation: "ジャンル",
-        tipText: "「ジャーンル」— フランス語由来。映画のジャンルを話す時に使います。",
+        tipText: "フランス語由来の言葉です。映画のジャンルについて話す時に使います。",
       },
       {
         type: "listen",
@@ -2172,7 +2172,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "هوش مصنوعی",
         romanization: "hushe masnu'i",
         translation: "人工知能",
-        tipText: "「フーシェ マスヌーイー」— AI（人工知能）。テクノロジーの話題で頻出です。",
+        tipText: "人工知能（AI）のことです。テクノロジーの話題で頻出です。",
       },
       {
         type: "listen",
@@ -2248,7 +2248,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "تورم",
         romanization: "tavarrom",
         translation: "インフレーション",
-        tipText: "「タヴァッロム」— イランでは経済の話は日常の一部。物価上昇は常に話題になります。",
+        tipText: "インフレのことです。イランでは経済の話は日常の一部で、物価上昇は常に話題になります。",
       },
       {
         type: "listen",
@@ -2324,7 +2324,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "استرس",
         romanization: "esteres",
         translation: "ストレス",
-        tipText: "「エステレス」— 心理的な話題はイラン社会でも注目されています。",
+        tipText: "ストレスのことです。心理的な話題はイラン社会でも注目されています。",
       },
       {
         type: "listen",
@@ -2400,7 +2400,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "رسانه",
         romanization: "resaane",
         translation: "メディア",
-        tipText: "「レサーネ」— メディア。情報社会で欠かせない語彙です。",
+        tipText: "メディア・報道のことです。情報社会で欠かせない語彙です。",
       },
       {
         type: "listen",
@@ -2478,7 +2478,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "فرضیه",
         romanization: "farziye",
         translation: "仮説",
-        tipText: "「ファルズィーイェ」— 学術論文や研究で使う「仮説」。アカデミックな議論の基本語彙です。",
+        tipText: "仮説のことです。学術論文や研究で使うアカデミックな議論の基本語彙です。",
       },
       {
         type: "listen",
@@ -2561,7 +2561,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "دموکراسی",
         romanization: "demokraasi",
         translation: "民主主義",
-        tipText: "「デモクラースィー」— 政治討論の基本語彙。イランでも知識人の間で頻繁に議論されます。",
+        tipText: "民主主義のことです。政治討論の基本語彙で、イランでも知識人の間で頻繁に議論されます。",
       },
       {
         type: "listen",
@@ -2644,7 +2644,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "رمان",
         romanization: "romaan",
         translation: "小説",
-        tipText: "「ロマーン」— ペルシア文学は世界最古の文学伝統の一つ。現代小説も盛んです。",
+        tipText: "小説のことです。ペルシア文学は世界最古の文学伝統の一つで、現代小説も盛んです。",
       },
       {
         type: "listen",
@@ -2727,7 +2727,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "هستی",
         romanization: "hasti",
         translation: "存在",
-        tipText: "「ハスティー」— 存在。イラン哲学はイスラム思想と古代ペルシアの知恵が融合した豊かな伝統を持ちます。",
+        tipText: "存在についてです。イラン哲学はイスラム思想と古代ペルシアの知恵が融合した豊かな伝統を持ちます。",
       },
       {
         type: "listen",
@@ -2810,7 +2810,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "استراتژی",
         romanization: "estratezhi",
         translation: "戦略",
-        tipText: "「エストラテジー」— ビジネスの文脈で頻出。イランのスタートアップシーンでも使われます。",
+        tipText: "戦略のことです。ビジネスの文脈で頻出で、イランのスタートアップシーンでも使われます。",
       },
       {
         type: "listen",
@@ -2895,7 +2895,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "حافظ",
         romanization: "Haafez",
         translation: "ハーフェズ（14世紀の大詩人）",
-        tipText: "ハーフェズはイラン人の魂。「ディーヴァーネ ハーフェズ」（ハーフェズ詩集）はほぼ全てのイラン家庭にあります。",
+        tipText: "ハーフェズはイラン人の魂です。詩集はほぼ全てのイラン家庭にあります。",
       },
       {
         type: "listen",
@@ -2978,7 +2978,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "بلاغت",
         romanization: "balaaghat",
         translation: "修辞学（レトリック）",
-        tipText: "「バラーガト」— アラビア語由来。ペルシア語の知的伝統で論証・説得の技術として重視されてきました。",
+        tipText: "修辞学のことです。ペルシア語の知的伝統で、論証・説得の技術として重視されてきました。",
       },
       {
         type: "listen",
@@ -3061,7 +3061,7 @@ export const GUIDED_LESSONS: Lesson[] = [
         phrase: "هویت",
         romanization: "hoviyat",
         translation: "アイデンティティ",
-        tipText: "「ホヴィーヤト」— ディアスポラ、移住、グローバル化の中で、「自分は何者か」は現代イラン人の核心的テーマです。",
+        tipText: "アイデンティティのことです。移住やグローバル化の中で、「自分は何者か」は現代イラン人の核心的テーマです。",
       },
       {
         type: "listen",
