@@ -12,19 +12,21 @@ import {
   type Lesson,
 } from "@/lib/guided-lessons";
 import { getCEFRProgress } from "@/lib/level-manager";
-import type { CEFRLevel } from "@/lib/level-manager";
-import { useAudioRecorder } from "@/lib/use-audio-recorder";
 import { useTTS } from "@/lib/use-tts";
+import { apiUrl } from "@/lib/api-config";
 import { recordActivity } from "@/lib/streak";
 import { createNewCard, getAllCards, saveAllCards } from "@/lib/srs";
 import { addXP } from "@/lib/xp";
 import { recordMistake } from "@/lib/mistake-tracker";
-import { normalizePersian, levenshteinDistance, getSimilarity } from "@/lib/persian-utils";
+import { normalizePersian, levenshteinDistance } from "@/lib/persian-utils";
 
-// States: speak steps require user action to proceed
-type StepState = "playing" | "ready" | "recording" | "checking" | "success" | "fail";
+type StepState = "playing" | "ready" | "recording" | "checking" | "feedback";
 
-const PASS_THRESHOLD = 60;
+// Azure Pronunciation Assessment result per word
+interface WordScore {
+  word: string;
+  accuracyScore: number;
+}
 
 export default function GuidedLessonPage() {
   return (
@@ -42,8 +44,10 @@ function GuidedLessonContent() {
   const [stepIndex, setStepIndex] = useState(0);
   const [stepState, setStepState] = useState<StepState>("playing");
   const [completed, setCompleted] = useState(false);
-  const [praiseText, setPraiseText] = useState("");
-  const [lastScore, setLastScore] = useState(0);
+
+  // Azure pronunciation feedback
+  const [wordScores, setWordScores] = useState<WordScore[]>([]);
+  const [overallScore, setOverallScore] = useState<number | null>(null);
 
   // Interactive step states
   const [chosenIndex, setChosenIndex] = useState<number | null>(null);
@@ -51,9 +55,12 @@ function GuidedLessonContent() {
   const [reorderAvailable, setReorderAvailable] = useState<string[]>([]);
   const [dictationInput, setDictationInput] = useState("");
   const [interactiveResult, setInteractiveResult] = useState<"correct" | "wrong" | null>(null);
-  const [speakAttempts, setSpeakAttempts] = useState(0);
 
-  const { isRecording, isTranscribing, transcribedText, startRecording, stopRecording, clearText } = useAudioRecorder();
+  // Recording
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const audioChunksRef = useRef<Blob[]>([]);
+  const [isRecording, setIsRecording] = useState(false);
+
   const { isPlaying, play: playTTS, playJa: playJaTTS, unlock: unlockAudio } = useTTS();
   const autoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const hasStarted = useRef(false);
@@ -76,181 +83,185 @@ function GuidedLessonContent() {
     return () => { if (autoTimer.current) clearTimeout(autoTimer.current); };
   }, []);
 
-  const resetInteractive = useCallback(() => {
+  const resetState = useCallback(() => {
     setChosenIndex(null);
     setReorderBuilt([]);
     setReorderAvailable([]);
     setDictationInput("");
     setInteractiveResult(null);
-    setPraiseText("");
-    setLastScore(0);
-    setSpeakAttempts(0);
+    setWordScores([]);
+    setOverallScore(null);
   }, []);
 
   // ─── Step Flow ───
-  // Each step type: play audio → require user action → feedback → advance
   useEffect(() => {
     if (!currentStep || !hasStarted.current) return;
-    resetInteractive();
-
+    resetState();
     const step = currentStep;
 
     if (step.type === "tip") {
-      // Tip: read Japanese explanation → play Persian phrase → auto-advance
       setStepState("playing");
-      playJaTTS(step.tipText || step.translation).then(() => {
-        return playTTS(step.phrase);
-      }).then(() => {
+      playJaTTS(step.tipText || step.translation).then(() => playTTS(step.phrase)).then(() => {
         autoTimer.current = setTimeout(() => goNext(), 1500);
       });
     } else if (step.type === "listen") {
-      // Listen: play phrase, show meaning, auto-advance
       setStepState("playing");
       playTTS(step.phrase).then(() => {
         autoTimer.current = setTimeout(() => goNext(), 1500);
       });
     } else if (step.type === "speak" || step.type === "speak-cloze") {
-      // Speak: play model → user MUST record → score → advance only on pass
       setStepState("playing");
-      playTTS(step.phrase).then(() => {
-        setStepState("ready");
-      });
+      playTTS(step.phrase).then(() => setStepState("ready"));
     } else if (step.type === "choose") {
       setStepState("playing");
-      playTTS(step.phrase).then(() => {
-        setStepState("ready");
-      });
+      playTTS(step.phrase).then(() => setStepState("ready"));
     } else if (step.type === "reorder") {
       setStepState("ready");
       if (step.words) setReorderAvailable([...step.words]);
     } else if (step.type === "dictation") {
       setStepState("playing");
-      playTTS(step.phrase).then(() => {
-        setStepState("ready");
-      });
+      playTTS(step.phrase).then(() => setStepState("ready"));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stepIndex, hasStarted.current]);
 
-  // Recording stopped → checking
-  useEffect(() => {
-    if (stepState !== "recording" || isRecording) return;
-    setStepState("checking");
-  }, [isRecording, stepState]);
-
-  // Whisper result → always give feedback, always advance
-  // Speak app style: you spoke → feedback → move on. Weak items go to SRS.
-  useEffect(() => {
-    if (stepState !== "checking" || isTranscribing) return;
-    const heard = transcribedText || "";
-    const attempt = speakAttempts + 1;
-    setSpeakAttempts(attempt);
-
-    if (heard && currentStep) {
-      const score = getSimilarity(
-        currentStep.phrase, heard,
-        currentStep.type === "speak-cloze" ? "cloze" : "full",
-        currentStep.clozeWord
-      );
-      setLastScore(score);
-      addXP("lessonStep");
-
-      if (score >= 70) {
-        // Great — advance
-        setPraiseText(currentStep.praiseText || "آفرین!");
-        setStepState("success");
-        autoTimer.current = setTimeout(() => goNext(), 1800);
-      } else if (score >= 30 || attempt >= 2) {
-        // OK or 2nd attempt — show feedback and advance
-        setPraiseText(score >= 30 ? "خوبه! 👍" : "👏");
-        setStepState("success");
-        if (score < PASS_THRESHOLD) {
-          recordMistake(currentStep.phrase, currentStep.romanization, currentStep.translation, "guided-lesson", score);
-        }
-        autoTimer.current = setTimeout(() => goNext(), 2000);
-      } else {
-        // Low score, first attempt — let user try once more
-        setPraiseText("");
-        setStepState("fail");
-        recordMistake(currentStep.phrase, currentStep.romanization, currentStep.translation, "guided-lesson", score);
-      }
-    } else {
-      // Nothing heard
-      if (attempt >= 2) {
-        // Tried twice, advance anyway
-        setPraiseText("👏");
-        setStepState("success");
-        autoTimer.current = setTimeout(() => goNext(), 1500);
-      } else {
-        setStepState("fail");
-      }
-    }
-    clearText();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isTranscribing, stepState]);
-
-  // Safety: Whisper timeout (8s) → treat as fail
-  useEffect(() => {
-    if (stepState !== "checking") return;
-    const t = setTimeout(() => { setStepState("fail"); clearText(); }, 8000);
-    return () => clearTimeout(t);
-  }, [stepState, clearText]);
-
   const goNext = useCallback(() => {
     if (autoTimer.current) clearTimeout(autoTimer.current);
     if (!lesson) return;
-    const nextIdx = stepIndex + 1;
-    if (nextIdx >= lesson.steps.length) {
+    if (stepIndex + 1 >= lesson.steps.length) {
       saveLessonProgress(lesson.id, lesson.steps.length, lesson.steps.length);
       recordActivity();
       addXP("sessionComplete");
       setCompleted(true);
     } else {
-      setStepIndex(nextIdx);
+      setStepIndex(stepIndex + 1);
     }
   }, [lesson, stepIndex]);
+
+  // ─── Recording with Azure Pronunciation Assessment ───
+  const startRec = async () => {
+    unlockAudio();
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const recorder = new MediaRecorder(stream);
+      mediaRecorderRef.current = recorder;
+      audioChunksRef.current = [];
+      recorder.ondataavailable = (e) => audioChunksRef.current.push(e.data);
+      recorder.onstop = async () => {
+        stream.getTracks().forEach((t) => t.stop());
+        const blob = new Blob(audioChunksRef.current, { type: "audio/webm" });
+        setStepState("checking");
+        await evaluatePronunciation(blob);
+      };
+      recorder.start();
+      setIsRecording(true);
+    } catch {
+      // Mic denied — show feedback anyway so user isn't stuck
+      setStepState("feedback");
+      setOverallScore(null);
+    }
+  };
+
+  const stopRec = () => {
+    if (mediaRecorderRef.current && isRecording) {
+      mediaRecorderRef.current.stop();
+      setIsRecording(false);
+    }
+  };
+
+  const handleRecord = () => {
+    if (isRecording) { stopRec(); }
+    else if (stepState === "ready" || stepState === "feedback") { startRec(); }
+  };
+
+  // Azure Pronunciation Assessment
+  const evaluatePronunciation = async (audioBlob: Blob) => {
+    if (!currentStep) { setStepState("feedback"); return; }
+    try {
+      const tokenRes = await fetch(apiUrl("/api/pronunciation"));
+      const { token, region } = await tokenRes.json();
+      if (!token) throw new Error("No token");
+
+      const SpeechSDK = await import("microsoft-cognitiveservices-speech-sdk");
+      const speechConfig = SpeechSDK.SpeechConfig.fromAuthorizationToken(token, region);
+      speechConfig.speechRecognitionLanguage = "fa-IR";
+
+      const pronConfig = new SpeechSDK.PronunciationAssessmentConfig(
+        currentStep.phrase,
+        SpeechSDK.PronunciationAssessmentGradingSystem.HundredMark,
+        SpeechSDK.PronunciationAssessmentGranularity.Word,
+        true
+      );
+
+      const arrayBuffer = await audioBlob.arrayBuffer();
+      const pushStream = SpeechSDK.AudioInputStream.createPushStream();
+      pushStream.write(arrayBuffer);
+      pushStream.close();
+
+      const audioConfig = SpeechSDK.AudioConfig.fromStreamInput(pushStream);
+      const recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
+      pronConfig.applyTo(recognizer);
+
+      recognizer.recognizeOnceAsync(
+        (result) => {
+          if (result.reason === SpeechSDK.ResultReason.RecognizedSpeech) {
+            const pronResult = SpeechSDK.PronunciationAssessmentResult.fromResult(result);
+            const accuracy = Math.round(pronResult.accuracyScore);
+            setOverallScore(accuracy);
+
+            // Extract word-level scores
+            const detailResult = result.properties.getProperty(
+              SpeechSDK.PropertyId.SpeechServiceResponse_JsonResult
+            );
+            try {
+              const json = JSON.parse(detailResult);
+              const words = json?.NBest?.[0]?.Words || [];
+              setWordScores(words.map((w: { Word: string; PronunciationAssessment?: { AccuracyScore: number } }) => ({
+                word: w.Word,
+                accuracyScore: w.PronunciationAssessment?.AccuracyScore ?? 0,
+              })));
+            } catch {
+              setWordScores([]);
+            }
+
+            addXP("lessonStep");
+            if (accuracy < 50) {
+              recordMistake(currentStep.phrase, currentStep.romanization, currentStep.translation, "guided-lesson", accuracy);
+            }
+          }
+          setStepState("feedback");
+          recognizer.close();
+        },
+        () => {
+          setStepState("feedback");
+        }
+      );
+    } catch {
+      // Fallback: no score, just show feedback state
+      setStepState("feedback");
+    }
+  };
 
   const handleStart = () => {
     unlockAudio();
     hasStarted.current = true;
-    // Trigger first step
     const step = lesson?.steps[0];
     if (!step) return;
-    resetInteractive();
+    resetState();
     if (step.type === "tip") {
       setStepState("playing");
-      playJaTTS(step.tipText || step.translation).then(() => {
-        return playTTS(step.phrase);
-      }).then(() => {
+      playJaTTS(step.tipText || step.translation).then(() => playTTS(step.phrase)).then(() => {
         autoTimer.current = setTimeout(() => goNext(), 1500);
       });
     } else if (step.type === "listen") {
       setStepState("playing");
-      playTTS(step.phrase).then(() => {
-        autoTimer.current = setTimeout(() => goNext(), 1500);
-      });
-    } else if (step.type === "speak" || step.type === "speak-cloze") {
-      setStepState("playing");
-      playTTS(step.phrase).then(() => setStepState("ready"));
-    } else if (step.type === "choose") {
+      playTTS(step.phrase).then(() => { autoTimer.current = setTimeout(() => goNext(), 1500); });
+    } else if (step.type === "speak" || step.type === "speak-cloze" || step.type === "choose" || step.type === "dictation") {
       setStepState("playing");
       playTTS(step.phrase).then(() => setStepState("ready"));
     } else if (step.type === "reorder") {
       setStepState("ready");
       if (step.words) setReorderAvailable([...step.words]);
-    } else if (step.type === "dictation") {
-      setStepState("playing");
-      playTTS(step.phrase).then(() => setStepState("ready"));
-    }
-  };
-
-  const handleRecord = () => {
-    unlockAudio();
-    if (stepState === "ready" || stepState === "fail") {
-      startRecording();
-      setStepState("recording");
-    } else if (stepState === "recording") {
-      stopRecording();
     }
   };
 
@@ -261,34 +272,28 @@ function GuidedLessonContent() {
     const correct = index === currentStep.correctChoiceIndex;
     setInteractiveResult(correct ? "correct" : "wrong");
     addXP("lessonStep");
-    if (correct) {
-      addXP("exerciseCorrect");
-      setPraiseText("آفرین!");
-      autoTimer.current = setTimeout(() => goNext(), 1500);
-    } else {
-      recordMistake(currentStep.phrase, currentStep.romanization, currentStep.translation, "guided-lesson", 0);
-      // Show correct answer, then advance after delay
-      autoTimer.current = setTimeout(() => goNext(), 2500);
-    }
+    if (correct) addXP("exerciseCorrect");
+    else recordMistake(currentStep.phrase, currentStep.romanization, currentStep.translation, "guided-lesson", 0);
+    autoTimer.current = setTimeout(() => goNext(), correct ? 1500 : 2500);
   };
 
   // Reorder
-  const addReorderWord = (word: string, i: number) => {
-    setReorderBuilt([...reorderBuilt, word]);
+  const addReorderWord = (w: string, i: number) => {
+    setReorderBuilt([...reorderBuilt, w]);
     const next = [...reorderAvailable]; next.splice(i, 1); setReorderAvailable(next);
   };
   const removeReorderWord = (i: number) => {
-    const word = reorderBuilt[i];
+    const w = reorderBuilt[i];
     const next = [...reorderBuilt]; next.splice(i, 1); setReorderBuilt(next);
-    setReorderAvailable([...reorderAvailable, word]);
+    setReorderAvailable([...reorderAvailable, w]);
   };
   const checkReorder = () => {
     if (!currentStep) return;
     const correct = normalizePersian(reorderBuilt.join(" ")) === normalizePersian(currentStep.phrase);
     setInteractiveResult(correct ? "correct" : "wrong");
     addXP("lessonStep");
-    if (correct) { addXP("exerciseCorrect"); setPraiseText("آفرین!"); }
-    else { recordMistake(currentStep.phrase, currentStep.romanization, currentStep.translation, "guided-lesson", 0); }
+    if (correct) addXP("exerciseCorrect");
+    else recordMistake(currentStep.phrase, currentStep.romanization, currentStep.translation, "guided-lesson", 0);
     autoTimer.current = setTimeout(() => goNext(), 2000);
   };
 
@@ -302,20 +307,32 @@ function GuidedLessonContent() {
     const correct = (sim - dist) / sim >= 0.7;
     setInteractiveResult(correct ? "correct" : "wrong");
     addXP("lessonStep");
-    if (correct) { addXP("exerciseCorrect"); setPraiseText("آفرین!"); }
-    else { recordMistake(currentStep.phrase, currentStep.romanization, currentStep.translation, "guided-lesson", 0); }
+    if (correct) addXP("exerciseCorrect");
+    else recordMistake(currentStep.phrase, currentStep.romanization, currentStep.translation, "guided-lesson", 0);
     autoTimer.current = setTimeout(() => goNext(), 2000);
   };
 
   const handleAddToSRS = useCallback(() => {
     if (!lesson) return;
     const cards = getAllCards();
-    for (const step of lesson.steps.filter((s) => s.type === "speak" || s.type === "speak-cloze")) {
-      if (!cards[step.phrase]) cards[step.phrase] = createNewCard(step.phrase);
+    for (const s of lesson.steps.filter((s) => s.type === "speak" || s.type === "speak-cloze")) {
+      if (!cards[s.phrase]) cards[s.phrase] = createNewCard(s.phrase);
     }
     saveAllCards(cards);
     alert("フレーズをSRSに追加しました！");
   }, [lesson]);
+
+  // Word score → color
+  const wordColor = (score: number) => {
+    if (score >= 80) return "text-emerald-600";
+    if (score >= 50) return "text-amber-500";
+    return "text-red-500";
+  };
+  const wordBg = (score: number) => {
+    if (score >= 80) return "bg-emerald-50";
+    if (score >= 50) return "bg-amber-50";
+    return "bg-red-50";
+  };
 
   // ─── RENDER ───
 
@@ -328,7 +345,6 @@ function GuidedLessonContent() {
     );
   }
 
-  // Start screen
   if (!hasStarted.current) {
     return (
       <div className="flex flex-col min-h-screen bg-gray-50">
@@ -349,7 +365,6 @@ function GuidedLessonContent() {
     );
   }
 
-  // Completion
   if (completed) {
     const speakSteps = lesson.steps.filter((s) => s.type === "speak" || s.type === "speak-cloze");
     const nextLesson = (() => {
@@ -357,7 +372,6 @@ function GuidedLessonContent() {
       const idx = ll.findIndex((l) => l.id === lesson.id);
       return idx >= 0 && idx < ll.length - 1 ? ll[idx + 1] : null;
     })();
-
     return (
       <div className="px-5 pt-8 pb-8">
         <div className="text-center mb-8">
@@ -381,9 +395,7 @@ function GuidedLessonContent() {
         </div>
         <div className="space-y-2">
           <button onClick={handleAddToSRS} className="w-full py-3.5 rounded-2xl bg-emerald-500 text-white font-bold">SRSに追加</button>
-          {nextLesson && (
-            <Link href={`/guided-lesson?id=${nextLesson.id}`} className="block w-full py-3.5 rounded-2xl bg-purple-600 text-white font-bold text-center">次のレッスンへ</Link>
-          )}
+          {nextLesson && <Link href={`/guided-lesson?id=${nextLesson.id}`} className="block w-full py-3.5 rounded-2xl bg-purple-600 text-white font-bold text-center">次のレッスンへ</Link>}
           <Link href="/" className="block w-full py-3.5 rounded-2xl bg-gray-100 text-gray-600 font-bold text-center">ホームへ</Link>
         </div>
       </div>
@@ -391,10 +403,8 @@ function GuidedLessonContent() {
   }
 
   // ─── Active Lesson ───
-
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-      {/* Progress bar */}
       <div className="flex items-center gap-3 px-4 pt-4 pb-2">
         <Link href="/" className="text-gray-400 text-xl">×</Link>
         <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
@@ -403,10 +413,9 @@ function GuidedLessonContent() {
         <span className="text-xs text-gray-400">{stepIndex + 1}/{totalSteps}</span>
       </div>
 
-      {/* Main content area */}
       <div className="flex-1 px-5 py-6 flex flex-col items-center justify-center">
 
-        {/* ═══ TIP ═══ */}
+        {/* TIP */}
         {currentStep?.type === "tip" && (
           <div className="w-full max-w-sm animate-slide-in text-center">
             <span className="px-4 py-1.5 bg-blue-100 text-blue-700 text-xs rounded-full font-bold mb-4 inline-block">ポイント</span>
@@ -418,7 +427,7 @@ function GuidedLessonContent() {
           </div>
         )}
 
-        {/* ═══ LISTEN ═══ */}
+        {/* LISTEN */}
         {currentStep?.type === "listen" && (
           <div className="animate-slide-in text-center">
             <span className="px-4 py-1.5 bg-emerald-100 text-emerald-700 text-xs rounded-full font-bold mb-4 inline-block">聞いてみよう</span>
@@ -432,49 +441,58 @@ function GuidedLessonContent() {
           </div>
         )}
 
-        {/* ═══ SPEAK / SPEAK-CLOZE ═══ */}
+        {/* SPEAK / SPEAK-CLOZE */}
         {(currentStep?.type === "speak" || currentStep?.type === "speak-cloze") && (
           <div className="animate-slide-in w-full max-w-sm text-center">
-            <span className="px-4 py-1.5 bg-purple-100 text-purple-700 text-xs rounded-full font-bold mb-4 inline-block">
-              声に出そう
-            </span>
+            <span className="px-4 py-1.5 bg-purple-100 text-purple-700 text-xs rounded-full font-bold mb-4 inline-block">声に出そう</span>
 
-            {/* Show phrase — Persian script only */}
-            {currentStep.type === "speak-cloze" && currentStep.clozeWord ? (
-              <div>
-                <p className="persian-text text-2xl font-bold text-gray-900 mb-2" dir="rtl">
-                  {currentStep.phrase.split(currentStep.clozeWord)[0]}
-                  <span className="bg-yellow-200 text-yellow-800 px-2 rounded-lg mx-1">____</span>
-                  {currentStep.phrase.split(currentStep.clozeWord).slice(1).join(currentStep.clozeWord)}
-                </p>
-                <p className="text-sm text-gray-500">{currentStep.translation}</p>
+            {/* Phrase display — during ready/recording show plain, during feedback show color-coded */}
+            {stepState === "feedback" && wordScores.length > 0 ? (
+              // Word-by-word color feedback (Speak app style)
+              <div className="mb-4">
+                <div className="flex flex-wrap gap-1.5 justify-center mb-3" dir="rtl">
+                  {wordScores.map((ws, i) => (
+                    <button key={i} onClick={() => playTTS(ws.word)}
+                      className={`px-2.5 py-1.5 rounded-lg persian-text text-lg font-bold ${wordBg(ws.accuracyScore)} ${wordColor(ws.accuracyScore)} active:scale-95 transition-transform`}>
+                      {ws.word}
+                    </button>
+                  ))}
+                </div>
+                {overallScore !== null && (
+                  <p className={`text-sm font-bold ${overallScore >= 70 ? "text-emerald-600" : overallScore >= 40 ? "text-amber-500" : "text-red-500"}`}>
+                    {overallScore >= 70 ? "آفرین!" : overallScore >= 40 ? "خوبه!" : "もう少し!"}
+                    <span className="text-gray-400 font-normal ml-2">{overallScore}点</span>
+                  </p>
+                )}
+                <p className="text-xs text-gray-400 mt-2">単語をタップするとお手本が聞けます</p>
+                <p className="text-sm text-gray-500 mt-1">{currentStep.translation}</p>
               </div>
-            ) : (
-              <div>
+            ) : stepState === "feedback" ? (
+              // Feedback without word scores (API failed)
+              <div className="mb-4">
                 <p className="persian-text text-2xl font-bold text-gray-900 mb-2" dir="rtl">{currentStep.phrase}</p>
                 <p className="text-sm text-gray-500">{currentStep.translation}</p>
+                <p className="text-xs text-gray-400 mt-2">発音評価を取得できませんでした</p>
               </div>
-            )}
-
-            {/* Score feedback */}
-            {stepState === "success" && (
-              <div className="mt-4 animate-bounce">
-                <span className="persian-text text-3xl text-emerald-500 font-black">{praiseText}</span>
-                <p className="text-sm text-emerald-600 mt-1">{lastScore}%</p>
-              </div>
-            )}
-
-            {stepState === "fail" && (
-              <div className="mt-4 bg-amber-50 rounded-xl p-3">
-                <p className="text-amber-700 font-bold text-sm">もう一度！</p>
-                {lastScore > 0 && <p className="text-amber-600 text-xs">{lastScore}% — {PASS_THRESHOLD}%以上で合格</p>}
-                <p className="text-xs text-gray-400 mt-1">マイクをタップしてもう一度話してみよう</p>
+            ) : (
+              // Normal display (ready/recording/checking)
+              <div className="mb-4">
+                {currentStep.type === "speak-cloze" && currentStep.clozeWord ? (
+                  <p className="persian-text text-2xl font-bold text-gray-900 mb-2" dir="rtl">
+                    {currentStep.phrase.split(currentStep.clozeWord)[0]}
+                    <span className="bg-yellow-200 text-yellow-800 px-2 rounded-lg mx-1">____</span>
+                    {currentStep.phrase.split(currentStep.clozeWord).slice(1).join(currentStep.clozeWord)}
+                  </p>
+                ) : (
+                  <p className="persian-text text-2xl font-bold text-gray-900 mb-2" dir="rtl">{currentStep.phrase}</p>
+                )}
+                <p className="text-sm text-gray-500">{currentStep.translation}</p>
               </div>
             )}
           </div>
         )}
 
-        {/* ═══ CHOOSE (4択) ═══ */}
+        {/* CHOOSE */}
         {currentStep?.type === "choose" && (
           <div className="animate-slide-in w-full max-w-sm text-center">
             <span className="px-4 py-1.5 bg-pink-100 text-pink-700 text-xs rounded-full font-bold mb-4 inline-block">意味を選ぼう</span>
@@ -499,7 +517,7 @@ function GuidedLessonContent() {
           </div>
         )}
 
-        {/* ═══ REORDER ═══ */}
+        {/* REORDER */}
         {currentStep?.type === "reorder" && (
           <div className="animate-slide-in w-full max-w-sm text-center">
             <span className="px-4 py-1.5 bg-amber-100 text-amber-700 text-xs rounded-full font-bold mb-4 inline-block">並べ替えよう</span>
@@ -526,7 +544,7 @@ function GuidedLessonContent() {
           </div>
         )}
 
-        {/* ═══ DICTATION ═══ */}
+        {/* DICTATION */}
         {currentStep?.type === "dictation" && (
           <div className="animate-slide-in w-full max-w-sm text-center">
             <span className="px-4 py-1.5 bg-cyan-100 text-cyan-700 text-xs rounded-full font-bold mb-4 inline-block">書き取り</span>
@@ -549,23 +567,29 @@ function GuidedLessonContent() {
             )}
           </div>
         )}
+
+        {/* Checking spinner */}
+        {stepState === "checking" && (
+          <div className="mt-4">
+            <div className="w-8 h-8 border-3 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto" />
+            <p className="text-xs text-gray-400 mt-2">発音をチェック中...</p>
+          </div>
+        )}
       </div>
 
       {/* ─── Bottom Actions ─── */}
       <div className="px-5 pb-8 space-y-3">
 
-        {/* SPEAK: Big mic button — THE primary action */}
-        {(currentStep?.type === "speak" || currentStep?.type === "speak-cloze") && (stepState === "ready" || stepState === "recording" || stepState === "fail") && (
+        {/* SPEAK: mic button */}
+        {(currentStep?.type === "speak" || currentStep?.type === "speak-cloze") && (stepState === "ready" || stepState === "recording") && (
           <>
             <button onClick={handleRecord}
               className={`w-full py-5 rounded-2xl font-bold text-lg transition-all ${
-                stepState === "recording"
+                isRecording
                   ? "bg-red-500 text-white mic-recording"
                   : "bg-purple-600 text-white shadow-lg shadow-purple-200 active:scale-95"
               }`}>
-              {stepState === "recording" ? "🎙️ 録音中...タップで停止" :
-               stepState === "fail" ? "🎙️ もう一度話す" :
-               "🎙️ タップして話す"}
+              {isRecording ? "🎙️ 録音中...タップで停止" : "🎙️ タップして話す"}
             </button>
             <button onClick={() => playTTS(currentStep!.phrase)} disabled={isPlaying}
               className="w-full py-2.5 rounded-xl bg-gray-100 text-gray-500 text-sm font-medium disabled:opacity-30">
@@ -574,43 +598,41 @@ function GuidedLessonContent() {
           </>
         )}
 
-        {/* SPEAK: checking state */}
-        {(currentStep?.type === "speak" || currentStep?.type === "speak-cloze") && stepState === "checking" && (
-          <div className="w-full py-5 rounded-2xl bg-gray-200 text-gray-500 font-bold text-lg text-center animate-pulse">
-            チェック中...
+        {/* SPEAK: feedback → retry or next */}
+        {(currentStep?.type === "speak" || currentStep?.type === "speak-cloze") && stepState === "feedback" && (
+          <div className="flex gap-3">
+            <button onClick={() => { resetState(); setStepState("ready"); playTTS(currentStep!.phrase).then(() => setStepState("ready")); }}
+              className="flex-1 py-4 rounded-2xl bg-white border-2 border-purple-200 text-purple-600 font-bold text-sm active:scale-95">
+              もう一度
+            </button>
+            <button onClick={goNext}
+              className="flex-1 py-4 rounded-2xl bg-purple-600 text-white font-bold text-sm active:scale-95">
+              次へ
+            </button>
           </div>
         )}
 
-        {/* REORDER: submit */}
+        {/* REORDER submit */}
         {currentStep?.type === "reorder" && reorderAvailable.length === 0 && interactiveResult === null && (
-          <button onClick={checkReorder}
-            className="w-full py-4 rounded-2xl bg-amber-500 text-white font-bold text-lg active:scale-95">
-            回答を確認
-          </button>
+          <button onClick={checkReorder} className="w-full py-4 rounded-2xl bg-amber-500 text-white font-bold text-lg active:scale-95">回答を確認</button>
         )}
 
-        {/* DICTATION: submit */}
+        {/* DICTATION submit */}
         {currentStep?.type === "dictation" && stepState !== "playing" && interactiveResult === null && (
           <button onClick={checkDictation} disabled={!dictationInput.trim()}
-            className="w-full py-4 rounded-2xl bg-cyan-500 text-white font-bold text-lg active:scale-95 disabled:opacity-50">
-            回答する
-          </button>
+            className="w-full py-4 rounded-2xl bg-cyan-500 text-white font-bold text-lg active:scale-95 disabled:opacity-50">回答する</button>
         )}
 
-        {/* TIP/LISTEN: next button (these auto-advance but user can tap to speed up) */}
+        {/* TIP/LISTEN next */}
         {(currentStep?.type === "tip" || currentStep?.type === "listen") && (
           <button onClick={() => { if (autoTimer.current) clearTimeout(autoTimer.current); goNext(); }}
-            className="w-full py-4 rounded-2xl bg-emerald-500 text-white font-bold text-lg active:scale-95">
-            次へ
-          </button>
+            className="w-full py-4 rounded-2xl bg-emerald-500 text-white font-bold text-lg active:scale-95">次へ</button>
         )}
 
-        {/* CHOOSE: listen again (during ready state) */}
+        {/* CHOOSE listen again */}
         {currentStep?.type === "choose" && stepState === "ready" && interactiveResult === null && (
           <button onClick={() => playTTS(currentStep.phrase)} disabled={isPlaying}
-            className="w-full py-2.5 rounded-xl bg-gray-100 text-gray-500 text-sm font-medium disabled:opacity-30">
-            もう一度聞く
-          </button>
+            className="w-full py-2.5 rounded-xl bg-gray-100 text-gray-500 text-sm font-medium disabled:opacity-30">もう一度聞く</button>
         )}
       </div>
     </div>
