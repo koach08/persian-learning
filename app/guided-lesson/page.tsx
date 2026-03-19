@@ -12,8 +12,8 @@ import {
   type Lesson,
 } from "@/lib/guided-lessons";
 import { getCEFRProgress } from "@/lib/level-manager";
+import { useAudioRecorder } from "@/lib/use-audio-recorder";
 import { useTTS } from "@/lib/use-tts";
-import { apiUrl } from "@/lib/api-config";
 import { recordActivity } from "@/lib/streak";
 import { createNewCard, getAllCards, saveAllCards } from "@/lib/srs";
 import { addXP } from "@/lib/xp";
@@ -22,10 +22,27 @@ import { normalizePersian, levenshteinDistance } from "@/lib/persian-utils";
 
 type StepState = "playing" | "ready" | "recording" | "checking" | "feedback";
 
-// Azure Pronunciation Assessment result per word
-interface WordScore {
-  word: string;
-  accuracyScore: number;
+// Word-level feedback from Whisper transcription matching
+interface WordResult {
+  word: string; // original Persian word
+  matched: boolean;
+}
+
+function matchWords(expected: string, spoken: string): WordResult[] {
+  const expWords = expected.replace(/\u200c/g, "").split(/\s+/).filter(Boolean);
+  const spkNorm = normalizePersian(spoken);
+  const spkWords = spkNorm.split(" ").filter(Boolean);
+
+  return expWords.map((ew) => {
+    const ewNorm = normalizePersian(ew);
+    let best = 0;
+    for (const sw of spkWords) {
+      if (ewNorm === sw) { best = 1; break; }
+      const maxLen = Math.max(ewNorm.length, sw.length);
+      if (maxLen > 0) best = Math.max(best, (maxLen - levenshteinDistance(ewNorm, sw)) / maxLen);
+    }
+    return { word: ew, matched: best >= 0.5 };
+  });
 }
 
 export default function GuidedLessonPage() {
@@ -45,9 +62,9 @@ function GuidedLessonContent() {
   const [stepState, setStepState] = useState<StepState>("playing");
   const [completed, setCompleted] = useState(false);
 
-  // Azure pronunciation feedback
-  const [wordScores, setWordScores] = useState<WordScore[]>([]);
-  const [overallScore, setOverallScore] = useState<number | null>(null);
+  // Speak feedback
+  const [wordResults, setWordResults] = useState<WordResult[]>([]);
+  const [matchedCount, setMatchedCount] = useState(0);
 
   // Interactive step states
   const [chosenIndex, setChosenIndex] = useState<number | null>(null);
@@ -56,11 +73,8 @@ function GuidedLessonContent() {
   const [dictationInput, setDictationInput] = useState("");
   const [interactiveResult, setInteractiveResult] = useState<"correct" | "wrong" | null>(null);
 
-  // Recording
-  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
-  const audioChunksRef = useRef<Blob[]>([]);
-  const [isRecording, setIsRecording] = useState(false);
-
+  // iOS-compatible audio recorder (Whisper)
+  const { isRecording, isTranscribing, transcribedText, startRecording, stopRecording, clearText } = useAudioRecorder();
   const { isPlaying, play: playTTS, playJa: playJaTTS, unlock: unlockAudio } = useTTS();
   const autoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const hasStarted = useRef(false);
@@ -89,8 +103,8 @@ function GuidedLessonContent() {
     setReorderAvailable([]);
     setDictationInput("");
     setInteractiveResult(null);
-    setWordScores([]);
-    setOverallScore(null);
+    setWordResults([]);
+    setMatchedCount(0);
   }, []);
 
   // ─── Step Flow ───
@@ -125,6 +139,55 @@ function GuidedLessonContent() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stepIndex, hasStarted.current]);
 
+  // Recording stopped → checking
+  useEffect(() => {
+    if (stepState !== "recording" || isRecording) return;
+    setStepState("checking");
+  }, [isRecording, stepState]);
+
+  // Whisper result → word matching feedback
+  useEffect(() => {
+    if (stepState !== "checking" || isTranscribing) return;
+    const heard = transcribedText || "";
+
+    if (heard && currentStep) {
+      const results = matchWords(currentStep.phrase, heard);
+      setWordResults(results);
+      const matched = results.filter((r) => r.matched).length;
+      setMatchedCount(matched);
+      addXP("lessonStep");
+
+      if (matched < results.length * 0.5) {
+        recordMistake(currentStep.phrase, currentStep.romanization, currentStep.translation, "guided-lesson",
+          Math.round((matched / Math.max(results.length, 1)) * 100));
+      }
+    } else {
+      // Nothing heard — show phrase as all unmatched
+      if (currentStep) {
+        const words = currentStep.phrase.replace(/\u200c/g, "").split(/\s+/).filter(Boolean);
+        setWordResults(words.map((w) => ({ word: w, matched: false })));
+      }
+    }
+
+    setStepState("feedback");
+    clearText();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isTranscribing, stepState]);
+
+  // Safety: Whisper timeout
+  useEffect(() => {
+    if (stepState !== "checking") return;
+    const t = setTimeout(() => {
+      if (currentStep) {
+        const words = currentStep.phrase.replace(/\u200c/g, "").split(/\s+/).filter(Boolean);
+        setWordResults(words.map((w) => ({ word: w, matched: false })));
+      }
+      setStepState("feedback");
+      clearText();
+    }, 10000);
+    return () => clearTimeout(t);
+  }, [stepState, clearText, currentStep]);
+
   const goNext = useCallback(() => {
     if (autoTimer.current) clearTimeout(autoTimer.current);
     if (!lesson) return;
@@ -137,110 +200,6 @@ function GuidedLessonContent() {
       setStepIndex(stepIndex + 1);
     }
   }, [lesson, stepIndex]);
-
-  // ─── Recording with Azure Pronunciation Assessment ───
-  const startRec = async () => {
-    unlockAudio();
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const recorder = new MediaRecorder(stream);
-      mediaRecorderRef.current = recorder;
-      audioChunksRef.current = [];
-      recorder.ondataavailable = (e) => audioChunksRef.current.push(e.data);
-      recorder.onstop = async () => {
-        stream.getTracks().forEach((t) => t.stop());
-        const blob = new Blob(audioChunksRef.current, { type: "audio/webm" });
-        setStepState("checking");
-        await evaluatePronunciation(blob);
-      };
-      recorder.start();
-      setIsRecording(true);
-    } catch {
-      // Mic denied — show feedback anyway so user isn't stuck
-      setStepState("feedback");
-      setOverallScore(null);
-    }
-  };
-
-  const stopRec = () => {
-    if (mediaRecorderRef.current && isRecording) {
-      mediaRecorderRef.current.stop();
-      setIsRecording(false);
-    }
-  };
-
-  const handleRecord = () => {
-    if (isRecording) { stopRec(); }
-    else if (stepState === "ready" || stepState === "feedback") { startRec(); }
-  };
-
-  // Azure Pronunciation Assessment
-  const evaluatePronunciation = async (audioBlob: Blob) => {
-    if (!currentStep) { setStepState("feedback"); return; }
-    try {
-      const tokenRes = await fetch(apiUrl("/api/pronunciation"));
-      const { token, region } = await tokenRes.json();
-      if (!token) throw new Error("No token");
-
-      const SpeechSDK = await import("microsoft-cognitiveservices-speech-sdk");
-      const speechConfig = SpeechSDK.SpeechConfig.fromAuthorizationToken(token, region);
-      speechConfig.speechRecognitionLanguage = "fa-IR";
-
-      const pronConfig = new SpeechSDK.PronunciationAssessmentConfig(
-        currentStep.phrase,
-        SpeechSDK.PronunciationAssessmentGradingSystem.HundredMark,
-        SpeechSDK.PronunciationAssessmentGranularity.Word,
-        true
-      );
-
-      const arrayBuffer = await audioBlob.arrayBuffer();
-      const pushStream = SpeechSDK.AudioInputStream.createPushStream();
-      pushStream.write(arrayBuffer);
-      pushStream.close();
-
-      const audioConfig = SpeechSDK.AudioConfig.fromStreamInput(pushStream);
-      const recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
-      pronConfig.applyTo(recognizer);
-
-      recognizer.recognizeOnceAsync(
-        (result) => {
-          if (result.reason === SpeechSDK.ResultReason.RecognizedSpeech) {
-            const pronResult = SpeechSDK.PronunciationAssessmentResult.fromResult(result);
-            const accuracy = Math.round(pronResult.accuracyScore);
-            setOverallScore(accuracy);
-
-            // Extract word-level scores
-            const detailResult = result.properties.getProperty(
-              SpeechSDK.PropertyId.SpeechServiceResponse_JsonResult
-            );
-            try {
-              const json = JSON.parse(detailResult);
-              const words = json?.NBest?.[0]?.Words || [];
-              setWordScores(words.map((w: { Word: string; PronunciationAssessment?: { AccuracyScore: number } }) => ({
-                word: w.Word,
-                accuracyScore: w.PronunciationAssessment?.AccuracyScore ?? 0,
-              })));
-            } catch {
-              setWordScores([]);
-            }
-
-            addXP("lessonStep");
-            if (accuracy < 50) {
-              recordMistake(currentStep.phrase, currentStep.romanization, currentStep.translation, "guided-lesson", accuracy);
-            }
-          }
-          setStepState("feedback");
-          recognizer.close();
-        },
-        () => {
-          setStepState("feedback");
-        }
-      );
-    } catch {
-      // Fallback: no score, just show feedback state
-      setStepState("feedback");
-    }
-  };
 
   const handleStart = () => {
     unlockAudio();
@@ -265,6 +224,18 @@ function GuidedLessonContent() {
     }
   };
 
+  const handleRecord = () => {
+    unlockAudio();
+    if (stepState === "ready" || stepState === "feedback") {
+      clearText();
+      setWordResults([]);
+      startRecording();
+      setStepState("recording");
+    } else if (stepState === "recording") {
+      stopRecording();
+    }
+  };
+
   // Choose
   const handleChoose = (index: number) => {
     if (!currentStep || interactiveResult !== null) return;
@@ -280,11 +251,11 @@ function GuidedLessonContent() {
   // Reorder
   const addReorderWord = (w: string, i: number) => {
     setReorderBuilt([...reorderBuilt, w]);
-    const next = [...reorderAvailable]; next.splice(i, 1); setReorderAvailable(next);
+    const n = [...reorderAvailable]; n.splice(i, 1); setReorderAvailable(n);
   };
   const removeReorderWord = (i: number) => {
     const w = reorderBuilt[i];
-    const next = [...reorderBuilt]; next.splice(i, 1); setReorderBuilt(next);
+    const n = [...reorderBuilt]; n.splice(i, 1); setReorderBuilt(n);
     setReorderAvailable([...reorderAvailable, w]);
   };
   const checkReorder = () => {
@@ -321,18 +292,6 @@ function GuidedLessonContent() {
     saveAllCards(cards);
     alert("フレーズをSRSに追加しました！");
   }, [lesson]);
-
-  // Word score → color
-  const wordColor = (score: number) => {
-    if (score >= 80) return "text-emerald-600";
-    if (score >= 50) return "text-amber-500";
-    return "text-red-500";
-  };
-  const wordBg = (score: number) => {
-    if (score >= 80) return "bg-emerald-50";
-    if (score >= 50) return "bg-amber-50";
-    return "bg-red-50";
-  };
 
   // ─── RENDER ───
 
@@ -403,6 +362,10 @@ function GuidedLessonContent() {
   }
 
   // ─── Active Lesson ───
+  const reactionEmoji = wordResults.length > 0
+    ? (matchedCount >= wordResults.length * 0.8 ? "🎉" : matchedCount >= wordResults.length * 0.4 ? "👍" : "💪")
+    : "";
+
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <div className="flex items-center gap-3 px-4 pt-4 pb-2">
@@ -446,36 +409,25 @@ function GuidedLessonContent() {
           <div className="animate-slide-in w-full max-w-sm text-center">
             <span className="px-4 py-1.5 bg-purple-100 text-purple-700 text-xs rounded-full font-bold mb-4 inline-block">声に出そう</span>
 
-            {/* Phrase display — during ready/recording show plain, during feedback show color-coded */}
-            {stepState === "feedback" && wordScores.length > 0 ? (
-              // Word-by-word color feedback (Speak app style)
+            {/* Feedback: word-by-word color display */}
+            {stepState === "feedback" && wordResults.length > 0 ? (
               <div className="mb-4">
+                <div className="text-3xl mb-3">{reactionEmoji}</div>
                 <div className="flex flex-wrap gap-1.5 justify-center mb-3" dir="rtl">
-                  {wordScores.map((ws, i) => (
-                    <button key={i} onClick={() => playTTS(ws.word)}
-                      className={`px-2.5 py-1.5 rounded-lg persian-text text-lg font-bold ${wordBg(ws.accuracyScore)} ${wordColor(ws.accuracyScore)} active:scale-95 transition-transform`}>
-                      {ws.word}
+                  {wordResults.map((wr, i) => (
+                    <button key={i} onClick={() => playTTS(wr.word)}
+                      className={`px-2.5 py-1.5 rounded-lg persian-text text-lg font-bold active:scale-95 transition-transform ${
+                        wr.matched ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-500"
+                      }`}>
+                      {wr.word}
                     </button>
                   ))}
                 </div>
-                {overallScore !== null && (
-                  <p className={`text-sm font-bold ${overallScore >= 70 ? "text-emerald-600" : overallScore >= 40 ? "text-amber-500" : "text-red-500"}`}>
-                    {overallScore >= 70 ? "آفرین!" : overallScore >= 40 ? "خوبه!" : "もう少し!"}
-                    <span className="text-gray-400 font-normal ml-2">{overallScore}点</span>
-                  </p>
-                )}
-                <p className="text-xs text-gray-400 mt-2">単語をタップするとお手本が聞けます</p>
-                <p className="text-sm text-gray-500 mt-1">{currentStep.translation}</p>
-              </div>
-            ) : stepState === "feedback" ? (
-              // Feedback without word scores (API failed)
-              <div className="mb-4">
-                <p className="persian-text text-2xl font-bold text-gray-900 mb-2" dir="rtl">{currentStep.phrase}</p>
-                <p className="text-sm text-gray-500">{currentStep.translation}</p>
-                <p className="text-xs text-gray-400 mt-2">発音評価を取得できませんでした</p>
+                <p className="text-xs text-gray-400">単語をタップするとお手本が聞けます</p>
+                <p className="text-sm text-gray-500 mt-2">{currentStep.translation}</p>
               </div>
             ) : (
-              // Normal display (ready/recording/checking)
+              // Normal display
               <div className="mb-4">
                 {currentStep.type === "speak-cloze" && currentStep.clozeWord ? (
                   <p className="persian-text text-2xl font-bold text-gray-900 mb-2" dir="rtl">
@@ -507,9 +459,7 @@ function GuidedLessonContent() {
                   }
                   return (
                     <button key={i} onClick={() => handleChoose(i)} disabled={interactiveResult !== null}
-                      className={`w-full p-3 rounded-xl border text-left transition-all active:scale-95 ${cls}`}>
-                      {choice}
-                    </button>
+                      className={`w-full p-3 rounded-xl border text-left transition-all active:scale-95 ${cls}`}>{choice}</button>
                   );
                 })}
               </div>
@@ -572,7 +522,7 @@ function GuidedLessonContent() {
         {stepState === "checking" && (
           <div className="mt-4">
             <div className="w-8 h-8 border-3 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto" />
-            <p className="text-xs text-gray-400 mt-2">発音をチェック中...</p>
+            <p className="text-xs text-gray-400 mt-2">チェック中...</p>
           </div>
         )}
       </div>
@@ -585,9 +535,7 @@ function GuidedLessonContent() {
           <>
             <button onClick={handleRecord}
               className={`w-full py-5 rounded-2xl font-bold text-lg transition-all ${
-                isRecording
-                  ? "bg-red-500 text-white mic-recording"
-                  : "bg-purple-600 text-white shadow-lg shadow-purple-200 active:scale-95"
+                isRecording ? "bg-red-500 text-white mic-recording" : "bg-purple-600 text-white shadow-lg shadow-purple-200 active:scale-95"
               }`}>
               {isRecording ? "🎙️ 録音中...タップで停止" : "🎙️ タップして話す"}
             </button>
@@ -601,7 +549,7 @@ function GuidedLessonContent() {
         {/* SPEAK: feedback → retry or next */}
         {(currentStep?.type === "speak" || currentStep?.type === "speak-cloze") && stepState === "feedback" && (
           <div className="flex gap-3">
-            <button onClick={() => { resetState(); setStepState("ready"); playTTS(currentStep!.phrase).then(() => setStepState("ready")); }}
+            <button onClick={handleRecord}
               className="flex-1 py-4 rounded-2xl bg-white border-2 border-purple-200 text-purple-600 font-bold text-sm active:scale-95">
               もう一度
             </button>
@@ -609,6 +557,13 @@ function GuidedLessonContent() {
               className="flex-1 py-4 rounded-2xl bg-purple-600 text-white font-bold text-sm active:scale-95">
               次へ
             </button>
+          </div>
+        )}
+
+        {/* SPEAK: checking */}
+        {(currentStep?.type === "speak" || currentStep?.type === "speak-cloze") && stepState === "checking" && (
+          <div className="w-full py-5 rounded-2xl bg-gray-200 text-gray-500 font-bold text-lg text-center animate-pulse">
+            チェック中...
           </div>
         )}
 
