@@ -15,6 +15,7 @@ import { getCEFRProgress } from "@/lib/level-manager";
 import { useTTS } from "@/lib/use-tts";
 import { apiUrl } from "@/lib/api-config";
 import { getSupportedMimeType } from "@/lib/audio-utils";
+import { convertToWav } from "@/lib/audio-convert";
 import { recordActivity } from "@/lib/streak";
 import { createNewCard, getAllCards, saveAllCards } from "@/lib/srs";
 import { addXP } from "@/lib/xp";
@@ -185,9 +186,12 @@ function GuidedLessonContent() {
         true
       );
 
-      const arrayBuffer = await audioBlob.arrayBuffer();
-      const pushStream = SpeechSDK.AudioInputStream.createPushStream();
-      pushStream.write(arrayBuffer);
+      // Convert iOS mp4/aac → WAV PCM 16kHz mono (Azure requires this)
+      const wavBuffer = await convertToWav(audioBlob);
+      const audioFormat = SpeechSDK.AudioStreamFormat.getWaveFormatPCM(16000, 16, 1);
+      const pushStream = SpeechSDK.AudioInputStream.createPushStream(audioFormat);
+      // Skip WAV header (44 bytes) — push only PCM data
+      pushStream.write(wavBuffer.slice(44));
       pushStream.close();
 
       const audioConfig = SpeechSDK.AudioConfig.fromStreamInput(pushStream);
