@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Vazirmatn } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import BottomNav from "@/components/BottomNav";
 
-const vazirmatn = Vazirmatn({
+const vazirmatn = localFont({
+  src: "../public/fonts/Vazirmatn-Variable.woff2",
   variable: "--font-vazirmatn",
-  subsets: ["arabic"],
   display: "swap",
 });
 
