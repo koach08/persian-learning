@@ -186,14 +186,12 @@ function GuidedLessonContent() {
         true
       );
 
-      // Convert iOS mp4/aac → WAV PCM 16kHz mono (Azure requires this)
+      // Convert iOS mp4/aac → WAV PCM 16kHz mono
       const wavBuffer = await convertToWav(audioBlob);
       const audioFormat = SpeechSDK.AudioStreamFormat.getWaveFormatPCM(16000, 16, 1);
       const pushStream = SpeechSDK.AudioInputStream.createPushStream(audioFormat);
-      // Skip WAV header (44 bytes) — push only PCM data
-      pushStream.write(wavBuffer.slice(44));
+      pushStream.write(wavBuffer.slice(44)); // skip WAV header, send raw PCM
       pushStream.close();
-
       const audioConfig = SpeechSDK.AudioConfig.fromStreamInput(pushStream);
       const recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
       pronConfig.applyTo(recognizer);
@@ -461,7 +459,9 @@ function GuidedLessonContent() {
           <button onClick={handleRecord} className={`w-full py-5 rounded-2xl font-bold text-lg transition-all ${isRecording ? "bg-red-500 text-white mic-recording" : "bg-purple-600 text-white shadow-lg shadow-purple-200 active:scale-95"}`}>
             {isRecording ? "🎙️ 録音中...タップで停止" : "🎙️ タップして話す"}
           </button>
-          <button onClick={() => playTTS(currentStep!.phrase)} disabled={isPlaying} className="w-full py-2.5 rounded-xl bg-gray-100 text-gray-500 text-sm font-medium disabled:opacity-30">お手本をもう一度聞く</button>
+          {!isRecording && (
+            <button onClick={() => playTTS(currentStep!.phrase)} disabled={isPlaying} className="w-full py-2.5 rounded-xl bg-gray-100 text-gray-500 text-sm font-medium disabled:opacity-30">お手本をもう一度聞く</button>
+          )}
         </>}
         {/* SPEAK: evaluating */}
         {(currentStep?.type === "speak" || currentStep?.type === "speak-cloze") && stepState === "evaluating" && (
