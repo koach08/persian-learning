@@ -304,15 +304,17 @@ export default function TodayPage() {
                       <p className="text-sm text-gray-500 mt-2">{step.translation}</p>
                     </div>
 
-                    <div className="flex gap-2 mt-6">
-                      <button onClick={() => playTTS(step.phrase)} disabled={isPlaying}
-                        className="flex-1 py-3 rounded-xl bg-emerald-100 text-emerald-700 font-medium text-sm disabled:opacity-50">
-                        {isPlaying ? "再生中..." : "もう一度聞く"}
-                      </button>
-                      <button onClick={advanceLessonStep}
-                        className="flex-1 py-3 rounded-xl bg-purple-600 text-white font-bold text-sm active:scale-95 transition-transform">
-                        次へ
-                      </button>
+                    <div className="space-y-2 mt-6">
+                      <div className="flex gap-2">
+                        <button onClick={() => playTTS(step.phrase)} disabled={isPlaying}
+                          className="flex-1 py-3 rounded-xl bg-emerald-100 text-emerald-700 font-medium text-sm disabled:opacity-50">
+                          {isPlaying ? "再生中..." : "聞く"}
+                        </button>
+                        <button onClick={advanceLessonStep}
+                          className="flex-1 py-3 rounded-xl bg-purple-600 text-white font-bold text-sm active:scale-95 transition-transform">
+                          次へ
+                        </button>
+                      </div>
                     </div>
 
                     <p className="text-xs text-gray-400 mt-3">

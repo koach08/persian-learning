@@ -5,11 +5,11 @@ const config: CapacitorConfig = {
   appName: "ペルシア語学習",
   webDir: "out",
   server: {
-    // Development: point to local dev server
-    // url: "http://192.168.11.12:3000",
-    // cleartext: true,
+    // Development: point to local dev server (same WiFi network)
+    url: "http://192.168.128.156:3000",
+    cleartext: true,
 
-    // Production: use bundled web assets
+    // Production: comment out url/cleartext above, use bundled web assets
     androidScheme: "https",
   },
   plugins: {

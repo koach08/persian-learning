@@ -10,27 +10,41 @@ export interface TTSOptions {
 }
 
 /**
- * iOS Safari blocks audio.play() unless called directly from a user gesture.
- * We work around this by:
- * 1. Creating and "unlocking" an Audio element on the first user tap
- * 2. Reusing that same element for subsequent plays
+ * TTS hook with Azure API + Web Speech API fallback.
+ * iOS Safari requires user gesture to unlock audio — call unlock() on first tap.
  */
 export function useTTS() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const unlockedRef = useRef(false);
 
-  // Call this on any user tap to unlock audio for iOS
   const unlock = useCallback(() => {
     if (unlockedRef.current) return;
     const audio = new Audio();
-    // Play a tiny silent data URI to "unlock" the audio context
     audio.src = "data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAABhgC7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7//////////////////////////////////////////////////////////////////8AAAAATGF2YzU4LjEzAAAAAAAAAAAAAAAAJAAAAAAAAAAAAYYoRwMHAAAAAAD/+1DEAAAHAAGf9AAAIgAANIAAAARMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/7UMQbgAADSAAAAAAAAANIAAAABFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVQ==";
     audio.play().then(() => {
       audio.pause();
       unlockedRef.current = true;
-    }).catch(() => {
-      // Ignore — will retry on next tap
+    }).catch(() => {});
+  }, []);
+
+  /** Try Web Speech API as fallback */
+  const speakWithWebSpeech = useCallback((text: string, lang: string): Promise<void> => {
+    return new Promise((resolve) => {
+      if (typeof window === "undefined" || !window.speechSynthesis) {
+        resolve();
+        return;
+      }
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = lang === "ja" ? "ja-JP" : "fa-IR";
+      utterance.rate = 0.9;
+      utterance.onend = () => resolve();
+      utterance.onerror = () => resolve();
+      // Timeout safety — Web Speech can hang
+      const timer = setTimeout(() => resolve(), 8000);
+      utterance.onend = () => { clearTimeout(timer); resolve(); };
+      utterance.onerror = () => { clearTimeout(timer); resolve(); };
+      window.speechSynthesis.speak(utterance);
     });
   }, []);
 
@@ -48,11 +62,9 @@ export function useTTS() {
           style: options?.style || "natural",
         }),
       });
-      if (!res.ok) {
-        setIsPlaying(false);
-        return;
-      }
+      if (!res.ok) throw new Error("TTS API failed");
       const blob = await res.blob();
+      if (blob.size < 100) throw new Error("Empty audio");
       const url = URL.createObjectURL(blob);
       return new Promise((resolve) => {
         if (audioRef.current) {
@@ -68,20 +80,25 @@ export function useTTS() {
         };
         audio.onerror = () => {
           setIsPlaying(false);
+          URL.revokeObjectURL(url);
           resolve();
         };
         audio.play().catch(() => {
-          // iOS autoplay blocked — don't crash, just mark as not playing
           setIsPlaying(false);
           resolve();
         });
       });
     } catch {
+      // Fallback: try Web Speech API
+      try {
+        await speakWithWebSpeech(text, options?.lang || "fa");
+      } catch {
+        // Silent failure
+      }
       setIsPlaying(false);
     }
-  }, []);
+  }, [speakWithWebSpeech]);
 
-  /** Convenience: play Japanese text with Japanese voice */
   const playJa = useCallback(async (text: string, options?: Omit<TTSOptions, "lang">): Promise<void> => {
     return play(text, { ...options, lang: "ja" });
   }, [play]);
@@ -91,6 +108,9 @@ export function useTTS() {
       audioRef.current.pause();
       URL.revokeObjectURL(audioRef.current.src);
       audioRef.current = null;
+    }
+    if (typeof window !== "undefined" && window.speechSynthesis) {
+      window.speechSynthesis.cancel();
     }
     setIsPlaying(false);
   }, []);

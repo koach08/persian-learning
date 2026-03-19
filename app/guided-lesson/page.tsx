@@ -788,7 +788,7 @@ function GuidedLessonContent() {
           </button>
         )}
 
-        {/* Tip step: auto-advances, but show skip button */}
+        {/* Tip step: next button */}
         {currentStep?.type === "tip" && (
           <button
             onClick={() => { if (autoFlowTimer.current) clearTimeout(autoFlowTimer.current); goNext(); }}
@@ -798,13 +798,13 @@ function GuidedLessonContent() {
           </button>
         )}
 
-        {/* Listen step: show during playback */}
-        {currentStep?.type === "listen" && (
+        {/* UNIVERSAL skip/next — always available so user never gets stuck */}
+        {stepState !== "recording" && stepState !== "checking" && (
           <button
             onClick={() => { if (autoFlowTimer.current) clearTimeout(autoFlowTimer.current); goNext(); }}
-            className="w-full py-4 rounded-2xl bg-gray-200 text-gray-500 font-bold text-lg active:scale-95 transition-transform"
+            className="w-full py-3 rounded-2xl bg-gray-100 text-gray-500 font-bold text-sm active:scale-95 transition-transform"
           >
-            スキップ
+            {currentStep?.type === "listen" || currentStep?.type === "tip" ? "スキップ" : "次へ進む →"}
           </button>
         )}
 
