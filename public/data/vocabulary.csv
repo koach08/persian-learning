@@ -1501,3 +1501,3127 @@
 科学,انتخاب طبیعی,entekhabe tabi'i,自然選択,natural selection,,C1
 科学,زیست فناوری,zist fanavari,バイオテクノロジー,biotechnology (alt),,C1
 科学,نانو ذره,nano zarre,ナノ粒子,nanoparticle,,C1
+基本動詞,خواستن,khastan,欲しい・望む,to want,,A1
+基本動詞,توانستن,tavanestan,できる,to be able to,,A1
+基本動詞,پوشیدن,pushidan,着る,to wear,,A1
+基本動詞,گذاشتن,gozashtan,置く,to put,,A1
+基本動詞,برداشتن,bardastan,持ち上げる・取る,to pick up,,A1
+基本動詞,آوردن,avardan,持ってくる,to bring,,A1
+基本動詞,بردن,bordan,持っていく,to take (away),,A1
+基本動詞,بریدن,boridan,切る,to cut,,A1
+基本動詞,افتادن,oftadan,落ちる,to fall,,A1
+基本動詞,زدن,zadan,打つ・叩く,to hit/strike,,A1
+基本動詞,کشیدن,keshidan,引く・描く,to pull/draw,,A1
+基本動詞,انداختن,andakhtan,投げる・落とす,to throw/drop,,A1
+基本動詞,ساختن,sakhtan,作る・建てる,to make/build,,A1
+基本動詞,شکستن,shekastan,壊す・割る,to break,,A1
+基本動詞,سوختن,sukhtan,燃える,to burn,,A1
+基本動詞,ریختن,rikhtan,注ぐ・こぼす,to pour/spill,,A1
+基本動詞,پرسیدن,porsidan,尋ねる,to ask,,A1
+基本動詞,جواب دادن,javab dadan,答える,to answer,,A1
+基本動詞,فکر کردن,fekr kardan,考える,to think,,A1
+基本動詞,یاد گرفتن,yad gereftan,覚える・学ぶ,to learn,,A1
+基本動詞,عوض کردن,avaz kardan,変える,to change,,A1
+基本動詞,امتحان کردن,emtehan kardan,試す,to try,,A1
+基本動詞,صبر کردن,sabr kardan,待つ・我慢する,to wait/be patient,,A1
+基本動詞,شروع کردن,shoru kardan,始める,to start,,A1
+基本動詞,تمام کردن,tamam kardan,終わらせる,to finish,,A1
+基本動詞,برگشتن,bargashtan,戻る,to return,,A1
+基本動詞,رسیدن,residan,着く・届く,to arrive/reach,,A1
+基本動詞,ماندن,mandan,残る・滞在する,to stay/remain,,A1
+基本動詞,گشتن,gashtan,回る・探す,to turn/search,,A1
+基本動詞,رد شدن,rad shodan,通り過ぎる,to pass,,A1
+基本動詞,لمس کردن,lams kardan,触る,to touch,,A1
+基本動詞,بو کردن,bu kardan,匂いを嗅ぐ,to smell,,A1
+基本動詞,چشیدن,cheshidan,味見する,to taste,,A1
+基本動詞,خندیدن,khandidan,笑う,to laugh,,A1
+基本動詞,گریه کردن,gerye kardan,泣く,to cry,,A1
+基本動詞,بازی کردن,bazi kardan,遊ぶ,to play,,A1
+基本動詞,کمک کردن,komak kardan,手伝う,to help,,A1
+基本動詞,عذرخواهی کردن,ozrkhahi kardan,謝る,to apologize,,A1
+基本動詞,تشکر کردن,tashakkor kardan,感謝する,to thank,,A1
+基本動詞,منتظر بودن,montazer budan,待っている,to be waiting,,A1
+基本動詞,دوست داشتن,dust dashtan,好き・愛する,to like/love,,A1
+基本動詞,ترسیدن,tarsidan,怖がる,to be scared,,A1
+基本動詞,عجله کردن,ajale kardan,急ぐ,to hurry,,A1
+基本動詞,جستن,jostan,探す・跳ぶ,to seek/jump,,A1
+基本動詞,گم کردن,gom kardan,なくす,to lose,,A1
+基本動詞,پیدا کردن,peyda kardan,見つける,to find,,A1
+基本動詞,یادداشت کردن,yaddasht kardan,メモする,to note down,,A1
+基本動詞,درست کردن,dorost kardan,直す・作る,to fix/make,,A1
+基本動詞,جمع کردن,jam kardan,集める・片づける,to collect/tidy up,,A1
+基本動詞,پرداخت کردن,pardakht kardan,支払う,to pay,,A1
+基本形容詞,زیبا,ziba,美しい,beautiful,,A1
+基本形容詞,نرم,narm,柔らかい,soft,,A1
+基本形容詞,سخت,sakht,硬い・難しい,hard/difficult,,A1
+基本形容詞,پر,por,いっぱいの,full,,A1
+基本形容詞,خالی,khali,空の,empty,,A1
+基本形容詞,تازه,taze_a1,新鮮な・新しい,fresh/new,,A1
+基本形容詞,کهنه,kohne,古い（物）,old (thing),,A1
+基本形容詞,جوان,javan,若い,young,,A1
+基本形容詞,پیر,pir,年老いた,old (person),,A1
+基本形容詞,تمیز,tamiz_a1,きれいな,clean,,A1
+基本形容詞,کثیف,kasif,汚い,dirty,,A1
+基本形容詞,خشک,khoshk,乾いた,dry,,A1
+基本形容詞,خیس,khis,濡れた,wet,,A1
+基本形容詞,تنگ,tang,きつい・狭い,tight/narrow,,A1
+基本形容詞,گشاد,goshad,広い・ゆるい,wide/loose,,A1
+基本形容詞,صاف,saf,真っすぐ・晴れ,straight/clear,,A1
+基本形容詞,کج,kaj,曲がった,crooked/bent,,A1
+基本形容詞,پهن,pahn,幅広い,wide/flat,,A1
+基本形容詞,باریک,barik,細い,thin/narrow,,A1
+基本形容詞,عمیق,amigh,深い,deep,,A1
+基本形容詞,کم عمق,kam omgh,浅い,shallow,,A1
+基本形容詞,تیز,tiz,鋭い,sharp,,A1
+基本形容詞,کند,kond_a1,鈍い,blunt/dull,,A1
+基本形容詞,شیرین,shirin,甘い,sweet,,A1
+基本形容詞,ترش,torsh,酸っぱい,sour,,A1
+基本形容詞,تلخ,talkh,苦い,bitter,,A1
+基本形容詞,شور,shur,しょっぱい,salty,,A1
+基本形容詞,تند,tond_a1,辛い,spicy/hot,,A1
+基本形容詞,آهسته,aheste,ゆっくりの,slow/gentle,,A1
+基本形容詞,تیره,tire,暗い色の,dark (color),,A1
+基本形容詞,روشن,roshan_a1,明るい色の,light (color),,A1
+基本形容詞,راست,rast,右・正しい,right/correct,,A1
+基本形容詞,چپ,chap,左,left,,A1
+基本形容詞,درست,dorost,正しい,correct,,A1
+基本形容詞,غلط,ghalat_a1,間違った,wrong,,A1
+基本形容詞,آماده,amade,準備ができた,ready,,A1
+基本形容詞,مشغول,mashghul,忙しい,busy,,A1
+基本形容詞,آرام,aram,静かな・穏やかな,calm/quiet,,A1
+基本形容詞,ساده,sade,シンプルな,simple,,A1
+基本形容詞,مهربان,mehraban,優しい,kind,,A1
+数字,یازده,yazdah,11,eleven,,A1
+数字,دوازده,davazdah,12,twelve,,A1
+数字,سیزده,sizdah,13,thirteen,,A1
+数字,چهارده,chahardah,14,fourteen,,A1
+数字,پانزده,panzdah,15,fifteen,,A1
+数字,شانزده,shanzdah,16,sixteen,,A1
+数字,هفده,hevdah,17,seventeen,,A1
+数字,هجده,hejdah,18,eighteen,,A1
+数字,نوزده,nuzdah,19,nineteen,,A1
+数字,شصت,shast,60,sixty,,A1
+数字,هفتاد,haftad,70,seventy,,A1
+数字,هشتاد,hashtad,80,eighty,,A1
+数字,نود,navad,90,ninety,,A1
+数字,اول,avval,最初の,first (ordinal),,A1
+数字,دوم,dovvom,2番目の,second (ordinal),,A1
+数字,سوم,sevvom,3番目の,third (ordinal),,A1
+数字,چهارم,chaharom,4番目の,fourth (ordinal),,A1
+数字,پنجم,panjom,5番目の,fifth (ordinal),,A1
+数字,ششم,sheshom,6番目の,sixth (ordinal),,A1
+数字,هفتم,haftom,7番目の,seventh (ordinal),,A1
+数字,هشتم,hashtom,8番目の,eighth (ordinal),,A1
+数字,نهم,nohom,9番目の,ninth (ordinal),,A1
+数字,دهم,dahom,10番目の,tenth (ordinal),,A1
+数字,آخر,akhar,最後の,last,,A1
+数字,نصف,nesf,半分,half,,A1
+数字,یک سوم,yek sevvom,3分の1,one third,,A1
+数字,یک چهارم,yek chaharom,4分の1,one quarter,,A1
+場所,فرودگاه,forudgah_a1,空港,airport,,A1
+場所,هتل,hotel_a1,ホテル,hotel,,A1
+場所,سوپرمارکت,supermarket,スーパーマーケット,supermarket,,A1
+場所,نانوایی,nanvayi_a1,パン屋,bakery,,A1
+場所,قصابی,ghasabi,肉屋,butcher shop,,A1
+場所,میوه فروشی,mive forushi,果物屋,fruit shop,,A1
+場所,آرایشگاه,arayeshgah,美容院,beauty salon,,A1
+場所,مسجد,masjed_a1,モスク,mosque,,A1
+場所,کلیسا,kelisa,教会,church,,A1
+場所,سینما,sinema_a1,映画館,cinema,,A1
+場所,ورزشگاه,varzeshgah_a1,体育館・スタジアム,stadium/gym,,A1
+場所,پمپ بنزین,pompe benzin_a1,ガソリンスタンド,gas station,,A1
+場所,ایستگاه اتوبوس,istgahe otobus_a1,バス停,bus stop,,A1
+場所,زمین بازی,zamine bazi,遊び場,playground,,A1
+場所,باغ وحش,baghe vahsh,動物園,zoo,,A1
+場所,استخر,estakhr,プール,swimming pool,,A1
+場所,تالار,talar,ホール,hall,,A1
+場所,پست خانه,postkhane,郵便局,post office,,A1
+場所,گلخانه,golkhane,温室,greenhouse,,A1
+場所,پارکینگ,parking_a1,駐車場,parking lot,,A1
+場所,حیاط,hayat_a1,庭,yard/courtyard,,A1
+場所,بام,bam,屋根,roof,,A1
+場所,زیرزمین,zirzamin_a1,地下,basement,,A1
+場所,توالت / دستشویی,tualet / dastshui,トイレ,toilet/bathroom,,A1
+場所,راهرو,rahro,廊下,hallway,,A1
+家庭用品,تلویزیون,televiziyon,テレビ,television,,A1
+家庭用品,کامپیوتر,kampyuter_a1,コンピューター,computer,,A1
+家庭用品,تلفن,telefon,電話,telephone,,A1
+家庭用品,شامپو,shampu,シャンプー,shampoo,,A1
+家庭用品,جاروبرقی,jaru barghi,掃除機,vacuum cleaner,,A1
+家庭用品,اتو,otu,アイロン,iron,,A1
+家庭用品,ماشین لباسشویی,mashine lebasshui,洗濯機,washing machine,,A1
+家庭用品,اجاق گاز,ojaghe gaz,ガスコンロ,gas stove,,A1
+家庭用品,فر,fer,オーブン,oven,,A1
+家庭用品,میکروفر,mikro fer,電子レンジ,microwave,,A1
+家庭用品,کتری,ketri,やかん,kettle,,A1
+家庭用品,آب گرم‌کن,ab garmkon,給湯器,water heater,,A1
+家庭用品,بخاری,bokhari,ストーブ・ヒーター,heater,,A1
+家庭用品,کولر,kuler,クーラー,cooler/AC,,A1
+家庭用品,پنکه,panke,扇風機,fan,,A1
+家庭用品,سبد,sabad,かご,basket,,A1
+家庭用品,سینک,sink,流し台,sink,,A1
+家庭用品,شیر آب,shire ab,蛇口,faucet,,A1
+家庭用品,پریز,priz,コンセント,electrical outlet,,A1
+家庭用品,باتری,batri,電池,battery,,A1
+家庭用品,شمع,sham,ろうそく,candle,,A1
+家庭用品,کبریت,kebrit,マッチ,match,,A1
+家庭用品,فندک,fandak,ライター,lighter,,A1
+家庭用品,طناب,tanab,ロープ・紐,rope,,A1
+家庭用品,جارو,jaru,ほうき,broom,,A1
+食事関連,صبحانه,sobhane,朝食,breakfast,,A1
+食事関連,ناهار,nahar,昼食,lunch,,A1
+食事関連,شام,sham_meal,夕食,dinner,,A1
+食事関連,میان وعده,miyane va'de,おやつ・間食,snack,,A1
+食事関連,سفره,sofre,食卓布,tablecloth (eating mat),,A1
+食事関連,دستمال,dastmal,ナプキン・ティッシュ,napkin/tissue,,A1
+食事関連,نمکدان,namakdan,塩入れ,salt shaker,,A1
+食事関連,استکان,estekan,グラス（小）,small glass,,A1
+食事関連,قوری,ghuri,急須・ティーポット,teapot,,A1
+食事関連,کفگیر,kafgir,お玉,ladle,,A1
+食事関連,دم کردن,dam kardan,お茶を蒸らす,to brew/steep,,A1
+食事関連,سرخ کردن,sorkh kardan,揚げる・炒める,to fry,,A1
+食事関連,جوشاندن,jushandan,沸かす,to boil,,A1
+食事関連,آب پز کردن,ab paz kardan,茹でる,to boil (food),,A1
+食事関連,بخار پز کردن,bokhar paz kardan,蒸す,to steam,,A1
+食事関連,مخلوط کردن,makhlut kardan,混ぜる,to mix,,A1
+食事関連,پوست کندن,pust kandan,皮をむく,to peel,,A1
+食事関連,رنده کردن,rande kardan,おろす,to grate,,A1
+食事関連,یخ,yakh,氷,ice,,A1
+食事関連,نوشابه,nushabe,炭酸飲料,soft drink/soda,,A1
+食事関連,شربت,sharbat,シロップ飲料,sherbet/syrup drink,,A1
+食事関連,ماست خوری,mast khori,デザートスプーン,dessert spoon,,A1
+食事関連,سرو کردن,serv kardan,配膳する,to serve (food),,A1
+食事関連,میز را چیدن,miz ra chidan,テーブルをセットする,to set the table,,A1
+食事関連,ظرف,zarf,食器,dish/container,,A1
+体の部位,مچ,moch,手首,wrist,,A1
+体の部位,ران,ran,太もも,thigh,,A1
+体の部位,ساق پا,saghe pa,すね,shin,,A1
+体の部位,مچ پا,moche pa,足首,ankle,,A1
+体の部位,کف دست,kafe dast,手のひら,palm,,A1
+体の部位,کف پا,kafe pa,足の裏,sole of foot,,A1
+体の部位,شست,shast_thumb,親指,thumb,,A1
+体の部位,گونه,gune,頬,cheek,,A1
+体の部位,چانه,chane,あご,chin,,A1
+体の部位,پیشانی,pishani,おでこ,forehead,,A1
+体の部位,گلو,galu,喉,throat,,A1
+体の部位,ریش,rish,あごひげ,beard,,A1
+体の部位,معده,me'de,胃,stomach (organ),,A1
+体の部位,کبد,kabed,肝臓,liver,,A1
+体の部位,کلیه,kolye,腎臓,kidney,,A1
+体の部位,مغز,maghz,脳,brain,,A1
+体の部位,عضله,azole,筋肉,muscle,,A1
+体の部位,رگ,rag,血管,vein,,A1
+体の部位,مفصل,mafsal,関節,joint,,A1
+体の部位,حنجره,hanjare,喉頭,larynx,,A1
+動物,ماهی,mahi_a1,魚（動物として）,fish (animal),,A1
+動物,مرغابی,morghabi,アヒル,duck,,A1
+動物,غاز,ghaz,ガチョウ,goose,,A1
+動物,بوقلمون,bughalamun,七面鳥,turkey,,A1
+動物,الاغ,olagh,ロバ,donkey,,A1
+動物,قاطر,ghater,ラバ,mule,,A1
+動物,آهو,ahu,鹿,deer,,A1
+動物,زرافه,zarafe,キリン,giraffe,,A1
+動物,کرم,kerm,虫,worm,,A1
+動物,عنکبوت,ankabut,蜘蛛,spider,,A1
+動物,سوسک,susk,ゴキブリ,cockroach,,A1
+動物,ملخ,malakh,バッタ,grasshopper,,A1
+動物,قورباغه,ghurbaghe,カエル,frog,,A1
+動物,دلفین,dolfin,イルカ,dolphin,,A1
+動物,کوسه,kuse,サメ,shark,,A1
+動物,طوطی,tuti,オウム,parrot,,A1
+動詞（日常）,تمیز کردن,tamiz kardan,掃除する,to clean,,A2
+動詞（日常）,اتو کردن,otu kardan,アイロンをかける,to iron,,A2
+動詞（日常）,جارو کردن,jaru kardan,掃く,to sweep,,A2
+動詞（日常）,آشپزی کردن,ashpazi kardan,料理する,to cook,,A2
+動詞（日常）,خرید کردن,kharid kardan,買い物する,to shop,,A2
+動詞（日常）,ورزش کردن,varzesh kardan_a2,運動する,to exercise,,A2
+動詞（日常）,قدم زدن,ghadam zadan,散歩する,to walk/stroll,,A2
+動詞（日常）,عکس گرفتن,aks gereftan_a2,写真を撮る,to take a photo,,A2
+動詞（日常）,رانندگی کردن,ranandegi kardan,運転する,to drive,,A2
+動詞（日常）,پارک کردن,park kardan,駐車する,to park,,A2
+動詞（日常）,ظرف شستن,zarf shostan,皿洗いをする,to wash dishes,,A2
+動詞（日常）,لباس شستن,lebas shostan,洗濯する,to do laundry,,A2
+動詞（日常）,دوش گرفتن,dush gereftan,シャワーを浴びる,to take a shower,,A2
+動詞（日常）,مسواک زدن,mesvak zadan,歯を磨く,to brush teeth,,A2
+動詞（日常）,شانه زدن,shane zadan,髪を梳く,to comb hair,,A2
+動詞（日常）,آرایش کردن,arayesh kardan,化粧する,to put on makeup,,A2
+動詞（日常）,اصلاح کردن,eslah kardan,ひげを剃る,to shave,,A2
+動詞（日常）,تلفن زدن,telefon zadan,電話する,to make a phone call,,A2
+動詞（日常）,پیام دادن,payam dadan,メッセージを送る,to send a message,,A2
+動詞（日常）,چک کردن,chek kardan,チェックする,to check,,A2
+動詞（日常）,سرچ کردن,search kardan,検索する,to search (online),,A2
+動詞（日常）,آپلود کردن,aplod kardan,アップロードする,to upload,,A2
+動詞（日常）,دانلود کردن,danlod kardan,ダウンロードする,to download,,A2
+動詞（日常）,امضا کردن,emza kardan,署名する,to sign,,A2
+動詞（日常）,نصب کردن,nasb kardan,取り付ける・インストールする,to install,,A2
+動詞（日常）,تعمیر کردن,tamir kardan,修理する,to repair,,A2
+動詞（日常）,اجاره کردن,ejare kardan,借りる・賃貸する,to rent,,A2
+動詞（日常）,عوض شدن,avaz shodan,変わる,to change (intransitive),,A2
+動詞（日常）,قبول کردن,ghabul kardan,受け入れる,to accept,,A2
+動詞（日常）,رد کردن,rad kardan,断る・拒否する,to reject,,A2
+動詞（日常）,تبریک گفتن,tabrik goftan,お祝いを言う,to congratulate,,A2
+動詞（日常）,دعوت کردن,da'vat kardan,招待する,to invite,,A2
+動詞（日常）,معرفی کردن,mo'arefi kardan,紹介する,to introduce,,A2
+動詞（日常）,توضیح دادن,tozih dadan,説明する,to explain,,A2
+動詞（日常）,ثبت نام کردن,sabte nam kardan,登録する,to register,,A2
+動詞（日常）,مقایسه کردن,moghayese kardan,比較する,to compare,,A2
+動詞（日常）,تقسیم کردن,taghsim kardan,分ける,to divide,,A2
+動詞（日常）,حدس زدن,hads zadan,推測する,to guess,,A2
+動詞（日常）,انتخاب کردن,entekhab kardan,選ぶ,to choose,,A2
+動詞（日常）,جمع آوری کردن,jam avari kardan,収集する,to gather/collect,,A2
+動詞（日常）,نگاه کردن,negah kardan,見る（意識的に）,to look at,,A2
+動詞（日常）,گوش دادن,gush dadan,聞く（意識的に）,to listen,,A2
+動詞（日常）,حمل کردن,haml kardan,運ぶ,to carry,,A2
+動詞（日常）,اضافه کردن,ezafe kardan,加える,to add,,A2
+動詞（日常）,کم کردن,kam kardan,減らす,to reduce,,A2
+動詞（日常）,روشن کردن,roshan kardan,つける（明かり・機器）,to turn on,,A2
+動詞（日常）,خاموش کردن,khamush kardan,消す（明かり・機器）,to turn off,,A2
+動詞（日常）,قفل کردن,ghofl kardan,鍵をかける,to lock,,A2
+動詞（日常）,پست کردن,post kardan,郵送する・投稿する,to mail/post,,A2
+動詞（日常）,بسته بندی کردن,baste bandi kardan,梱包する,to pack,,A2
+動詞（日常）,سوار شدن,savar shodan,乗る（乗り物に）,to get on/board,,A2
+動詞（日常）,پیاده شدن,piyade shodan,降りる（乗り物から）,to get off,,A2
+動詞（日常）,عبور کردن,obur kardan,横断する,to cross,,A2
+動詞（日常）,گم شدن,gom shodan,迷子になる,to get lost,,A2
+動詞（日常）,ترجمه کردن,tarjome kardan,翻訳する,to translate,,A2
+動詞（日常）,تکرار کردن,tekrar kardan,繰り返す,to repeat,,A2
+動詞（日常）,حفظ کردن,hefz kardan,暗記する,to memorize,,A2
+動詞（日常）,تمرین کردن,tamrin kardan,練習する,to practice,,A2
+動詞（日常）,آماده کردن,amade kardan,準備する,to prepare,,A2
+動詞（日常）,سفارش دادن,sefaresh dadan,注文する,to order,,A2
+動詞（日常）,چسباندن,chasbandan,貼る,to stick/paste,,A2
+動詞（日常）,جدا کردن,joda kardan,分離する,to separate,,A2
+動詞（日常）,پیچیدن,pichidan_a2,包む,to wrap,,A2
+動詞（日常）,آویزان کردن,avizan kardan,吊るす・掛ける,to hang,,A2
+動詞（日常）,خشک کردن,khoshk kardan,乾かす,to dry,,A2
+動詞（日常）,خیساندن,khisandan,浸す,to soak,,A2
+動詞（日常）,له کردن,leh kardan,潰す,to crush,,A2
+動詞（日常）,فشار دادن,feshar dadan,押す,to push/press,,A2
+動詞（日常）,وصل کردن,vasl kardan,つなぐ,to connect,,A2
+動詞（日常）,قطع کردن,ghat kardan,切断する・遮断する,to disconnect/cut,,A2
+動詞（日常）,شارژ کردن,sharzh kardan,充電する,to charge,,A2
+動詞（日常）,عوض کردن,avaz kardan_a2,着替える,to change (clothes),,A2
+動詞（日常）,امانت دادن,amanat dadan,貸す,to lend,,A2
+動詞（日常）,قرض گرفتن,gharz gereftan,借りる,to borrow,,A2
+動詞（日常）,ذخیره کردن,zakhire kardan,保存する,to save/store,,A2
+動詞（日常）,حذف کردن,hazf kardan,削除する,to delete,,A2
+感情・状態,هیجان‌زده,hayajan zade,興奮した,excited,,A2
+感情・状態,ترسیده,tarside,怖がった,frightened,,A2
+感情・状態,شگفت‌زده,shegeft zade,驚いた,amazed,,A2
+感情・状態,بی‌حوصله,bi howsele,退屈した,bored/impatient,,A2
+感情・状態,دلخور,delkhor,気分を害した,upset/offended,,A2
+感情・状態,عصبی,asabi,いらいらした,nervous/angry,,A2
+感情・状態,آسوده,asude,安心した,relieved/at ease,,A2
+感情・状態,سرحال,sarhal,元気な,energetic/cheerful,,A2
+感情・状態,بی‌حال,bi hal,だるい,lethargic,,A2
+感情・状態,کلافه,kalafe,イライラした,irritated/frustrated,,A2
+感情・状態,مضطرب,moztareb,不安な,anxious,,A2
+感情・状態,مطمئن,motma'en,確信している,confident/sure,,A2
+感情・状態,راحت,rahat,楽な・安心な,comfortable,,A2
+感情・状態,ناراحت,narahat_a2,不快な・悲しい,upset/sad,,A2
+感情・状態,شرمنده,sharmande,申し訳ない,ashamed/sorry,,A2
+感情・状態,ممنون,mamnun,感謝している,grateful,,A2
+感情・状態,سپاسگزار,sepasgozar,感謝している（フォーマル）,thankful (formal),,A2
+感情・状態,خشمگین,khashmegin,激怒した,furious,,A2
+感情・状態,مغرور,maghrur,傲慢な,proud/arrogant,,A2
+感情・状態,حسود,hasud,嫉妬深い,jealous/envious,,A2
+感情・状態,تنها,tanha_a2,孤独な,lonely,,A2
+感情・状態,بی‌تاب,bi tab,じっとしていられない,restless,,A2
+感情・状態,دلتنگ,deltang,寂しい・恋しい,homesick/missing,,A2
+感情・状態,پشیمان,pashiman,後悔している,regretful,,A2
+感情・状態,مشتاق,moshtagh,待ち遠しい・熱望する,eager,,A2
+感情・状態,بی‌خیال,bi khiyal,気にしない,carefree,,A2
+感情・状態,حوصله داشتن,howsele dashtan,辛抱強い,patient,,A2
+感情・状態,سیر,sir_a2,お腹いっぱいの,full (after eating),,A2
+感情・状態,بیمار,bimar_a2,具合が悪い,sick/ill,,A2
+感情・状態,سالم,salem,健康な,healthy,,A2
+感情・状態,زنده,zende,生きている,alive,,A2
+感情・状態,مرده,morde,死んでいる,dead,,A2
+感情・状態,بیدار,bidar,起きている,awake,,A2
+感情・状態,خواب‌آلود,khab alud,眠い,sleepy,,A2
+感情・状態,مست,mast_a2,酔った,drunk,,A2
+感情・状態,هوشیار,hushyar,意識がある・聡明な,alert/sober,,A2
+感情・状態,سرگرم,sargarm,夢中な,absorbed/entertained,,A2
+感情・状態,ناامن,na amn,不安全な,unsafe,,A2
+感情・状態,امن,amn,安全な,safe,,A2
+感情・状態,سردرگم,sardargom,困惑した,confused,,A2
+家事・生活,نظافت,nezafat,清掃,cleaning,,A2
+家事・生活,خانه تکانی,khane tekani,大掃除,spring cleaning,,A2
+家事・生活,خرید رفتن,kharid raftan,買い物に行く,to go shopping,,A2
+家事・生活,آشغال,ashghal,ゴミ,garbage/trash,,A2
+家事・生活,بازیافت کردن,bazyaft kardan,リサイクルする,to recycle,,A2
+家事・生活,گرد و خاک,gard o khak,ほこり,dust,,A2
+家事・生活,گرد گیری,gard giri,ほこり取り,dusting,,A2
+家事・生活,شستشو,shosteshu,洗い物,washing,,A2
+家事・生活,آبیاری,abiyari,水やり,watering,,A2
+家事・生活,باغبانی کردن,baghbani kardan,ガーデニングする,to garden,,A2
+家事・生活,تعمیرات,tamirat,修繕・修理,repairs,,A2
+家事・生活,نقاشی کردن,naghashi kardan,ペンキを塗る・絵を描く,to paint,,A2
+家事・生活,خیاطی کردن,khayati kardan,裁縫する,to sew,,A2
+家事・生活,لباس خشک کردن,lebas khoshk kardan,洗濯物を干す,to dry clothes,,A2
+家事・生活,تا کردن,ta kardan,たたむ,to fold,,A2
+家事・生活,مرتب کردن,morattab kardan,整理する,to tidy up,,A2
+家事・生活,قالی شویی,ghali shui,絨毯洗い,carpet washing,,A2
+家事・生活,سفید کردن,sefid kardan,漂白する,to bleach,,A2
+家事・生活,خشکشویی,khoshkshui,ドライクリーニング,dry cleaning,,A2
+家事・生活,رختشویخانه,rakhtshui khane,ランドリー,laundry room,,A2
+家事・生活,نظم دادن,nazm dadan,整頓する,to organize,,A2
+家事・生活,پخت و پز,pokht o paz,調理,cooking (general),,A2
+家事・生活,آشپزخانه تمیز کردن,ashpazkhane tamiz kardan,台所を掃除する,to clean the kitchen,,A2
+家事・生活,بیرون بردن آشغال,birun bordan ashghal,ゴミを出す,to take out the trash,,A2
+家事・生活,بچه داری,bache dari,育児,childcare,,A2
+家事・生活,غذا دادن,ghaza dadan,食事を与える,to feed,,A2
+家事・生活,قبض,ghabz,請求書・領収書,bill/receipt,,A2
+家事・生活,اجاره,ejare,家賃,rent,,A2
+家事・生活,قسط,ghest,分割払い,installment,,A2
+家事・生活,وام مسکن,vame maskan,住宅ローン,mortgage/housing loan,,A2
+食べ物（詳細）,کباب کوبیده,kababe kubide,コビデケバブ,koobideh kebab,ひき肉ケバブ,A2
+食べ物（詳細）,کباب برگ,kababe barg,バルグケバブ,barg kebab,薄切り肉ケバブ,A2
+食べ物（詳細）,جوجه کباب,juje kabab,ジュジェケバブ,joojeh kebab,鶏肉ケバブ,A2
+食べ物（詳細）,چلوکباب,chelokabab,チェロケバブ,chelow kebab,ご飯＋ケバブ,A2
+食べ物（詳細）,خورشت قیمه,khoresht gheyma,ゲイメシチュー,gheymeh stew,スプリットピーのシチュー,A2
+食べ物（詳細）,خورشت فسنجان,khoresht fesenjan,フェセンジャーン,fesenjaan stew,くるみ・ザクロのシチュー,A2
+食べ物（詳細）,آش رشته,ashe reshte,アーシュレシテ,ash-e reshteh,麺入りスープ,A2
+食べ物（詳細）,آبگوشت,abgusht,アーブグーシュト,abgoosht,肉と豆のスープ,A2
+食べ物（詳細）,دلمه,dolme,ドルメ,dolmeh,ぶどうの葉巻き,A2
+食べ物（詳細）,کوکو,kuku,ククー,kookoo,イラン式オムレツ,A2
+食べ物（詳細）,کوکو سبزی,kukuye sabzi,ククーサブジー,kookoo sabzi,ハーブオムレツ,A2
+食べ物（詳細）,باقالی پلو,baghali polo,バガリポロ,baghali polo,そら豆ご飯,A2
+食べ物（詳細）,سبزی پلو,sabzi polo,サブジポロ,sabzi polo,ハーブご飯,A2
+食べ物（詳細）,تهچین,tahchin,タフチーン,tahchin,米のケーキ,A2
+食べ物（詳細）,کشک بادمجان,kashke bademjan,カシュケバーデムジャーン,kashk-e bademjaan,なすとホエーのディップ,A2
+食べ物（詳細）,میرزا قاسمی,mirza ghasemi,ミルザーガーセミー,mirza ghasemi,なすとトマトの料理,A2
+食べ物（詳細）,فلافل,falafel,ファラフェル,falafel,,A2
+食べ物（詳細）,ساندویچ,sandvich,サンドイッチ,sandwich,,A2
+食べ物（詳細）,پیتزا,piteza,ピザ,pizza,,A2
+食べ物（詳細）,همبرگر,hamburger,ハンバーガー,hamburger,,A2
+食べ物（詳細）,سوسیس,sosis,ソーセージ,sausage,,A2
+食べ物（詳細）,کالباس,kalbas,ハム・ボロニア,cold cuts/bologna,,A2
+食べ物（詳細）,ترشی,torshi,ピクルス・漬物,pickles,,A2
+食べ物（詳細）,رب انار,robbe anar,ザクロペースト,pomegranate paste,,A2
+食べ物（詳細）,رب گوجه,robbe goje,トマトペースト,tomato paste,,A2
+食べ物（詳細）,زعفران دم کرده,za'ferane dam karde,サフラン液,brewed saffron,,A2
+食べ物（詳細）,زرشک,zereshk,バーベリー,barberry,イラン料理でよく使う,A2
+食べ物（詳細）,لیمو عمانی,limu omani,乾燥ライム,dried lime,イラン料理のスパイス,A2
+食べ物（詳細）,زردچوبه,zardchube,ターメリック,turmeric,,A2
+食べ物（詳細）,دارچین,darchin,シナモン,cinnamon,,A2
+食べ物（詳細）,زیره,zire,クミン,cumin,,A2
+食べ物（詳細）,نعناع,na'na,ミント,mint,,A2
+食べ物（詳細）,جعفری,ja'fari,パセリ,parsley,,A2
+食べ物（詳細）,شوید,shevid,ディル,dill,,A2
+食べ物（詳細）,ریحان,reyhan,バジル,basil,,A2
+食べ物（詳細）,تره,tare,ニラ・リーク,leek/chive,,A2
+食べ物（詳細）,گشنیز,geshniz,コリアンダー,coriander/cilantro,,A2
+食べ物（詳細）,آش دوغ,ashe dugh,アーシュドゥーグ,ash-e doogh,ヨーグルトスープ,A2
+食べ物（詳細）,شله زرد,shole zard,ショレザルド,sholeh zard,サフランライスプディング,A2
+食べ物（詳細）,فرنی,fereni,フェレニー,fereni,ライスプディング,A2
+食べ物（詳細）,حلوا,halva,ハルワー,halva,小麦粉の甘い菓子,A2
+食べ物（詳細）,زولبیا و بامیه,zulbia o bamiye,ゾルビアーバーミエ,zoolbia bamieh,ラマダンの揚げ菓子,A2
+食べ物（詳細）,باقلوا,baghlava,バクラヴァ,baklava,,A2
+食べ物（詳細）,گز,gaz,ガズ,gaz,イスファハーンの名菓,A2
+食べ物（詳細）,سوهان,sohan,ソハン,sohan,コムの名菓,A2
+食べ物（詳細）,لواشک,lavashak,ラヴァーシャク,lavashak,フルーツレザー,A2
+食べ物（詳細）,نبات,nabat,ナバート,nabat,氷砂糖,A2
+食べ物（詳細）,لواش,lavash,ラヴァーシュ,lavash,薄いパン,A2
+食べ物（詳細）,بربری,barbari,バルバリー,barbari,厚いパン,A2
+食べ物（詳細）,سنگک,sangak,サンガク,sangak,石焼きパン,A2
+食べ物（詳細）,تافتون,taftun,タフトゥーン,taftoon,薄いパンの一種,A2
+交通（詳細）,مسافرت هوایی,mosaferate havayi,空の旅,air travel,,A2
+交通（詳細）,پرواز,parvaz,フライト,flight,,A2
+交通（詳細）,فرود,forud,着陸,landing,,A2
+交通（詳細）,بلند شدن,boland shodan,離陸する,to take off,,A2
+交通（詳細）,مسافر,mosafer_a2,乗客,passenger,,A2
+交通（詳細）,باند فرودگاه,bande forudgah,滑走路,runway,,A2
+交通（詳細）,ترمینال,terminal,ターミナル,terminal,,A2
+交通（詳細）,گیت,geyt,搭乗ゲート,gate,,A2
+交通（詳細）,تأخیر,ta'khir,遅延,delay,,A2
+交通（詳細）,لغو شدن,laghv shodan,欠航する,to be canceled,,A2
+交通（詳細）,مسیر دوچرخه,masire docharakhe,自転車道,bike lane,,A2
+交通（詳細）,پیاده رو,piyade rou,歩道,sidewalk,,A2
+交通（詳細）,بن بست,bon bast,行き止まり,dead end,,A2
+交通（詳細）,دور برگردان,dor bargardan,Uターン,U-turn,,A2
+交通（詳細）,میدان,meydan_a2,ロータリー,roundabout,,A2
+交通（詳細）,یکطرفه,yek tarafe,一方通行,one-way,,A2
+買い物表現,تخفیف,takhfif_a2,割引,discount,,A2
+買い物表現,چانه زدن,chane zadan,値切る,to bargain,,A2
+買い物表現,قیمت,gheymat_a2,値段,price,,A2
+買い物表現,گرون,gerun,高い（口語）,expensive (colloquial),,A2
+買い物表現,ارزون,arzun,安い（口語）,cheap (colloquial),,A2
+買い物表現,رنگ,rang,色,color,,A2
+買い物表現,اندازه,andaze,大きさ・サイズ,size/measure,,A2
+買い物表現,پرو کردن,prov kardan,試着する,to try on,,A2
+買い物表現,جور,jur,種類,type/kind,,A2
+買い物表現,عدد,adad,個（助数詞）,piece/unit,,A2
+買い物表現,کیلو,kilo,キロ,kilogram,,A2
+買い物表現,بسته,baste_a2,パック・箱,package,,A2
+買い物表現,قطعه,ghete,個・部品,piece/part,,A2
+買い物表現,جفت,joft_a2,ペア・足,pair,,A2
+買い物表現,دانه,dane,粒・個,grain/piece,,A2
+買い物表現,لیست خرید,liste kharid,買い物リスト,shopping list,,A2
+買い物表現,نقدی,naghdi,現金で,in cash,,A2
+買い物表現,کارت,kart,カード,card,,A2
+買い物表現,پرداخت,pardakht,支払い,payment,,A2
+買い物表現,باقیمانده,baghimande,おつり,change (money),,A2
+買い物表現,فیش,fish,レシート,receipt/slip,,A2
+買い物表現,مدل,model,モデル・型,model,,A2
+買い物表現,مارک,mark,ブランド,brand,,A2
+買い物表現,دست دوم,daste dovvom,中古,second-hand,,A2
+買い物表現,نو,now,新品の,new (item),,A2
+時間表現,ماه,mah_a2,月（期間）,month,,A2
+時間表現,روز,ruz,日,day,,A2
+時間表現,لحظه,lahze,瞬間,moment,,A2
+時間表現,مدت,moddat,期間,duration/period,,A2
+時間表現,همیشه,hamishe,いつも,always,,A2
+時間表現,هرگز,hargez,決して〜ない,never,,A2
+時間表現,اغلب,aghlab,たいてい,usually/often,,A2
+時間表現,گاهی,gahi,時々,sometimes,,A2
+時間表現,بعد,ba'd,後で,after/later,,A2
+時間表現,قبل,ghabl,前に,before,,A2
+時間表現,بعداً,ba'dan,後で,later,,A2
+時間表現,اول,avval_a2,最初に,first (adv),,A2
+時間表現,آخر,akhar_a2,最後に,lastly,,A2
+時間表現,بین,beyn,間に,between,,A2
+時間表現,تا,ta,まで,until,,A2
+時間表現,از,az,から,from/since,,A2
+時間表現,وقتی,vaghti,〜の時,when,,A2
+時間表現,هر روز,har ruz,毎日,every day,,A2
+時間表現,هر هفته,har hafte,毎週,every week,,A2
+時間表現,هر ماه,har mah,毎月,every month,,A2
+時間表現,هر سال,har sal,毎年,every year,,A2
+時間表現,زود,zud_a2,早く,early/soon,,A2
+時間表現,دیر,dir,遅く,late,,A2
+時間表現,نیم ساعت,nim saat,30分,half an hour,,A2
+時間表現,ربع ساعت,rob'e saat,15分,quarter of an hour,,A2
+時間表現,امشب,emshab,今夜,tonight,,A2
+時間表現,دیشب,dishab,昨夜,last night,,A2
+時間表現,فردا شب,farda shab,明日の夜,tomorrow night,,A2
+時間表現,آینده,ayande_a2,将来,future,,A2
+時間表現,گذشته,gozashte_a2,過去,past,,A2
+趣味・娯楽,فیلم دیدن,film didan,映画を観る,to watch a movie,,A2
+趣味・娯楽,موسیقی گوش دادن,musighi gush dadan,音楽を聴く,to listen to music,,A2
+趣味・娯楽,کتاب خواندن,ketab khandan_a2,本を読む,to read books,,A2
+趣味・娯楽,آشپزی,ashpazi_a2,料理（趣味として）,cooking (hobby),,A2
+趣味・娯楽,گردش,gardesh,散策・ドライブ,outing/excursion,,A2
+趣味・娯楽,کمپ,camp,キャンプ,camping,,A2
+趣味・娯楽,بازی ویدئویی,baziye video'i,テレビゲーム,video game,,A2
+趣味・娯楽,پازل,pazl,パズル,puzzle,,A2
+趣味・娯楽,نمایش,namayesh_a2,演劇,theater/show,,A2
+趣味・娯楽,کنسرت,konsert,コンサート,concert,,A2
+趣味・娯楽,سریال,serial,ドラマ,TV series,,A2
+趣味・娯楽,کارتون,kartun,アニメ,cartoon/animation,,A2
+趣味・娯楽,بازیگر,bazigare,俳優,actor,,A2
+趣味・娯楽,کارگردان,kargardan,監督,director,,A2
+趣味・娯楽,صحنه,sahne_a2,舞台,stage,,A2
+趣味・娯楽,بلیت,bilit_a2,チケット,ticket,,A2
+趣味・娯楽,تماشا کردن,tamasha kardan,観る,to watch,,A2
+趣味・娯楽,لذت بردن,lezzat bordan,楽しむ,to enjoy,,A2
+趣味・娯楽,هنر,honar,芸術,art,,A2
+趣味・娯楽,هنرمند,honarmand,芸術家,artist,,A2
+趣味・娯楽,خوشگذرانی,khoshgozarani,楽しい時間,having fun,,A2
+趣味・娯楽,مهمانی,mehmani,パーティー,party,,A2
+趣味・娯楽,جشن,jashn,お祝い,celebration,,A2
+趣味・娯楽,تولد,tavallod,誕生日,birthday,,A2
+趣味・娯楽,عروسی,arusi,結婚式,wedding,,A2
+趣味・娯楽,کادو,kado,プレゼント,gift,,A2
+趣味・娯楽,شمع,sham_a2,ろうそく（パーティー）,candle (party),,A2
+趣味・娯楽,بادکنک,badkonak,風船,balloon,,A2
+趣味・娯楽,کف زدن,kaf zadan,拍手する,to clap,,A2
+趣味・娯楽,تفریح,tafrih,レジャー・娯楽,recreation/fun,,A2
+健康基礎,سرماخوردن,sarma khordan,風邪をひく,to catch a cold,,A2
+健康基礎,تب داشتن,tab dashtan,熱がある,to have a fever,,A2
+健康基礎,سردرد داشتن,sardard dashtan,頭が痛い,to have a headache,,A2
+健康基礎,دل درد,del dard,腹痛,stomachache,,A2
+健康基礎,دندان درد,dandan dard,歯痛,toothache,,A2
+健康基礎,کمر درد,kamar dard,腰痛,backache,,A2
+健康基礎,گلو درد,galu dard,喉の痛み,sore throat,,A2
+健康基礎,سرگیجه,sargije,めまい,dizziness,,A2
+健康基礎,حالت تهوع,halate tahavvo,吐き気,nausea,,A2
+健康基礎,آبریزش بینی,abrizeshe bini,鼻水,runny nose,,A2
+健康基礎,عطسه,atse,くしゃみ,sneeze,,A2
+健康基礎,سرفه کردن,sorfe kardan,咳をする,to cough,,A2
+健康基礎,قرص خوردن,ghors khordan,薬を飲む,to take a pill,,A2
+健康基礎,آمپول زدن,ampul zadan,注射する,to give an injection,,A2
+健康基礎,نوبت دکتر,nobate doktor,診察の予約,doctor's appointment,,A2
+健康基礎,بخش اورژانس,bakhshe orzhans,救急外来,emergency room,,A2
+健康基礎,آزمایش خون,azmayeshe khun,血液検査,blood test,,A2
+健康基礎,فشار سنج,feshar sanj,血圧計,blood pressure monitor,,A2
+健康基礎,دماسنج,dama sanj,体温計,thermometer,,A2
+健康基礎,باند,band,包帯,bandage,,A2
+健康基礎,چسب زخم,chasbe zakhm,絆創膏,band-aid,,A2
+健康基礎,مسکن,mosakken,鎮痛剤,painkiller,,A2
+健康基礎,آنتی بیوتیک,anti biyotik,抗生物質,antibiotic,,A2
+健康基礎,ویتامین,vitamin,ビタミン,vitamin,,A2
+健康基礎,رژیم غذایی,rezhime ghazayi,食事療法,diet,,A2
+職業（追加）,معلم,moalem_a2,先生,teacher,,A2
+職業（追加）,دکتر,doktor,医者,doctor,,A2
+職業（追加）,آشپز,ashpaz,コック・シェフ,cook/chef,,A2
+職業（追加）,فروشنده,forushande_a2,販売員,salesperson,,A2
+職業（追加）,کارمند,karmand,会社員・公務員,employee,,A2
+職業（追加）,کارگر,kargar,労働者,worker,,A2
+職業（追加）,نویسنده,nevisande_a2,作家,writer,,A2
+職業（追加）,بازیگر,bazigare_a2,俳優,actor/actress,,A2
+職業（追加）,خواننده,khanande,歌手,singer,,A2
+職業（追加）,نوازنده,navazande,演奏家,musician,,A2
+職業（追加）,هنرپیشه,honarpishe,役者,actor (theater),,A2
+職業（追加）,نقاش ساختمان,naghash sakhteman,塗装工,house painter,,A2
+職業（追加）,لوله کش,lule kesh,配管工,plumber,,A2
+職業（追加）,برقکار,barghkar,電気技師,electrician,,A2
+職業（追加）,سرباز,sarbaz,兵士,soldier,,A2
+職業（追加）,افسر,afsar,将校,officer,,A2
+職業（追加）,صندوقدار,sandughdar,レジ係,cashier,,A2
+職業（追加）,نگهبان,negahban,警備員,security guard,,A2
+職業（追加）,پستچی,postchi,郵便配達員,mail carrier,,A2
+職業（追加）,مترجم,motarjem,通訳・翻訳者,translator/interpreter,,A2
+職業（追加）,بازرگان,bazargan,商人,merchant,,A2
+職業（追加）,داروساز,darusaz,薬剤師,pharmacist,,A2
+職業（追加）,دامپزشک,dampezeshk,獣医,veterinarian,,A2
+職業（追加）,ماما,mama,助産師,midwife,,A2
+職業（追加）,روحانی,ruhani,聖職者,cleric/clergyman,,A2
+方向・位置（追加）,بالا,bala,上,up/above,,A2
+方向・位置（追加）,پایین,payin,下,down/below,,A2
+方向・位置（追加）,جلو,jelo,前,front,,A2
+方向・位置（追加）,عقب,aghab,後ろ,back/behind,,A2
+方向・位置（追加）,کنار,kenar,横・そば,beside/next to,,A2
+方向・位置（追加）,نزدیک,nazdik_a2,近く,near/close,,A2
+方向・位置（追加）,دور,dur_a2,遠く,far,,A2
+方向・位置（追加）,داخل,dakhel,中,inside,,A2
+方向・位置（追加）,بیرون,birun,外,outside,,A2
+方向・位置（追加）,زیر,zir,下に,under,,A2
+方向・位置（追加）,رو / روی,ru / ruye,上に,on/on top of,,A2
+方向・位置（追加）,پشت,poshte,後ろ側,behind,,A2
+方向・位置（追加）,وسط,vasate,真ん中,in the middle,,A2
+方向・位置（追加）,اینجا,inja,ここ,here,,A2
+方向・位置（追加）,آنجا,anja,あそこ,there,,A2
+方向・位置（追加）,همه جا,hame ja,どこでも,everywhere,,A2
+方向・位置（追加）,هیچ جا,hich ja,どこにも〜ない,nowhere,,A2
+方向・位置（追加）,اطراف,atraf,周り,around/surroundings,,A2
+方向・位置（追加）,مقابل,moghabel,向かい,opposite,,A2
+方向・位置（追加）,کجا,koja,どこ,where,,A2
+天気（追加）,آفتابی,aftabi,晴れた,sunny,,A2
+天気（追加）,بارانی,barani,雨の,rainy,,A2
+天気（追加）,برفی,barfi,雪の,snowy,,A2
+天気（追加）,مه,meh,霧,fog,,A2
+天気（追加）,طوفان,tufan,嵐,storm,,A2
+天気（追加）,رطوبت,rutubat,湿度,humidity,,A2
+天気（追加）,خشک,khoshk_a2,乾燥した,dry (weather),,A2
+天気（追加）,یخبندان,yakhbandan,氷点下,freezing,,A2
+天気（追加）,گرما,garma,暑さ,heat,,A2
+天気（追加）,سرما,sarma,寒さ,cold (noun),,A2
+天気（追加）,دمای هوا,damaye hava,気温,temperature,,A2
+天気（追加）,درجه,daraje,度,degree,,A2
+天気（追加）,خورشید گرفتگی,khorshid gereftegi,日食,solar eclipse,,A2
+天気（追加）,ماه گرفتگی,mah gereftegi,月食,lunar eclipse,,A2
+天気（追加）,رنگین کمان,rangin kaman,虹,rainbow,,A2
+自然（追加）,دشت,dasht_a2,平原,plain,,A2
+自然（追加）,صحرا,sahra,砂漠,desert,,A2
+自然（追加）,جزیره,jazire_a2,島,island,,A2
+自然（追加）,اقیانوس,oghyanus,大洋,ocean,,A2
+自然（追加）,چشمه,cheshme_a2,泉,spring (water),,A2
+自然（追加）,آبشار,abshar_a2,滝,waterfall,,A2
+自然（追加）,غار,ghar,洞窟,cave,,A2
+自然（追加）,تپه,tappe,丘,hill,,A2
+自然（追加）,ساحل,sahel_a2,浜辺,beach,,A2
+自然（追加）,ماسه,mase,砂,sand,,A2
+自然（追加）,صخره,sakhre,岩,rock/cliff,,A2
+自然（追加）,علف,alaf,草,grass,,A2
+自然（追加）,بوته,bute,茂み,bush,,A2
+自然（追加）,ریشه,rishe,根,root,,A2
+自然（追加）,شاخه,shakhe,枝,branch,,A2
+自然（追加）,تنه,tane,幹,trunk (tree),,A2
+自然（追加）,میوه,mive,果実,fruit,,A2
+自然（追加）,بذر,bazr,種,seed,,A2
+自然（追加）,مزرعه,mazra'e,農場,farm,,A2
+自然（追加）,چمن,chaman,芝生,lawn/grass,,A2
+形容詞（追加）,ارزان,arzan_a2,安い,cheap,,A2
+形容詞（追加）,گران,geran_a2,高い（値段）,expensive,,A2
+形容詞（追加）,تازه,taze_a2,新鮮な,fresh,,A2
+形容詞（追加）,کهنه,kohne_a2,古い,old (thing),,A2
+形容詞（追加）,خشک,khoshk_a2adj,乾いた,dry,,A2
+形容詞（追加）,خیس,khis_a2,濡れた,wet,,A2
+形容詞（追加）,تمیز,tamiz_a2,きれいな,clean,,A2
+形容詞（追加）,کثیف,kasif_a2,汚い,dirty,,A2
+形容詞（追加）,راحت,rahat_a2,快適な,comfortable,,A2
+形容詞（追加）,سخت,sakht_a2,難しい,difficult,,A2
+形容詞（追加）,آسان,asan,簡単な,easy,,A2
+形容詞（追加）,ممکن,momken,可能な,possible,,A2
+形容詞（追加）,غیرممکن,gheyre momken,不可能な,impossible,,A2
+形容詞（追加）,لازم,lazem,必要な,necessary,,A2
+形容詞（追加）,مفید,mofid_a2,役立つ,useful,,A2
+形容詞（追加）,بی فایده,bi fayede,無駄な,useless,,A2
+形容詞（追加）,مهم,mohem_a2,重要な,important,,A2
+形容詞（追加）,عادی,adi,普通の,ordinary/normal,,A2
+形容詞（追加）,خاص,khas,特別な,special,,A2
+形容詞（追加）,عجیب,ajib,不思議な・変な,strange,,A2
+形容詞（追加）,معمولی,ma'muli,普通の・ありふれた,common/ordinary,,A2
+形容詞（追加）,حرفه ای,herfeyi,プロの,professional,,A2
+形容詞（追加）,رایگان,rayegan,無料の,free (no cost),,A2
+形容詞（追加）,پولی,puli,有料の,paid/costly,,A2
+形容詞（追加）,زنده,zende_a2,ライブの・生きた,live/alive,,A2
+形容詞（追加）,مرده,morde_a2,死んだ,dead,,A2
+形容詞（追加）,خوشگل,khoshgel,きれいな（口語）,pretty (colloquial),,A2
+形容詞（追加）,زیبا,ziba_a2,美しい,beautiful,,A2
+形容詞（追加）,بدترین,badtarin,最悪の,worst,,A2
+形容詞（追加）,بهترین,behtarin,最高の,best,,A2
+形容詞（追加）,بیشتر,bishtar,もっと多い,more,,A2
+形容詞（追加）,کمتر,kamtar,もっと少ない,less,,A2
+形容詞（追加）,بهتر,behtar,より良い,better,,A2
+形容詞（追加）,بدتر,badtar,より悪い,worse,,A2
+形容詞（追加）,بزرگتر,bozorgtar,より大きい,bigger,,A2
+形容詞（追加）,کوچکتر,kuchaktar,より小さい,smaller,,A2
+形容詞（追加）,قوی,ghavi,強い,strong,,A2
+形容詞（追加）,ضعیف,za'if,弱い,weak,,A2
+形容詞（追加）,باهوش,bahush,頭が良い,smart/intelligent,,A2
+形容詞（追加）,احمق,ahmagh,ばかな,stupid,,A2
+形容詞（追加）,شجاع,shoja,勇敢な,brave,,A2
+形容詞（追加）,ترسو,tarsu,臆病な,coward,,A2
+接続詞・前置詞,ولی,vali,しかし,but,,A2
+接続詞・前置詞,اما,amma,しかし,but/however,,A2
+接続詞・前置詞,چون,chon,なぜなら,because,,A2
+接続詞・前置詞,برای,baraye,〜のために,for,,A2
+接続詞・前置詞,با,ba,〜と一緒に,with,,A2
+接続詞・前置詞,بدون,bedun,〜なしで,without,,A2
+接続詞・前置詞,بین,beyne,〜の間,between,,A2
+接続詞・前置詞,مثل,mesle,〜のように,like/as,,A2
+接続詞・前置詞,به جز,be joz,〜以外,except,,A2
+接続詞・前置詞,به خاطر,be khatere,〜のせいで,because of,,A2
+接続詞・前置詞,یا,ya,または,or,,A2
+接続詞・前置詞,و,va,と・そして,and,,A2
+接続詞・前置詞,اگر,agar,もし,if,,A2
+接続詞・前置詞,که,ke,〜ということ,that/which,,A2
+接続詞・前置詞,هم,ham,〜も,also/too,,A2
+接続詞・前置詞,حتی,hatta,〜さえ,even,,A2
+接続詞・前置詞,بنابراین,banabarin,したがって,therefore,,A2
+接続詞・前置詞,همچنین,hamchenin,また・同様に,also/likewise,,A2
+接続詞・前置詞,درباره,darbare,〜について,about,,A2
+接続詞・前置詞,به,be,〜に・〜へ,to,,A2
+家族呼称（口語）,مامان,maman,ママ,mom,,A2
+家族呼称（口語）,بابا,baba,パパ,dad,,A2
+家族呼称（口語）,آقاجون,agha jun,おじいちゃん,grandpa (affectionate),,A2
+家族呼称（口語）,خانم‌جون,khanom jun,おばあちゃん,grandma (affectionate),,A2
+家族呼称（口語）,عزیزم,azizam,私の大切な人,my dear,,A2
+家族呼称（口語）,جونم,junam,私の命（愛称）,my soul (endearment),,A2
+家族呼称（口語）,عمو جون,amu jun,おじちゃん（父方）,uncle (paternal affectionate),,A2
+家族呼称（口語）,خاله جون,khale jun,おばちゃん（母方）,auntie (maternal affectionate),,A2
+家族呼称（口語）,دایی جون,dayi jun,おじちゃん（母方）,uncle (maternal affectionate),,A2
+家族呼称（口語）,عمه جون,amme jun,おばちゃん（父方）,auntie (paternal affectionate),,A2
+家族呼称（口語）,زن داداش,zane dadash,兄嫁・弟嫁（口語）,sister-in-law (colloquial),,A2
+家族呼称（口語）,باجناق,bajnagh,妻同士が姉妹の男性,co-brother-in-law,,A2
+家族呼称（口語）,خواهر شوهر,khahare showhar,義理の姉妹（夫側）,sister-in-law (husband's side),,A2
+家族呼称（口語）,خواهر زن,khahare zan,義理の姉妹（妻側）,sister-in-law (wife's side),,A2
+家族呼称（口語）,مادر شوهر,madare showhar,姑（夫の母）,mother-in-law (husband's),,A2
+家族呼称（口語）,مادر زن,madare zan,姑（妻の母）,mother-in-law (wife's),,A2
+イラン文化,نوروز,nowruz,ノウルーズ,Nowruz,イランの正月（春分）,A2
+イラン文化,سفره هفت‌سین,sofreye haft sin,ハフトスィーン,haft-sin table,正月の飾り,A2
+イラン文化,عید نوروز,eyde nowruz,ノウルーズの祝日,Nowruz holiday,,A2
+イラン文化,سال تحویل,sale tahvil,年明けの瞬間,New Year's moment,,A2
+イラン文化,سیزده بدر,sizdah bedar,13日目の外出,Sizdah Bedar,正月13日目のピクニック,A2
+イラン文化,چهارشنبه سوری,chaharshanbe suri,火祭り,Chaharshanbe Suri,正月前の火祭り,A2
+イラン文化,یلدا,yalda,ヤルダーの夜,Yalda night,冬至の夜の祝い,A2
+イラン文化,عید فطر,eyde fetr,断食明けの祝日,Eid al-Fitr,,A2
+イラン文化,عید قربان,eyde ghorban,犠牲祭,Eid al-Adha,,A2
+イラン文化,ماه رمضان,mahe ramezan,ラマダン,Ramadan,,A2
+イラン文化,محرم,moharram,ムハッラム,Muharram,シーア派の喪の月,A2
+イラン文化,عاشورا,ashura,アーシューラー,Ashura,ムハッラム10日目,A2
+イラン文化,تعارف,ta'arof_a2,タアーロフ,ta'arof,イランの社交儀礼,A2
+イラン文化,مهمان نوازی,mehman navazi,おもてなし,hospitality,,A2
+イラン文化,صیغه,sighe,一時婚,temporary marriage,シーア派の制度,A2
+イラン文化,حجاب,hejab,ヒジャーブ・ベール,hijab/veil,,A2
+イラン文化,چادر,chador,チャードル,chador,全身を覆う布,A2
+イラン文化,بازار سنتی,bazare sonnati,伝統的バザール,traditional bazaar,,A2
+イラン文化,قلیان,ghalyan,水タバコ,hookah/water pipe,,A2
+イラン文化,حمام سنتی,hammame sonnati,伝統的な公衆浴場,traditional bathhouse,,A2
+日常フレーズ的単語,حتماً,hatman,必ず・きっと,certainly/definitely,,A2
+日常フレーズ的単語,البته,albatte,もちろん,of course,,A2
+日常フレーズ的単語,انشاالله,insha'allah_a2,神が望めば,God willing,未来の予定に付ける,A2
+日常フレーズ的単語,ماشاالله,masha'allah_a2,すごいね,mashallah,称賛の表現,A2
+日常フレーズ的単語,خدا رو شکر,khoda ro shokr,ありがたい,thank God,,A2
+日常フレーズ的単語,واقعاً,vaghe'an,本当に,really,,A2
+日常フレーズ的単語,اصلاً,aslan,全然〜ない,not at all,,A2
+日常フレーズ的単語,فقط,faghat,だけ・のみ,only,,A2
+日常フレーズ的単語,حالا,hala,今,now (colloquial),,A2
+日常フレーズ的単語,بله,bale,はい,yes (formal),,A2
+日常フレーズ的単語,نه,na,いいえ,no,,A2
+日常フレーズ的単語,شاید,shayad,たぶん,maybe,,A2
+日常フレーズ的単語,لطفاً,lotfan,お願いします,please,,A2
+日常フレーズ的単語,ببخشید,bebakhshid,すみません,excuse me/sorry,,A2
+日常フレーズ的単語,متشکرم,moteshakeram,ありがとう,thank you,,A2
+日常フレーズ的単語,خواهش میکنم,khahesh mikonam_a2,どういたしまして,you're welcome,,A2
+日常フレーズ的単語,سلام,salam,こんにちは,hello,,A2
+日常フレーズ的単語,خداحافظ,khodahafez,さようなら,goodbye,,A2
+日常フレーズ的単語,چطور,chetor,どう・どのように,how,,A2
+日常フレーズ的単語,چرا,chera,なぜ,why,,A2
+旅行（追加）,پاسپورت,pasport,パスポート,passport,,A2
+旅行（追加）,تور,tur,ツアー,tour,,A2
+旅行（追加）,اقامت,eghamat,滞在,stay/residence,,A2
+旅行（追加）,صندلی,sandali,座席,seat,,A2
+旅行（追加）,بار,bar,荷物,luggage/cargo,,A2
+旅行（追加）,جاذبه گردشگری,jazebe gardeshgari,観光名所,tourist attraction,,A2
+旅行（追加）,تخت,takht,ベッド（ホテル）,bed,,A2
+旅行（追加）,اتاق تک نفره,otaghe tak nafare,シングルルーム,single room,,A2
+旅行（追加）,اتاق دو نفره,otaghe do nafare,ダブルルーム,double room,,A2
+旅行（追加）,پذیرش,paziresh,フロント・受付,reception,,A2
+旅行（追加）,راهنمای سفر,rahnamaye safar,旅行ガイドブック,travel guide,,A2
+旅行（追加）,آژانس مسافرتی,azhanse mosaferat,旅行代理店,travel agency,,A2
+旅行（追加）,بیمه مسافرتی,bimeye mosaferat,旅行保険,travel insurance,,A2
+旅行（追加）,صرافی,sarrafi_a2,両替所,currency exchange,,A2
+旅行（追加）,ارز,arze_a2,外貨,foreign currency,,A2
+数量・程度,کمی,kami,少し,a little,,A2
+数量・程度,زیاد,ziyad_a2,たくさん,a lot,,A2
+数量・程度,خیلی,kheyli,とても,very,,A2
+数量・程度,چند,chand,いくつかの,some/how many,,A2
+数量・程度,همه,hame,全部,all/everyone,,A2
+数量・程度,هیچ,hich,何も〜ない,nothing/none,,A2
+数量・程度,هر,har,毎〜・どの〜も,every/each,,A2
+数量・程度,بعضی,ba'zi,いくつかの,some,,A2
+数量・程度,دیگر,digar,他の,other,,A2
+数量・程度,تعداد,te'dad,数・人数,number/quantity,,A2
+数量・程度,مقدار,meghdar,量,amount,,A2
+数量・程度,کافی,kafi,十分な,enough,,A2
+数量・程度,اندکی,andaki,わずかの,a bit,,A2
+数量・程度,تقریباً,taghriban_a2,約・おおよそ,approximately,,A2
+数量・程度,کاملاً,kamelan,完全に,completely,,A2
+基本動詞,روشن کردن,roshan kardan_a1,つける,to turn on,,A1
+基本動詞,خاموش کردن,khamush kardan_a1,消す,to turn off,,A1
+基本動詞,بلند شدن,boland shodan,立ち上がる,to stand up/get up,,A1
+基本動詞,نگه داشتن,negah dashtan,保つ・止める,to hold/keep,,A1
+基本動詞,رد کردن,rad kardan_a1,通す・断る,to pass/reject,,A1
+基本動詞,تکان دادن,tekan dadan,動かす・振る,to move/shake,,A1
+基本動詞,چرخیدن,charkhidan,回る,to spin/rotate,,A1
+基本動詞,پریدن,paridan,跳ぶ,to jump,,A1
+基本動詞,لغزیدن,laghzidan,滑る,to slip/slide,,A1
+基本動詞,خم شدن,kham shodan,かがむ,to bend,,A1
+基本動詞,کشیدن,keshidan_pull,引っ張る,to pull,,A1
+基本動詞,هل دادن,hol dadan,押す,to push,,A1
+基本形容詞,سالم,salem_a1,健康な,healthy,,A1
+基本形容詞,بیمار,bimar_a1,病気の,sick,,A1
+基本形容詞,قوی,ghavi_a1,強い,strong,,A1
+基本形容詞,ضعیف,za'if_a1,弱い,weak,,A1
+基本形容詞,زنده,zende_a1,生きている,alive,,A1
+基本形容詞,مرده,morde_a1,死んだ,dead,,A1
+基本形容詞,باریک,barik_a1,細い・薄い,thin/narrow,,A1
+基本形容詞,ضخیم,zakhim_a1,厚い,thick,,A1
+食べ物,کنجد,konjed,ごま,sesame,,A1
+食べ物,لوبیا سبز,lubiyaye sabz,いんげん,green bean,,A1
+食べ物,کلم,kalam,キャベツ,cabbage,,A1
+食べ物,کاهو,kahu,レタス,lettuce,,A1
+食べ物,اسفناج,esfenaj,ほうれん草,spinach,,A1
+食べ物,چغندر,choghondar,ビーツ,beet,,A1
+食べ物,تربچه,torobche,ラディッシュ,radish,,A1
+食べ物,شلغم,shalgham,カブ,turnip,,A1
+食べ物,ذرت,zorrat,トウモロコシ,corn,,A1
+食べ物,باقالی,baghali,そら豆,broad bean,,A1
+食べ物,کره بادام زمینی,kareye badame zamini,ピーナツバター,peanut butter,,A1
+食べ物,بادام زمینی,badame zamini,ピーナツ,peanut,,A1
+食べ物,تمشک,tamashk,ラズベリー,raspberry,,A1
+食べ物,آناناس,ananas,パイナップル,pineapple,,A1
+食べ物,نارگیل,nargil,ココナッツ,coconut,,A1
+食べ物,زغال اخته,zoghale akhte,コーネリアンチェリー,cornelian cherry,,A1
+食べ物,به,beh,マルメロ,quince,,A1
+食べ物,انجیر,anjir,イチジク,fig,,A1
+食べ物,خامه,khame,クリーム,cream,,A1
+日用品,دستکش,dastkesh,手袋,gloves,,A1
+日用品,آچار,achar,レンチ,wrench,,A1
+日用品,چسب,chasb,のり・接着剤,glue/adhesive,,A1
+動詞（日常）,تعریف کردن,ta'rif kardan,褒める・話す,to praise/tell,,A2
+動詞（日常）,شکایت کردن,shekayat kardan,文句を言う,to complain,,A2
+動詞（日常）,موافقت کردن,movafeghat kardan,同意する,to agree,,A2
+動詞（日常）,مخالفت کردن,mokhalefat kardan,反対する,to oppose,,A2
+動詞（日常）,قول دادن,ghole dadan,約束する,to promise,,A2
+動詞（日常）,یادآوری کردن,yadavari kardan,思い出させる,to remind,,A2
+動詞（日常）,فراموش کردن,faramush kardan,忘れる,to forget,,A2
+動詞（日常）,به یاد آوردن,be yad avardan,思い出す,to remember/recall,,A2
+動詞（日常）,نگران بودن,negaran budan,心配する,to be worried,,A2
+動詞（日常）,دلتنگ بودن,deltang budan,寂しがる,to miss (someone),,A2
+動詞（日常）,عادت داشتن,adat dashtan,〜に慣れている,to be used to,,A2
+動詞（日常）,عادت کردن,adat kardan,〜に慣れる,to get used to,,A2
+動詞（日常）,حال کسی را پرسیدن,hale kasi ra porsidan,ご機嫌伺いをする,to ask how someone is,,A2
+感情・状態,خجالتی,khejalati,恥ずかしがりの,shy,,A2
+感情・状態,بامزه,bamaze,面白い,funny/amusing,,A2
+感情・状態,جدی,jeddi,真面目な,serious,,A2
+健康基礎,زخم,zakhm,傷,wound/injury,,A2
+健康基礎,کبودی,kabudi,あざ,bruise,,A2
+健康基礎,خارش,kharesh,かゆみ,itchiness,,A2
+健康基礎,ورم,varam,腫れ,swelling,,A2
+健康基礎,چشم درد,cheshm dard,目の痛み,eye pain,,A2
+食べ物（詳細）,آب دوغ خیار,ab dugh khiyar,きゅうりヨーグルトスープ,cucumber yogurt soup,,A2
+食べ物（詳細）,نون خامه ای,nun khamei,クリームパフ,cream puff,,A2
+食べ物（詳細）,رولت,rolet,ロールケーキ,roll cake,,A2
+食べ物（詳細）,شیرکاکائو,shir kakao,ココア,hot chocolate/cocoa,,A2
+趣味・娯楽,پیکنیک,piknik,ピクニック,picnic,,A2
+趣味・娯楽,شب نشینی,shab neshini,夜の集まり,evening gathering,,A2
+趣味・娯楽,دورهمی,dorhami,集まり,get-together,,A2
+趣味・娯楽,سرگرمی,sargarmi,娯楽,entertainment,,A2
+天気（追加）,نسیم,nasim,そよ風,breeze,,A2
+イラン文化,تخت جمشید,takhte jamshid,ペルセポリス,Persepolis,古代遺跡,A2
+イラン文化,سی و سه پل,si o se pol,スィーオセ橋,Si-o-se-pol,イスファハーンの橋,A2
+イラン文化,نقش جهان,naghshe jahan,ナグシェジャハーン広場,Naqsh-e Jahan,イスファハーンの広場,A2
+イラン文化,شاهنامه,shahname,シャーナーメ,Shahnameh,フェルドウスィーの叙事詩,A2
+イラン文化,حافظ,hafez,ハーフェズ,Hafez,ペルシア詩人,A2
+イラン文化,سعدی,sa'di,サアディー,Saadi,ペルシア詩人,A2
+イラン文化,فردوسی,ferdowsi,フェルドウスィー,Ferdowsi,ペルシア叙事詩人,A2
+日常フレーズ的単語,دقیقاً,daghighan,正確に,exactly,,A2
+日常フレーズ的単語,مثلاً,masalan,例えば,for example,,A2
+日常フレーズ的単語,یعنی,ya'ni,つまり,that is/meaning,,A2
+日常フレーズ的単語,خب,khob,えーと・で,well/so,,A2
+日常フレーズ的単語,آره,are,うん（口語）,yes (colloquial),,A2
+日常フレーズ的単語,نمیدونم,nemidunam,知らない（口語）,I don't know (colloquial),,A2
+数量・程度,فقط,faghat_a2,だけ,only,,A2
+数量・程度,حداقل,hadde aghal,少なくとも,at least,,A2
+数量・程度,حداکثر,hadde aksar,多くとも,at most,,A2
+数量・程度,تقریباً,taghriban_a2b,ほぼ,almost,,A2
+数量・程度,به اندازه,be andaze,〜と同じくらい,as much as,,A2
+形容詞（追加）,خنده دار,khande dar,面白い・おかしい,funny,,A2
+形容詞（追加）,جالب,jaleb,興味深い,interesting,,A2
+形容詞（追加）,خوش اخلاق,khosh akhlagh,性格が良い,good-natured,,A2
+形容詞（追加）,بد اخلاق,bad akhlagh,性格が悪い,ill-tempered,,A2
+家庭生活動詞,اتو کشیدن,otu keshidan,アイロンをかける,to iron,,B1
+家庭生活動詞,مرتب کردن,morattab kardan,片付ける・整理する,to tidy up,,B1
+家庭生活動詞,تعمیر کردن,ta'mir kardan,修理する,to repair,,B1
+家庭生活動詞,رنگ کردن,rang kardan,塗る・染める,to paint/dye,,B1
+家庭生活動詞,نصب کردن,nasb kardan,取り付ける,to install,,B1
+家庭生活動詞,عوض کردن,avaz kardan,取り替える,to change/replace,,B1
+家庭生活動詞,جارو کردن,jaru kardan,掃く,to sweep,,B1
+家庭生活動詞,جارو برقی کشیدن,jarubarghi keshidan,掃除機をかける,to vacuum,,B1
+家庭生活動詞,گردگیری کردن,gardgiri kardan,ほこりを取る,to dust,,B1
+家庭生活動詞,شستشو کردن,shostshu kardan,洗濯する,to do laundry,,B1
+家庭生活動詞,آویزان کردن,avizan kardan,吊るす・干す,to hang,,B1
+家庭生活動詞,خشک کردن,khoshk kardan,乾かす,to dry,,B1
+家庭生活動詞,تا کردن,ta kardan,畳む,to fold,,B1
+家庭生活動詞,دوختن,dukhtan,縫う,to sew,,B1
+家庭生活動詞,آب دادن,ab dadan,水をやる,to water (plants),,B1
+家庭生活動詞,قفل کردن,ghofl kardan,鍵をかける,to lock,,B1
+家庭生活動詞,روشن کردن,roshan kardan,つける（電気など）,to turn on,,B1
+家庭生活動詞,خاموش کردن,khamush kardan,消す（電気など）,to turn off,,B1
+家庭生活動詞,وصل کردن,vasl kardan,つなげる,to connect,,B1
+家庭生活動詞,چسباندن,chasbandan,貼り付ける,to stick/glue,,B1
+家庭生活動詞,سرخ کردن,sorkh kardan,揚げる・炒める,to fry,,B1
+家庭生活動詞,خرد کردن,khord kardan,刻む・砕く,to chop/mince,,B1
+家庭生活動詞,مخلوط کردن,makhlut kardan,混ぜる,to mix,,B1
+家庭生活動詞,هم زدن,ham zadan,かき混ぜる,to stir,,B1
+家庭生活動詞,جوشاندن,jushandan,沸かす,to boil,,B1
+家庭生活動詞,دم کردن,dam kardan,蒸らす,to brew/steam,,B1
+家庭生活動詞,یخ زدن,yakh zadan,凍る・凍らせる,to freeze,,B1
+家庭生活動詞,گرم کردن,garm kardan,温める,to heat up,,B1
+家庭生活動詞,سرد کردن,sard kardan,冷ます,to cool down,,B1
+家庭生活動詞,پهن کردن,pahn kardan,広げる,to spread out,,B1
+家庭生活動詞,جمع کردن,jam' kardan,片付ける・集める,to collect/gather,,B1
+家庭生活動詞,تکان دادن,tekan dadan,振る・揺する,to shake,,B1
+家庭生活動詞,فشار دادن,feshar dadan,押す,to press/push,,B1
+家庭生活動詞,چیدن,chidan,並べる・摘む,to arrange/pick,,B1
+家庭生活動詞,پاک کردن,pak kardan,拭く・消す,to wipe/erase,,B1
+家庭生活動詞,خالی کردن,khali kardan,空にする,to empty,,B1
+家庭生活動詞,پر کردن,por kardan,満たす,to fill,,B1
+家庭生活動詞,بسته بندی کردن,baste bandi kardan,包装する,to package,,B1
+家庭生活動詞,جا دادن,ja dadan,収納する,to fit/store,,B1
+家庭生活動詞,سفره انداختن,sofre andakhtan,食卓を用意する,to set the table,イラン式,B1
+家庭生活動詞,سفره جمع کردن,sofre jam' kardan,食卓を片付ける,to clear the table,,B1
+家庭生活動詞,ظرف شستن,zarf shostan,食器を洗う,to wash dishes,,B1
+家庭生活動詞,آشغال بیرون بردن,ashghal birun bordan,ゴミ出しをする,to take out the trash,,B1
+家庭生活動詞,لباس عوض کردن,lebas avaz kardan,着替える,to change clothes,,B1
+家庭生活動詞,دوش گرفتن,dush gereftan,シャワーを浴びる,to take a shower,,B1
+家庭生活動詞,حمام کردن,hammam kardan,お風呂に入る,to take a bath,,B1
+家庭生活動詞,مسواک زدن,mesvak zadan,歯を磨く,to brush teeth,,B1
+家庭生活動詞,شانه کردن,shane kardan,髪をとかす,to comb hair,,B1
+家庭生活動詞,اصلاح کردن,eslah kardan,ひげを剃る,to shave,,B1
+家庭生活動詞,لکه بردار,lakke bordar,しみ抜き剤,stain remover,,B1
+家庭生活動詞,نرم کننده,narm konande,柔軟剤,fabric softener,,B1
+家庭生活動詞,مایع ظرفشویی,maye'e zarfshui,食器用洗剤,dish soap,,B1
+家庭生活動詞,شوینده,shuyande,洗剤,detergent,,B1
+家庭生活動詞,ضدعفونی کردن,zedde ofuni kardan,消毒する,to disinfect,,B1
+家庭生活動詞,لوله بازکن,lule baz kon,パイプクリーナー,drain cleaner,,B1
+家庭生活動詞,پیچ گوشتی,pich gushti,ドライバー,screwdriver,,B1
+家庭生活動詞,چکش,chakosh,ハンマー,hammer,,B1
+家庭生活動詞,میخ,mikh,くぎ,nail (hardware),,B1
+家庭生活動詞,پیچ,pich,ねじ,screw,,B1
+感情・心理（詳細）,دلتنگ شدن,deltang shodan,寂しくなる,to feel homesick/miss,,B1
+感情・心理（詳細）,غصه خوردن,ghosse khordan,悩む・心配する,to grieve/worry,,B1
+感情・心理（詳細）,شرمنده شدن,sharmande shodan,申し訳なく思う,to feel ashamed,,B1
+感情・心理（詳細）,خجالت کشیدن,khejalat keshidan,恥ずかしく思う,to feel embarrassed,,B1
+感情・心理（詳細）,افتخار کردن,eftekhar kardan,誇りに思う,to be proud,,B1
+感情・心理（詳細）,حسادت کردن,hasadat kardan,嫉妬する,to be jealous,,B1
+感情・心理（詳細）,گله کردن,gele kardan,不満を言う,to complain,,B1
+感情・心理（詳細）,ناراحت شدن,narahat shodan,悲しくなる・怒る,to get upset,,B1
+感情・心理（詳細）,خوشحال شدن,khoshhal shodan,嬉しくなる,to become happy,,B1
+感情・心理（詳細）,عصبانی شدن,asabani shodan,怒る,to get angry,,B1
+感情・心理（詳細）,آرام شدن,aram shodan,落ち着く,to calm down,,B1
+感情・心理（詳細）,نگران شدن,negaran shodan,心配になる,to become worried,,B1
+感情・心理（詳細）,تعجب کردن,ta'ajob kardan,驚く,to be surprised,,B1
+感情・心理（詳細）,لذت بردن,lezzat bordan,楽しむ,to enjoy,,B1
+感情・心理（詳細）,رنجیدن,ranjidan,傷つく,to be hurt/offended,,B1
+感情・心理（詳細）,حوصله نداشتن,howsele nadastan,飽きる・面倒くさい,to have no patience,,B1
+感情・心理（詳細）,دلسوزی کردن,delsuzi kardan,同情する,to sympathize,,B1
+感情・心理（詳細）,بخشیدن,bakhshidan,許す,to forgive,,B1
+感情・心理（詳細）,پشیمان شدن,pashiman shodan,後悔する,to regret,,B1
+感情・心理（詳細）,تحمل کردن,tahammol kardan,我慢する,to endure/tolerate,,B1
+感情・心理（詳細）,دلداری دادن,deldari dadan,慰める,to console,,B1
+感情・心理（詳細）,اعتماد کردن,etemad kardan,信頼する,to trust,,B1
+感情・心理（詳細）,شک کردن,shak kardan,疑う,to doubt,,B1
+感情・心理（詳細）,حسرت خوردن,hasrat khordan,悔やむ・羨む,to feel regret/envy,,B1
+感情・心理（詳細）,قهر کردن,ghahr kardan,すねる・絶交する,to sulk/break off,,B1
+感情・心理（詳細）,آشتی کردن,ashti kardan,仲直りする,to make up/reconcile,,B1
+感情・心理（詳細）,محبت کردن,mohabbat kardan,愛情を示す,to show affection,,B1
+感情・心理（詳細）,احساس کردن,ehsas kardan,感じる,to feel,,B1
+感情・心理（詳細）,دل شکستن,del shekastan,心を傷つける,to break someone's heart,,B1
+感情・心理（詳細）,دل بستن,del bastan,心を寄せる,to become attached,,B1
+感情・心理（詳細）,وابسته شدن,vabaste shodan,依存する,to become dependent,,B1
+感情・心理（詳細）,اذیت کردن,aziyat kardan,いじめる・困らせる,to bother/annoy,,B1
+感情・心理（詳細）,تحقیر کردن,tahghir kardan,侮辱する,to humiliate,,B1
+感情・心理（詳細）,تشویق کردن,tashvigh kardan,励ます,to encourage,,B1
+感情・心理（詳細）,تنبیه کردن,tanbih kardan,罰する,to punish,,B1
+感情・心理（詳細）,انتقاد کردن,enteghad kardan,批判する,to criticize,,B1
+感情・心理（詳細）,قدردانی کردن,ghadrdani kardan,感謝する,to appreciate,,B1
+感情・心理（詳細）,احترام گذاشتن,ehteram gozashtan,敬意を払う,to show respect,,B1
+感情・心理（詳細）,بی احترامی کردن,bi ehterami kardan,無礼を働く,to disrespect,,B1
+感情・心理（詳細）,دعوا کردن,da'va kardan,喧嘩する,to quarrel/fight,,B1
+感情・心理（詳細）,تردید داشتن,tardid dashtan,ためらう,to hesitate,,B1
+感情・心理（詳細）,غرور,ghorur,プライド,pride,,B1
+感情・心理（詳細）,حقارت,hegharat,屈辱,humiliation,,B1
+感情・心理（詳細）,سرخوردگی,sarkhoredegi,失望,disillusionment,,B1
+感情・心理（詳細）,بی تفاوتی,bi tafavoti,無関心,indifference,,B1
+感情・心理（詳細）,وفاداری,vafadari,忠誠心,loyalty,,B1
+感情・心理（詳細）,خیانت,khiyanat,裏切り,betrayal,,B1
+感情・心理（詳細）,صداقت,sedaghat,誠実さ,honesty,,B1
+家族関係表現,عروسی,arusi,結婚式,wedding,,B1
+家族関係表現,نامزدی,namzadi,婚約,engagement,,B1
+家族関係表現,طلاق,talagh,離婚,divorce,,B1
+家族関係表現,باردار,bardar,妊娠中の,pregnant,,B1
+家族関係表現,بچه دار شدن,bachedar shodan,子どもができる,to have a child,,B1
+家族関係表現,بزرگ کردن,bozorg kardan,育てる,to raise (children),,B1
+家族関係表現,عروس,arus,花嫁・嫁,bride/daughter-in-law,,B1
+家族関係表現,داماد,damad,花婿・婿,groom/son-in-law,,B1
+家族関係表現,مهریه,mahrieh,結婚持参金,dowry/mahr,イスラム法に基づく,B1
+家族関係表現,جهیزیه,jahizieh,嫁入り道具,trousseau,,B1
+家族関係表現,خواستگاری,khastegari,求婚,marriage proposal,イラン式プロポーズ,B1
+家族関係表現,عقد,aghd,婚姻契約,marriage contract,,B1
+家族関係表現,سفره عقد,sofre aghd,結婚式の祭壇,wedding spread,イラン結婚式の飾り,B1
+家族関係表現,حلقه ازدواج,halgheh ezdevaj,結婚指輪,wedding ring,,B1
+家族関係表現,ماه عسل,mahe asal,新婚旅行,honeymoon,,B1
+家族関係表現,زایمان,zayman,出産,childbirth,,B1
+家族関係表現,شیر دادن,shir dadan,授乳する,to breastfeed,,B1
+家族関係表現,قنداق,ghondagh,おくるみ,swaddling,,B1
+家族関係表現,نسبت,nesbat,親戚関係,relationship/kinship,,B1
+家族関係表現,فامیل,famil,親戚,relative,,B1
+家族関係表現,دور هم جمع شدن,dure ham jam' shodan,集まる,to gather together,,B1
+家族関係表現,دید و بازدید,did o bazdid,親戚訪問,visiting relatives,ノウルーズの習慣,B1
+家族関係表現,سالگرد ازدواج,salgarde ezdevaj,結婚記念日,wedding anniversary,,B1
+家族関係表現,ختنه,khatne,割礼,circumcision,,B1
+家族関係表現,ترحیم,tarhim,追悼式,memorial ceremony,,B1
+家族関係表現,نامزد,namzad,婚約者,fiancé/fiancée,,B1
+家族関係表現,ازدواج کردن,ezdevaj kardan,結婚する,to get married,,B1
+家族関係表現,عقد کردن,aghd kardan,婚姻を結ぶ,to perform marriage contract,,B1
+家族関係表現,بارداری,bardari,妊娠期間,pregnancy,,B1
+家族関係表現,سونوگرافی بارداری,sonografiye bardari,妊婦検診の超音波,prenatal ultrasound,,B1
+家族関係表現,نوزادی,nowzadi,新生児期,newborn period,,B1
+家族関係表現,شیردهی,shir dehi,授乳期間,breastfeeding period,,B1
+家族関係表現,مهد کودک,mahde kudak,保育園,nursery/daycare,,B1
+家族関係表現,پرورش,parvaresh,養育,upbringing,,B1
+家族関係表現,تربیت,tarbiyat,しつけ・教育,upbringing/discipline,,B1
+家族関係表現,ارث,ers,遺産,inheritance,,B1
+家族関係表現,وصیت نامه,vasiyat name,遺言状,will/testament,,B1
+料理（イラン料理詳細）,قیمه,gheyme,ゲイメ,gheymeh,ひき肉と黄エンドウ豆のシチュー,B1
+料理（イラン料理詳細）,آبگوشت,abgusht,アーブグーシュト,abgoosht,肉と豆のスープ,B1
+料理（イラン料理詳細）,تاچین,tachin,タチーン,tahchin,ヨーグルトとサフランのライスケーキ,B1
+料理（イラン料理詳細）,کوکو سبزی,kuku sabzi,ククサブジー,kuku sabzi,ハーブのオムレツ,B1
+料理（イラン料理詳細）,فسنجان,fesenjan,フェセンジャーン,fesenjān,くるみとザクロのシチュー,B1
+料理（イラン料理詳細）,باقالی پلو,baghali polo,バーガーリーポロ,baghali polo,そら豆とディルのご飯,B1
+料理（イラン料理詳細）,سبزی پلو با ماهی,sabzi polo ba mahi,サブジポロ・バ・マーヒー,sabzi polo with fish,ハーブライスと魚,B1
+料理（イラン料理詳細）,لوبیا پلو,lubiya polo,ルビアポロ,lubia polo,いんげん豆のご飯,B1
+料理（イラン料理詳細）,عدس پلو,adas polo,アダスポロ,adas polo,レンズ豆のご飯,B1
+料理（イラン料理詳細）,کوفته,kufte,クフテ,kofteh,肉団子,B1
+料理（イラン料理詳細）,کباب کوبیده,kabab kubide,カバブ・クビデ,kabab koobideh,ひき肉の串焼き,B1
+料理（イラン料理詳細）,کباب برگ,kabab barg,カバブ・バルグ,kabab barg,薄切り肉の串焼き,B1
+料理（イラン料理詳細）,جوجه کباب,juje kabab,ジューセ・カバブ,jujeh kabab,鶏肉の串焼き,B1
+料理（イラン料理詳細）,چلو کباب,chelo kabab,チェロカバブ,chelo kabab,白飯とカバブ,B1
+料理（イラン料理詳細）,خورشت بادمجان,khoreshte bademjan,ホレシュテ・バーデムジャン,khoresh bademjan,なすのシチュー,B1
+料理（イラン料理詳細）,خورشت آلو,khoreshte alu,ホレシュテ・アールー,khoresh alu,プラムのシチュー,B1
+料理（イラン料理詳細）,خورشت کرفس,khoreshte karafs,ホレシュテ・カラフス,khoresh karafs,セロリのシチュー,B1
+料理（イラン料理詳細）,کوکو سیب زمینی,kuku sib zamini,ククスィブザミニー,kuku sibzamini,じゃがいものオムレツ,B1
+料理（イラン料理詳細）,آش جو,ash jo,アーシュジョウ,ash jo,大麦のスープ,B1
+料理（イラン料理詳細）,حلیم,halim,ハリーム,halim,小麦と肉のお粥,B1
+料理（イラン料理詳細）,کله پاچه,kalle pache,カレパーチェ,kalleh pacheh,羊の頭足の煮込み,B1
+料理（イラン料理詳細）,شله زرد,shole zard,ショレザルド,sholeh zard,サフランライスプディング,B1
+料理（イラン料理詳細）,رشته,reshte,レシュテ,reshteh,ヌードル・麺,B1
+料理（イラン料理詳細）,ترشی,torshi,トルシー,torshi,漬物・ピクルス,B1
+料理（イラン料理詳細）,نان سنگک,nan sangak,ナンサンガク,nan sangak,石焼きパン,B1
+料理（イラン料理詳細）,نان بربری,nan barbari,ナンバルバリー,nan barbari,厚いパン,B1
+料理（イラン料理詳細）,نان لواش,nan lavash,ナンラヴァーシュ,nan lavash,薄いパン,B1
+料理（イラン料理詳細）,نان تافتون,nan taftun,ナンタフトゥーン,nan taftoon,薄焼きパン,B1
+料理（イラン料理詳細）,سمنو,samanu,サマヌー,samanu,小麦の芽のペースト,B1
+料理（イラン料理詳細）,آجیل,ajil,アージール,ajil,ナッツとドライフルーツの盛り合わせ,B1
+料理（イラン料理詳細）,شربت,sharbat,シャルバット,sherbet,甘い飲み物,B1
+料理（イラン料理詳細）,ماست خیار,mast khiyar,マストキヤール,mast khiar,ヨーグルトきゅうりサラダ,B1
+料理（イラン料理詳細）,ادویه,adviye,スパイス,spices,,B1
+料理（イラン料理詳細）,سماق,somagh,スマック,sumac,酸味のあるスパイス,B1
+料理（イラン料理詳細）,لیمو عمانی,limu omani_b1,乾燥ライム,dried lime,イラン料理で使う,B1
+料理（イラン料理詳細）,آب لیمو,ab limu,レモン汁,lemon juice,,B1
+料理（イラン料理詳細）,رب انار,rob anar,ザクロペースト,pomegranate paste,,B1
+料理（イラン料理詳細）,رب گوجه فرنگی,rob goje farangi,トマトペースト,tomato paste,,B1
+料理（イラン料理詳細）,کشک,kashk,カシュク,kashk,乾燥ホエー,B1
+料理（イラン料理詳細）,کشک بادمجان,kashk bademjan,カシュクバーデムジャン,kashk-e bademjan,なすとホエーのディップ,B1
+料理（イラン料理詳細）,میرزا قاسمی,mirza ghasemi,ミルザーガーセミー,mirza ghasemi,なすとトマトとにんにくの料理,B1
+料理（イラン料理詳細）,دیزی,dizi,ディーズィー,dizi,石鍋のアーブグーシュト,B1
+料理（イラン料理詳細）,آش سبزی,ash sabzi,アーシュサブジー,ash sabzi,ハーブのスープ,B1
+料理（イラン料理詳細）,زرشک پلو با مرغ,zereshk polo ba morgh,ゼレシュクポロ・バ・モルグ,zereshk polo with chicken,バーベリーと鶏肉のご飯,B1
+社会・日常,قرار گذاشتن,gharar gozashtan,約束する,to make an appointment,,B1
+社会・日常,مهمانی,mehmani,パーティー,party,,B1
+社会・日常,تسلیت گفتن,tasliyat goftan,お悔やみを言う,to offer condolences,,B1
+社会・日常,خداحافظی کردن,khodahafezi kardan,お別れする,to say goodbye,,B1
+社会・日常,احوالپرسی کردن,ahvalporsi kardan,挨拶する,to exchange greetings,,B1
+社会・日常,روبوسی کردن,rubusi kardan,頬にキスする,to kiss cheeks (greeting),イラン式挨拶,B1
+社会・日常,دست دادن,dast dadan,握手する,to shake hands,,B1
+社会・日常,آشنا شدن,ashna shodan,知り合う,to get acquainted,,B1
+社会・日常,قول دادن,ghol dadan,約束する,to promise,,B1
+社会・日常,عذرخواهی کردن,ozrkhahi kardan,謝る,to apologize,,B1
+社会・日常,پیشنهاد دادن,pishnahad dadan,提案する,to suggest/propose,,B1
+社会・日常,موافقت کردن,movafeghat kardan,同意する,to agree,,B1
+社会・日常,مخالفت کردن,mokhalefat kardan,反対する,to oppose,,B1
+社会・日常,تعارف کردن,ta'arof kardan,遠慮する・勧める,to offer politely (ta'arof),イラン文化特有の表現,B1
+社会・日常,هدیه دادن,hedye dadan,プレゼントをあげる,to give a gift,,B1
+社会・日常,شوخی کردن,shukhi kardan,冗談を言う,to joke,,B1
+社会・日常,غیبت کردن,gheybat kardan,噂話をする,to gossip,,B1
+社会・日常,سر زدن,sar zadan,訪ねる,to visit (briefly),,B1
+社会・日常,مراسم,marasem,式典,ceremony,,B1
+社会・日常,عزاداری,azadari,服喪,mourning,,B1
+社会・日常,ختم,khatm,法要,memorial service,,B1
+社会・日常,ولیمه,valime,披露宴,wedding feast,,B1
+社会・日常,شادباش,shadbash,祝辞,congratulations,,B1
+社会・日常,کادو دادن,kado dadan,プレゼントする,to give a gift,,B1
+社会・日常,نامه نوشتن,name neveshtan,手紙を書く,to write a letter,,B1
+社会・日常,خبر دادن,khabar dadan,知らせる,to inform,,B1
+社会・日常,راز,raz,秘密,secret,,B1
+社会・日常,اسرار,asrar,秘密（複数）,secrets,,B1
+社会・日常,اعتماد به نفس,etemad be nafs,自信,self-confidence,,B1
+健康・医療,دیابت,diyabet,糖尿病,diabetes,,B1
+健康・医療,جراحی,jarrahi,外科,surgery (field),,B1
+健康・医療,بیهوشی,bihushi,麻酔,anesthesia,,B1
+健康・医療,سونوگرافی,sonografi,超音波検査,ultrasound,,B1
+健康・医療,مطب,matab,診療所,clinic/doctor's office,,B1
+健康・医療,بیمه درمانی,bimeye darmani,健康保険,health insurance,,B1
+健康・医療,پزشک عمومی,pezeshke omumi,一般医,general practitioner,,B1
+健康・医療,دندان پر کردن,dandan por kardan,歯の詰め物をする,to fill a tooth,,B1
+健康・医療,کشیدن دندان,keshidane dandan,歯を抜く,to extract a tooth,,B1
+健康・医療,اسهال,eshal,下痢,diarrhea,,B1
+健康・医療,یبوست,yobuset,便秘,constipation,,B1
+健康・医療,پماد,pomad,軟膏,ointment,,B1
+健康・医療,قطره چشم,ghatre cheshm,目薬,eye drops,,B1
+健康・医療,آنتی بیوتیک,anti biyotik_b1,抗生物質,antibiotic,,B1
+健康・医療,رژیم کم نمک,rezhime kam namak,減塩食,low-salt diet,,B1
+健康・医療,رژیم کم قند,rezhime kam ghand,低糖質食,low-sugar diet,,B1
+健康・医療,ویزیت,vizit,診察料,consultation fee,,B1
+健康・医療,نسخه پیچی,noskheh pichi,処方箋の調剤,filling a prescription,,B1
+健康・医療,بیمارستان دولتی,bimarestane dowlati,公立病院,public hospital,,B1
+健康・医療,بیمارستان خصوصی,bimarestane khosusi,私立病院,private hospital,,B1
+健康・医療,پرستاری,parastari,看護,nursing,,B1
+健康・医療,فیزیوتراپی,fizioterapi,理学療法,physiotherapy,,B1
+健康・医療,رژیم غذایی,rezhime ghazayi_b1,食事療法,dietary regimen,,B1
+教育,دانشگاه آزاد,daneshgahe azad,私立大学,Azad University,イランの私大,B1
+教育,دانشکده,daneshkade,学部,faculty/college,,B1
+教育,واحد درسی,vahede darsi,単位,course credit,,B1
+教育,حذف و اضافه,hazf o ezafe,履修変更,add/drop (courses),,B1
+教育,میان ترم,miyane term,中間試験,midterm exam,,B1
+教育,دفاع کردن,defa' kardan,論文を審査される,to defend (thesis),,B1
+教育,مشاور تحصیلی,moshavere tahsili,進路カウンセラー,academic advisor,,B1
+教育,المپیاد,olimpiyad,科学オリンピック,academic olympiad,,B1
+教育,پیش دانشگاهی,pish daneshgahi,大学予科,pre-university,,B1
+仕事・経済基礎,اخراج کردن,ekhraj kardan,解雇する,to fire/dismiss,,B1
+仕事・経済基礎,بازنشستگی,bazneshastegi,退職・年金,retirement,,B1
+仕事・経済基礎,بیمه تامین اجتماعی,bimeye ta'mine ejtemai,社会保険,social security insurance,,B1
+仕事・経済基礎,اضافه کاری,ezafe kari,残業,overtime,,B1
+仕事・経済基礎,مرخصی,morakhasi,休暇,leave/vacation,,B1
+仕事・経済基礎,استعفا دادن,este'fa dadan,辞職する,to resign,,B1
+仕事・経済基礎,ارتقا,erteqha,昇進,promotion,,B1
+仕事・経済基礎,رزومه,rezume,履歴書,resume/CV,,B1
+仕事・経済基礎,کارآموزی,karamuzi,インターンシップ,internship,,B1
+仕事・経済基礎,پاداش,padash,ボーナス・報酬,bonus/reward,,B1
+仕事・経済基礎,عیدی,eydi,年末ボーナス,New Year's bonus,ノウルーズのボーナス,B1
+仕事・経済基礎,حساب بانکی,hesabe banki,銀行口座,bank account,,B1
+仕事・経済基礎,کارت اعتباری,karte etebari,クレジットカード,credit card,,B1
+仕事・経済基礎,چک,chek,小切手,check/cheque,,B1
+仕事・経済基礎,پس انداز,pas andaz,貯金,savings,,B1
+仕事・経済基礎,کارفرما,karfarma,雇用主,employer,,B1
+仕事・経済基礎,کارجو,karju,求職者,job seeker,,B1
+仕事・経済基礎,شغل آزاد,shoghle azad,自営業,self-employment,,B1
+仕事・経済基礎,حقوق پایه,hoghuqhe paye,基本給,base salary,,B1
+仕事・経済基礎,کارانه,karane,歩合,commission,,B1
+法律・社会基礎,جریمه,jarime,罰金,fine/penalty,,B1
+法律・社会基礎,مجوز,mojawwez,許可証,permit/license,,B1
+法律・社会基礎,سند,sanad,書類・証書,document/deed,,B1
+法律・社会基礎,شناسنامه,shenasname,戸籍謄本,birth certificate,イランの身分証,B1
+法律・社会基礎,کارت ملی,karte melli,国民IDカード,national ID card,,B1
+法律・社会基礎,شکایت کردن,shekayat kardan,訴える・苦情を言う,to complain/sue,,B1
+法律・社会基礎,مالک,malek,所有者,owner,,B1
+法律・社会基礎,مستاجر,mosta'jer,借家人,tenant,,B1
+法律・社会基礎,اجاره نامه,ejarename,賃貸契約,lease,,B1
+法律・社会基礎,رهن,rahn,敷金,deposit (rental),イラン式敷金制度,B1
+法律・社会基礎,بنگاه,bongah,不動産屋,real estate agency,,B1
+法律・社会基礎,محضر,mahzar,法務局,notary public,,B1
+法律・社会基礎,ممنوع,mamnu',禁止,prohibited,,B1
+法律・社会基礎,ثبت احوال,sabte ahval,戸籍登録,civil registration,,B1
+法律・社会基礎,وکالت,vekalat,弁護,legal representation,,B1
+法律・社会基礎,محکمه,mahkame,法廷,courtroom,,B1
+法律・社会基礎,تخلف,takhalof,違反,violation,,B1
+法律・社会基礎,جواز,javaz,許可,permission,,B1
+法律・社会基礎,تابعیت,tabe'iyat,国籍,nationality,,B1
+法律・社会基礎,اقامت دائم,eghamate da'em,永住権,permanent residence,,B1
+技術基礎,وای فای,vay fay,ワイファイ,Wi-Fi,,B1
+技術基礎,اپلیکیشن,aplikeyshon,アプリ,application/app,,B1
+技術基礎,پیامک,payamak,SMS・ショートメッセージ,text message,,B1
+技術基礎,تماس گرفتن,tamas gereftan,電話する,to call (phone),,B1
+技術基礎,زنگ زدن,zang zadan,電話をかける,to ring/call,,B1
+技術基礎,ویدیو,vidiyo,ビデオ,video,,B1
+技術基礎,صفحه نمایش,safheye namayesh,画面・ディスプレイ,screen/display,,B1
+技術基礎,شارژ کردن,sharzh kardan,充電する,to charge,,B1
+技術基礎,فلش مموری,flash memori,USBメモリ,flash drive,,B1
+技術基礎,اکانت,akaunt,アカウント,account,,B1
+技術基礎,پروفایل,profayl,プロフィール,profile,,B1
+技術基礎,نوتیفیکیشن,notifikeyshon,通知,notification,,B1
+技術基礎,آپدیت کردن,update kardan,アップデートする,to update,,B1
+技術基礎,اسکرین شات,eskrin shat,スクリーンショット,screenshot,,B1
+技術基礎,هدفون,hedfon,ヘッドフォン,headphone,,B1
+技術基礎,بلندگو,bolandgu,スピーカー,speaker,,B1
+技術基礎,پرینت کردن,print kardan,印刷する,to print,,B1
+技術基礎,تبلت,tablet,タブレット,tablet,,B1
+技術基礎,ساعت هوشمند,saate hushmand,スマートウォッチ,smart watch,,B1
+技術基礎,ایرپاد,irpad,イヤホン,earbuds,,B1
+技術基礎,پاوربانک,powerbank,モバイルバッテリー,power bank,,B1
+技術基礎,وبلاگ,veblog,ブログ,blog,,B1
+技術基礎,استوری,estori,ストーリー,story (social media),,B1
+技術基礎,ریلز,rilz,リール,reel (social media),,B1
+技術基礎,لایک کردن,like kardan,いいねする,to like (social media),,B1
+技術基礎,کامنت گذاشتن,comment gozashtan,コメントする,to comment,,B1
+旅行（詳細）,اقامتگاه,eghamatgah,宿泊施設,accommodation,,B1
+旅行（詳細）,گردشگری,gardeshgari,観光,tourism,,B1
+旅行（詳細）,صنایع دستی,sanaye dasti,手工芸品,handicrafts,,B1
+旅行（詳細）,اثر تاریخی,asare tarikhi,歴史的遺跡,historical site,,B1
+旅行（詳細）,تخت جمشید,takhte jamshid,ペルセポリス,Persepolis,イランの世界遺産,B1
+旅行（詳細）,بازار بزرگ,bazare bozorg,グランドバザール,Grand Bazaar,,B1
+旅行（詳細）,کاروانسرا,karavan sara,キャラバンサライ,caravanserai,隊商宿,B1
+旅行（詳細）,مینیاتور,miniyatur,ミニアチュール,miniature,ペルシア細密画,B1
+旅行（詳細）,خطاطی,khatati,書道,calligraphy,,B1
+旅行（詳細）,کاشی کاری,kashi kari,タイル装飾,tilework,,B1
+旅行（詳細）,ساحل خلیج فارس,sahele khalije fars,ペルシア湾岸,Persian Gulf coast,,B1
+旅行（詳細）,دریای خزر,daryaye khazar,カスピ海,Caspian Sea,,B1
+旅行（詳細）,کویر,kavir,砂漠,desert (kavir),,B1
+旅行（詳細）,ییلاق,yeylagh,避暑地,summer resort,,B1
+旅行（詳細）,اکوتوریسم,ekoturism,エコツーリズム,ecotourism,,B1
+旅行（詳細）,چادر زدن,chador zadan,テントを張る,to pitch a tent,,B1
+旅行（詳細）,بلیت رفت و برگشت,bilite raft o bargasht,往復チケット,round-trip ticket,,B1
+旅行（詳細）,اصفهان,esfehan,エスファハーン,Isfahan,イランの古都,B1
+旅行（詳細）,شیراز,shiraz,シーラーズ,Shiraz,ペルシア詩と庭園の都市,B1
+旅行（詳細）,یزد,yazd,ヤズド,Yazd,砂漠の歴史都市,B1
+旅行（詳細）,تبریز,tabriz,タブリーズ,Tabriz,アゼリー文化の中心地,B1
+旅行（詳細）,مشهد,mashhad,マシュハド,Mashhad,聖地・イマームレザー廟,B1
+旅行（詳細）,کیش,kish,キーシュ島,Kish Island,ペルシア湾のリゾート,B1
+スポーツ,تیراندازی,tirandazi,射撃,shooting,,B1
+スポーツ,دو و میدانی,dow o meydani,陸上競技,track and field,,B1
+スポーツ,ژیمناستیک,zhimnastik,体操,gymnastics,,B1
+スポーツ,بوکس,boks,ボクシング,boxing,,B1
+スポーツ,غواصی,ghavvasi,ダイビング,diving,,B1
+スポーツ,قهرمان,ghahreman,チャンピオン,champion,,B1
+スポーツ,مدال طلا,medale tala,金メダル,gold medal,,B1
+スポーツ,مدال نقره,medale noghre,銀メダル,silver medal,,B1
+スポーツ,مدال برنز,medale beronz,銅メダル,bronze medal,,B1
+スポーツ,المپیک,olimpik,オリンピック,Olympics,,B1
+スポーツ,جام جهانی,jame jahani,ワールドカップ,World Cup,,B1
+スポーツ,لیگ,lig,リーグ,league,,B1
+スポーツ,کارت زرد,karte zard,イエローカード,yellow card,,B1
+スポーツ,کارت قرمز,karte ghermez,レッドカード,red card,,B1
+スポーツ,پنالتی,penalti,ペナルティ,penalty,,B1
+スポーツ,دروازه بان,darvaze ban,ゴールキーパー,goalkeeper,,B1
+スポーツ,مهاجم,mohajem,フォワード,forward (player),,B1
+スポーツ,مدافع,modafe',ディフェンダー,defender,,B1
+スポーツ,هافبک,hafbak,ミッドフィルダー,midfielder,,B1
+スポーツ,ورزش باستانی,varzeshe bastani,ズルハーネ,zurkhaneh,イラン伝統体操,B1
+スポーツ,اسکواش,eskovash,スカッシュ,squash,,B1
+スポーツ,پاراگلایدر,paraglayder,パラグライダー,paraglider,,B1
+スポーツ,رفتینگ,rafting,ラフティング,rafting,,B1
+文化・宗教基礎,نماز,namaz,礼拝,prayer (Islamic),,B1
+文化・宗教基礎,روزه,ruze,断食,fasting,,B1
+文化・宗教基礎,عید نوروز,eyde nowruz,ノウルーズ,Nowruz,イランの正月,B1
+文化・宗教基礎,عید فطر,eyde fetr,断食明けの祭り,Eid al-Fitr,,B1
+文化・宗教基礎,عید قربان,eyde ghorban,犠牲祭,Eid al-Adha,,B1
+文化・宗教基礎,رمضان,ramazan,ラマダン,Ramadan,,B1
+文化・宗教基礎,حج,haj,巡礼,Hajj,,B1
+文化・宗教基礎,قرآن,ghor'an,コーラン,Quran,,B1
+文化・宗教基礎,حرم,haram,聖域,sanctuary,,B1
+文化・宗教基礎,زیارت,ziyarat,巡礼・参拝,pilgrimage,,B1
+文化・宗教基礎,امامزاده,emamzade,聖廟,shrine,,B1
+文化・宗教基礎,سفره هفت سین,sofre haft sin,ハフトスィーン,Haft-sin,ノウルーズの7つのS,B1
+文化・宗教基礎,چهارشنبه سوری,chaharshanbe suri,チャハールシャンベスーリー,Chaharshanbe Suri,火祭り,B1
+文化・宗教基礎,سیزده به در,sizdah be dar,スィズダベダル,Sizdah be-dar,自然の日,B1
+文化・宗教基礎,شب یلدا,shabe yalda,ヤルダーの夜,Yalda Night,冬至の夜の祝い,B1
+文化・宗教基礎,دعا کردن,do'a kardan,祈る,to pray,,B1
+文化・宗教基礎,صدقه دادن,sadaghe dadan,施しをする,to give charity,,B1
+文化・宗教基礎,نذر کردن,nazr kardan,願掛けする,to make a vow,,B1
+文化・宗教基礎,قسم خوردن,ghasam khordan,誓う,to swear,,B1
+文化・宗教基礎,تسبیح,tasbih,数珠,prayer beads,,B1
+文化・宗教基礎,روضه خوانی,rowze khani,追悼の語り,recitation of martyrdom,,B1
+文化・宗教基礎,سینه زنی,sine zani,胸を叩く追悼儀式,chest-beating mourning,,B1
+文化・宗教基礎,هیئت,hey'at,追悼の集会,mourning assembly,,B1
+文化・宗教基礎,سفره نذری,sofre nazri,願掛けの食卓,votive spread,,B1
+副詞・接続詞（詳細）,بنابراین,banabarin,したがって,therefore,,B1
+副詞・接続詞（詳細）,به علاوه,be elave,さらに,in addition,,B1
+副詞・接続詞（詳細）,در حالی که,dar hali ke,〜の一方で,while/whereas,,B1
+副詞・接続詞（詳細）,اگرچه,agharche,〜にもかかわらず,although,,B1
+副詞・接続詞（詳細）,هرچند,harchand,〜とはいえ,although/even though,,B1
+副詞・接続詞（詳細）,به طور کلی,be towre kolli,一般的に,in general,,B1
+副詞・接続詞（詳細）,از طرف دیگر,az tarafe digar,一方で,on the other hand,,B1
+副詞・接続詞（詳細）,به هر حال,be har hal,いずれにしても,in any case,,B1
+副詞・接続詞（詳細）,به ویژه,be vizhe,特に,especially,,B1
+副詞・接続詞（詳細）,از جمله,az jomle,例えば,for example/including,,B1
+副詞・接続詞（詳細）,به جای,be jaye,〜の代わりに,instead of,,B1
+副詞・接続詞（詳細）,علاوه بر,elave bar,〜に加えて,in addition to,,B1
+副詞・接続詞（詳細）,نه تنها ... بلکه,na tanha ... balke,〜だけでなく〜も,not only ... but also,,B1
+副詞・接続詞（詳細）,به شرطی که,be sharti ke,〜という条件で,on the condition that,,B1
+副詞・接続詞（詳細）,تا اینکه,ta inke,〜するまで,until,,B1
+副詞・接続詞（詳細）,همین که,hamin ke,〜するとすぐに,as soon as,,B1
+副詞・接続詞（詳細）,در نتیجه,dar natije,結果として,as a result,,B1
+副詞・接続詞（詳細）,به همین دلیل,be hamin dalil,そのため,for this reason,,B1
+副詞・接続詞（詳細）,از آنجا که,az anja ke,〜であることから,since/given that,,B1
+副詞・接続詞（詳細）,برای اینکه,baraye inke,〜するために,in order to,,B1
+副詞・接続詞（詳細）,با وجود اینکه,ba vojude inke,〜にもかかわらず,despite the fact that,,B1
+副詞・接続詞（詳細）,در صورتی که,dar surati ke,もし〜なら,in case,,B1
+副詞・接続詞（詳細）,مگر اینکه,magar inke,〜でない限り,unless,,B1
+抽象名詞,امید,omid,希望,hope,,B1
+抽象名詞,یأس,ya's,絶望,despair,,B1
+抽象名詞,شجاعت,shoja'at,勇気,courage,,B1
+抽象名詞,بلندپروازی,bolandparvazi,野心,ambition,,B1
+抽象名詞,سادگی,sadegi,素朴さ,simplicity,,B1
+抽象名詞,پیچیدگی,pichidegi,複雑さ,complexity,,B1
+抽象名詞,ارزش,arzesh,価値,value,,B1
+抽象名詞,باور,bavar,信念,belief,,B1
+抽象名詞,رسم,rasm,慣習・しきたり,custom,,B1
+抽象名詞,عادت,adat,習慣,habit,,B1
+抽象名詞,اتفاق,ettefagh,出来事,event/incident,,B1
+抽象名詞,داستان,dastan,物語,story,,B1
+抽象名詞,سرنوشت,sarnevesht,運命,destiny/fate,,B1
+抽象名詞,شانس,shans,運・チャンス,luck/chance,,B1
+抽象名詞,معنی,ma'ni,意味,meaning,,B1
+抽象名詞,مفهوم,mafhum,概念,concept,,B1
+抽象名詞,توضیح,towzih,説明,explanation,,B1
+抽象名詞,دلیل,dalil,理由・根拠,reason/evidence,,B1
+抽象名詞,علت,ellat,原因,cause,,B1
+抽象名詞,تاثیر,ta'sir,影響,effect/influence,,B1
+抽象名詞,نقش,naghsh,役割,role,,B1
+抽象名詞,رابطه,rabete,関係,relationship,,B1
+抽象名詞,ارتباط,ertebat,つながり,connection/communication,,B1
+抽象名詞,تفاوت,tafavot,違い,difference,,B1
+抽象名詞,شباهت,shabahat,類似性,similarity,,B1
+抽象名詞,عاطفه,atefe,情緒,emotion,,B1
+抽象名詞,وجدان,vejdan,良心,conscience,,B1
+抽象名詞,وظیفه,vazife,義務・任務,duty/task,,B1
+抽象名詞,سهم,sahm,分け前,share/portion,,B1
+抽象名詞,نوبت,nobat_b1,順番・番,turn/order,,B1
+形容詞（中級）,پیچیده,pichide,複雑な,complex,,B1
+形容詞（中級）,عالی,ali,素晴らしい,excellent,,B1
+形容詞（中級）,افتضاح,eftezah,ひどい,terrible,,B1
+形容詞（中級）,خصوصی,khosusi,プライベートの,private,,B1
+形容詞（中級）,رسمی,rasmi,公式の,official/formal,,B1
+形容詞（中級）,غیر رسمی,gheyre rasmi,非公式の,unofficial/informal,,B1
+形容詞（中級）,ضروری,zaruri,必要な,necessary,,B1
+形容詞（中級）,اختیاری,ekhtiyari,任意の,optional,,B1
+形容詞（中級）,قابل قبول,ghabel ghabul,受け入れられる,acceptable,,B1
+形容詞（中級）,واضح,vazeh,明確な,clear/obvious,,B1
+形容詞（中級）,مبهم,mobham,曖昧な,vague/ambiguous,,B1
+形容詞（中級）,دقیق,daghigh,正確な,precise/exact,,B1
+形容詞（中級）,کامل,kamel,完全な,complete/perfect,,B1
+形容詞（中級）,ناقص,naghes,不完全な,incomplete,,B1
+形容詞（中級）,طبیعی,tabi'i,自然な,natural,,B1
+形容詞（中級）,مصنوعی,masnu'i,人工の,artificial,,B1
+形容詞（中級）,اصلی,asli,本来の・メインの,original/main,,B1
+形容詞（中級）,فرعی,far'i,副次的な,secondary,,B1
+形容詞（中級）,موقت,movaqqat,一時的な,temporary,,B1
+形容詞（中級）,دائمی,da'emi,永久の,permanent,,B1
+形容詞（中級）,فعال,fa'al,活発な,active,,B1
+形容詞（中級）,مسئول,mas'ul,責任ある,responsible,,B1
+形容詞（中級）,حساس,hassas,敏感な,sensitive,,B1
+形容詞（中級）,بی رحم,bi rahm,情け容赦のない,ruthless,,B1
+形容詞（中級）,دلسوز,delsuz,思いやりのある,compassionate,,B1
+形容詞（中級）,سازگار,sazgar,適応力のある,adaptable,,B1
+形容詞（中級）,لجباز,lajbaz,頑固な,stubborn,,B1
+形容詞（中級）,زرنگ,zerang,賢い・すばしこい,clever/shrewd,,B1
+形容詞（中級）,خوش سلیقه,khosh saliqe,センスがいい,tasteful,,B1
+形容詞（中級）,بد سلیقه,bad saliqe,センスが悪い,tasteless,,B1
+動詞（中級）,شرکت کردن,sherkat kardan,参加する,to participate,,B1
+動詞（中級）,مقایسه کردن,moghayese kardan,比較する,to compare,,B1
+動詞（中級）,توضیح دادن,towzih dadan,説明する,to explain,,B1
+動詞（中級）,اشاره کردن,eshare kardan,指摘する,to point out/refer,,B1
+動詞（中級）,ادامه دادن,edame dadan,続ける,to continue,,B1
+動詞（中級）,لغو کردن,laghv kardan,キャンセルする,to cancel,,B1
+動詞（中級）,تایید کردن,ta'yid kardan,確認する,to confirm,,B1
+動詞（中級）,تلاش کردن,talash kardan,努力する,to try/strive,,B1
+動詞（中級）,یاد آوردن,yad avardan,思い出す,to remember,,B1
+動詞（中級）,بهبود یافتن,behbud yaftan,改善する,to improve,,B1
+動詞（中級）,خراب شدن,kharab shodan,壊れる,to break down,,B1
+動詞（中級）,طراحی کردن,tarrahi kardan,デザインする,to design,,B1
+動詞（中級）,سازمان دادن,sazman dadan,組織する,to organize,,B1
+動詞（中級）,برنامه ریزی کردن,barname rizi kardan,計画する,to plan,,B1
+動詞（中級）,تصمیم گرفتن,tasmim gereftan,決定する,to decide,,B1
+動詞（中級）,اجازه دادن,ejaze dadan,許可する,to allow,,B1
+動詞（中級）,ممنوع کردن,mamnu' kardan,禁止する,to prohibit,,B1
+動詞（中級）,مجبور شدن,majbur shodan,強いられる,to be forced,,B1
+動詞（中級）,موفق شدن,movaffagh shodan,成功する,to succeed,,B1
+動詞（中級）,شکست خوردن,shekast khordan,失敗する,to fail,,B1
+動詞（中級）,رقابت کردن,reghabad kardan,競争する,to compete,,B1
+動詞（中級）,همکاری کردن,hamkari kardan,協力する,to cooperate,,B1
+動詞（中級）,مشورت کردن,mashverat kardan,相談する,to consult,,B1
+動詞（中級）,بحث کردن,bahs kardan,議論する,to discuss,,B1
+動詞（中級）,مذاکره کردن,mozakere kardan,交渉する,to negotiate,,B1
+動詞（中級）,گزارش دادن,gozaresh dadan,報告する,to report,,B1
+動詞（中級）,ارائه دادن,era'e dadan,プレゼンする,to present,,B1
+動詞（中級）,اعلام کردن,e'lam kardan,発表する,to announce,,B1
+動詞（中級）,منتشر کردن,montasher kardan,出版する・公開する,to publish,,B1
+動詞（中級）,حمایت کردن,hemayat kardan,支援する,to support,,B1
+動詞（中級）,مراجعه کردن,moraje'e kardan,参照する・訪問する,to refer to/visit,,B1
+動詞（中級）,متوجه شدن,motavajjeh shodan,気づく,to realize/notice,,B1
+動詞（中級）,تغییر دادن,taghyir dadan,変える,to change (transitive),,B1
+動詞（中級）,منتقل کردن,montaghel kardan,移す・転送する,to transfer,,B1
+動詞（中級）,اندازه گیری کردن,andaze giri kardan,測る,to measure,,B1
+動詞（中級）,محاسبه کردن,mohasebe kardan,計算する,to calculate,,B1
+動詞（中級）,توصیه کردن,towsiye kardan,勧める,to recommend,,B1
+動詞（中級）,هشدار دادن,hoshdar dadan,警告する,to warn,,B1
+動詞（中級）,مراقب بودن,moraghebbe budan,気をつける,to be careful,,B1
+動詞（中級）,صرفه جویی کردن,sarfejuyi kardan,節約する,to save/economize,,B1
+動詞（中級）,هدر دادن,hadr dadan,無駄にする,to waste,,B1
+動詞（中級）,وارد شدن,vared shodan,入る,to enter,,B1
+動詞（中級）,خارج شدن,kharej shodan,出る,to exit,,B1
+動詞（中級）,حرکت کردن,harekat kardan,出発する・動く,to move/depart,,B1
+動詞（中級）,عبور کردن,obur kardan,通過する,to pass/cross,,B1
+動詞（中級）,منتظر ماندن,montazer mandan,待つ,to wait,,B1
+動詞（中級）,آماده شدن,amade shodan,準備する,to get ready,,B1
+動詞（中級）,نشان دادن,neshan dadan,見せる・示す,to show,,B1
+動詞（中級）,پنهان کردن,penhan kardan,隠す,to hide,,B1
+動詞（中級）,تظاهر کردن,tazahor kardan,ふりをする,to pretend,,B1
+動詞（中級）,به نتیجه رسیدن,be natije residan,結論に達する,to reach a conclusion,,B1
+動詞（中級）,تاکید کردن,ta'kid kardan,強調する,to emphasize,,B1
+動詞（中級）,تحقیق کردن,tahghigh kardan,調査する,to research,,B1
+動詞（中級）,بررسی کردن,barresi kardan,検討する,to examine/review,,B1
+動詞（中級）,سعی کردن,sa'y kardan,努力する,to try,,B1
+動詞（中級）,تجربه کردن,tajrobe kardan,経験する,to experience,,B1
+動詞（中級）,ابراز کردن,ebraz kardan,表現する,to express,,B1
+動詞（中級）,افشا کردن,efsha kardan,暴露する,to reveal,,B1
+動詞（中級）,اقدام کردن,eghdam kardan,行動する・着手する,to take action,,B1
+慣用表現,دستتون درد نکنه,dasetun dard nakone,ありがとう（手を煩わせて）,thank you (informal),口語的感謝表現,B1
+慣用表現,قربونت برم,ghorboonat beram,あなたの犠牲になる,I'd sacrifice for you,親愛表現,B1
+慣用表現,الهی شکر,elahi shokr,ありがたい,thank God,,B1
+慣用表現,چشم,cheshm,了解・承知しました,yes/at your service,敬意を込めた承諾,B1
+慣用表現,به چشم,be cheshm,かしこまりました,at your service,より丁寧な承諾,B1
+慣用表現,روی چشمم,ruye cheshmam,喜んで,with pleasure,最も丁寧な承諾,B1
+慣用表現,خدا قوت,khoda ghowwat,お疲れ様,God give you strength,労いの表現,B1
+慣用表現,دستت طلا,dastet tala,素晴らしい腕前,your hand is golden,褒める表現,B1
+慣用表現,خدا بزرگه,khoda bozorge,神は偉大だ,God is great,慰めの表現,B1
+慣用表現,به امید خدا,be omide khoda,神に望みを託して,with God's hope,,B1
+慣用表現,دست و پا شکسته,dast o pa shekaste,たどたどしい,broken (language),外国語が下手な時,B1
+慣用表現,دست و دلباز,dast o delbaz,気前がいい,generous,,B1
+慣用表現,خاک بر سرم,khak bar saram,恥ずかしい,shame on me,自嘲表現,B1
+慣用表現,ای بابا,ey baba,やれやれ,oh man/come on,驚き・不満の表現,B1
+慣用表現,وای,vay,わあ・まあ,oh/wow,驚き・感嘆の表現,B1
+慣用表現,آخی,akhi,かわいそうに,oh poor thing,同情の表現,B1
+慣用表現,خوش آمدید,khosh amadid,ようこそ,welcome,,B1
+慣用表現,قدم رنجه کردید,ghadam ranje kardid,お越しいただきありがとう,you honored us with your visit,丁寧な歓迎表現,B1
+慣用表現,ممنونم,mammunam,ありがとう,thank you,,B1
+慣用表現,نوش جان,nushe jan,召し上がれ,bon appetit,食事の時,B1
+慣用表現,دست خوش,dast khosh,よくやった,well done,褒める口語表現,B1
+慣用表現,بزن به تخته,bezan be takhte,木をノックして,knock on wood,縁起かつぎ,B1
+慣用表現,چشمت روشن,cheshmet roshan,おめでとう,may your eyes be bright,良い知らせへの反応,B1
+慣用表現,زنده باشی,zende bashi,長生きしてね,may you live long,感謝の返答,B1
+時間・頻度,بیشتر اوقات,bishtar owghat,多くの場合,most of the time,,B1
+時間・頻度,به ندرت,be nodrat,めったに〜ない,rarely,,B1
+時間・頻度,اکثراً,aksaran,大抵,mostly,,B1
+時間・頻度,مکرراً,mokarraran,繰り返し,repeatedly,,B1
+時間・頻度,هر از گاهی,har az gahi,たまに,once in a while,,B1
+時間・頻度,روزانه,ruzane,日々・毎日の,daily,,B1
+時間・頻度,هفتگی,haftegi,週ごとの,weekly,,B1
+時間・頻度,سالانه,salane,年間の,annual,,B1
+時間・頻度,فوری,fowri,すぐに,immediately,,B1
+時間・頻度,به زودی,be zudi,まもなく,soon,,B1
+時間・頻度,دیر یا زود,dir ya zud,遅かれ早かれ,sooner or later,,B1
+量・程度,به شدت,be sheddat,激しく,severely,,B1
+量・程度,تا حدودی,ta hodudi,ある程度,to some extent,,B1
+量・程度,بیش از حد,bish az had,過度に,excessively,,B1
+量・程度,تعدادی,te'dadi,いくつかの,several,,B1
+量・程度,بسیاری از,besyari az,多くの,many of,,B1
+量・程度,اکثر,aksar,大部分の,most,,B1
+音・動作,در زدن,dar zadan,ドアをノックする,to knock on the door,,B1
+音・動作,صدا کردن,seda kardan,呼ぶ,to call out,,B1
+音・動作,فریاد زدن,faryad zadan,叫ぶ,to shout,,B1
+音・動作,نجوا کردن,najva kardan,ささやく,to whisper,,B1
+音・動作,سوت زدن,sut zadan,口笛を吹く,to whistle,,B1
+音・動作,دست زدن,dast zadan,拍手する,to clap,,B1
+音・動作,جیغ زدن,jigh zadan,悲鳴を上げる,to scream,,B1
+音・動作,ناله کردن,nale kardan,うめく,to groan/moan,,B1
+音・動作,آه کشیدن,ah keshidan,ため息をつく,to sigh,,B1
+音・動作,خروپف کردن,khorropof kardan,いびきをかく,to snore,,B1
+音・動作,خمیازه کشیدن,khamyaze keshidan,あくびをする,to yawn,,B1
+音・動作,جویدن,javidan,噛む,to chew,,B1
+身体動作,نفس کشیدن,nafas keshidan,呼吸する,to breathe,,B1
+身体動作,نفس عمیق کشیدن,nafase amigh keshidan,深呼吸する,to take a deep breath,,B1
+身体動作,کش و قوس رفتن,kesh o ghows raftan,伸びをする,to stretch,,B1
+身体動作,زانو زدن,zanu zadan,膝をつく,to kneel,,B1
+身体動作,تکیه دادن,tekye dadan,もたれかかる,to lean,,B1
+身体動作,قدم زدن,ghadam zadan,散歩する,to walk/stroll,,B1
+身体動作,بوسیدن,busidan,キスする,to kiss,,B1
+身体動作,بغل کردن,baghal kardan,抱きしめる,to hug,,B1
+身体動作,دست تکان دادن,dast tekan dadan,手を振る,to wave,,B1
+外見・性格,خوش اخلاق,khosh akhlagh,性格がいい,good-natured,,B1
+外見・性格,بد اخلاق,bad akhlagh,性格が悪い,bad-tempered,,B1
+外見・性格,سختگیر,sakhtgir,厳しい,strict,,B1
+外見・性格,خوش قلب,khosh ghalb,心が優しい,kind-hearted,,B1
+外見・性格,بخیل,bakhil,けちな,stingy,,B1
+外見・性格,صبور,sabur,忍耐強い,patient,,B1
+外見・性格,بی صبر,bi sabr,せっかちな,impatient,,B1
+外見・性格,خوش تیپ,khosh tip,かっこいい,handsome/good-looking,,B1
+外見・性格,جذاب,jazzab,魅力的な,attractive,,B1
+外見・性格,خوش برخورد,khosh barkhord,感じがいい,pleasant/sociable,,B1
+外見・性格,خوش صحبت,khosh sohbat,話上手な,good conversationalist,,B1
+外見・性格,ساکت,saket,静かな人,quiet,,B1
+外見・性格,پرحرف,por harf,おしゃべりな,talkative,,B1
+外見・性格,شوخ طبع,shukh tab',ユーモアがある,humorous,,B1
+外見・性格,منظم,monazzam,きちんとした,organized,,B1
+外見・性格,خوش قول,khosh ghowl,約束を守る,reliable (keeps promises),,B1
+外見・性格,متواضع,motavaze',謙虚な,humble/modest,,B1
+外見・性格,خودخواه,khodkhah,自分勝手な,selfish,,B1
+外見・性格,از خود گذشته,az khod gozashte,自己犠牲的な,selfless,,B1
+外見・性格,زیرک,zirak,抜け目のない,cunning,,B1
+外見・性格,خوش سلیقه,khosh saliqe_b1,センスのいい,tasteful,,B1
+天候・季節（詳細）,یخ زدگی,yakh zadegi,凍結,frost,,B1
+天候・季節（詳細）,کولاک,kulak,吹雪,blizzard,,B1
+天候・季節（詳細）,رعد,ra'd,雷鳴,thunder,,B1
+天候・季節（詳細）,صاعقه,sa'eghe,落雷,lightning strike,,B1
+天候・季節（詳細）,گرد و خاک,gard o khak,砂嵐,dust storm,,B1
+天候・季節（詳細）,ریزگرد,rizgard,微粒子,fine dust/particulate,,B1
+天候・季節（詳細）,دما,dama,温度,temperature,,B1
+天候・季節（詳細）,پیش بینی هوا,pish bini hava,天気予報,weather forecast,,B1
+天候・季節（詳細）,آفتابی,aftabi,晴れ,sunny,,B1
+天候・季節（詳細）,بارانی,barani,雨の,rainy,,B1
+天候・季節（詳細）,برفی,barfi,雪の,snowy,,B1
+天候・季節（詳細）,ملایم,molayem,穏やかな,mild,,B1
+政治・社会,انتخابات,entekhabbat,選挙,election,,B2
+政治・社会,مجلس,majles,国会,parliament,,B2
+政治・社会,دولت,dowlat,政府,government,,B2
+政治・社会,اعتراض,eteraz,抗議,protest,,B2
+政治・社会,اصلاحات,eslahat,改革,reforms,,B2
+政治・社会,رئیس جمهور,raees jomhur,大統領,president,,B2
+政治・社会,نماینده,namayande,代議士,representative,,B2
+政治・社会,حزب سیاسی,hezbe siyasi,政党,political party,,B2
+政治・社会,کابینه,kabine,内閣,cabinet,,B2
+政治・社会,قوه مجریه,ghovveye mojriye,行政権,executive power,,B2
+政治・社会,قوه مقننه,ghovveye moghannene,立法権,legislative power,,B2
+政治・社会,قوه قضاییه,ghovveye ghazayiye,司法権,judicial power,,B2
+政治・社会,پناهندگی,panahandegi,難民申請,asylum,,B2
+政治・社会,تبعید,tab'id,追放,exile,,B2
+政治・社会,سیاست خارجی,siyasate khareji,外交政策,foreign policy,,B2
+政治・社会,سازمان غیردولتی,sazmane gheyre dowlati,NGO,non-governmental organization,,B2
+政治・社会,جامعه مدنی,jame'eye madani,市民社会,civil society,,B2
+政治・社会,فمینیسم,feminism,フェミニズム,feminism,,B2
+政治・社会,حقوق زنان,hoghuqhe zanan,女性の権利,women's rights,,B2
+政治・社会,فعال مدنی,fa'ale madani,市民活動家,civil activist,,B2
+政治・社会,کارزار,karzar,キャンペーン,campaign,,B2
+政治・社会,رأی گیری,ra'y giri,投票,voting,,B2
+政治・社会,تقلب انتخاباتی,taghallobe entekhabbati,選挙不正,election fraud,,B2
+政治・社会,آزادی بیان,azadiye bayan,表現の自由,freedom of expression,,B2
+政治・社会,آزادی مطبوعات,azadiye matbu'at,報道の自由,freedom of press,,B2
+政治・社会,حکومت نظامی,hokumate nezami,戒厳令,martial law,,B2
+政治・社会,شورش,shuresh,暴動,revolt/uprising,,B2
+政治・社会,صلح طلبی,solhtalabi,平和主義,pacifism,,B2
+政治・社会,تروریسم,terorism,テロリズム,terrorism,,B2
+政治・社会,بنیادگرایی,bonyadgarayi,原理主義,fundamentalism,,B2
+経済,تورم,tavarrom,インフレ,inflation,,B2
+経済,رکود,rokud,不況,recession,,B2
+経済,سرمایه گذاری,sarmaye gozari,投資,investment,,B2
+経済,بورس,burs,株式市場,stock market,,B2
+経済,ارز,arz,外貨,foreign currency,,B2
+経済,نرخ ارز,nerkhe arz,為替レート,exchange rate,,B2
+経済,حباب اقتصادی,hobabe eghtesadi,経済バブル,economic bubble,,B2
+経済,رکود تورمی,rokude tavorromi,スタグフレーション,stagflation,,B2
+経済,کسری بودجه,kosriye budje,財政赤字,budget deficit,,B2
+経済,اوراق قرضه,oraghe gharzeh,国債,government bonds,,B2
+経済,استارتاپ,estartan,スタートアップ,startup,,B2
+経済,تجارت الکترونیکی,tejarate elektroniki,電子商取引,e-commerce,,B2
+経済,بازار سیاه,bazare siyah,闇市場,black market,,B2
+経済,قاچاق ارز,ghachaghe arz,為替密売,currency smuggling,,B2
+経済,دلال,dallal,ブローカー,broker,,B2
+経済,پولشویی,pulshuyi,マネーロンダリング,money laundering,,B2
+経済,تحریم,tahrim_b2,制裁,sanctions,,B2
+経済,تحریم اقتصادی,tahrime eghtesadi_b2,経済制裁,economic sanctions,,B2
+メディア,خبرنگار,khabarnegar_b2,記者,reporter,,B2
+メディア,مصاحبه,mosahebe_b2,インタビュー,interview,,B2
+メディア,گزارش,gozaresh_b2,報告・レポート,report,,B2
+メディア,مستند,mostanad_b2,ドキュメンタリー,documentary,,B2
+メディア,پادکست,padkast_b2,ポッドキャスト,podcast,,B2
+メディア,سانسور,sansur_b2,検閲,censorship,,B2
+メディア,سردبیر,sardabir_b2,編集長,editor-in-chief,,B2
+メディア,مخاطب,mokhatab_b2,視聴者・読者,audience,,B2
+メディア,رسانه جمعی,resaneye jam'i_b2,マスメディア,mass media,,B2
+メディア,سواد رسانه ای,savade resane'i_b2,メディアリテラシー,media literacy,,B2
+メディア,اخبار جعلی,akhbare ja'li_b2,フェイクニュース,fake news,,B2
+メディア,تولید محتوا,tolide mohtava_b2,コンテンツ制作,content creation,,B2
+メディア,خبرگزاری,khabargozari_b2,通信社,news agency,,B2
+メディア,شبکه خبری,shabakeye khabari,ニュースネットワーク,news network,,B2
+メディア,رادیو,radio,ラジオ,radio,,B2
+メディア,مجری,mojri,司会者,host/presenter,,B2
+メディア,مفسر,mofasser,解説者,commentator,,B2
+メディア,منتقد,montaghed_b2,批評家,critic,,B2
+メディア,افشاگری,efshagari,内部告発,whistleblowing,,B2
+メディア,حقیقت یابی,haghighat yabi,ファクトチェック,fact-checking,,B2
+心理学,افسردگی,afsordegi,うつ,depression,,B2
+心理学,اضطراب,ezterab,不安,anxiety,,B2
+心理学,خودشناسی,khodshenasi,自己認識,self-awareness,,B2
+心理学,انگیزه,angize,動機,motivation,,B2
+心理学,فوبیا,fobiya,恐怖症,phobia,,B2
+心理学,تروما,torowma,トラウマ,trauma,,B2
+心理学,روان درمانی,ravan darmani,心理療法,psychotherapy,,B2
+心理学,مکانیزم دفاعی,mekanisme defa'i,防衛機制,defense mechanism,,B2
+心理学,عزت نفس,ezzate nafs,自尊心,self-esteem,,B2
+心理学,تاب آوری,tab avari,レジリエンス,resilience,,B2
+心理学,سوگ,sug,喪・悲嘆,grief/mourning,,B2
+心理学,وسواس فکری,vasvase fekri,強迫観念,obsessive thoughts,,B2
+心理学,اختلال خواب,ekhtlale khab,睡眠障害,sleep disorder,,B2
+心理学,اختلال خوردن,ekhtlale khordan,摂食障害,eating disorder,,B2
+心理学,بحران هویت,bohrane hoviyat,アイデンティティ危機,identity crisis,,B2
+心理学,هوش هیجانی,hushe hayjani,EQ・感情知能,emotional intelligence,,B2
+心理学,ذهن آگاهی,zehn agahi,マインドフルネス,mindfulness,,B2
+心理学,خودمراقبتی,khod moraghebati,セルフケア,self-care,,B2
+心理学,مشاوره,moshavere,カウンセリング,counseling,,B2
+心理学,درمانگر,darmangar,セラピスト,therapist,,B2
+法律（詳細）,دادگاه,dadgah,裁判所,court,,B2
+法律（詳細）,وکیل,vakil,弁護士,lawyer,,B2
+法律（詳細）,محکوم,mahkum,有罪判決を受けた,convicted,,B2
+法律（詳細）,تبرئه,tabra'e,無罪放免,acquittal,,B2
+法律（詳細）,شکایت,shekayat,訴訟,complaint/lawsuit,,B2
+法律（詳細）,دادستان,dadestan,検察官,prosecutor,,B2
+法律（詳細）,متهم,mottaham,被告人,accused,,B2
+法律（詳細）,شاکی,shaki,原告,plaintiff,,B2
+法律（詳細）,حکم,hokm,判決,verdict,,B2
+法律（詳細）,استیناف,istinaf,控訴,appeal,,B2
+法律（詳細）,زندانی,zendani,囚人,prisoner,,B2
+法律（詳細）,آزادی مشروط,azadiye mashrut,仮釈放,parole,,B2
+法律（詳細）,ضمانت,zemanat_b2,保釈,bail,,B2
+法律（詳細）,وثیقه,vasighe,担保,collateral,,B2
+法律（詳細）,اعدام,e'dam,死刑,execution,,B2
+法律（詳細）,حبس,habs,禁固,imprisonment,,B2
+法律（詳細）,تعزیر,ta'zir,懲罰,discretionary punishment,,B2
+法律（詳細）,شهادت,shahadat,証言,testimony,,B2
+法律（詳細）,مدرک جرم,madrake jorm,証拠,evidence,,B2
+法律（詳細）,قاچاق,ghachagh_b2,密輸,smuggling,,B2
+科学・技術,آزمایش,azmayesh,実験,experiment,,B2
+科学・技術,فرضیه,farziye,仮説,hypothesis,,B2
+科学・技術,تحقیق,tahghigh,研究,research,,B2
+科学・技術,داده,dade,データ,data,,B2
+科学・技術,الگوریتم,algoritem,アルゴリズム,algorithm,,B2
+科学・技術,هوش مصنوعی,hushe masnui,人工知能,AI,,B2
+科学・技術,یادگیری ماشین,yadgiriye mashin,機械学習,machine learning,,B2
+科学・技術,واقعیت مجازی,vaghe'iyate majazi,仮想現実,virtual reality,,B2
+科学・技術,رباتیک,robatik,ロボティクス,robotics,,B2
+科学・技術,امنیت سایبری,amniyate saybari,サイバーセキュリティ,cybersecurity,,B2
+科学・技術,رمزنگاری,ramznegari,暗号化,encryption,,B2
+科学・技術,ابر رایانه,abr rayane,スーパーコンピュータ,supercomputer,,B2
+科学・技術,پردازش ابری,pardazeshe abri,クラウドコンピューティング,cloud computing,,B2
+科学・技術,اینترنت اشیا,internete ashya,IoT,Internet of Things,,B2
+科学・技術,چاپ سه بعدی,chape se bo'di,3Dプリント,3D printing,,B2
+科学・技術,پهپاد,pahpad,ドローン,drone,,B2
+科学・技術,انرژی هسته ای,enerjiye hasteyi,原子力エネルギー,nuclear energy,,B2
+科学・技術,نیروگاه,nirugah,発電所,power plant,,B2
+文学・芸術,رمان,roman,小説,novel,,B2
+文学・芸術,شعر,sher,詩,poem,,B2
+文学・芸術,نمایشنامه,namayeshname,戯曲,play (drama),,B2
+文学・芸術,نقاشی,naghashi_b2,絵画,painting,,B2
+文学・芸術,مجسمه سازی,mojasame sazi,彫刻,sculpture,,B2
+文学・芸術,معماری,me'mari,建築,architecture,,B2
+文学・芸術,سینمایی,sinemayi,映画の,cinematic,,B2
+文学・芸術,تئاتر,te'atr,演劇,theater,,B2
+文学・芸術,اپرا,opera,オペラ,opera,,B2
+文学・芸術,باله,bale,バレエ,ballet,,B2
+文学・芸術,خوشنویسی,khoshnevisi,書道,calligraphy,,B2
+文学・芸術,عکاسی,akkasi,写真術,photography,,B2
+文学・芸術,گرافیک,grafik,グラフィックデザイン,graphic design,,B2
+文学・芸術,هنرهای تجسمی,honarhaye tajassomi,造形芸術,visual arts,,B2
+文学・芸術,هنرهای نمایشی,honarhaye namayeshi,パフォーマンスアート,performing arts,,B2
+文学・芸術,ژانر,zhanr,ジャンル,genre,,B2
+文学・芸術,کارگاه هنری,kargahe honari,アートワークショップ,art workshop,,B2
+文学・芸術,نمایشگاه,namayeshgah,展覧会,exhibition,,B2
+文学・芸術,بینال,binal,ビエンナーレ,biennial,,B2
+文学・芸術,گالری,galeri,ギャラリー,gallery,,B2
+環境（詳細）,تغییرات آب و هوایی,taghyirate ab o havayi,気候変動,climate change,,B2
+環境（詳細）,زیست بوم,zist bum,生態系,ecosystem,,B2
+環境（詳細）,انقراض,engheraz,絶滅,extinction,,B2
+環境（詳細）,آلودگی خاک,aludegiye khak,土壌汚染,soil pollution,,B2
+環境（詳細）,پسماند هسته ای,pasmande hasteyi,核廃棄物,nuclear waste,,B2
+環境（詳細）,جنگل زدایی,jangalzodayi,森林伐採,deforestation,,B2
+環境（詳細）,کشاورزی پایدار,keshavarziye paydar,持続可能な農業,sustainable agriculture,,B2
+環境（詳細）,توسعه پایدار,towse'eye paydar,持続可能な開発,sustainable development,,B2
+環境（詳細）,اثر کربن,asare karbon,カーボンフットプリント,carbon footprint,,B2
+環境（詳細）,پنل خورشیدی,panele khorshidi,ソーラーパネル,solar panel,,B2
+環境（詳細）,توربین بادی,turbine badi,風力タービン,wind turbine,,B2
+環境（詳細）,لایه ازون,layeye ozun,オゾン層,ozone layer,,B2
+環境（詳細）,گلخانه ای,golkhaneyi,温室効果の,greenhouse (effect),,B2
+環境（詳細）,اسید باران,aside baran,酸性雨,acid rain,,B2
+環境（詳細）,حفاظت از محیط زیست,hefazat az mohite zist,環境保護,environmental protection,,B2
+ビジネス,قرارداد,gharardad,契約,contract,,B2
+ビジネス,مذاکره,mozakere,交渉,negotiation,,B2
+ビジネス,شرکت سهامی,sherkate sahami,株式会社,joint-stock company,,B2
+ビジネス,سود,sud,利益,profit,,B2
+ビジネス,زیان,ziyan,損失,loss,,B2
+ビジネス,ترازنامه,tarazname,貸借対照表,balance sheet,,B2
+ビジネス,صورت سود و زیان,surate sud o ziyan,損益計算書,income statement,,B2
+ビジネス,جریان نقدی,jariyane naghdi,キャッシュフロー,cash flow,,B2
+ビジネス,شرکت با مسئولیت محدود,sherkate ba mas'uliyate mahdud,有限会社,limited liability company,,B2
+ビジネス,مدیر عامل,modire amel,CEO,CEO,,B2
+ビジネス,هیئت مدیره,hey'ate modire,取締役会,board of directors,,B2
+ビジネス,منابع انسانی,manabe'e ensani,人事,human resources,,B2
+ビジネス,بازاریابی,bazaryabi,マーケティング,marketing,,B2
+ビジネス,تحقیقات بازار,tahghighate bazar,市場調査,market research,,B2
+ビジネス,برند سازی,berand sazi,ブランディング,branding,,B2
+ビジネス,تجارت بین الملل,tejarate baynolmelal,国際貿易,international trade,,B2
+ビジネス,زنجیره تامین,zanjireye ta'min_b2,サプライチェーン,supply chain,,B2
+ビジネス,لجستیک,lojestik,物流,logistics,,B2
+哲学・思想,اخلاق,akhlagh,倫理,ethics,,B2
+哲学・思想,وجدان,vejdan,良心,conscience,,B2
+哲学・思想,عدالت,edalat,正義,justice,,B2
+哲学・思想,آزادی,azadi,自由,freedom,,B2
+哲学・思想,مسئولیت,mas'uliyat,責任,responsibility,,B2
+哲学・思想,حقیقت,haghighat,真実,truth,,B2
+哲学・思想,توهم,tavahom,幻想,illusion,,B2
+哲学・思想,تعصب,ta'assob,偏見,prejudice/bigotry,,B2
+哲学・思想,شکاکیت,shakkakiyat,懐疑主義,skepticism,,B2
+哲学・思想,انسان دوستی,ensan dusti,博愛主義,philanthropy,,B2
+哲学・思想,فردگرایی,fardgarayi,個人主義,individualism,,B2
+哲学・思想,جمع گرایی,jam'garayi,集団主義,collectivism,,B2
+哲学・思想,تکثرگرایی,takassorgarayi,多元主義,pluralism,,B2
+哲学・思想,آرمان شهر,arman shahr,理想郷,utopia,,B2
+哲学・思想,بدبینی,badbini,悲観主義,pessimism,,B2
+哲学・思想,خوش بینی,khosh bini,楽観主義,optimism,,B2
+教育（高等）,استاد,ostad,教授,professor,,B2
+教育（高等）,دانشیار,daneshyar,准教授,associate professor,,B2
+教育（高等）,مقاله,maghale,論文,article/paper,,B2
+教育（高等）,ارائه,era'e,プレゼンテーション,presentation,,B2
+教育（高等）,کارشناسی,karshenasi,学士,bachelor's degree,,B2
+教育（高等）,کارشناسی ارشد,karshenasiye arshad,修士,master's degree,,B2
+教育（高等）,دکتری,doktori,博士,doctoral degree,,B2
+教育（高等）,فرصت مطالعاتی,forsate motale'ati,サバティカル,sabbatical,,B2
+教育（高等）,بورس تحصیلی,burse tahsili,留学奨学金,study scholarship,,B2
+教育（高等）,دانشگاه صنعتی,daneshgahe san'ati,工科大学,technical university,,B2
+教育（高等）,هیأت علمی,hey'ate elmi,教員団,academic faculty,,B2
+教育（高等）,دانشجوی دکتری,daneshjuye doktori,博士課程学生,PhD student,,B2
+教育（高等）,استاد راهنما,ostade rahnama,指導教員,thesis advisor,,B2
+教育（高等）,داور,davare,審査員,examiner,,B2
+歴史,امپراتوری,emperaturi,帝国,empire,,B2
+歴史,سلسله,selsele,王朝,dynasty,,B2
+歴史,انقلاب,enghelab,革命,revolution,,B2
+歴史,استعمار,este'mar,植民地主義,colonialism,,B2
+歴史,هخامنشی,hakhamaneshi,アケメネス朝,Achaemenid,古代ペルシア帝国,B2
+歴史,ساسانی,sasani,ササーン朝,Sassanid,,B2
+歴史,صفوی,safavi,サファヴィー朝,Safavid,,B2
+歴史,قاجار,qajar,ガージャール朝,Qajar,,B2
+歴史,پهلوی,pahlavi,パフラヴィー朝,Pahlavi,,B2
+歴史,انقلاب اسلامی,enghelabe eslami,イスラム革命,Islamic Revolution,1979年,B2
+歴史,جنگ ایران و عراق,jange iran o eragh,イラン・イラク戦争,Iran-Iraq War,1980-1988年,B2
+歴史,کوروش,kurosh,キュロス,Cyrus,ペルシア帝国の創設者,B2
+歴史,داریوش,daryush,ダーリウス,Darius,アケメネス朝の王,B2
+歴史,تمدن,tamaddon,文明,civilization,,B2
+歴史,باستانی,bastani,古代の,ancient,,B2
+歴史,قرون وسطی,ghurune vosta,中世,Middle Ages,,B2
+歴史,دوران معاصر,dowrane mo'aser,近現代,modern era,,B2
+歴史,ملی شدن نفت,melli shodane naft,石油国有化,oil nationalization,1951年,B2
+歴史,مشروطیت,mashrutiyat,立憲革命,Constitutional Revolution,1906年,B2
+歴史,جاده ابریشم,jadeye abrisham,シルクロード,Silk Road,,B2
+医療（詳細）,تشخیص,tashkhis,診断,diagnosis,,B2
+医療（詳細）,درمان,darman,治療,treatment,,B2
+医療（詳細）,عوارض,avarez,副作用,side effects,,B2
+医療（詳細）,بستری,bastari_b2,入院,hospitalization,,B2
+医療（詳細）,ترخیص,tarkhis,退院,discharge,,B2
+医療（詳細）,پیوند عضو,peyvande ozv,臓器移植,organ transplant,,B2
+医療（詳細）,شیمی درمانی,shimi darmani,化学療法,chemotherapy,,B2
+医療（詳細）,پرتو درمانی,partow darmani,放射線療法,radiotherapy,,B2
+医療（詳細）,ام آر آی,em ar ay,MRI,MRI,,B2
+医療（詳細）,سی تی اسکن,si ti eskan,CTスキャン,CT scan,,B2
+医療（詳細）,آندوسکوپی,andoskopi,内視鏡検査,endoscopy,,B2
+医療（詳細）,بیوپسی,biyopsi,生検,biopsy,,B2
+医療（詳細）,سرطان,saratan,がん,cancer,,B2
+医療（詳細）,سکته قلبی,sakteye ghalbi,心臓発作,heart attack,,B2
+医療（詳細）,سکته مغزی,sakteye maghzi,脳卒中,stroke,,B2
+医療（詳細）,نارسایی کلیوی,naresayiye koliyavi,腎不全,renal failure,,B2
+医療（詳細）,اتاق عمل,otaghe amal,手術室,operating room,,B2
+医療（詳細）,بخش مراقبت ویژه,bakhshe moraghebate vizhe,集中治療室,ICU,,B2
+医療（詳細）,داروی ژنریک,daruye zhenerik,ジェネリック薬,generic medicine,,B2
+医療（詳細）,پزشکی سنتی,pezeshkiye sonnati,伝統医学,traditional medicine,,B2
+動詞（上級）,تحلیل کردن,tahlil kardan,分析する,to analyze,,B2
+動詞（上級）,ارزیابی کردن,arzyabi kardan,評価する,to evaluate,,B2
+動詞（上級）,نتیجه گیری کردن,natije giri kardan,結論づける,to conclude,,B2
+動詞（上級）,استدلال کردن,estedlal kardan,論証する,to argue/reason,,B2
+動詞（上級）,تفسیر کردن,tafsir kardan,解釈する,to interpret,,B2
+動詞（上級）,پیش بینی کردن,pish bini kardan,予測する,to predict,,B2
+動詞（上級）,تدوین کردن,tadvin kardan,編纂する,to compile/formulate,,B2
+動詞（上級）,نقض کردن,naghz kardan,違反する,to violate,,B2
+動詞（上級）,تصویب کردن,tasvib kardan,承認する,to ratify/approve,,B2
+動詞（上級）,لغو کردن,laghv kardan_b2,廃止する,to abolish,,B2
+動詞（上級）,اعمال کردن,e'mal kardan,適用する,to apply/enforce,,B2
+動詞（上級）,تبدیل کردن,tabdil kardan,変換する,to convert,,B2
+動詞（上級）,ادعا کردن,edde'a kardan,主張する,to claim,,B2
+動詞（上級）,اثبات کردن,esbat kardan,証明する,to prove,,B2
+動詞（上級）,رد کردن (نظریه),rad kardan (nazariye),反論する,to refute,,B2
+動詞（上級）,توجیه کردن,towjih kardan,正当化する,to justify,,B2
+動詞（上級）,محدود کردن,mahdud kardan,制限する,to restrict,,B2
+動詞（上級）,تحریک کردن,tahrik kardan,刺激する,to provoke/stimulate,,B2
+動詞（上級）,مداخله کردن,modakhele kardan,介入する,to intervene,,B2
+動詞（上級）,تسهیل کردن,tashil kardan,促進する,to facilitate,,B2
+動詞（上級）,تضمین کردن,tazmin kardan,保証する,to guarantee,,B2
+動詞（上級）,به چالش کشیدن,be chalesh keshidan,挑戦する,to challenge,,B2
+動詞（上級）,سرکوب کردن,sarkub kardan,鎮圧する,to suppress,,B2
+動詞（上級）,تخصیص دادن,takhsis dadan,割り当てる,to allocate,,B2
+動詞（上級）,اقتباس کردن,eghtebas kardan,引用する,to quote/adapt,,B2
+動詞（上級）,ابداع کردن,ebda' kardan,創造する・発明する,to innovate,,B2
+動詞（上級）,مستند کردن,mostanad kardan,文書化する,to document,,B2
+動詞（上級）,طبقه بندی کردن,tabaghe bandi kardan,分類する,to classify,,B2
+動詞（上級）,ادغام کردن,edgham kardan,統合する,to integrate/merge,,B2
+動詞（上級）,تخمین زدن,takhmin zadan,見積もる,to estimate,,B2
+動詞（上級）,بازسازی کردن,bazsazi kardan,復元する,to reconstruct,,B2
+動詞（上級）,ترویج کردن,tarvij kardan,普及させる,to promote,,B2
+動詞（上級）,نظارت کردن,nezarat kardan,監督する,to supervise,,B2
+動詞（上級）,تأمین کردن,ta'min kardan,供給する,to supply/provide,,B2
+動詞（上級）,ساماندهی کردن,samandahi kardan,整備する,to organize/streamline,,B2
+動詞（上級）,عرضه کردن,arze kardan,提供する,to offer/supply,,B2
+動詞（上級）,تقاضا کردن,taghaza kardan,要求する,to demand,,B2
+動詞（上級）,وادار کردن,vadar kardan,強いる,to compel,,B2
+動詞（上級）,متقاعد کردن,motagha'ed kardan,説得する,to persuade,,B2
+動詞（上級）,الهام بخشیدن,elham bakhshidan,インスピレーションを与える,to inspire,,B2
+形容詞（上級）,بنیادین,bonyadin,根本的な,fundamental,,B2
+形容詞（上級）,اساسی,asasi,基本的な,fundamental/essential,,B2
+形容詞（上級）,بی سابقه,bi sabeqe,前例のない,unprecedented,,B2
+形容詞（上級）,بحث برانگیز,bahs barangiz,議論を呼ぶ,controversial,,B2
+形容詞（上級）,قابل توجه,ghabel tavajjoh,注目に値する,noteworthy,,B2
+形容詞（上級）,انتقادی,enteghadi,批判的な,critical,,B2
+形容詞（上級）,متناقض,motenaghez,矛盾した,contradictory,,B2
+形容詞（上級）,نسبی,nesbi,相対的な,relative,,B2
+形容詞（上級）,مطلق,motlagh,絶対的な,absolute,,B2
+形容詞（上級）,عینی,eyni,客観的な,objective,,B2
+形容詞（上級）,ذهنی,zehni,主観的な,subjective,,B2
+形容詞（上級）,ذاتی,zati,固有の,inherent/intrinsic,,B2
+形容詞（上級）,سطحی,sathi,表面的な,superficial,,B2
+形容詞（上級）,عمیق,amigh_b2,深い,profound,,B2
+形容詞（上級）,جامع,jame',包括的な,comprehensive,,B2
+形容詞（上級）,تدریجی,tadriji,段階的な,gradual,,B2
+形容詞（上級）,ناگهانی,nagehani,突然の,sudden,,B2
+形容詞（上級）,فراگیر,faragir,広範な,widespread,,B2
+形容詞（上級）,منحصر به فرد,monhaser be fard,ユニークな,unique,,B2
+形容詞（上級）,تأثیرگذار,ta'sirgozar,影響力のある,influential,,B2
+形容詞（上級）,چندوجهی,chandvajhi,多面的な,multifaceted,,B2
+形容詞（上級）,پایدار,paydar,持続可能な,sustainable,,B2
+形容詞（上級）,ناپایدار,napaydar,不安定な,unstable,,B2
+形容詞（上級）,موثق,movasaq,信頼できる,reliable/authentic,,B2
+形容詞（上級）,نامعتبر,na mo'tabar,信頼できない,unreliable,,B2
+副詞（上級）,اساساً,asasan,基本的に,fundamentally,,B2
+副詞（上級）,عمدتاً,omdatan,主に,mainly,,B2
+副詞（上級）,نهایتاً,nehayatan,最終的に,ultimately,,B2
+副詞（上級）,صرفاً,serfan,単に,merely,,B2
+副詞（上級）,لزوماً,lozuman,必ずしも,necessarily,,B2
+副詞（上級）,احتمالاً,ehtemalan,おそらく,probably,,B2
+副詞（上級）,ظاهراً,zaheran,見たところ,apparently,,B2
+副詞（上級）,باطناً,batenan,内心では,inwardly,,B2
+副詞（上級）,عملاً,amalan,実際には,practically,,B2
+副詞（上級）,رسماً,rasman,正式に,officially,,B2
+副詞（上級）,فوراً,fowran,直ちに,immediately,,B2
+副詞（上級）,تدریجاً,tadrijan,徐々に,gradually,,B2
+副詞（上級）,متقابلاً,motaghabelan,相互に,mutually,,B2
+副詞（上級）,نسبتاً,nesbatan,比較的,relatively,,B2
+接続詞（上級）,به شرط آنکه,be sharte anke,〜という条件で,provided that,,B2
+接続詞（上級）,مگر آنکه,magar anke,〜でない限り,unless,,B2
+接続詞（上級）,صرف نظر از,sarf nazar az,〜にかかわらず,regardless of,,B2
+接続詞（上級）,در عوض,dar avaz,その代わりに,instead,,B2
+接続詞（上級）,به عبارت دیگر,be ebarate digar,言い換えれば,in other words,,B2
+接続詞（上級）,علی رغم,alye raghme,〜にもかかわらず,despite,,B2
+接続詞（上級）,به فرض آنکه,be farze anke,仮に〜とすれば,assuming that,,B2
+接続詞（上級）,به منظور آنکه,be manzure anke,〜するために,in order that,,B2
+接続詞（上級）,از آنجایی که,az anjayi ke,〜であるから,since/given that,,B2
+接続詞（上級）,به گونه ای که,be guneyi ke,〜のように,in such a way that,,B2
+抽象概念,پدیده,padide,現象,phenomenon,,B2
+抽象概念,فرآیند,farayand,プロセス,process,,B2
+抽象概念,ساختار,sakhtar,構造,structure,,B2
+抽象概念,چارچوب,charchub,枠組み,framework,,B2
+抽象概念,الگو,olgu,パターン・モデル,pattern/model,,B2
+抽象概念,روند,ravand,傾向・トレンド,trend,,B2
+抽象概念,معیار,me'yar,基準,criterion,,B2
+抽象概念,شاخص,shakhes,指標,indicator/index,,B2
+抽象概念,مقوله,maghule,カテゴリー,category,,B2
+抽象概念,بستر,bastar,コンテキスト,context/platform,,B2
+抽象概念,زمینه,zamine,背景・分野,background/field,,B2
+抽象概念,جنبه,janbe,側面,aspect,,B2
+抽象概念,بعد,bo'd,次元,dimension,,B2
+抽象概念,سطح,sath,レベル,level,,B2
+抽象概念,مرحله,marhale,段階,stage/phase,,B2
+抽象概念,حوزه,howze,分野,domain/field,,B2
+抽象概念,قلمرو,ghalamrow,領域,territory/realm,,B2
+抽象概念,مکتب,maktab,学派,school of thought,,B2
+抽象概念,نگرش,negaresh,態度・見方,attitude/perspective,,B2
+抽象概念,رویکرد,ruykard,アプローチ,approach,,B2
+抽象概念,دیدگاه,didgah,視点,viewpoint,,B2
+抽象概念,چشم انداز,cheshm andaz,展望,outlook/perspective,,B2
+抽象概念,نظام,nezam,システム・体制,system/regime,,B2
+慣用句,آب از سرش گذشته,ab az sarash gozashte,もう手遅れだ,it's too late,慣用句,B2
+慣用句,سنگ صبور,sange sabur,辛抱強い聞き手,patient listener,慣用句,B2
+慣用句,دست و پا چلفتی,dast o pa chelefti,不器用な人,clumsy person,慣用句,B2
+慣用句,سر کسی کلاه گذاشتن,sare kasi kolah gozashtan,人を騙す,to deceive someone,慣用句,B2
+慣用句,دل به دریا زدن,del be darya zadan,思い切ってやる,to take the plunge,慣用句,B2
+慣用句,سنگ تمام گذاشتن,sange tamam gozashtan,最善を尽くす,to go all out,慣用句,B2
+慣用句,تیر خلاص زدن,tire khalas zadan,とどめを刺す,to deliver the final blow,慣用句,B2
+慣用句,آب پاکی ریختن,abe paki rikhtan,はっきり言う,to make things crystal clear,慣用句,B2
+慣用句,دست از پا دراز تر برگشتن,dast az pa deraztar bargashtan,手ぶらで戻る,to come back empty-handed,慣用句,B2
+慣用句,زمین خوردن,zamin khordan,失敗する・転ぶ,to fall/fail,慣用句,B2
+慣用句,دمش گرم,damash garm,よくやった,good job (slang),口語表現,B2
+慣用句,تو کار کسی دخالت کردن,tu kare kasi dekhalat kardan,余計な口出しをする,to meddle in someone's affairs,慣用句,B2
+慣用句,از خجالت آب شدن,az khejalat ab shodan,恥ずかしくて消えたい,to die of embarrassment,慣用句,B2
+慣用句,حرف کسی رو قبول نکردن,harfe kasi ro ghabul nakardan,人の言うことを聞かない,to not accept someone's words,慣用句,B2
+慣用句,آسمان جل,asemane jol,一文無し,penniless,慣用句,B2
+慣用句,چشم بادامی,cheshm badami,東洋人,almond-eyed (East Asian),慣用句,B2
+慣用句,قند تو دلش آب شد,ghand tu delash ab shod,とても嬉しくなった,melted with happiness,慣用句,B2
+慣用句,تو خالی,tu khali,見かけ倒し,all show and no substance,慣用句,B2
+慣用句,خر تو خر,khar tu khar,大混乱,total chaos,口語慣用句,B2
+慣用句,مار خوش خط و خال,mare khosh khatt o khal,見た目はいいが中身がない,a pretty but dangerous person,慣用句,B2
+文語・書き言葉,لذا,leza,したがって,therefore (formal),,B2
+文語・書き言葉,بدین ترتیب,bedin tartib,このように,in this manner,,B2
+文語・書き言葉,مع الوصف,ma'al vasf,それにもかかわらず,nevertheless,,B2
+文語・書き言葉,فی الواقع,filvaghe',実際に,in reality,,B2
+文語・書き言葉,علی الخصوص,alal khosus,特に,in particular,,B2
+文語・書き言葉,من جمله,man jomle,その中でも,among them,,B2
+文語・書き言葉,به نحوی که,be nahvi ke,〜のように,in such a way that,,B2
+文語・書き言葉,مستلزم,mostalzem,必要とする,requiring,,B2
+文語・書き言葉,مبتنی بر,mobtani bar,〜に基づいて,based on,,B2
+文語・書き言葉,مبنی بر,mabni bar,〜に基づいて,based on (variant),,B2
+文語・書き言葉,به تبع,be taba',その結果として,consequently,,B2
+文語・書き言葉,در خصوص,dar khosuse,〜に関して,regarding,,B2
+文語・書き言葉,در راستای,dar rastaye,〜に沿って,in line with,,B2
+文語・書き言葉,به مثابه,be masabeye,〜として,as/in the capacity of,,B2
+文語・書き言葉,از منظر,az manzare,〜の観点から,from the perspective of,,B2
+文語・書き言葉,به قید,be gheyde,〜という条件で,with the condition of,,B2
+文語・書き言葉,طی,tey,〜の間に,during,,B2
+文語・書き言葉,ضمن,zemne,〜の間に・同時に,while/during,,B2
+文語・書き言葉,حسب,hasbe,〜に従って,according to,,B2
+文語・書き言葉,بالاخص,belakhass,特に,especially (formal),,B2
+動詞（中級追加）,تحویل دادن,tahvil dadan,引き渡す,to deliver/hand over,,B1
+動詞（中級追加）,تحویل گرفتن,tahvil gereftan,受け取る,to receive,,B1
+動詞（中級追加）,جابه جا شدن,jabe ja shodan,移動する,to relocate,,B1
+動詞（中級追加）,اسباب کشی کردن,asbab keshi kardan,引っ越しする,to move (house),,B1
+動詞（中級追加）,نظر دادن,nazar dadan,意見を述べる,to give an opinion,,B1
+動詞（中級追加）,رعایت کردن,re'ayat kardan,遵守する,to observe/comply,,B1
+動詞（中級追加）,تعهد کردن,ta'ahhod kardan,誓約する,to commit/pledge,,B1
+動詞（中級追加）,سهیم شدن,sahim shodan,共有する,to share/participate,,B1
+動詞（中級追加）,محروم شدن,mahrum shodan,奪われる,to be deprived,,B1
+動詞（中級追加）,بهره مند شدن,bahremand shodan,享受する,to benefit from,,B1
+動詞（中級追加）,تسلیم شدن,taslim shodan,降参する,to surrender,,B1
+動詞（中級追加）,مقاومت کردن,moghavemat kardan,抵抗する,to resist,,B1
+動詞（中級追加）,تحریم کردن,tahrim kardan,ボイコットする,to boycott,,B1
+動詞（中級追加）,تحسین کردن,tahsin kardan,賞賛する,to admire,,B1
+動詞（中級追加）,ملاقات کردن,molaghat kardan,面会する,to meet (formal),,B1
+動詞（中級追加）,بازدید کردن,bazdid kardan,見学する,to visit (formal),,B1
+動詞（中級追加）,اعتراض کردن,eteraz kardan,抗議する,to protest,,B1
+動詞（中級追加）,امتناع کردن,emtena' kardan,辞退する,to abstain/refuse,,B1
+動詞（中級追加）,اعتصاب کردن,e'tesab kardan,ストライキする,to go on strike,,B1
+動詞（中級追加）,رای دادن,ray dadan,投票する,to vote,,B1
+動詞（中級追加）,تبلیغ کردن,tabligh kardan,宣伝する,to advertise,,B1
+動詞（中級追加）,سوال کردن,so'al kardan,質問する,to ask a question,,B1
+動詞（中級追加）,جواب دادن به,javab dadan be,〜に答える,to answer to,,B1
+動詞（中級追加）,مشخص کردن,moshakhkhas kardan,明確にする,to specify/clarify,,B1
+動詞（中級追加）,اختصاص دادن,ekhtsas dadan,割り当てる,to allocate,,B1
+動詞（中級追加）,ایجاد کردن,ijad kardan,創出する,to create/establish,,B1
+動詞（中級追加）,حفظ کردن,hefz kardan_b1,守る・保護する,to preserve/protect,,B1
+動詞（中級追加）,از بین بردن,az beyn bordan,排除する,to eliminate,,B1
+動詞（中級追加）,کنار آمدن,kenar amadan,折り合いをつける,to cope/get along,,B1
+動詞（中級追加）,چشم پوشی کردن,cheshm pushi kardan,目をつぶる,to overlook,,B1
+動詞（中級追加）,قناعت کردن,qana'at kardan,満足する,to be content,,B1
+動詞（中級追加）,صرف نظر کردن,sarf nazar kardan,諦める,to give up/waive,,B1
+動詞（中級追加）,دل خوش کردن,del khosh kardan,期待する（甘い），to delude oneself,,B1
+動詞（中級追加）,زحمت کشیدن,zahmat keshidan,苦労する,to take trouble,,B1
+動詞（中級追加）,لج کردن,laj kardan,意地を張る,to be stubborn,,B1
+動詞（中級追加）,ناز کردن,naz kardan,甘える・もったいぶる,to act coy/pampered,,B1
+動詞（中級追加）,منت گذاشتن,mennat gozashtan,恩着せがましくする,to do a favor (grudgingly),,B1
+動詞（中級追加）,سوءاستفاده کردن,su'e estefade kardan,悪用する,to exploit/abuse,,B1
+動詞（中級追加）,ادای کسی را درآوردن,edaye kasi ra daravardan,人の真似をする,to imitate someone,,B1
+動詞（中級追加）,غر زدن,ghor zadan,ぶつぶつ言う,to grumble,,B1
+家庭追加,قبض آب,ghabze ab,水道代,water bill,,B1
+家庭追加,قبض برق,ghabze bargh,電気代,electricity bill,,B1
+家庭追加,قبض گاز,ghabze gaz,ガス代,gas bill,,B1
+家庭追加,قبض تلفن,ghabze telefon,電話代,phone bill,,B1
+家庭追加,کنتور,kontor,メーター,meter (utility),,B1
+家庭追加,لوله کشی,lule keshi,配管工事,plumbing,,B1
+家庭追加,برق کار,barghkar,電気工事,electrical work,,B1
+家庭追加,نقاشی ساختمان,naghashiye sakhteman,塗装工事,house painting,,B1
+家庭追加,بازسازی خانه,bazsaziye khane,リフォーム,home renovation,,B1
+家庭追加,کابینت آشپزخانه,kabinete ashpazkhane,キッチンキャビネット,kitchen cabinet,,B1
+家庭追加,کاغذ دیواری,kaghaze divari,壁紙,wallpaper,,B1
+家庭追加,پارکت,parket,フローリング,parquet,,B1
+家庭追加,موکت,moket,カーペット,carpet (wall-to-wall),,B1
+家庭追加,پرده آفتابگیر,pardeye aftabgir,ブラインド,sunblind,,B1
+家庭追加,آبگرمکن,abgarmkon,温水器,water heater,,B1
+家庭追加,کولر گازی,kulere gazi,エアコン,air conditioner,,B1
+家庭追加,لباسشویی,lebasshui,洗濯機,washing machine,,B1
+家庭追加,ماشین ظرفشویی,mashine zarfshui,食洗機,dishwasher,,B1
+家庭追加,خشک کن,khoshk kon,乾燥機,dryer,,B1
+家庭追加,مخزن آب,makhzane ab,貯水タンク,water tank,,B1
+家庭追加,کلید برق,kelide bargh,電気スイッチ,light switch,,B1
+家庭追加,فیوز,fiyuz,ヒューズ,fuse,,B1
+家庭追加,برق گرفتن,bargh gereftan,感電する,to get an electric shock,,B1
+家庭追加,آب بندی,ab bandi,防水工事,waterproofing,,B1
+家庭追加,نم,nam,湿気,moisture/dampness,,B1
+食べ物追加,آلوچه,alucheh,すもも（小さい），cherry plum,,B1
+食べ物追加,شفتالو,shaftalu,桃（口語），peach (colloquial),,B1
+食べ物追加,نارنگی,narangi,みかん,tangerine,,B1
+食べ物追加,گلابی,golabi,梨,pear,,B1
+食べ物追加,خاکشیر,khakshir,種子の飲み物,khakshir drink,暑い季節の飲み物,B1
+食べ物追加,عرق نعناع,araqe na'na,ミント蒸留水,mint distillate,イランの薬用飲料,B1
+食べ物追加,گلاب,golab,バラ水,rosewater,,B1
+食べ物追加,تخمه,tokhme,種（おやつ），seeds (snack),ひまわりの種等,B1
+食べ物追加,تخمه آفتابگردان,tokhme aftabgardan,ひまわりの種,sunflower seeds,,B1
+食べ物追加,تخمه کدو,tokhme kadu,かぼちゃの種,pumpkin seeds,,B1
+食べ物追加,لب شور,lab shur,塩味のスナック,salted snack,,B1
+食べ物追加,نان خامه ای,nan khameyi,クリームパン,cream bread,,B1
+食べ物追加,سمبوسه,sambuse,サモサ,samosa,,B1
+食べ物追加,بورک,burak,ブレク,burek,生地巻きの料理,B1
+食べ物追加,قطاب,ghotab,ゴタブ,qottab,ヤズドの名菓,B1
+食べ物追加,پشمک,pashmak,パシュマク,pashmak,綿菓子風の菓子,B1
+食べ物追加,حلوای هویج,halvaye havij,にんじんハルワー,carrot halva,,B1
+食べ物追加,آب زرشک,abe zereshk,バーベリージュース,barberry juice,,B1
+食べ物追加,شیره انگور,shireye angur,ぶどうシロップ,grape syrup,,B1
+食べ物追加,کشمش,keshmesh,レーズン,raisin,,B1
+日常生活追加,آدرس,adres,住所,address,,B1
+日常生活追加,کد پستی,code posti,郵便番号,zip code,,B1
+日常生活追加,ساختمان,sakhteman,建物,building,,B1
+日常生活追加,واحد,vahed,ユニット・部屋,unit,,B1
+日常生活追加,همسایه,hamsaye_b1,隣人,neighbor,,B1
+日常生活追加,مدیر ساختمان,modire sakhteman,管理人,building manager,,B1
+日常生活追加,جلسه ساختمان,jalaseye sakhteman,管理組合会議,building meeting,,B1
+日常生活追加,شارژ ساختمان,sharzhe sakhteman,管理費,building maintenance fee,,B1
+日常生活追加,آنتن,anten,アンテナ,antenna,,B1
+日常生活追加,آیفون,ayfon,インターホン,intercom,,B1
+日常生活追加,زنگ در,zange dar,ドアベル,doorbell,,B1
+日常生活追加,قفل دیجیتال,ghofle dijital,デジタルロック,digital lock,,B1
+日常生活追加,دزدگیر,dozdgir,防犯装置,burglar alarm,,B1
+日常生活追加,دوربین مداربسته,durbine madarbaste,防犯カメラ,security camera,,B1
+日常生活追加,بیمه خانه,bimeye khane,家の保険,home insurance,,B1
+日常生活追加,بیمه ماشین,bimeye mashin,車の保険,car insurance,,B1
+日常生活追加,بیمه عمر,bimeye omr,生命保険,life insurance,,B1
+日常生活追加,قسط ماشین,gheste mashin,車のローン,car loan,,B1
+日常生活追加,وام مسکن,vame maskan_b1,住宅ローン,housing loan,,B1
+日常生活追加,سر ماه,sare mah,月末,end of month,,B1
+日常生活追加,تنخواه,tankhah,仮払い金,petty cash,,B1
+日常生活追加,یارانه,yarane_b1,補助金,subsidy,,B1
+日常生活追加,سبد کالا,sabade kala,生活必需品セット,essential goods basket,,B1
+日常生活追加,بازار تره بار,bazare tare bar,青果市場,vegetable/fruit market,,B1
+日常生活追加,صف نانوایی,safe nanvayi,パン屋の行列,bakery queue,,B1
+日常生活追加,سحری,sahari,断食前の食事,pre-dawn meal (Ramadan),,B1
+日常生活追加,افطار,eftar,断食明けの食事,iftar meal,,B1
+日常生活追加,بازار شب عید,bazare shabe eyd,年末バザール,New Year's eve market,,B1
+日常生活追加,خانه تکانی,khane tekani_b1,大掃除,spring cleaning (Nowruz),ノウルーズ前の大掃除,B1
+日常生活追加,سین,sin,Sで始まるもの,item starting with S,ハフトスィーン,B1
+日常生活追加,سبزه,sabze,麦の芽,wheat sprouts,ハフトスィーン用,B1
+日常生活追加,سکه,sekke,コイン・金貨,coin/gold coin,ハフトスィーン用,B1
+日常生活追加,سنجد,senjed,干しナツメ,oleaster,ハフトスィーン用,B1
+日常生活追加,سمنو,samanu_b1,小麦の芽ペースト,samanu,ハフトスィーン用,B1
+日常生活追加,سنبل,sonbol,ヒヤシンス,hyacinth,ハフトスィーン用,B1
+日常生活追加,ماهی قرمز,mahiye ghermez,赤い金魚,red goldfish,ハフトスィーン用,B1
+動詞（中級追加2）,نوبت گرفتن,nobat gereftan,予約を取る,to make an appointment,,B1
+動詞（中級追加2）,ویزیت شدن,vizit shodan,診察を受ける,to be examined (doctor),,B1
+動詞（中級追加2）,بلد بودن,balad budan,知っている・できる,to know how to,,B1
+動詞（中級追加2）,بلد نبودن,balad nabudan,知らない・できない,to not know how to,,B1
+動詞（中級追加2）,جور شدن,jur shodan,うまくいく,to work out,,B1
+動詞（中級追加2）,حال دادن,hal dadan,楽しい気分になる,to feel great (slang),,B1
+動詞（中級追加2）,حال نداشتن,hal nadastan,気分が悪い・やる気がない,to not feel like it,,B1
+動詞（中級追加2）,حوصله سر بردن,howsele sar bordan,暇をつぶす,to kill time,,B1
+動詞（中級追加2）,خل شدن,khol shodan,おかしくなる,to go crazy (slang),,B1
+動詞（中級追加2）,داد زدن,dad zadan,怒鳴る,to yell,,B1
+動詞（中級追加2）,ول کردن,vel kardan,放す・やめる,to let go/abandon,,B1
+動詞（中級追加2）,ول گشتن,vel gashtan,ぶらぶらする,to wander around,,B1
+動詞（中級追加2）,سر کار گذاشتن,sare kar gozashtan,だます,to trick/deceive,,B1
+動詞（中級追加2）,کنار گذاشتن,kenar gozashtan,脇に置く・除外する,to set aside,,B1
+動詞（中級追加2）,دست برداشتن,dast bardastan,やめる,to stop/give up,,B1
+動詞（中級追加2）,سر درآوردن,sar dar avardan,理解する,to figure out,,B1
+動詞（中級追加2）,به هم ریختن,be ham rikhtan,散らかす,to mess up,,B1
+動詞（中級追加2）,قاطی کردن,ghati kardan,混同する・キレる,to mix up/freak out,,B1
+動詞（中級追加2）,کنف شدن,konof shodan,恥ずかしくなる,to be embarrassed,,B1
+動詞（中級追加2）,پیچوندن,pichundan,サボる・避ける,to dodge/skip,,B1
+形容詞（追加B1）,خفن,khafan,すごい（スラング），awesome (slang),,B1
+形容詞（追加B1）,باحال,bahal,かっこいい・楽しい,cool/fun (slang),,B1
+形容詞（追加B1）,بی حال,bi hal,だるい,lethargic,,B1
+形容詞（追加B1）,سرحال,sarhal_b1,元気な,energetic,,B1
+形容詞（追加B1）,حال به هم زن,hal be ham zan,気持ち悪い,disgusting,,B1
+形容詞（追加B1）,چرت و پرت,chart o part,くだらない,nonsense,,B1
+形容詞（追加B1）,الکی,alaki,いい加減な,fake/meaningless (slang),,B1
+形容詞（追加B1）,جدی جدی,jeddi jeddi,マジで,seriously,,B1
+形容詞（追加B1）,مزخرف,mozakhraf,くだらない,nonsense,,B1
+形容詞（追加B1）,ناجور,najur,不適切な,inappropriate,,B1
+形容詞（追加B1）,بامعرفت,ba ma'refat,義理堅い,loyal/honorable,,B1
+形容詞（追加B1）,بی معرفت,bi ma'refat,不義理な,disloyal,,B1
+形容詞（追加B1）,سمج,samaj,しつこい,persistent/annoying,,B1
+形容詞（追加B1）,ورپریده,var paride,ずうずうしい（スラング），impudent (slang),,B1
+形容詞（追加B1）,پررو,porru,厚かましい,shameless/bold,,B1
+形容詞（追加B1）,خوش شانس,khosh shans,運がいい,lucky,,B1
+形容詞（追加B1）,بد شانس,bad shans,運が悪い,unlucky,,B1
+形容詞（追加B1）,خوش ذوق,khosh zowgh,趣味がいい,having good taste,,B1
+形容詞（追加B1）,خوش خنده,khosh khande,よく笑う,cheerful/smiley,,B1
+形容詞（追加B1）,زود رنج,zud ranj,傷つきやすい,easily offended,,B1
+形容詞（追加B1）,سر به هوا,sar be hava,おっちょこちょい,scatterbrained,,B1
+形容詞（追加B1）,خاکی,khaki,庶民的な,down-to-earth,,B1
+日常名詞追加,ترافیک,terafik_b1,渋滞,traffic jam,,B1
+日常名詞追加,اتوبان,otoban,高速道路,highway,,B1
+日常名詞追加,بزرگراه,bozorgrah_b1,幹線道路,expressway,,B1
+日常名詞追加,تقاطع,taghatoe_b1,交差点,intersection,,B1
+日常名詞追加,چهارراه,chaharrah,十字路,crossroads,,B1
+日常名詞追加,سه راهی,se rahi,三叉路,T-junction,,B1
+日常名詞追加,میدان,meydan_b1,ロータリー,roundabout,,B1
+日常名詞追加,کوچه,kuche,路地,alley,,B1
+日常名詞追加,بن بست,bon bast_b1,行き止まり,dead end,,B1
+日常名詞追加,پل عابر,pole aber,歩道橋,pedestrian bridge,,B1
+日常名詞追加,زیرگذر,zirgozar,地下道,underpass,,B1
+日常名詞追加,روگذر,rugozar,陸橋,overpass,,B1
+日常名詞追加,ایستگاه مترو,istgahe metro,地下鉄駅,metro station,,B1
+日常名詞追加,اسنپ,esnap,スナップ（配車アプリ），Snapp,イランのUber,B1
+日常名詞追加,تپسی,tapsi,タプスィ（配車アプリ），Tapsi,イランの配車アプリ,B1
+日常名詞追加,آژانس,azhans,タクシー会社,taxi agency,,B1
+日常名詞追加,دربست,darbast,貸切タクシー,private taxi,,B1
+日常名詞追加,خط,khat,路線,line/route,,B1
+日常名詞追加,سرویس,servis,送迎バス,shuttle bus,,B1
+日常名詞追加,وانت بار,vanet bar,軽トラ,pickup truck,,B1
+日常名詞追加,باربری,barbari_b1,引越し業者,moving company,,B1
+日常名詞追加,اثاثیه,asasiye,家財道具,household belongings,,B1
+日常名詞追加,پست,post,郵便,mail/post,,B1
+日常名詞追加,بسته پستی,basteye posti,小包,postal package,,B1
+日常名詞追加,پست پیشتاز,poste pishtaz,速達,express mail,,B1
+日常名詞追加,تیپاکس,tipaks,宅配便,courier (Tipax brand),,B1
+動詞（上級追加B2）,استنباط کردن,estenbat kardan,推論する,to infer,,B2
+動詞（上級追加B2）,تعمیم دادن,ta'mim dadan,一般化する,to generalize,,B2
+動詞（上級追加B2）,متمایز کردن,motamayez kardan,区別する,to distinguish,,B2
+動詞（上級追加B2）,مشروط کردن,mashrut kardan,条件付きにする,to condition,,B2
+動詞（上級追加B2）,مصادره کردن,mosadere kardan,没収する,to confiscate,,B2
+動詞（上級追加B2）,ملی کردن,melli kardan,国有化する,to nationalize,,B2
+動詞（上級追加B2）,خصوصی سازی کردن,khosusi sazi kardan,民営化する,to privatize,,B2
+動詞（上級追加B2）,تبعید کردن,tab'id kardan,追放する,to exile,,B2
+動詞（上級追加B2）,ممنوع الخروج کردن,mamnu'olkhoruj kardan,出国禁止にする,to ban from leaving,,B2
+動詞（上級追加B2）,بازداشت کردن,bazdashte kardan,拘留する,to detain,,B2
+動詞（上級追加B2）,محاکمه کردن,mohakeme kardan,裁判にかける,to put on trial,,B2
+動詞（上級追加B2）,تحقیر آمیز رفتار کردن,tahghir amiz raftar kardan,見下す,to behave condescendingly,,B2
+動詞（上級追加B2）,توطئه چیدن,towte'e chidan,陰謀を企てる,to plot/conspire,,B2
+動詞（上級追加B2）,کودتا کردن,kudeta kardan,クーデターを起こす,to stage a coup,,B2
+動詞（上級追加B2）,خلع سلاح کردن,khal'e selah kardan,武装解除する,to disarm,,B2
+動詞（上級追加B2）,مذاکره نهایی کردن,mozakere nahayi kardan,最終交渉する,to finalize negotiations,,B2
+動詞（上級追加B2）,بسیج کردن,basij kardan,動員する,to mobilize,,B2
+動詞（上級追加B2）,افشاگری کردن,efshagari kardan,内部告発する,to whistleblow,,B2
+動詞（上級追加B2）,جعل کردن,ja'l kardan,偽造する,to forge/counterfeit,,B2
+動詞（上級追加B2）,رشوه دادن,reshve dadan,賄賂を渡す,to bribe,,B2
+動詞（上級追加B2）,اختلاس کردن,ekhtelase kardan,横領する,to embezzle,,B2
+形容詞（上級追加B2）,فاحش,fahesh,法外な,exorbitant,,B2
+形容詞（上級追加B2）,نامتعارف,na mota'aref,異例の,unconventional,,B2
+形容詞（上級追加B2）,مستدل,mostadal,論理的な,well-reasoned,,B2
+形容詞（上級追加B2）,غیرمنطقی,gheyre manteghi,非論理的な,illogical,,B2
+形容詞（上級追加B2）,نوآورانه,noavarane,革新的な,innovative,,B2
+形容詞（上級追加B2）,سنتی,sonnati,伝統的な,traditional,,B2
+形容詞（上級追加B2）,مدرن,modern,近代的な,modern,,B2
+形容詞（上級追加B2）,پیشرو,pishrow,先進的な,progressive,,B2
+形容詞（上級追加B2）,واپسگرا,vapas gara,保守的な,reactionary,,B2
+形容詞（上級追加B2）,میانه رو,miyane row,中道の,moderate,,B2
+形容詞（上級追加B2）,افراطی,efrati,過激な,extremist,,B2
+形容詞（上級追加B2）,فراملی,faramelli,超国家的な,transnational,,B2
+形容詞（上級追加B2）,چندملیتی,chand melliyati,多国籍の,multinational,,B2
+形容詞（上級追加B2）,بومی,bumi,先住の・土着の,indigenous/native,,B2
+形容詞（上級追加B2）,اقلیتی,aghalliyati,少数派の,minority (adj),,B2
+形容詞（上級追加B2）,طبقاتی,tabaghatyi,階級的な,class-based,,B2
+科学技術追加B2,بلاکچین,blakchein,ブロックチェーン,blockchain,,B2
+科学技術追加B2,متاورس,metavers,メタバース,metaverse,,B2
+科学技術追加B2,اتوماسیون,otomasyun,オートメーション,automation,,B2
+科学技術追加B2,سنسور,sensor,センサー,sensor,,B2
+科学技術追加B2,اپتیک,optik,光学,optics,,B2
+科学技術追加B2,لیزر,leyzer,レーザー,laser,,B2
+科学技術追加B2,فیبر نوری,fibre nuri,光ファイバー,optical fiber,,B2
+科学技術追加B2,هکر,haker,ハッカー,hacker,,B2
+科学技術追加B2,فایروال,fayrval,ファイアウォール,firewall,,B2
+科学技術追加B2,بدافزار,badafzar,マルウェア,malware,,B2
+科学技術追加B2,نرم افزار,narm afzar,ソフトウェア,software,,B2
+科学技術追加B2,سخت افزار,sakht afzar,ハードウェア,hardware,,B2
+科学技術追加B2,پردازنده,pardazande,プロセッサ,processor,,B2
+科学技術追加B2,سیستم عامل,sisteme amel,OS,operating system,,B2
+科学技術追加B2,پایگاه داده,paygahe dade,データベース,database,,B2
+科学技術追加B2,کلان داده,kalane dade,ビッグデータ,big data,,B2
+科学技術追加B2,شبکه عصبی,shabakeye asabi,ニューラルネットワーク,neural network,,B2
+科学技術追加B2,رایانش کوانتومی,rayaneshe kuantomi,量子コンピューティング,quantum computing,,B2
+政治社会追加B2,فساد,fasad,腐敗,corruption,,B2
+政治社会追加B2,رانت,rant,レント（不正利益），rent-seeking,,B2
+政治社会追加B2,نپوتیسم,nepotism,縁故主義,nepotism,,B2
+政治社会追加B2,بوروکراسی,burokrasi,官僚主義,bureaucracy,,B2
+政治社会追加B2,تمرکززدایی,tamarkoz zodayi,分権化,decentralization,,B2
+政治社会追加B2,خودمختاری,khodmokhtari,自治,autonomy,,B2
+政治社会追加B2,ناسیونالیسم,nasyonalism,ナショナリズム,nationalism,,B2
+政治社会追加B2,پان ایرانیسم,pan iranism,汎イラン主義,Pan-Iranism,,B2
+政治社会追加B2,دیاسپورا,diaspora,離散民,diaspora,,B2
+政治社会追加B2,روشنفکری,rowshanfekri,知識人階層,intellectualism,,B2
+政治社会追加B2,نقد قدرت,naghde ghodrat,権力批判,critique of power,,B2
+政治社会追加B2,حکمرانی,hokamrani,統治,governance,,B2
+政治社会追加B2,مشارکت مردمی,mosharekate mardomi,市民参加,civic participation,,B2
+政治社会追加B2,فضای مجازی,fazaye majazi,サイバースペース,cyberspace,,B2
+政治社会追加B2,نظارت همگانی,nezarate hamegani,大衆監視,mass surveillance,,B2
+環境追加B2,بیابان زایی,biyaban zayi,砂漠化,desertification,,B2
+環境追加B2,آب شیرین کن,ab shirin kon,淡水化装置,desalination plant,,B2
+環境追加B2,ردپای اکولوژیکی,radpaye ekolojiki,エコロジカルフットプリント,ecological footprint,,B2
+環境追加B2,کشاورزی ارگانیک,keshavarziye organik,有機農業,organic farming,,B2
+環境追加B2,پلاستیک یکبار مصرف,pelastike yekbar masraf,使い捨てプラスチック,single-use plastic,,B2
+環境追加B2,میکروپلاستیک,mikro pelastik,マイクロプラスチック,microplastic,,B2
+環境追加B2,گازهای گلخانه ای,gazhaye golkhaneyi,温室効果ガス,greenhouse gases,,B2
+環境追加B2,تعادل زیستی,ta'adole zisti,生態系バランス,ecological balance,,B2
+環境追加B2,حیات وحش,hayate vahsh,野生生物,wildlife,,B2
+環境追加B2,منطقه حفاظت شده,mantagheye hefazat shode,保護区,protected area,,B2
+歴史追加B2,مادها,madha,メディア人,Medes,,B2
+歴史追加B2,پارسیان,parsiyan,ペルシア人,Persians,,B2
+歴史追加B2,اشکانی,ashkani,パルティア朝,Parthian,,B2
+歴史追加B2,سلجوقی,seljughi,セルジューク朝,Seljuk,,B2
+歴史追加B2,مغول,moghol,モンゴル,Mongol,,B2
+歴史追加B2,تیموری,teymuri,ティムール朝,Timurid,,B2
+歴史追加B2,افشاری,afshari,アフシャール朝,Afsharid,,B2
+歴史追加B2,زندیه,zandiye,ザンド朝,Zand,,B2
+歴史追加B2,مشروطه خواهان,mashruteh khahan,立憲主義者,constitutionalists,,B2
+歴史追加B2,ملی شدن صنعت نفت,melli shodane san'ate naft,石油産業国有化,oil industry nationalization,,B2
+歴史追加B2,دکتر مصدق,doktor mosaddegh,モサッデグ,Dr. Mosaddegh,イラン首相,B2
+歴史追加B2,جنبش ملی شدن نفت,jonbeshe melli shodane naft,石油国有化運動,oil nationalization movement,,B2
+医療追加B2,زیبایی شناسی پزشکی,zibayi shenasiye pezeshki,美容医療,aesthetic medicine,,B2
+医療追加B2,جراحی پلاستیک,jarrahiye pelastik,整形手術,plastic surgery,,B2
+医療追加B2,جراحی بینی,jarrahiye bini,鼻の整形,rhinoplasty,イランで非常に人気,B2
+医療追加B2,لیزیک,leyzik,レーシック,LASIK,,B2
+医療追加B2,طب سوزنی,tebbe suzani,鍼治療,acupuncture,,B2
+医療追加B2,طب سنتی ایرانی,tebbe sonnatiye irani,イラン伝統医学,Iranian traditional medicine,,B2
+医療追加B2,ناباروری,nabaruvari,不妊,infertility,,B2
+医療追加B2,لقاح مصنوعی,laghahe masnu'i,人工授精,artificial insemination,,B2
+医療追加B2,بانک خون,banke khun,血液バンク,blood bank,,B2
+医療追加B2,اهدای خون,ehdaye khun,献血,blood donation,,B2
+医療追加B2,پیوند مغز استخوان,peyvande maghze ostokhan,骨髄移植,bone marrow transplant,,B2
+経済追加B2,صندوق سرمایه گذاری,sandughe sarmaye gozari,投資ファンド,investment fund,,B2
+経済追加B2,بازار فارکس,bazare fareks,外為市場,forex market,,B2
+経済追加B2,نرخ بهره,nerkhe bahre,金利,interest rate,,B2
+経済追加B2,حجم معاملات,hajme mo'amelat,取引量,trading volume,,B2
+経済追加B2,شاخص بورس,shakhese burs,株価指数,stock index,,B2
+経済追加B2,عرضه اولیه سهام,arzeye avaliye saham,IPO,initial public offering,,B2
+経済追加B2,ارزش بازار,arzeshe bazar,時価総額,market capitalization,,B2
+経済追加B2,تورم افسار گسیخته,tavarrome afsar gosikhte,ハイパーインフレ,hyperinflation,,B2
+経済追加B2,رکود اقتصادی,rokude eghtesadi,経済不況,economic recession,,B2
+経済追加B2,بدهکار,bedehkar_b2,債務者,debtor,,B2
+経済追加B2,بستانکار,bestankar_b2,債権者,creditor,,B2
+経済追加B2,حسابداری,hesabdari,会計,accounting,,B2
+経済追加B2,ترازنامه مالی,taraznameye mali,財務諸表,financial statement,,B2
+ビジネス追加B2,استراتژی,estratezhi,戦略,strategy,,B2
+ビジネス追加B2,مزیت رقابتی,maziyate reghabi,競争優位,competitive advantage,,B2
+ビジネス追加B2,سهم بازار,sahme bazar,マーケットシェア,market share,,B2
+ビジネス追加B2,جایگاه یابی,jaygah yabi,ポジショニング,positioning,,B2
+ビジネス追加B2,بخش بندی بازار,bakhsh bandiye bazar,市場セグメンテーション,market segmentation,,B2
+ビジネス追加B2,مشتری مداری,moshtari madari,顧客志向,customer orientation,,B2
+ビジネス追加B2,ارزش افزوده,arzeshe afzude_b2,付加価値,value added,,B2
+ビジネス追加B2,مدیریت ریسک,modiriyate risk,リスク管理,risk management,,B2
+ビジネス追加B2,حاکمیت شرکتی,hakemiyate sherkati,コーポレートガバナンス,corporate governance,,B2
+ビジネス追加B2,مسئولیت اجتماعی,mas'uliyate ejtemai,社会的責任,social responsibility,,B2
+ビジネス追加B2,توسعه منابع انسانی,towse'eye manabe'e ensani,人材開発,human resource development,,B2
+ビジネス追加B2,ارزیابی عملکرد,arzyabiye amalkard,業績評価,performance evaluation,,B2
+文化社会追加B2,جهانی شدن,jahani shodan,グローバリゼーション,globalization,,B2
+文化社会追加B2,بومی سازی,bumi sazi,ローカリゼーション,localization,,B2
+文化社会追加B2,هویت ملی,hoviyate melli,国民アイデンティティ,national identity,,B2
+文化社会追加B2,چند فرهنگی,chand farhangi,多文化,multicultural,,B2
+文化社会追加B2,نسل,nasl,世代,generation,,B2
+文化社会追加B2,شکاف نسلی,shekafe nasli,世代間ギャップ,generation gap,,B2
+文化社会追加B2,فرار مغزها,farare maghzha,頭脳流出,brain drain,,B2
+文化社会追加B2,مهاجرت معکوس,mohajerati ma'kus,Uターン移住,reverse migration,,B2
+文化社会追加B2,طبقه متوسط,tabagheye motavasset,中産階級,middle class,,B2
+文化社会追加B2,حاشیه نشینی,hashiye neshini,スラム居住,slum dwelling,,B2
+文化社会追加B2,اعتیاد,e'tiyad,依存症,addiction,,B2
+文化社会追加B2,مواد مخدر,mavade mokhader,麻薬,narcotics,,B2
+文化社会追加B2,بزهکاری,bozahkari,犯罪行為,delinquency,,B2
+文化社会追加B2,کودک آزاری,kudak azari,児童虐待,child abuse,,B2
+文化社会追加B2,خشونت خانگی,khoshunate khanegi,家庭内暴力,domestic violence,,B2
+文化社会追加B2,نابرابری جنسیتی,nabarabariye jensiyati,ジェンダー不平等,gender inequality,,B2
+文化社会追加B2,سقف شیشه ای,saghfe shisheyi,ガラスの天井,glass ceiling,,B2
+文化社会追加B2,نژادپرستی,nezhad parasti,人種差別,racism,,B2
+文化社会追加B2,حقوق اقلیت ها,hoghuqhe aghalliyatha,少数派の権利,minority rights,,B2
+文化社会追加B2,عدالت اجتماعی,edalate ejtemai_b2,社会正義,social justice,,B2
+学術用語,فرضیه آزمایی,farziye azmayi,仮説検証,hypothesis testing,,C1
+学術用語,تحلیل آماری,tahlile amari,統計分析,statistical analysis,,C1
+学術用語,داده‌های کمی,dadehhaye kammi,定量データ,quantitative data,,C1
+学術用語,داده‌های کیفی,dadehhaye keyfi,定性データ,qualitative data,,C1
+学術用語,پرسشنامه,porseshname,質問票,questionnaire,,C1
+学術用語,مصاحبه ساختاریافته,mosahebe sakhtaryafte,構造化面接,structured interview,,C1
+学術用語,پایان‌نامه,payannameye,修士論文,thesis,,C1
+学術用語,دانشنامه,daneshnameye,百科事典,encyclopedia,,C1
+学術用語,مقاله علمی,maghalaye elmi,学術論文,academic paper,,C1
+学術用語,همایش,hamayesh,学会・シンポジウム,conference/symposium,,C1
+学術用語,کارگاه آموزشی,kargahe amuzeshi,ワークショップ,workshop,,C1
+学術用語,روش تحقیق,ravashe tahghigh,研究方法,research method,,C1
+学術用語,تحقیق میدانی,tahghighe meydani,フィールド調査,field research,,C1
+学術用語,آزمون فرض,azmune farz,仮説検定,hypothesis test,,C1
+学術用語,انحراف معیار,enherafe me'yar,標準偏差,standard deviation,,C1
+学術用語,میانگین,miyangin,平均,mean/average,,C1
+学術用語,توزیع نرمال,towzi'e normal,正規分布,normal distribution,,C1
+学術用語,رگرسیون,regaresion,回帰分析,regression,,C1
+学術用語,تحلیل واریانس,tahlile varians,分散分析,analysis of variance,,C1
+学術用語,جامعه آماری,jame'eye amari,母集団,statistical population,,C1
+学術用語,خطای نمونه‌گیری,khataye nemune giri,サンプリング誤差,sampling error,,C1
+学術用語,روایی سازه,ravayi saze,構成概念妥当性,construct validity,,C1
+学術用語,تعمیم‌پذیری,ta'mim paziri,一般化可能性,generalizability,,C1
+学術用語,بازنگری,baznegari,レビュー・見直し,review/revision,,C1
+学術用語,ارزیابی همتا,arzyabiye hamta,ピアレビュー,peer evaluation,,C1
+学術用語,فهرست منابع,fehreste manabe',参考文献リスト,bibliography,,C1
+学術用語,متغیر مستقل,motaghayyere mostaghel,独立変数,independent variable,,C1
+学術用語,متغیر وابسته,motaghayyere vabaste,従属変数,dependent variable,,C1
+学術用語,متغیر مداخله‌گر,motaghayyere modakhele gar,交絡変数,confounding variable,,C1
+学術用語,طرح پژوهش,tarhe pazhuhesh,研究デザイン,research design,,C1
+学術用語,مطالعه موردی,motale'eye moredi,ケーススタディ,case study,,C1
+学術用語,مطالعه طولی,motale'eye tuli,縦断研究,longitudinal study,,C1
+学術用語,مطالعه مقطعی,motale'eye maghtai,横断研究,cross-sectional study,,C1
+学術用語,روش‌شناسی کیفی,ravesh shenasiye keyfi,質的方法論,qualitative methodology,,C1
+学術用語,نظریه زمینه‌ای,nazariyeye zamine'i,グラウンデッド・セオリー,grounded theory,,C1
+学術用語,تحلیل گفتمان,tahlile gofteman,談話分析,discourse analysis,,C1
+学術用語,تحلیل محتوا,tahlile mohtava,内容分析,content analysis,,C1
+学術用語,قوم‌نگاری,ghowm negari,エスノグラフィー,ethnography,,C1
+学術用語,تحلیل کمّی,tahlile kammi,定量分析,quantitative analysis,,C1
+学術用語,اخلاق پژوهش,akhlaghe pazhuhesh,研究倫理,research ethics,,C1
+学術用語,رضایت آگاهانه,rezayate agahane,インフォームドコンセント,informed consent,,C1
+学術用語,ضریب همبستگی,zaribe hambastegi,相関係数,correlation coefficient,,C1
+学術用語,سطح معناداری,sathe ma'nadari,有意水準,significance level,,C1
+学術用語,تکرارپذیری,tekrarpaziri,再現性,reproducibility,,C1
+学術用語,بنیاد نظری,bonyade nazari,理論的基礎,theoretical foundation,,C1
+学術用語,مفهوم‌سازی,mafhumsazi,概念化,conceptualization,,C1
+学術用語,عملیاتی کردن,amaliyati kardan,操作化,operationalization,,C1
+学術用語,نقد منابع,naghde manabe',資料批判,source criticism,,C1
+学術用語,شیوه ارجاع‌دهی,shiveye erja' dehi,引用形式,citation style,,C1
+学術用語,واحد تحلیل,vahede tahlil,分析単位,unit of analysis,,C1
+学術用語,تفسیر داده‌ها,tafsire dadeha,データ解釈,data interpretation,,C1
+学術用語,محدودیت پژوهش,mahdudiyate pazhuhesh,研究の限界,research limitations,,C1
+学術用語,پیشنهاد پژوهشی,pishnahade pazhuheshi,研究提案,research proposal,,C1
+学術用語,دستاورد علمی,dastavarde elmi,学術的成果,scientific achievement,,C1
+学術用語,مکتب فکری,maktabe fekri,学派,school of thought,,C1
+学術用語,رویکرد بین‌رشته‌ای,ruykarde beyn reshte'i,学際的アプローチ,interdisciplinary approach,,C1
+学術用語,نقد درونی,naghde daruni,内在的批判,internal criticism,,C1
+法律・政治（詳細）,حقوق بشر,hoghuqhe bashar,人権,human rights,,C1
+法律・政治（詳細）,تحریم,tahrim_c1,制裁,sanctions,,C1
+法律・政治（詳細）,قطعنامه,ghat'name,決議,resolution,,C1
+法律・政治（詳細）,پناهندگی,panahndegi,亡命・難民申請,asylum,,C1
+法律・政治（詳細）,سفارتخانه,sefaratkhane,大使館（正式）,embassy (formal),,C1
+法律・政治（詳細）,کنسولگری,konsulgari,領事館,consulate,,C1
+法律・政治（詳細）,روابط دیپلماتیک,ravabete diplomateek,外交関係,diplomatic relations,,C1
+法律・政治（詳細）,تبعید,tab'id,追放・亡命,exile,,C1
+法律・政治（詳細）,استرداد,esterdad,引き渡し,extradition,,C1
+法律・政治（詳細）,عفو,afv,恩赦,amnesty/pardon,,C1
+法律・政治（詳細）,حکم اعدام,hokme e'dam,死刑判決,death sentence,,C1
+法律・政治（詳細）,حبس ابد,habse abad,終身刑,life imprisonment,,C1
+法律・政治（詳細）,جنایت جنگی,jenayate jangi,戦争犯罪,war crime,,C1
+法律・政治（詳細）,نسل‌کشی,nasl koshi,ジェノサイド,genocide,,C1
+法律・政治（詳細）,حق تعیین سرنوشت,haqqe ta'yine sarnevesht,自決権,right to self-determination,,C1
+法律・政治（詳細）,مصونیت دیپلماتیک,masuniyate diplomateek,外交特権,diplomatic immunity,,C1
+法律・政治（詳細）,میانجی‌گری,miyanji gari,調停,mediation,,C1
+法律・政治（詳細）,حاکمیت قانون,hakemiyate ghanun,法の支配,rule of law,,C1
+法律・政治（詳細）,آزادی بیان,azadiye bayan_c1,表現の自由,freedom of expression,,C1
+法律・政治（詳細）,آزادی مطبوعات,azadiye matbu'at,報道の自由,freedom of the press,,C1
+法律・政治（詳細）,حق رأی,haqqe ra'y,投票権,right to vote,,C1
+法律・政治（詳細）,انتخابات آزاد,entekhabate azad,自由選挙,free elections,,C1
+法律・政治（詳細）,جامعه مدنی,jame'eye madani,市民社会,civil society,,C1
+法律・政治（詳細）,لابی‌گری,labigari,ロビー活動,lobbying,,C1
+法律・政治（詳細）,مشروعیت,mashru'iyat,正統性,legitimacy,,C1
+法律・政治（詳細）,قانون‌گذاری,ghanun gozari,立法,legislation,,C1
+法律・政治（詳細）,آیین‌نامه,ayin name,施行規則,regulations/bylaws,,C1
+法律・政治（詳細）,تفکیک قوا,tafkike ghova,三権分立,separation of powers,,C1
+法律・政治（詳細）,شفافیت,shafafiyat,透明性,transparency,,C1
+法律・政治（詳細）,پاسخگویی,pasokh guyi,説明責任,accountability,,C1
+法律・政治（詳細）,حقوق اقلیت‌ها,hoghuqhe aghalliyatha_c1,少数者の権利,minority rights,,C1
+法律・政治（詳細）,حقوق زنان,hoghuqhe zanan,女性の権利,women's rights,,C1
+法律・政治（詳細）,حقوق کودک,hoghuqhe kudak,児童の権利,children's rights,,C1
+法律・政治（詳細）,حقوق کار,hoghuqhe kar,労働法,labor law,,C1
+法律・政治（詳細）,حقوق مالکیت,hoghuqhe malekiyat,所有権,property rights,,C1
+法律・政治（詳細）,حریم خصوصی,harime khosusi,プライバシー,privacy,,C1
+ビジネス上級,سهام,saham_c1,株式,stock/shares,,C1
+ビジネス上級,بورس,burs_c1,証券取引所,stock exchange,,C1
+ビジネス上級,سود سهام,sude saham,配当金,dividends,,C1
+ビジネス上級,صندوق سرمایه‌گذاری,sandughe sarmaye gozari_c1,投資ファンド,investment fund,,C1
+ビジネス上級,اوراق قرضه,oraghe gharzeh,債券,bonds,,C1
+ビジネス上級,زنجیره تأمین,zanjireye ta'min,サプライチェーン,supply chain,,C1
+ビジネス上級,حاشیه سود,hashiyeye sud,利益率,profit margin,,C1
+ビジネス上級,گردش مالی,gardeshhe mali,売上高,turnover,,C1
+ビジネス上級,ترازنامه,tarazname_c1,貸借対照表,balance sheet,,C1
+ビジネス上級,صورت سود و زیان,surate sud o ziyan,損益計算書,income statement,,C1
+ビジネス上級,صورت جریان وجوه نقد,surate jareyane vojuhe naghd,キャッシュフロー計算書,cash flow statement,,C1
+ビジネス上級,سرمایه در گردش,sarmaye dar gardesh,運転資本,working capital,,C1
+ビジネス上級,استهلاک,estehlak,減価償却,depreciation,,C1
+ビジネス上級,مالیات بر ارزش افزوده,maliyat bar arzeshe afzude,付加価値税,value-added tax (VAT),,C1
+ビジネス上級,قرارداد,gharardad,契約,contract,,C1
+ビジネス上級,شرکت سهامی عام,sherkate sahami am,公開会社,public company,,C1
+ビジネス上級,شرکت سهامی خاص,sherkate sahami khas,非公開会社,private company,,C1
+ビジネス上級,شرکت با مسئولیت محدود,sherkate ba mas'uliyate mahdud,有限責任会社,limited liability company,,C1
+ビジネス上級,نرخ بهره,nerkhe bahre_c1,金利,interest rate,,C1
+ビジネス上級,تسهیلات بانکی,tashilate banki,銀行融資,bank loan/facilities,,C1
+ビジネス上級,وثیقه,vasighe,担保,collateral,,C1
+ビジネス上級,حق‌الامتیاز,haqqol emtiyaz,ロイヤリティ,royalty,,C1
+ビジネス上級,کسب و کار نوپا,kasb o kare nopa,スタートアップ,startup,,C1
+ビジネス上級,سرمایه‌گذاری خطرپذیر,sarmaye gozariye khatarpazir,ベンチャーキャピタル,venture capital,,C1
+ビジネス上級,رقابت‌پذیری,reghabat paziri,競争力,competitiveness,,C1
+文学（詳細）,سوررئالیسم,surriyalism,シュルレアリスム,surrealism,,C1
+文学（詳細）,ناتورالیسم,naturalism,自然主義,naturalism,,C1
+文学（詳細）,مینی‌مالیسم,minimalism_lit,ミニマリズム（文学）,minimalism (literary),,C1
+文学（詳細）,ادبیات داستانی,adabiyate dastani,フィクション,fiction,,C1
+文学（詳細）,ادبیات غیرداستانی,adabiyate gheyre dastani,ノンフィクション,non-fiction,,C1
+文学（詳細）,خودزندگی‌نامه,khod zendegi name,自叙伝,autobiography,,C1
+文学（詳細）,زندگی‌نامه,zendegi name,伝記,biography,,C1
+文学（詳細）,سفرنامه,safarname,紀行文,travelogue,,C1
+文学（詳細）,خاطره‌نویسی,khatere nevisi,回想録,memoir,,C1
+文学（詳細）,مونولوگ,monolog,独白,monologue,,C1
+文学（詳細）,دیالوگ,dialoge,対話,dialogue,,C1
+文学（詳細）,لحن,lahn,トーン・調子,tone,,C1
+文学（詳細）,فرم ادبی,forme adabi,文学形式,literary form,,C1
+文学（詳細）,ژانر ادبی,zhanre adabi,文学ジャンル,literary genre,,C1
+文学（詳細）,فراداستان,faradastani,メタフィクション,metafiction,,C1
+文学（詳細）,جریان سیال ذهن,jareyane sayyale zehn,意識の流れ,stream of consciousness,,C1
+文学（詳細）,تک‌گویی درونی,tak guyi daruni,内的独白,interior monologue,,C1
+文学（詳細）,راوی دانای کل,raviye danaye kol,全知の語り手,omniscient narrator,,C1
+文学（詳細）,نقطه دید,noghteye did,視点,point of view,,C1
+文学（詳細）,چندصدایی,chand sedayi,多声性,polyphony,,C1
+文学（詳細）,بن‌مایه,bonmaye,モチーフ,motif,,C1
+文学（詳細）,کهن‌الگو,kohan olgu,アーキタイプ,archetype,,C1
+文学（詳細）,ادبیات پایداری,adabiyate paydari,抵抗文学,resistance literature,,C1
+文学（詳細）,ادبیات مهاجرت,adabiyate mohajerat,移民文学,migration literature,,C1
+文学（詳細）,ادبیات جنگ,adabiyate jang,戦争文学,war literature,,C1
+文学（詳細）,نقد فمینیستی,naghde feministy,フェミニスト批評,feminist criticism,,C1
+文学（詳細）,نقد مارکسیستی,naghde marksisty,マルクス主義批評,Marxist criticism,,C1
+文学（詳細）,نقد روان‌شناختی,naghde ravan shenakhti,心理学的批評,psychological criticism,,C1
+科学（詳細）,واکنش هسته‌ای,vakoneshe haste'i,核反応,nuclear reaction,,C1
+科学（詳細）,شکافت هسته‌ای,shekaafte haste'i,核分裂,nuclear fission,,C1
+科学（詳細）,همجوشی هسته‌ای,hamjushiye haste'i,核融合,nuclear fusion,,C1
+科学（詳細）,پرتوزایی,partuzayi,放射能,radioactivity,,C1
+科学（詳細）,ایزوتوپ,izotop,同位体,isotope,,C1
+科学（詳細）,یون,yon,イオン,ion,,C1
+科学（詳細）,پیوند شیمیایی,peyvande shimiyayi,化学結合,chemical bond,,C1
+科学（詳細）,پیوند کووالانسی,peyvande kovalansi,共有結合,covalent bond,,C1
+科学（詳細）,پیوند یونی,peyvande yoni,イオン結合,ionic bond,,C1
+科学（詳細）,اکسیداسیون,oksidacion,酸化,oxidation,,C1
+科学（詳細）,احیا,ehya,還元,reduction (chemistry),,C1
+科学（詳細）,سلول بنیادی,selule bonyadi,幹細胞,stem cell,,C1
+科学（詳細）,تمایز سلولی,tamayoze seluli,細胞分化,cell differentiation,,C1
+科学（詳細）,غشای سلولی,gheshaye seluli,細胞膜,cell membrane,,C1
+科学（詳細）,ریبوزوم,ribozom,リボソーム,ribosome,,C1
+科学（詳細）,هورمون,hormon,ホルモン,hormone,,C1
+科学（詳細）,نوروترنسمیتر,norotransmiter,神経伝達物質,neurotransmitter,,C1
+科学（詳細）,سیناپس,sinaps,シナプス,synapse,,C1
+科学（詳細）,الکترومغناطیس,elektromagnatis,電磁気学,electromagnetism,,C1
+科学（詳細）,آنتروپی,antropi,エントロピー,entropy,,C1
+科学（詳細）,نظریه آشوب,nazariyeye ashub,カオス理論,chaos theory,,C1
+科学（詳細）,نظریه ریسمان,nazariyeye risman,弦理論,string theory,,C1
+科学（詳細）,انرژی تاریک,enerzhiye tarik,暗黒エネルギー,dark energy,,C1
+科学（詳細）,مهبانگ,mahbang,ビッグバン,Big Bang,,C1
+科学（詳細）,تورم کیهانی,tavarrome keyhani,宇宙インフレーション,cosmic inflation,,C1
+科学（詳細）,اختر فیزیک,akhtar fizik,天体物理学,astrophysics,,C1
+科学（詳細）,سیاره فراخورشیدی,sayyareye farakhurshidi,系外惑星,exoplanet,,C1
+科学（詳細）,طیف‌سنجی,teyf sanji,分光法,spectroscopy,,C1
+科学（詳細）,زیست‌شیمی,zist shimi,生化学,biochemistry,,C1
+科学（詳細）,بیوفیزیک,biofizik,生物物理学,biophysics,,C1
+科学（詳細）,هوش مصنوعی,hushe masnu'i,人工知能,artificial intelligence,,C1
+科学（詳細）,یادگیری ماشین,yadgiriye mashin,機械学習,machine learning,,C1
+哲学・思想,فلسفه اخلاق,falsafeye akhlagh,倫理学,moral philosophy,,C1
+哲学・思想,فلسفه ذهن,falsafeye zehn,心の哲学,philosophy of mind,,C1
+哲学・思想,فلسفه زبان,falsafeye zaban,言語哲学,philosophy of language,,C1
+哲学・思想,فلسفه علم,falsafeye elm,科学哲学,philosophy of science,,C1
+哲学・思想,فلسفه سیاسی,falsafeye siyasi,政治哲学,political philosophy,,C1
+哲学・思想,فلسفه تاریخ,falsafeye tarikh,歴史哲学,philosophy of history,,C1
+哲学・思想,فلسفه دین,falsafeye din,宗教哲学,philosophy of religion,,C1
+哲学・思想,فلسفه هنر,falsafeye honar,芸術哲学,philosophy of art,,C1
+哲学・思想,فلسفه حقوق,falsafeye hoghuqh,法哲学,philosophy of law,,C1
+哲学・思想,فلسفه تربیتی,falsafeye tarbiyati,教育哲学,philosophy of education,,C1
+哲学・思想,دیالکتیک,diyalektik,弁証法,dialectics,,C1
+哲学・思想,پوزیتیویسم,pozitivism,実証主義,positivism,,C1
+哲学・思想,نفس,nafs,魂・自我,soul/self,イスラム哲学の重要概念,C1
+哲学・思想,عقل فعال,aghle fa'al,能動知性,active intellect,イスラム哲学用語,C1
+哲学・思想,فیض,feyz,流出,emanation,新プラトン主義的概念,C1
+哲学・思想,کمال,kamal,完成・完全性,perfection,,C1
+哲学・思想,سلوک,soluk,修行の道,spiritual journey,スーフィー用語,C1
+哲学・思想,توکل,tavakkol,神への信頼,trust in God,スーフィー用語,C1
+哲学・思想,زهد,zohd,禁欲,asceticism,,C1
+哲学・思想,یقین,yaghin,確信,certainty,,C1
+哲学・思想,شهود,shohud,直観・直覚,intuition/witnessing,スーフィー用語,C1
+哲学・思想,وجد,vajd,恍惚,ecstasy,スーフィー用語,C1
+哲学・思想,فطرت,fetrat,本性・天性,innate nature,,C1
+哲学・思想,خودشناسی,khod shenasi,自己認識,self-knowledge,,C1
+哲学・思想,واقع‌گرایی فلسفی,vaghe' garayiye falsafi,哲学的実在論,philosophical realism,,C1
+社会学,طبقه اجتماعی,tabagheye ejtemai,社会階級,social class,,C1
+社会学,فرهنگ‌پذیری,farhang paziri,文化変容,acculturation,,C1
+社会学,هنجار,hanjare,規範,norm,,C1
+社会学,انحراف اجتماعی,enherafe ejtemai,社会的逸脱,social deviance,,C1
+社会学,نهاد اجتماعی,nahade ejtemai,社会制度,social institution,,C1
+社会学,ساختار اجتماعی,sakhtare ejtemai,社会構造,social structure,,C1
+社会学,تحرک اجتماعی,taharoke ejtemai,社会的流動性,social mobility,,C1
+社会学,سرمایه اجتماعی,sarmayeye ejtemai,社会関係資本,social capital,,C1
+社会学,سرمایه فرهنگی,sarmayeye farhangi,文化資本,cultural capital,,C1
+社会学,بازتولید اجتماعی,baztolide ejtemai,社会的再生産,social reproduction,,C1
+社会学,هویت اجتماعی,hoviyate ejtemai,社会的アイデンティティ,social identity,,C1
+社会学,قشربندی اجتماعی,geshrbandiye ejtemai,社会的成層,social stratification,,C1
+社会学,نابرابری اجتماعی,nabarabariye ejtemai,社会的不平等,social inequality,,C1
+社会学,فرهنگ عامه,farhange amme,大衆文化,popular culture,,C1
+社会学,خرده‌فرهنگ,khorde farhang,サブカルチャー,subculture,,C1
+社会学,ضد فرهنگ,zedde farhang,カウンターカルチャー,counterculture,,C1
+社会学,جامعه‌پذیری,jame'e paziri,社会化,socialization,,C1
+社会学,کنش اجتماعی,koneshe ejtemai,社会的行為,social action,,C1
+社会学,فقر,faghr,貧困,poverty,,C1
+社会学,بیکاری,bikari,失業,unemployment,,C1
+社会学,آسیب‌شناسی اجتماعی,asib shenasiye ejtemai,社会病理学,social pathology,,C1
+社会学,کج‌رفتاری,kajraftari,逸脱行動,deviant behavior,,C1
+社会学,کنترل اجتماعی,kontrole ejtemai,社会統制,social control,,C1
+心理学（上級）,روان‌تحلیل‌گری,ravan tahlil gari,精神分析的,psychoanalytic,,C1
+心理学（上級）,ناخودآگاه,nakhodagah,無意識,unconscious,,C1
+心理学（上級）,نهاد,nahad_psy,イド,id (Freudian),,C1
+心理学（上級）,من,man_psy,自我,ego (Freudian),,C1
+心理学（上級）,فراخود,farakhod,超自我,superego,,C1
+心理学（上級）,مکانیزم دفاعی,mekanizme defa'i,防衛機制,defense mechanism,,C1
+心理学（上級）,سرکوب,sarkub_psy,抑圧,repression,,C1
+心理学（上級）,فرافکنی,farafkani,投影,projection,,C1
+心理学（上級）,واکنش‌سازی,vakonesh sazi,反動形成,reaction formation,,C1
+心理学（上級）,والایش,valayesh,昇華,sublimation,,C1
+心理学（上級）,شخصیت,shakhsiyat_psy,人格,personality,,C1
+心理学（上級）,اختلال شخصیت,ekhtelale shakhsiyat,人格障害,personality disorder,,C1
+心理学（上級）,اختلال اضطرابی,ekhtelale ezterabi,不安障害,anxiety disorder,,C1
+心理学（上級）,اختلال افسردگی,ekhtelale afsordegi,うつ病性障害,depressive disorder,,C1
+心理学（上級）,روان‌درمانی,ravan darmani,心理療法,psychotherapy,,C1
+心理学（上級）,رفتاردرمانی شناختی,raftar darmaniye shenakhti,認知行動療法,cognitive behavioral therapy,,C1
+心理学（上級）,روان‌شناسی رشد,ravan shenasiye roshd,発達心理学,developmental psychology,,C1
+心理学（上級）,روان‌شناسی بالینی,ravan shenasiye balini,臨床心理学,clinical psychology,,C1
+心理学（上級）,هوش هیجانی,hushe hayjani,感情知性,emotional intelligence,,C1
+心理学（上級）,خودکارآمدی,khodkaramadi,自己効力感,self-efficacy,,C1
+心理学（上級）,تاب‌آوری,tab avari,レジリエンス,resilience,,C1
+心理学（上級）,سوگیری شناختی,sugiriye shenakhti,認知バイアス,cognitive bias,,C1
+心理学（上級）,همرنگ جماعت شدن,hamrange jama'at shodan,同調,conformity,,C1
+経済学（上級）,عرضه و تقاضا,arzeye o tagaza,供給と需要,supply and demand,,C1
+経済学（上級）,تعادل بازار,ta'adole bazar,市場均衡,market equilibrium,,C1
+経済学（上級）,تولید ناخالص داخلی,tolide nakhalese dakheli,国内総生産,GDP,,C1
+経済学（上級）,سیاست پولی,siyasate puli,金融政策,monetary policy,,C1
+経済学（上級）,سیاست مالی,siyasate mali,財政政策,fiscal policy,,C1
+経済学（上級）,بانک مرکزی,banke markazi,中央銀行,central bank,,C1
+経済学（上級）,نرخ ارز,nerkhe arz,為替レート,exchange rate,,C1
+経済学（上級）,تراز تجاری,taraze tejari,貿易収支,trade balance,,C1
+経済学（上級）,بدهی عمومی,bedhiye omumi,公的債務,public debt,,C1
+経済学（上級）,کسری بودجه,kasriye budje,財政赤字,budget deficit,,C1
+経済学（上級）,هزینه فرصت,hazineye forsat,機会費用,opportunity cost,,C1
+経済学（上級）,مزیت نسبی,maziyate nesbi,比較優位,comparative advantage,,C1
+経済学（上級）,اقتصاد رفتاری,eghtesade raftari,行動経済学,behavioral economics,,C1
+経済学（上級）,اقتصاد توسعه,eghtesade towse'e,開発経済学,development economics,,C1
+経済学（上級）,اقتصاد محیط زیست,eghtesade mohite zist,環境経済学,environmental economics,,C1
+経済学（上級）,اقتصاد سیاسی,eghtesade siyasi,政治経済学,political economy,,C1
+経済学（上級）,بهره‌وری,bahre vari,生産性,productivity,,C1
+経済学（上級）,صرفه‌جویی مقیاس,sarfejuyi meghyas,規模の経済,economies of scale,,C1
+経済学（上級）,انحصار,enhesar,独占,monopoly,,C1
+経済学（上級）,رقابت کامل,reghabate kamel,完全競争,perfect competition,,C1
+経済学（上級）,شکست بازار,shekaste bazar,市場の失敗,market failure,,C1
+メディア・ジャーナリズム,سانسور,sansur,検閲,censorship,,C1
+メディア・ジャーナリズム,افکار عمومی,efkare omumi,世論,public opinion,,C1
+メディア・ジャーナリズム,رسانه‌های جمعی,resanehhaye jam'i,マスメディア,mass media,,C1
+メディア・ジャーナリズム,خبرگزاری,khabargozari,通信社,news agency,,C1
+メディア・ジャーナリズム,سردبیر,sardabir,編集長,editor-in-chief,,C1
+メディア・ジャーナリズム,خبرنگار,khabarnegar,記者,journalist/reporter,,C1
+メディア・ジャーナリズム,تحلیلگر,tahlilgar,アナリスト,analyst,,C1
+メディア・ジャーナリズム,گزارش تحقیقی,gozareshe tahghighi,調査報道,investigative report,,C1
+メディア・ジャーナリズム,تبلیغات,tablighat,広告・宣伝,advertising/propaganda,,C1
+メディア・ジャーナリズム,پروپاگاندا,propagandha,プロパガンダ,propaganda,,C1
+メディア・ジャーナリズム,اخبار جعلی,akhbare ja'li,フェイクニュース,fake news,,C1
+メディア・ジャーナリズム,سواد رسانه‌ای,savade resane'i,メディアリテラシー,media literacy,,C1
+メディア・ジャーナリズム,روزنامه‌نگاری,ruzname negari,ジャーナリズム,journalism,,C1
+メディア・ジャーナリズム,اینفلوئنسر,infloensar,インフルエンサー,influencer,,C1
+メディア・ジャーナリズム,حباب فیلتر,hobabe filter,フィルターバブル,filter bubble,,C1
+メディア・ジャーナリズム,اتاق بازتاب,otaghe baztab,エコーチャンバー,echo chamber,,C1
+メディア・ジャーナリズム,بی‌طرفی,bi tarafi,中立性,neutrality/impartiality,,C1
+メディア・ジャーナリズム,اخلاق رسانه‌ای,akhlaghe resane'i,メディア倫理,media ethics,,C1
+メディア・ジャーナリズム,افتراء,eftera,名誉毀損,defamation,,C1
+メディア・ジャーナリズム,مستند,mostanad_media,ドキュメンタリー,documentary,,C1
+環境科学,اکوسیستم,ekosistem,生態系,ecosystem,,C1
+環境科学,تنوع زیستی,tanavo'e zisti,生物多様性,biodiversity,,C1
+環境科学,ردپای کربن,radpaye karbon,カーボンフットプリント,carbon footprint,,C1
+環境科学,گرمایش جهانی,garmaayeshe jahani,地球温暖化,global warming,,C1
+環境科学,تغییرات اقلیمی,taghiyerate eghlimi,気候変動,climate change,,C1
+環境科学,گازهای گلخانه‌ای,gazhhaye golkhane'i,温室効果ガス,greenhouse gases,,C1
+環境科学,انرژی تجدیدپذیر,enerzhiye tajdidpazir,再生可能エネルギー,renewable energy,,C1
+環境科学,سوخت فسیلی,sukhte fosili,化石燃料,fossil fuel,,C1
+環境科学,آلودگی هوا,aludegiye hava,大気汚染,air pollution,,C1
+環境科学,آلودگی آب,aludegiye ab,水質汚染,water pollution,,C1
+環境科学,بازیافت,bazyaft,リサイクル,recycling,,C1
+環境科学,توسعه پایدار,towse'eye paydar,持続可能な開発,sustainable development,,C1
+環境科学,جنگل‌زدایی,jangal zodayi,森林破壊,deforestation,,C1
+環境科学,فرسایش خاک,farsayeshe khak,土壌侵食,soil erosion,,C1
+環境科学,لایه اوزون,layeye ozon,オゾン層,ozone layer,,C1
+環境科学,زیستگاه,zistgah,生息地,habitat,,C1
+環境科学,گونه در خطر انقراض,guneye dar khatare engheraz,絶滅危惧種,endangered species,,C1
+環境科学,انقراض,engheraz,絶滅,extinction,,C1
+環境科学,پارک ملی,parke melli,国立公園,national park,,C1
+国際関係,سازمان ملل متحد,sazmane melale mottahed,国際連合,United Nations,,C1
+国際関係,شورای امنیت,shoraye amniyat,安全保障理事会,Security Council,,C1
+国際関係,مجمع عمومی,majma'e omumi,総会,General Assembly,,C1
+国際関係,همگرایی,hamgarayi,統合・収斂,convergence/integration,,C1
+国際関係,واگرایی,vagarayi,発散・分離,divergence,,C1
+国際関係,چندجانبه‌گرایی,chandjanebe garayi,多国間主義,multilateralism,,C1
+国際関係,یکجانبه‌گرایی,yekjanebe garayi,単独主義,unilateralism,,C1
+国際関係,دوجانبه,dojanebe,二国間の,bilateral,,C1
+国際関係,اتحادیه اروپا,ettehadiyeye oruppa,欧州連合,European Union,,C1
+国際関係,ناتو,nato,NATO,NATO,,C1
+国際関係,سازمان تجارت جهانی,sazmane tejarate jahani,世界貿易機関,WTO,,C1
+国際関係,صندوق بین‌المللی پول,sandughe beynolmellaliye pul,国際通貨基金,IMF,,C1
+国際関係,بانک جهانی,banke jahani,世界銀行,World Bank,,C1
+国際関係,سیاست خارجی,siyasate khareji,外交政策,foreign policy,,C1
+国際関係,امنیت ملی,amniyate melli,国家安全保障,national security,,C1
+国際関係,قدرت نرم,ghodrate narm,ソフトパワー,soft power,,C1
+国際関係,قدرت سخت,ghodrate sakht,ハードパワー,hard power,,C1
+国際関係,بازدارندگی,baz darandegi,抑止力,deterrence,,C1
+国際関係,حفظ صلح,hefze solh,平和維持,peacekeeping,,C1
+形容詞（学術）,مبهم,mobham,曖昧な,ambiguous,,C1
+形容詞（学術）,دقیق,daghigh_c1,正確な,precise/accurate,,C1
+形容詞（学術）,جامع,jame'_c1,包括的な,comprehensive,,C1
+形容詞（学術）,انتقادی,enteghadi_c1,批判的な,critical,,C1
+形容詞（学術）,تجربی,tajrobi,実証的な,empirical,,C1
+形容詞（学術）,نظری,nazari_c1,理論的な,theoretical,,C1
+形容詞（学術）,ضمنی,zemni,暗黙の,implicit,,C1
+形容詞（学術）,صریح,sarih,明示的な,explicit,,C1
+形容詞（学術）,بنیادی,bonyadi_c1,根本的な,fundamental,,C1
+形容詞（学術）,کاربردی,karbordi,応用的な,applied,,C1
+形容詞（学術）,مقایسه‌ای,moghayese'i,比較の,comparative,,C1
+形容詞（学術）,توصیفی,towsifi,記述的な,descriptive,,C1
+形容詞（学術）,تحلیلی,tahlili,分析的な,analytical,,C1
+形容詞（学術）,تجویزی,tajvizi,規範的な,prescriptive/normative,,C1
+形容詞（学術）,پیچیده,pichide,複雑な,complex,,C1
+形容詞（学術）,گسترده,gostarde,広範な,extensive,,C1
+形容詞（学術）,معتبر,mo'tabar,信頼できる,reliable/credible,,C1
+形容詞（学術）,سازگار,sazgar,一貫した,consistent/compatible,,C1
+形容詞（学術）,ناسازگار,nasazgar,矛盾した,inconsistent,,C1
+形容詞（学術）,معنادار,ma'nadar,有意の,significant,,C1
+形容詞（学術）,بالقوه,belghavve,潜在的な,potential,,C1
+形容詞（学術）,بالفعل,belfe'l,実際の,actual,,C1
+形容詞（学術）,نوآورانه,noavarane_c1,革新的な,innovative,,C1
+動詞（学術）,تبیین کردن,tabyin kardan,説明する・解明する,to explain/elucidate,,C1
+動詞（学術）,واکاوی کردن,vakavi kardan,分析する・詳しく調べる,to analyze/examine,,C1
+動詞（学術）,تأمل کردن,ta'ammol kardan,熟考する,to contemplate/reflect,,C1
+動詞（学術）,بررسی کردن,barresi kardan,検討する,to examine/review,,C1
+動詞（学術）,استنباط کردن,estenbat kardan_c1,推論する,to infer,,C1
+動詞（学術）,مطرح کردن,matrah kardan,提起する・持ち出す,to raise/bring up,,C1
+動詞（学術）,بسط دادن,bast dadan,展開する・詳述する,to elaborate/expand,,C1
+動詞（学術）,خلاصه کردن,kholase kardan,要約する,to summarize,,C1
+動詞（学術）,استخراج کردن,estekhraj kardan,抽出する,to extract,,C1
+動詞（学術）,مقایسه کردن,moghayese kardan,比較する,to compare,,C1
+動詞（学術）,نقد کردن,naghd kardan,批評する,to critique/criticize,,C1
+動詞（学術）,فرض کردن,farz kardan,仮定する,to assume/hypothesize,,C1
+動詞（学術）,صورت‌بندی کردن,suratbandi kardan,定式化する,to formulate,,C1
+動詞（学術）,مفهوم‌پردازی کردن,mafhum pardazi kardan,概念化する,to conceptualize,,C1
+動詞（学術）,نظریه‌پردازی کردن,nazariye pardazi kardan,理論化する,to theorize,,C1
+動詞（学術）,به چالش کشیدن,be chalesh keshidan_c1,異議を唱える,to challenge,,C1
+動詞（学術）,بازاندیشی کردن,baz andishi kardan,再考する,to rethink,,C1
+動詞（学術）,ترکیب کردن,tarkib kardan,統合する,to synthesize,,C1
+動詞（学術）,نظام‌مند کردن,nezam mand kardan,体系化する,to systematize,,C1
+動詞（学術）,استناد کردن,estenad kardan,引用する・典拠にする,to cite/refer to,,C1
+動詞（学術）,سنجش کردن,sanjesh kardan,測定する,to measure/assess,,C1
+接続詞・文語,با عنایت به,ba enayat be,〜を考慮して,considering/given that,,C1
+接続詞・文語,به منظور,be manzure,〜の目的で,for the purpose of,,C1
+接続詞・文語,در راستای,dar rastaye_c1,〜に沿って,in line with,,C1
+接続詞・文語,علی‌رغم,alaraghme,〜にもかかわらず,despite/in spite of,,C1
+接続詞・文語,از این رو,az in ru,それゆえ,therefore/hence,,C1
+接続詞・文語,در نتیجه,dar natije,結果として,as a result,,C1
+接続詞・文語,به طور کلی,be towre kolli,全般的に,in general/generally,,C1
+接続詞・文語,به ویژه,be vizhe,特に,especially/particularly,,C1
+接続詞・文語,علاوه بر این,alaveh bar in,これに加えて,furthermore/moreover,,C1
+接続詞・文語,در مقابل,dar moghabel,一方で,on the other hand,,C1
+接続詞・文語,با وجود این,ba vojude in,それにもかかわらず,nevertheless,,C1
+接続詞・文語,از جمله,az jomle,例えば・〜を含めて,including/such as,,C1
+接続詞・文語,بر اساس,bar asase,〜に基づいて,based on,,C1
+接続詞・文語,با توجه به,ba tavajoh be,〜を踏まえて,considering/with regard to,,C1
+接続詞・文語,صرف‌نظر از,sarfnazar az,〜はさておき,regardless of,,C1
+接続詞・文語,مشروط بر اینکه,mashrut bar inke,〜を条件として,provided that,,C1
+ペルシア古典文学,مصراع,mesra',半句,hemistich,ビートの半分,C2
+ペルシア古典文学,دیوان,divan,詩集,collected poems/divan,詩人の全詩集,C2
+ペルシア古典文学,منطق‌الطیر,manteghottayr,鳥の言葉,Conference of the Birds,アッタールの代表作,C2
+ペルシア古典文学,مثنوی معنوی,masnaviye ma'navi,精神のマスナヴィー,Spiritual Masnavi,ルーミーの代表作,C2
+ペルシア古典文学,مولانا,mowlana,モウラナー（ルーミー）,Mowlana/Rumi,スーフィー詩の巨匠,C2
+ペルシア古典文学,خیام,khayyam,ハイヤーム,Khayyam,四行詩の巨匠,C2
+ペルシア古典文学,عطار,attar,アッタール,Attar,スーフィー詩人,C2
+ペルシア古典文学,نظامی,nezami,ネザーミー,Nezami,五部作の著者,C2
+ペルシア古典文学,خمسه,khamse,五部作,Khamsa/Quintet,ネザーミーの作品群,C2
+ペルシア古典文学,لیلی و مجنون,leyli o majnun,レイラとマジュヌーン,Layla and Majnun,ペルシア恋愛叙事詩,C2
+ペルシア古典文学,هفت‌پیکر,haft peykar,七つの肖像,Haft Peykar,ネザーミーの作品,C2
+ペルシア古典文学,ردیف,radif,繰り返し語,radif (poetic refrain),詩の韻律用語,C2
+ペルシア古典文学,مطلع,matla',冒頭連,opening couplet,ガザルの最初の対句,C2
+ペルシア古典文学,مقطع,maghta',末尾連,closing couplet,ガザルの最後の対句,C2
+ペルシア古典文学,تخلص,takhallus,詩人の雅号,pen name/nom de plume,詩人が末尾連で使う,C2
+ペルシア古典文学,عروض,aruz,韻律学,prosody,ペルシア詩の韻律体系,C2
+ペルシア古典文学,بحر,bahr,韻律の海,poetic meter type,韻律学の基本概念,C2
+ペルシア古典文学,رکن,rokn,韻律の足,metrical foot,韻律学用語,C2
+ペルシア古典文学,سبک خراسانی,sabke khorasani,ホラーサーン様式,Khorasani style,初期ペルシア詩のスタイル,C2
+ペルシア古典文学,سبک عراقی,sabke araghi,イラーキー様式,Iraqi style,中期ペルシア詩のスタイル,C2
+ペルシア古典文学,سبک هندی,sabke hendi,インド様式,Indian style,後期ペルシア詩のスタイル,C2
+ペルシア古典文学,بازگشت ادبی,bazgashte adabi,文学復帰,literary return movement,18世紀の文学運動,C2
+ペルシア古典文学,قلندریات,qalandariyat,放浪詩,qalandariyyat poems,放浪的スーフィー詩,C2
+ペルシア古典文学,ساقی‌نامه,saghiname,杯注ぎの書,cupbearer's poem,酒と神秘主義の詩形式,C2
+ペルシア古典文学,مرثیه,marsiye,挽歌,elegy/dirge,追悼の詩,C2
+ペルシア古典文学,هجو,hajv,風刺詩,satirical poem,批判的詩の形式,C2
+ペルシア古典文学,مدح,madh,賞賛詩,panegyric,宮廷詩の形式,C2
+ペルシア古典文学,حکایت,hekayat,説話,anecdote/tale,教訓的物語,C2
+ペルシア古典文学,تذکره,tazkere,伝記集,biographical anthology,詩人の伝記集,C2
+ペルシア古典文学,شرح,sharh,注釈,commentary,古典テキストの注釈,C2
+ペルシア古典文学,نسخه خطی,noskhaye khatti,写本,manuscript,手書きの古典テキスト,C2
+神秘主義・スーフィズム,سالک,salek,求道者,spiritual wayfarer,修行の道を歩む者,C2
+神秘主義・スーフィズム,مراقبه,moraghebe,瞑想,meditation,スーフィーの修行法,C2
+神秘主義・スーフィズム,فنا,fana,消滅・自我消滅,annihilation,神との合一の段階,C2
+神秘主義・スーフィズム,بقا,bagha,永存,subsistence,ファナーの後の段階,C2
+神秘主義・スーフィズム,ذکر,zekr,念誦・唱名,remembrance/dhikr,神の名を唱える修行,C2
+神秘主義・スーフィズム,سماع,sama',精神的舞踊,spiritual audition/dance,メヴレヴィー教団の旋回,C2
+神秘主義・スーフィズム,خانقاه,khanegah,スーフィー道場,Sufi lodge,修行の場,C2
+神秘主義・スーフィズム,پیر,pir,導師,spiritual master,スーフィーの師匠,C2
+神秘主義・スーフィズム,مرید,morid,弟子,disciple,スーフィーの修行者,C2
+神秘主義・スーフィズム,طریقت,tarighat,道・教団,spiritual path/order,スーフィーの修行の道,C2
+神秘主義・スーフィズム,شریعت,shariat,律法,religious law,イスラム法,C2
+神秘主義・スーフィズム,حقیقت,haghighat,真理,truth/reality,スーフィーの最終目標,C2
+神秘主義・スーフィズム,معرفت,ma'refat,真知・神秘的認識,gnosis,神を直接知ること,C2
+神秘主義・スーフィズム,تجلی,tajalli,顕現,divine manifestation,神の自己顕現,C2
+神秘主義・スーフィズム,جذبه,jazbe_c2,恍惚・魅了,divine attraction,神に引き寄せられること,C2
+神秘主義・スーフィズム,مکاشفه,mokashefe,啓示的直観,mystical disclosure,霊的な啓示体験,C2
+神秘主義・スーフィズム,وارستگی,varastegi,超脱,detachment,世俗への執着からの解放,C2
+神秘主義・スーフィズム,ریاضت,riyazat,苦行,ascetic practice,自己鍛錬の修行,C2
+神秘主義・スーフィズム,خلوت,khalvat,隠遁・閉じこもり,spiritual retreat/seclusion,瞑想のための隔離,C2
+神秘主義・スーフィズム,حلاج,hallaj,ハッラージュ,Hallaj,「われは真理なり」の聖者,C2
+神秘主義・スーフィズム,ابن عربی,ebne arabi,イブン・アラビー,Ibn Arabi,存在一性論の大家,C2
+神秘主義・スーフィズム,غزالی,ghazali,ガザーリー,Ghazali,スーフィズムの哲学者,C2
+神秘主義・スーフィズム,انسان کامل,ensane kamel,完全なる人間,Perfect Man,スーフィー思想の理想像,C2
+神秘主義・スーフィズム,سکر,sokr,霊的酩酊,spiritual intoxication,恍惚状態,C2
+神秘主義・スーフィズム,صحو,sahv,霊的覚醒,spiritual sobriety,恍惚からの覚醒,C2
+神秘主義・スーフィズム,نفس اماره,nafse ammare,命令する魂,commanding self,最下位の霊的段階,C2
+神秘主義・スーフィズム,نفس لوامه,nafse lavvame,叱責する魂,self-reproaching self,中位の霊的段階,C2
+神秘主義・スーフィズム,نفس مطمئنه,nafse motma'enne,安らかな魂,tranquil self,最上位の霊的段階,C2
+修辞学（詳細）,ایهام,iham,二重意味,amphiboly/double meaning,修辞技法の高度な手法,C2
+修辞学（詳細）,لف و نشر,laff o nashr,列挙と対応,wrapping and unwrapping,複数の対応を示す技法,C2
+修辞学（詳細）,مراعات نظیر,mora'ate nazir,連想的調和,observance of similarity,関連語の集合,C2
+修辞学（詳細）,تضمین,tazmin_c2,引用法,quotation/embedding,他者の詩句を引用する技法,C2
+修辞学（詳細）,اقتباس,eghtebase,借用・引用,quotation/borrowing,コーランやハディースの引用,C2
+修辞学（詳細）,تقابل,taghbol,対照法,juxtaposition,対立する概念の並置,C2
+修辞学（詳細）,ترصیع,tarsi',装飾法,ornamentation,詩行の対称的装飾,C2
+修辞学（詳細）,موازنه,movazene,均衡法,balance/parallelism,対句の均衡,C2
+修辞学（詳細）,سجع,saj',押韻散文,rhymed prose,散文における韻,C2
+修辞学（詳細）,تشخیص,tashkhis_c2,擬人法,personification,無生物に人間的属性を付与,C2
+修辞学（詳細）,استعاره مکنیه,este'areye makniye,隠された隠喩,implied metaphor,暗黙の比喩,C2
+修辞学（詳細）,استعاره مصرحه,este'areye mosarrehe,明示的隠喩,explicit metaphor,明確な比喩,C2
+修辞学（詳細）,تشبیه بلیغ,tashbihe baligh,雄弁な直喩,eloquent simile,最も簡潔な直喩形式,C2
+修辞学（詳細）,مجاز مرسل,majaze morsal,換喩,metonymy,部分で全体を表す比喩,C2
+諺・慣用句（追加）,یک دست صدا ندارد,yek dast seda nadarad,一人では何もできない,one hand has no sound,ことわざ,C2
+諺・慣用句（追加）,آفتاب آمد دلیل آفتاب,aftab amad dalile aftab,真実は自明である,the sun is proof of the sun,ルーミーのことわざ,C2
+諺・慣用句（追加）,ز گهواره تا گور دانش بجوی,ze gahvare ta gur danesh bejuy,揺りかごから墓場まで学べ,seek knowledge from cradle to grave,ことわざ,C2
+諺・慣用句（追加）,بنی آدم اعضای یک پیکرند,bani adam a'zaye yek peykarand,人間は一つの体の各器官,humans are members of one body,サアディーの名句,C2
+諺・慣用句（追加）,توانا بود هر که دانا بود,tavana bud har ke dana bud,知者は力あり,powerful is he who is wise,フェルドウスィーの句,C2
+諺・慣用句（追加）,آب رفته به جوی بازنمی‌گردد,abe rafte be juy baz nemi gardad,覆水盆に返らず,spilled water doesn't return to the stream,ことわざ,C2
+諺・慣用句（追加）,نابرده رنج گنج میسر نمیشود,naborde ranj ganj moyassar nemishavad,苦労なくして宝は得られぬ,no gain without pain,サアディーの句,C2
+諺・慣用句（追加）,گر صبر کنی ز غوره حلوا سازی,gar sabr koni ze ghure halva sazi,忍耐すれば酸い葡萄も菓子になる,with patience sour grapes become sweet,ことわざ,C2
+諺・慣用句（追加）,دوست آن باشد که گیرد دست دوست,dust an bashad ke girad daste dust,友は困った時に手を差し伸べる者,a friend takes a friend's hand,ことわざ,C2
+諺・慣用句（追加）,عقل سالم در بدن سالم,aghle salem dar badane salem,健全な精神は健全な肉体に宿る,healthy mind in a healthy body,ことわざ,C2
+諺・慣用句（追加）,کوه به کوه نمیرسد آدم به آدم میرسد,kuh be kuh nemiresad adam be adam miresad,山と山は出会わないが人と人は出会う,mountains don't meet but people do,ことわざ,C2
+諺・慣用句（追加）,جوینده یابنده است,juyande yabande ast,求める者は見つける,the seeker is the finder,ことわざ,C2
+諺・慣用句（追加）,صبر تلخ است ولی ثمره‌اش شیرین,sabr talkh ast vali samareash shirin,忍耐は苦いが実は甘い,patience is bitter but its fruit is sweet,ことわざ,C2
+文語・古語（追加）,اندر,andar,〜の中に（古語）,in/within (archaic),= در の古語形,C2
+文語・古語（追加）,بدان,bedan,それに,to that/know that (archaic),古典的指示表現,C2
+文語・古語（追加）,ایدون,idun,このように,thus/in this way (archaic),極めて古い表現,C2
+文語・古語（追加）,چو,cho,〜のように・〜の時,like/when (archaic),= چون の短縮形,C2
+文語・古語（追加）,کو,ku,どこに,where is (archaic),= کجاست の短縮形,C2
+文語・古語（追加）,مگو,magu,言うな,don't say (archaic),否定命令の古語形,C2
+文語・古語（追加）,مرو,marow,行くな,don't go (archaic),否定命令の古語形,C2
+文語・古語（追加）,برخیز,barkhiz,立て,arise (archaic),古語的命令形,C2
+文語・古語（追加）,فرود,forud,下降・降下,descent (archaic),古典的動作表現,C2
+文語・古語（追加）,فراز,faraz,上昇・高み,ascent/height (archaic),古典的方向表現,C2
+文語・古語（追加）,پهلوان,pahlavan,英雄・勇者,hero/champion,シャーナーメの世界,C2
+文語・古語（追加）,دلاور,delavar,勇敢な者,brave/valiant,叙事詩の表現,C2
+文語・古語（追加）,نامور,namvar,名高い,renowned/famous,叙事詩の形容詞,C2
+文語・古語（追加）,سرافراز,sarafraz,誇り高い,proud/exalted,古典的称号,C2
+文語・古語（追加）,ایوان,eyvan,宮殿の広間,palace hall/iwan,建築・宮廷用語,C2
+文語・古語（追加）,درفش,derafsh,旗・軍旗,banner/flag (archaic),叙事詩の軍事用語,C2
+文語・古語（追加）,خسرو,khosrow,王・皇帝,king/emperor (archaic),古代ペルシア王号,C2
+文語・古語（追加）,بانو,banu,貴婦人,lady (archaic/poetic),古典的敬称,C2
+文語・古語（追加）,نگار,negar,美人・描画,beauty/painting (poetic),詩的美称,C2
+文語・古語（追加）,خواجه,khaje,主人・先生,master/sir (archaic),古典的敬称,C2
+文語・古語（追加）,ستم,setam,圧政・不正,oppression/tyranny (archaic),叙事詩の概念,C2
+哲学用語（深層）,ماهیت,mahiyat,本質・何性,quiddity/essence,存在と対比される概念,C2
+哲学用語（深層）,عرض,araz,偶有性,accident (philosophical),実体に対する属性,C2
+哲学用語（深層）,جوهر,jowhar,実体,substance,独立して存在するもの,C2
+哲学用語（深層）,علت,ellat,原因,cause,因果論の基本概念,C2
+哲学用語（深層）,معلول,ma'lul,結果,effect,原因に対する結果,C2
+哲学用語（深層）,واجب‌الوجود,vajeb ol-vojud,必然的存在者,Necessary Being,神の哲学的呼称,C2
+哲学用語（深層）,ممکن‌الوجود,momken ol-vojud,可能的存在者,contingent being,被造物の哲学的呼称,C2
+哲学用語（深層）,اصالت وجود,esalate vojud,存在の根源性,principality of existence,モッラー・サドラーの思想,C2
+哲学用語（深層）,تشکیک وجود,tashkike vojud,存在の段階性,gradation of existence,モッラー・サドラーの理論,C2
+哲学用語（深層）,حرکت جوهری,harekate jowhari,実体的運動,substantial motion,モッラー・サドラーの革新,C2
+哲学用語（深層）,حکمت متعالیه,hekmate mota'aliye,超越的叡智,Transcendent Theosophy,モッラー・サドラーの哲学体系,C2
+哲学用語（深層）,حکمت اشراق,hekmate eshragh,照明哲学,Illuminationist Philosophy,スフラヴァルディーの哲学,C2
+哲学用語（深層）,حکمت مشاء,hekmate mashsha',逍遥学派の哲学,Peripatetic Philosophy,イブン・スィーナーの伝統,C2
+哲学用語（深層）,عقل اول,aghle avval,第一知性,First Intellect,流出論の概念,C2
+哲学用語（深層）,نفس ناطقه,nafse nateghe,理性的魂,rational soul,人間固有の魂,C2
+哲学用語（深層）,عالم مثال,alame mesal,想像界,world of images,物質界と知性界の中間,C2
+哲学用語（深層）,عالم ملکوت,alame malakut,天使界,world of sovereignty,霊的世界,C2
+哲学用語（深層）,صادر اول,sadere avval,第一流出,first emanation,神からの最初の流出,C2
+哲学用語（深層）,کثرت,kasrat,多数性,multiplicity,一性に対する概念,C2
+哲学用語（深層）,وحدت,vahdat,一性・統一,unity,多数性に対する概念,C2
+哲学用語（深層）,صورت,surat,形相,form (philosophical),質料に対する概念,C2
+哲学用語（深層）,ماده,madde_phil,質料,matter (philosophical),形相に対する概念,C2
+哲学用語（深層）,علت فاعلی,ellate fa'eli,動力因,efficient cause,四原因の一つ,C2
+哲学用語（深層）,علت غایی,ellate ghayi,目的因,final cause,四原因の一つ,C2
+詩的表現（追加）,مینا,mina,瑠璃色の杯,blue goblet/enamel,詩的飲酒表現,C2
+詩的表現（追加）,صراحی,sorahi,長首瓶,carafe/decanter,詩的飲酒器具,C2
+詩的表現（追加）,باده,bade,美酒,wine (poetic),= می の同義詩語,C2
+詩的表現（追加）,مغ,mogh,ゾロアスター教徒,Magian,酒場の老人の象徴,C2
+詩的表現（追加）,خرابات,kharabat,酒場・廃墟,tavern/ruins,精神的解放の場,C2
+詩的表現（追加）,رند,rend,放蕩者・自由人,libertine/free spirit,ハーフェズの理想像,C2
+詩的表現（追加）,زاهد,zahed,禁欲者,ascetic/pious one,レンドの対比として,C2
+詩的表現（追加）,محتسب,mohtaseb,風紀取締官,moral police,自由を制限する者の象徴,C2
+詩的表現（追加）,عاشق,asheg,恋する者,lover,詩の主人公,C2
+詩的表現（追加）,معشوق,ma'shugh,恋される者,beloved,詩の対象,C2
+詩的表現（追加）,وصل,vasl,出会い・合一,union,恋愛の成就,C2
+詩的表現（追加）,هجر,hajr,離別,separation,恋愛の苦しみ,C2
+詩的表現（追加）,آه,ah,嘆息,sigh (poetic),恋の嘆きの象徴,C2
+詩的表現（追加）,ناله,nale,嘆き・悲鳴,lament/wail,恋愛詩の表現,C2
+詩的表現（追加）,جام جم,jame jam,ジャムの杯,Cup of Jamshid,全てを映す魔法の杯,C2
+詩的表現（追加）,کیمیا,kimiya,錬金術,alchemy,変容・奇跡の象徴,C2
+詩的表現（追加）,اکسیر,eksir,賢者の石,elixir,変容の触媒の象徴,C2
+詩的表現（追加）,طوطی,tuti,オウム,parrot (poetic),雄弁・模倣の象徴,C2
+詩的表現（追加）,هما,homa,フマー鳥,Homa bird,幸運をもたらす神話的鳥,C2
+詩的表現（追加）,شمع,sham',蝋燭,candle (poetic),犠牲的愛の象徴,C2
+詩的表現（追加）,پروانه,parvane,蛾,moth (poetic),恋する者の象徴,C2
+政治哲学,لیبرالیسم,liberalism,リベラリズム,liberalism,,C2
+政治哲学,محافظه‌کاری,mohafeze kari,保守主義,conservatism,,C2
+政治哲学,سوسیالیسم,sosiyalism,社会主義,socialism,,C2
+政治哲学,کمونیسم,komunism,共産主義,communism,,C2
+政治哲学,آنارشیسم,anarshism,アナーキズム,anarchism,,C2
+政治哲学,فاشیسم,fashism,ファシズム,fascism,,C2
+政治哲学,پوپولیسم,populism,ポピュリズム,populism,,C2
+政治哲学,اتوکراسی,otokrasi,独裁制,autocracy,,C2
+政治哲学,تئوکراسی,te'okrasi,神権政治,theocracy,,C2
+政治哲学,الیگارشی,oligarshi,寡頭制,oligarchy,,C2
+政治哲学,مریتوکراسی,meritokrasi,実力主義,meritocracy,,C2
+政治哲学,جمهوریت,jomhuriyat,共和主義,republicanism,,C2
+政治哲学,قرارداد اجتماعی,gharardade ejtemai,社会契約,social contract,,C2
+政治哲学,وضع طبیعی,vaz'e tabi'i,自然状態,state of nature,,C2
+政治哲学,حقوق طبیعی,hoghuqhe tabi'i,自然権,natural rights,,C2
+政治哲学,اجتماع‌گرایی,ejtema' garayi,共同体主義,communitarianism,,C2
+政治哲学,جهان‌وطنی,jahan vatani,コスモポリタニズム,cosmopolitanism,,C2
+政治哲学,فمینیسم,feminism,フェミニズム,feminism,,C2
+政治哲学,لائیسیته,la'isite,ライシテ,laicite,フランス的世俗主義,C2
+政治哲学,سلطه,salte,支配・権力,domination/hegemony,,C2
+美学・芸術批評,امپرسیونیسم,ampresonism,印象派,impressionism,,C2
+美学・芸術批評,کوبیسم,kubism,キュビスム,cubism,,C2
+美学・芸術批評,دادائیسم,dada'ism,ダダイスム,dadaism,,C2
+美学・芸術批評,پاپ آرت,pap art,ポップアート,pop art,,C2
+美学・芸術批評,هنر مفهومی,honare mafhumi,コンセプチュアルアート,conceptual art,,C2
+美学・芸術批評,هنر انتزاعی,honare enteza'i,抽象芸術,abstract art,,C2
+美学・芸術批評,نقاشی‌خط,naghashi khatt,カリグラフィー絵画,calligraphy painting,イラン現代芸術,C2
+美学・芸術批評,مینیاتور,miniyatur,ミニアチュール,miniature,ペルシア細密画,C2
+美学・芸術批評,گچ‌بری,gach bori,漆喰彫刻,stucco carving,イラン伝統装飾芸術,C2
+美学・芸術批評,کاشی‌کاری,kashi kari,タイル装飾,tilework,イラン伝統装飾芸術,C2
+美学・芸術批評,خوشنویسی,khosh nevisi,書道,calligraphy,イラン伝統芸術,C2
+美学・芸術批評,تذهیب,tazhib,金箔装飾,illumination/gilding,写本装飾芸術,C2
+美学・芸術批評,نقد هنری,naghde honari,芸術批評,art criticism,,C2
+美学・芸術批評,زیبایی والا,zibaiye vala,崇高美,sublime beauty,,C2
+美学・芸術批評,آوانگارد,avangard,アヴァンギャルド,avant-garde,,C2
+言語学,نحو,nahv,統語論,syntax,,C2
+言語学,صرف,sarf,形態論,morphology,,C2
+言語学,واج‌شناسی,vaj shenasi,音韻論,phonology,,C2
+言語学,معنی‌شناسی,ma'ni shenasi,意味論,semantics,,C2
+言語学,کاربردشناسی,karbord shenasi,語用論,pragmatics,,C2
+言語学,آواشناسی,ava shenasi,音声学,phonetics,,C2
+言語学,ریشه‌شناسی,rishe shenasi,語源学,etymology,,C2
+言語学,زبان‌شناسی تاریخی,zaban shenasiye tarikhi,歴史言語学,historical linguistics,,C2
+言語学,زبان‌شناسی اجتماعی,zaban shenasiye ejtemai,社会言語学,sociolinguistics,,C2
+言語学,روان‌شناسی زبان,ravan shenasiye zaban,心理言語学,psycholinguistics,,C2
+言語学,دستور زایشی,dasture zayeshi,生成文法,generative grammar,チョムスキーの理論,C2
+言語学,دستور جهانی,dasture jahani,普遍文法,universal grammar,チョムスキーの概念,C2
+言語学,واج,vaj,音素,phoneme,,C2
+言語学,تکواژ,takvazh,形態素,morpheme,,C2
+言語学,دوزبانگی,dozabanghi,二言語使用,bilingualism,,C2
+言語学,چندزبانگی,chandzabanghi,多言語使用,multilingualism,,C2
+言語学,زبان مادری,zabane madari,母語,mother tongue,,C2
+言語学,فراگیری زبان دوم,faragiriye zabane dovvom,第二言語習得,second language acquisition,,C2
+高度な慣用表現,به قول معروف,be ghole ma'ruf,いわゆる,as the saying goes,,C2
+高度な慣用表現,از قضا,az ghaza,偶然にも,as it happened/coincidentally,,C2
+高度な慣用表現,فی‌الواقع,filvaaghe',実のところ,in fact/actually,,C2
+高度な慣用表現,من‌باب,man babe,〜として,by way of/as,,C2
+高度な慣用表現,علی‌الخصوص,alalkhosus,特に（文語）,especially (literary),,C2
+高度な慣用表現,علی‌ای‌حال,ala eyye hal,いずれにせよ,in any case,,C2
+高度な慣用表現,فی‌نفسه,fi nafsehi,それ自体,in itself,,C2
+高度な慣用表現,من‌حیث‌المجموع,man heysol majmu',全体として,as a whole,,C2
+高度な慣用表現,بلاتردید,belatardid,間違いなく,undoubtedly,,C2
+高度な慣用表現,بلاتکلیف,belatakif,宙ぶらりんの,in limbo/undecided,,C2
+高度な慣用表現,بلامنازع,belamonaze',議論の余地なく,indisputably,,C2
+高度な慣用表現,در واقع,dar vaghe',実際には,in reality/actually,,C2
+高度な慣用表現,به هر تقدیر,be har taghdir,いずれにしても,in any event,,C2
+高度な慣用表現,از این قرار,az in gharar,次の通り,as follows,,C2
+高度な慣用表現,به تبع آن,be taba'e an,それに伴い,consequently/following that,,C2
+高度な慣用表現,با این وصف,ba in vasf,それにもかかわらず,notwithstanding,,C2
+歴史用語,خلافت,khelafat,カリフ制,caliphate,,C2
+歴史用語,شاهنشاهی,shahanshahi,皇帝制,imperial system,ペルシア帝国の体制,C2
+歴史用語,ساتراپ,satrap,サトラップ,satrap,アケメネス朝の総督,C2
+歴史用語,تخت جمشید,takhte jamshid_c2,ペルセポリス（歴史用語）,Persepolis (historical),アケメネス朝の宮殿,C2
+歴史用語,پاسارگاد,pasargad,パサルガダエ,Pasargadae,キュロス大王の首都,C2
+歴史用語,اوستا,avesta,アヴェスター,Avesta,ゾロアスター教の聖典,C2
+歴史用語,جنگ تحمیلی,jange tahmili,押し付けられた戦争,Imposed War,イラン・イラク戦争のイラン名,C2
+歴史用語,ملی شدن نفت,melli shodane naft_c2,石油国有化（歴史用語）,oil nationalization (historical),モサッデグの政策,C2
+歴史用語,کودتای ۲۸ مرداد,kudetaye 28 mordad,28日モルダードのクーデター,1953 coup d'etat,モサッデグ政権転覆,C2
+情報科学,الگوریتم,algoritm_c1,アルゴリズム（学術）,algorithm (academic),,C1
+情報科学,داده‌کاوی,dade kavi,データマイニング,data mining,,C1
+情報科学,پردازش زبان طبیعی,pardazeshe zabane tabi'i,自然言語処理,natural language processing,,C1
+情報科学,بینایی ماشین,binayiye mashin,コンピュータビジョン,computer vision,,C1
+情報科学,یادگیری عمیق,yadgiriye amigh,ディープラーニング,deep learning,,C1
+情報科学,شبکه عصبی مصنوعی,shabakeye asabiye masnu'i,人工ニューラルネットワーク,artificial neural network,,C1
+情報科学,رمزنگاری,ramz negari,暗号化,encryption,,C1
+情報科学,امنیت سایبری,amniyate sayberi,サイバーセキュリティ,cybersecurity,,C1
+情報科学,رایانش ابری,rayaneshe abri,クラウドコンピューティング,cloud computing,,C1
+情報科学,اینترنت اشیاء,internete ashya,IoT,Internet of Things,,C1
+情報科学,واقعیت مجازی,vaghe'iyate majazi,仮想現実,virtual reality,,C1
+情報科学,واقعیت افزوده,vaghe'iyate afzude,拡張現実,augmented reality,,C1
+情報科学,رباتیک,robatik,ロボティクス,robotics,,C1
+情報科学,سیستم خبره,sisteme khebre,エキスパートシステム,expert system,,C1
+情報科学,مهندسی نرم‌افزار,mohandesi narm afzar,ソフトウェア工学,software engineering,,C1
+医学・生命科学,اپیدمیولوژی,epidemiolozhi_c1,疫学,epidemiology,,C1
+医学・生命科学,ویروس‌شناسی,virus shenasi,ウイルス学,virology,,C1
+医学・生命科学,باکتری‌شناسی,bakteri shenasi,細菌学,bacteriology,,C1
+医学・生命科学,داروشناسی,daru shenasi,薬理学,pharmacology,,C1
+医学・生命科学,آسیب‌شناسی,asib shenasi,病理学,pathology,,C1
+医学・生命科学,تشریح,tashrih,解剖学,anatomy,,C1
+医学・生命科学,فیزیولوژی,fiziolozhi,生理学,physiology,,C1
+医学・生命科学,میکروبیولوژی,mikrobiolozhi,微生物学,microbiology,,C1
+医学・生命科学,ژنوم,zhenom,ゲノム,genome,,C1
+医学・生命科学,پروتئومیکس,proteomiks,プロテオミクス,proteomics,,C1
+医学・生命科学,بیوانفورماتیک,bioinformatik,バイオインフォマティクス,bioinformatics,,C1
+医学・生命科学,اخلاق زیستی,akhlaghe zisti,生命倫理,bioethics,,C1
+医学・生命科学,کارآزمایی بالینی,karazmayi balini,臨床試験,clinical trial,,C1
+医学・生命科学,همه‌گیرشناسی,hame gir shenasi,パンデミック学,pandemic studies,,C1
+医学・生命科学,واکسیناسیون,vaksinacion,ワクチン接種,vaccination,,C1
+教育学,آموزش عالی,amuzeshe ali,高等教育,higher education,,C1
+教育学,برنامه درسی,barnamye darsi,カリキュラム,curriculum,,C1
+教育学,آموزش از راه دور,amuzesh az rahe dur,遠隔教育,distance education,,C1
+教育学,یادگیری الکترونیکی,yadgiriye elektroniki,eラーニング,e-learning,,C1
+教育学,سنجش تکوینی,sanjeshe takvini,形成的評価,formative assessment,,C1
+教育学,سنجش تراکمی,sanjeshe tarakami,総括的評価,summative assessment,,C1
+教育学,سواد,savad_c1,リテラシー,literacy,,C1
+教育学,سواد دیجیتال,savade dijital,デジタルリテラシー,digital literacy,,C1
+教育学,تفکر انتقادی,tafakkore enteghadi,批判的思考,critical thinking,,C1
+教育学,یادگیری مادام‌العمر,yadgiriye madamol omr,生涯学習,lifelong learning,,C1
+教育学,آموزش فراگیر,amuzeshe faragir,インクルーシブ教育,inclusive education,,C1
+教育学,آموزش چندفرهنگی,amuzeshe chand farhangi,多文化教育,multicultural education,,C1
+教育学,پداگوژی,pedagozhi,教育学（方法論）,pedagogy,,C1
+教育学,آندراگوژی,andragozhi,成人教育学,andragogy,,C1
+教育学,خودراهبری در یادگیری,khod rahbari dar yadgiri,自律的学習,self-directed learning,,C1
+人権・ジェンダー,حقوق بشر جهانی,hoghuqhe bashare jahani,世界人権,universal human rights,,C1
+人権・ジェンダー,اعلامیه جهانی حقوق بشر,e'lamiyeye jahaniye hoghuqhe bashar,世界人権宣言,Universal Declaration of Human Rights,,C1
+人権・ジェンダー,برابری جنسیتی,barabariye jensiyati,ジェンダー平等,gender equality,,C1
+人権・ジェンダー,توانمندسازی زنان,tavamandsaziye zanan,女性のエンパワーメント,women's empowerment,,C1
+人権・ジェンダー,عدالت ترمیمی,edalate tarmimi,修復的司法,restorative justice,,C1
+人権・ジェンダー,عدالت انتقالی,edalate enteghali,移行期正義,transitional justice,,C1
+人権・ジェンダー,حقوق معلولین,hoghuqhe ma'lulin,障害者の権利,rights of persons with disabilities,,C1
+人権・ジェンダー,حقوق پناهندگان,hoghuqhe panahndegan,難民の権利,refugee rights,,C1
+人権・ジェンダー,حقوق بومیان,hoghuqhe bumiyan,先住民の権利,indigenous rights,,C1
+人権・ジェンダー,ممنوعیت شکنجه,mamnu'iyate shekanje,拷問の禁止,prohibition of torture,,C1
+都市・建築,شهرسازی,shahr sazi,都市計画,urban planning,,C1
+都市・建築,معماری,me'mari,建築,architecture,,C1
+都市・建築,معماری پایدار,me'mariye paydar,持続可能な建築,sustainable architecture,,C1
+都市・建築,فضای سبز,fazaye sabz,緑地,green space,,C1
+都市・建築,حمل و نقل عمومی,haml o naghle omumi,公共交通,public transportation,,C1
+都市・建築,مدیریت پسماند,modiriyate pasmand,廃棄物管理,waste management,,C1
+都市・建築,شهر هوشمند,shahre hushmand,スマートシティ,smart city,,C1
+都市・建築,میراث فرهنگی,mirase farhangi,文化遺産,cultural heritage,,C1
+都市・建築,بافت تاریخی,bafte tarikhi,歴史的地区,historical district,,C1
+都市・建築,مرمت,marammat,修復・復元,restoration,,C1
+農業・食糧,کشاورزی پایدار,keshavarziye paydar,持続可能な農業,sustainable agriculture,,C1
+農業・食糧,امنیت غذایی,amniyate ghazayi,食糧安全保障,food security,,C1
+農業・食糧,کشاورزی ارگانیک,keshavarziye organik_c1,有機農業,organic agriculture,,C1
+農業・食糧,مهندسی ژنتیک کشاورزی,mohandesi zhenetike keshvarzi,農業遺伝子工学,agricultural genetic engineering,,C1
+農業・食糧,آبیاری,abyari,灌漑,irrigation,,C1
+農業・食糧,خشکسالی,khoshksali,干ばつ,drought,,C1
+農業・食糧,ضایعات غذایی,zaye'ate ghazayi,食品ロス,food waste,,C1
+農業・食糧,زنجیره غذایی,zanjireye ghazayi,食物連鎖,food chain,,C1
+エネルギー,انرژی خورشیدی,enerzhiye khorshidi,太陽エネルギー,solar energy,,C1
+エネルギー,انرژی بادی,enerzhiye badi,風力エネルギー,wind energy,,C1
+エネルギー,انرژی هسته‌ای,enerzhiye haste'i,核エネルギー,nuclear energy,,C1
+エネルギー,انرژی زمین‌گرمایی,enerzhiye zamin garmayi,地熱エネルギー,geothermal energy,,C1
+エネルギー,ذخیره‌سازی انرژی,zakhire saziye enerzhi,エネルギー貯蔵,energy storage,,C1
+エネルギー,بهره‌وری انرژی,bahre variye enerzhi,エネルギー効率,energy efficiency,,C1
+エネルギー,شبکه هوشمند,shabakeye hushmand,スマートグリッド,smart grid,,C1
+エネルギー,سلول خورشیدی,selule khorshidi,太陽電池,solar cell,,C1
+エネルギー,توربین بادی,turbine badi,風力タービン,wind turbine,,C1
+エネルギー,نیروگاه,nirugah,発電所,power plant,,C1
+言語教育,فراگیری زبان,faragiriye zaban,言語習得,language acquisition,,C1
+言語教育,زبان‌آموز,zaban amuz,語学学習者,language learner,,C1
+言語教育,مهارت‌های زبانی,maharathhaye zabani,言語技能,language skills,,C1
+言語教育,درک مطلب,darke matlab,読解力,reading comprehension,,C1
+言語教育,بیان شفاهی,bayane shafahi,口頭表現,oral expression,,C1
+言語教育,نگارش علمی,negareshe elmi,学術的執筆,academic writing,,C1
+言語教育,دستور زبان,dasture zaban_c1,文法,grammar,,C1
+言語教育,واژگان,vazhegan,語彙,vocabulary,,C1
+言語教育,تلفظ,talaffoz,発音,pronunciation,,C1
+言語教育,غوطه‌وری زبانی,ghutevari zabani,言語イマージョン,language immersion,,C1
+言語教育,ترجمه همزمان,tarjomeye hamzaman,同時通訳,simultaneous interpretation,,C1
+言語教育,ترجمه ادبی,tarjomeye adabi,文学翻訳,literary translation,,C1
+宗教・神学,الاهیات,elahiyat,神学,theology,,C1
+宗教・神学,کلام,kalam,イスラム神学,Islamic theology,,C1
+宗教・神学,فقه,fegh,イスラム法学,Islamic jurisprudence,,C1
+宗教・神学,اصول فقه,osule fegh,法学原理,principles of jurisprudence,,C1
+宗教・神学,تفسیر قرآن,tafsire ghor'an,コーラン解釈学,Quranic exegesis,,C1
+宗教・神学,حدیث,hadis,ハディース,hadith,預言者の言行録,C1
+宗教・神学,سنت,sonnat,スンナ,sunnah,預言者の慣行,C1
+宗教・神学,اجتهاد,ejtehad,独自の法的推論,ijtihad,イスラム法の独自解釈,C1
+宗教・神学,گفتگوی ادیان,gofteguye adyan,宗教間対話,interfaith dialogue,,C1
+宗教・神学,معاد,ma'ad,復活・来世,resurrection/afterlife,イスラムの教義,C1
+宗教・神学,توحید,towhid,一神教,monotheism,イスラムの根本教義,C1
+宗教・神学,نبوت,nobovvat,預言者性,prophethood,イスラムの教義,C1
+宗教・神学,امامت,emamat,イマーム制,imamate,シーア派の教義,C1
+人類学・考古学,باستان‌شناسی,bastan shenasi,考古学,archaeology,,C1
+人類学・考古学,مردم‌شناسی فرهنگی,mardom shenasiye farhangi,文化人類学,cultural anthropology,,C1
+人類学・考古学,مردم‌شناسی اجتماعی,mardom shenasiye ejtemai,社会人類学,social anthropology,,C1
+人類学・考古学,دیرینه‌شناسی,dirine shenasi,古生物学,paleontology,,C1
+人類学・考古学,کتیبه,katibe,碑文,inscription,,C1
+人類学・考古学,حفاری,haffari,発掘,excavation,,C1
+人類学・考古学,لایه‌شناسی,laye shenasi,層序学,stratigraphy,,C1
+人類学・考古学,کربن ۱۴,karbone chahaardah,炭素14年代測定,carbon-14 dating,,C1
+人類学・考古学,فرهنگ مادی,farhange maddi,物質文化,material culture,,C1
+人類学・考古学,آیین‌ها و مناسک,ayinha o manasek,儀礼・典礼,rituals and ceremonies,,C1
+詩的表現（追加C2-2）,فغان,faghan_c2,叫び,cry/outcry,激しい感情表現,C2
+詩的表現（追加C2-2）,آینه اسکندر,ayeneye eskandar,アレクサンドロスの鏡,Alexander's mirror,真実を映す鏡,C2
+詩的表現（追加C2-2）,قمری,ghomri,キジバト,turtledove (poetic),嘆きの鳥の象徴,C2
+詩的表現（追加C2-2）,طاووس,tavus,孔雀,peacock (poetic),美と天国の象徴,C2
+詩的表現（追加C2-2）,مغبچه,moghbache,ゾロアスター教の少年,young Magian,酒場の給仕の象徴,C2
+詩的表現（追加C2-2）,نی,ney,葦笛,reed flute,マスナヴィー冒頭の象徴,C2
+詩的表現（追加C2-2）,نیستان,neystan,葦原,reed bed,故郷・神からの分離の象徴,C2
+詩的表現（追加C2-2）,طائر,ta'er,鳥（詩的）,bird (poetic),魂の象徴,C2
+詩的表現（追加C2-2）,قفس,ghafas,鳥籠,cage (poetic),肉体・現世の象徴,C2
+詩的表現（追加C2-2）,دام,dam,罠,trap/snare (poetic),現世の誘惑の象徴,C2
+詩的表現（追加C2-2）,صیاد,sayyad,猟師,hunter (poetic),運命・神の象徴,C2
+詩的表現（追加C2-2）,خاک,khak_poet,土・塵,dust/earth (poetic),謙虚さの象徴,C2
+詩的表現（追加C2-2）,باد,bad_poet,風,wind (poetic),無常の象徴,C2
+詩的表現（追加C2-2）,آتش,atash_poet,火,fire (poetic),情熱の象徴,C2
+詩的表現（追加C2-2）,آب,ab_poet,水,water (poetic),生命・知恵の象徴,C2
+詩的表現（追加C2-2）,چشمه,cheshme_poet,泉,spring/fountain (poetic),知恵の源の象徴,C2
+詩的表現（追加C2-2）,دریا,darya_poet,海,sea (poetic),無限・神の象徴,C2
+詩的表現（追加C2-2）,موج,mowj,波,wave (poetic),存在の一時性の象徴,C2
+詩的表現（追加C2-2）,گوهر,gowhar,宝石,gem/jewel (poetic),真理の象徴,C2
+詩的表現（追加C2-2）,صدف,sadaf,貝殻,shell (poetic),真珠を育む器の象徴,C2
+神秘主義追加,مقام توبه,maghame towbe,悔悟の段階,station of repentance,スーフィーの霊的段階,C2
+神秘主義追加,مقام تقوا,maghame taghva,敬虔の段階,station of piety,スーフィーの霊的段階,C2
+神秘主義追加,مقام توکل,maghame tavakkol,信頼の段階,station of trust in God,スーフィーの霊的段階,C2
+神秘主義追加,مقام محبت,maghame mahabbat,愛の段階,station of love,スーフィーの霊的段階,C2
+神秘主義追加,حال قبض,hale ghabz,収縮の状態,state of contraction,スーフィーの霊的状態,C2
+神秘主義追加,حال بسط,hale bast,拡張の状態,state of expansion,スーフィーの霊的状態,C2
+神秘主義追加,واردات,varedat,霊感,spiritual inspirations,神からの霊的受信,C2
+神秘主義追加,تحقق,tahaqqogh,実現・体現,realization,霊的真理の体現,C2
+神秘主義追加,سیروسلوک,seyr o soluk,修行の旅路,spiritual wayfaring,スーフィーの修行全体,C2
+神秘主義追加,فتوت,fotovvat,騎士道精神,spiritual chivalry,イスラム的騎士道,C2
+神秘主義追加,ملامتیه,malamatiye,非難派,Malamati,自己隠蔽のスーフィー派,C2
+文語追加C2,بارگاه,bargah,宮廷・玉座の間,royal court,宮廷文学の用語,C2
+文語追加C2,شاهزاده,shahzade,王子・王女,prince/princess,宮廷文学の用語,C2
+文語追加C2,وزیر,vazir,大臣,vizier/minister,宮廷の高官,C2
+文語追加C2,دبیر,dabir,書記官,scribe,古典行政用語,C2
+文語追加C2,مهر,mehr_arch,太陽・愛・印章,sun/love/seal,多義的古語,C2
+文語追加C2,ماه,mah_arch,月・美人,moon/beauty,詩的二重意味,C2
+文語追加C2,آسمان,aseman_arch,天空・運命,sky/fate,詩的表現,C2
+文語追加C2,زمین,zamin_arch,大地・現世,earth/this world,詩的対比,C2
+文語追加C2,تیغ,tigh,剣・刃,sword/blade (archaic),叙事詩の武器,C2
+文語追加C2,کمان,kaman,弓,bow (archaic),叙事詩の武器,C2
+文語追加C2,تیر,tir_arch,矢,arrow (archaic),叙事詩の武器,C2
+文語追加C2,زره,zereh,鎧,armor (archaic),叙事詩の防具,C2
+文語追加C2,سپر,separ,盾,shield (archaic),叙事詩の防具,C2
+文語追加C2,رخش,rakhsh,ラフシュ（馬名）,Rakhsh,ロスタムの愛馬,C2
+文語追加C2,رستم,rostam,ロスタム,Rostam,シャーナーメの英雄,C2
+文語追加C2,سهراب,sohrab,ソフラーブ,Sohrab,ロスタムの息子,C2
+文語追加C2,سیاوش,siyavash,スィヤーヴァシュ,Siyavash,シャーナーメの悲劇の王子,C2
+文語追加C2,ضحاک,zahhak,ザッハーク,Zahhak,シャーナーメの暴君,C2
+文語追加C2,کاوه,kave,カーヴェ,Kaveh,鍛冶屋の英雄,C2
+文語追加C2,جمشید,jamshid,ジャムシード,Jamshid,古代ペルシアの伝説的王,C2
+政治哲学追加,لویاتان,levyatan,リヴァイアサン,Leviathan,ホッブズの概念,C2
+政治哲学追加,چندفرهنگ‌گرایی,chand farhang garayi,多文化主義,multiculturalism,,C2
+政治哲学追加,حکومت قانون,hokumate ghanun,法治国家,rule of law state,,C2
+政治哲学追加,ناسیونالیسم,nasionalism_c2,ナショナリズム（政治哲学）,nationalism (political philosophy),,C2
+政治哲学追加,هژمونی,hezhmoni,ヘゲモニー,hegemony,グラムシの概念,C2
+政治哲学追加,ایدئولوژی,ide'olozhi,イデオロギー,ideology,,C2
+政治哲学追加,یوتوپیا,utopiya_c2,ユートピア,utopia,,C2
+政治哲学追加,دیستوپیا,distopiya_c2,ディストピア,dystopia,,C2
+政治哲学追加,مقاومت مدنی,moghavemate madani,市民的抵抗,civil resistance,,C2
+政治哲学追加,نافرمانی مدنی,nafarmaniye madani,市民的不服従,civil disobedience,,C2
+美学追加C2,اکسپرسیونیسم,ekspresonism_c2,表現主義（美術C2）,expressionism (art C2),,C2
+美学追加C2,سوررئالیسم,surriyalism_c2,シュルレアリスム（美術）,surrealism (art),,C2
+美学追加C2,فوتوریسم,futurism,未来派,futurism,,C2
+美学追加C2,کانستراکتیویسم,kanstraktivism,構成主義,constructivism (art),,C2
+美学追加C2,هنر عملکردی,honare amalkardi,パフォーマンスアート,performance art,,C2
+美学追加C2,هنر چیدمان,honare chidman,インスタレーション,installation art,,C2
+美学追加C2,هنر دیجیتال,honare dijital,デジタルアート,digital art,,C2
+美学追加C2,قالی‌بافی,ghali bafi,絨毯織り,carpet weaving,イラン伝統工芸,C2
+美学追加C2,خاتم‌کاری,khatam kari,象嵌細工,marquetry/inlay,イラン伝統工芸,C2
+美学追加C2,فیروزه‌کوبی,firuze kubi,トルコ石象嵌,turquoise inlay,イラン伝統工芸,C2
+言語学追加,زبان‌شناسی کاربردی,zaban shenasiye karbordi_c2,応用言語学（C2）,applied linguistics (C2),,C2
+言語学追加,ریشه‌شناسی ایرانی,rishe shenasiye irani,イラン語源学,Iranian etymology,,C2
+言語学追加,خط پهلوی,khatte pahlavi,パフラヴィー文字,Pahlavi script,中世ペルシア語の文字,C2
+言語学追加,خط اوستایی,khatte avesta'i,アヴェスター文字,Avestan script,ゾロアスター教の文字,C2
+言語学追加,خط میخی,khatte mikhi,楔形文字,cuneiform script,古代ペルシアの文字,C2
+統計学,تحلیل عاملی,tahlile ameli,因子分析,factor analysis,,C1
+統計学,تحلیل خوشه‌ای,tahlile khushe'i,クラスター分析,cluster analysis,,C1
+統計学,آزمون تی,azmune ti,t検定,t-test,,C1
+統計学,آزمون کای دو,azmune kaye do,カイ二乗検定,chi-square test,,C1
+統計学,مدل‌سازی,model sazi,モデリング,modeling,,C1
+統計学,شبیه‌سازی,shabih sazi,シミュレーション,simulation,,C1
+統計学,نمودار پراکندگی,nemudare parakandegi,散布図,scatter plot,,C1
+統計学,هیستوگرام,histogram,ヒストグラム,histogram,,C1
+統計学,میانه,miyane,中央値,median,,C1
+統計学,نما,noma,最頻値,mode,,C1
+統計学,واریانس,varians,分散,variance,,C1
+統計学,چارک,charak,四分位数,quartile,,C1
+統計学,صدک,sadak,百分位数,percentile,,C1
+統計学,نمونه تصادفی,nemune tasadufi,ランダムサンプル,random sample,,C1
+地理・地政学,ژئوپلیتیک,zheopolitik_c1,地政学,geopolitics,,C1
+地理・地政学,ژئواستراتژیک,zheoestratezhik,地政戦略的,geostrategic,,C1
+地理・地政学,منطقه حائل,mantagheye ha'el,緩衝地帯,buffer zone,,C1
+地理・地政学,مرز,marz,国境,border,,C1
+地理・地政学,حوزه نفوذ,howzeye nofuz,勢力圏,sphere of influence,,C1
+地理・地政学,تنگه هرمز,tangeye hormoz,ホルムズ海峡,Strait of Hormuz,,C1
+地理・地政学,خلیج فارس,khalije fars,ペルシア湾,Persian Gulf,,C1
+地理・地政学,دریای خزر,daryaye khazar,カスピ海,Caspian Sea,,C1
+地理・地政学,قفقاز,ghafghaz,コーカサス,Caucasus,,C1
+地理・地政学,آسیای مرکزی,asiyaye markazi,中央アジア,Central Asia,,C1
+法医学・犯罪学,پزشکی قانونی,pezeshkiye ghanuni,法医学,forensic medicine,,C1
+法医学・犯罪学,اثرانگشت,asare angosht,指紋,fingerprint,,C1
+法医学・犯罪学,پرونده قضایی,parvandeye ghazayi,訴訟案件,legal case,,C1
+法医学・犯罪学,شهادت,shahadat,証言,testimony,,C1
+法医学・犯罪学,مدرک,madrak,証拠,evidence,,C1
+法医学・犯罪学,بازجویی,bazjuyi,尋問,interrogation,,C1
+数学応用,نظریه گراف,nazariyeye graf,グラフ理論,graph theory,,C1
+数学応用,بهینه‌سازی,behine sazi_c1,最適化（数学）,optimization (math),,C1
+数学応用,نظریه احتمال,nazariyeye ehtemal,確率論,probability theory,,C1
+数学応用,آمار استنباطی,amare estenbati,推測統計学,inferential statistics,,C1
+数学応用,آمار توصیفی,amare towsifi,記述統計学,descriptive statistics,,C1
+数学応用,تابع,tabe',関数,function (math),,C1
+数学応用,ماتریس,matris,行列,matrix,,C1
+数学応用,بردار,bordar,ベクトル,vector,,C1
+数学応用,مشتق,moshtagh,微分,derivative,,C1
+数学応用,انتگرال,entegral,積分,integral,,C1
+歴史追加C2,شاه عباس,shah abbas,シャー・アッバース,Shah Abbas,サファヴィー朝の偉大な王,C2
+歴史追加C2,نادرشاه,nadershah,ナーデル・シャー,Nader Shah,アフシャール朝の創設者,C2
+歴史追加C2,قانون اساسی مشروطه,ghanune asasiye mashruteh,立憲憲法,constitutional law,1906年の憲法,C2
+歴史追加C2,مجلس شورای ملی,majlese shoraye melli,国民議会,National Consultative Assembly,立憲革命後の議会,C2
+歴史追加C2,بهاییت,baha'iyat,バハーイー教,Baha'i Faith,,C2
+歴史追加C2,زرتشتی‌گری,zartoshti gari,ゾロアスター教,Zoroastrianism,,C2
+歴史追加C2,مانویت,manviyat,マニ教,Manichaeism,,C2
+歴史追加C2,مزدکیسم,mazdakism,マズダク教,Mazdakism,古代ペルシアの社会運動,C2
+歴史追加C2,خواجه نصیرالدین طوسی,khaje nasireddin tusi,ナスィール・トゥースィー,Nasir al-Din Tusi,ペルシアの大学者,C2
+歴史追加C2,ابن سینا,ebne sina,イブン・スィーナー,Ibn Sina/Avicenna,ペルシアの医学者・哲学者,C2
+歴史追加C2,خوارزمی,kharazmi,ホラズミー,Khwarizmi,代数学の父,C2
+歴史追加C2,رازی,razi,ラーズィー,Razi/Rhazes,ペルシアの医学者,C2
+歴史追加C2,بیرونی,biruni,ビールーニー,Biruni,ペルシアの博学者,C2
+慣用句追加C2,سر و ته یک کرباسند,sar o tahe yek kerbaand,同じ穴のむじな,they're cut from the same cloth,ことわざ,C2
+慣用句追加C2,مار از پونه بدش میاد جلو لونه‌اش سبز میشه,mar az pune badash miyad jelo luneash sabz mishe,嫌なものほど目の前に現れる,the snake hates mint but it grows at its door,ことわざ,C2
+慣用句追加C2,هر سر بالایی یک سرازیری هم داره,har sar balayi yek saraziri ham dare,山あれば谷あり,every uphill has a downhill,ことわざ,C2
+慣用句追加C2,آسمون به زمین نمیاد,asemun be zamin nemiyad,大したことにはならない,the sky won't fall,慣用句,C2
+慣用句追加C2,سرش به تنش نمی‌ارزه,sarash be tanash nemi arze,命がけの危険だ,his head isn't worth his body,慣用句,C2
+慣用句追加C2,خدا بزرگه,khoda bozorge,何とかなるさ,God is great,慣用的励まし,C2
+慣用句追加C2,به امید خدا,be omide khoda,神に希望を持って,God willing/hopefully,日常的表現,C2
+修辞学追加C2,کنایه دور,kenayeye dur_c2,遠い暗示（修辞学追加）,distant allusion (rhetoric),間接的な暗示技法,C2
+修辞学追加C2,تشبیه مرکب,tashbihe morakkab_c2,複合直喩（修辞学追加）,compound simile (rhetoric),複数要素の直喩,C2
+修辞学追加C2,علاقه جزئیت,alagheye joz'iyat,部分性の関係,relation of partiality,換喩の一種,C2
+修辞学追加C2,استخدام,estekhdam_c2,二義的使用（修辞学追加）,double usage (rhetoric),一語を二つの意味で使う,C2
+高度慣用追加C2,فی‌المثل,filmaasal_c2,例えば（文語追加）,for example (literary add),,C2
+高度慣用追加C2,بالاخص,bel akhass_c2,特に（格式高い追加）,particularly (formal add),,C2
+高度慣用追加C2,به عنوان مثال,be onvane mesal,例として,as an example,,C2
+高度慣用追加C2,به طور اعم,be towre a'amm,より一般的に,more generally,,C2
+数学応用,حد,hadd,極限,limit (math),,C1
+数学応用,سری,seri,級数,series (math),,C1
+数学応用,فضای برداری,fazaye bordari,ベクトル空間,vector space,,C1
+数学応用,نگاشت,negasht,写像,mapping (math),,C1
+歴史追加C2,امیرکبیر,amirkabir,アミールキャビール,Amir Kabir,ガージャール朝の改革者,C2
+歴史追加C2,دارالفنون,darolfonun,ダーロルフォヌーン,Dar al-Fonun,イラン初の近代学校,C2
+歴史追加C2,نهضت جنگل,nehzate jangal,森林運動,Jangal Movement,ギーラーンの革命運動,C2
+慣用句追加C2-2,آدم باشی آدمت میکنند,adam bashi adamat mikonand,立派なら立派に扱われる,be human and you'll be treated as one,ことわざ,C2
+慣用句追加C2-2,چاه مکن بهر کسی اول خودت بعد کسی,chah makon bahre kasi avval khodat ba'd kasi,人に穴を掘るな自分が落ちる,dig not a pit for others lest you fall in,ことわざ,C2
+慣用句追加C2-2,هر که بامش بیش برفش بیشتر,har ke bamash bish barfash bishtar_c2,高い屋根には雪が多い,the higher the roof the more the snow,ことわざ（追加）,C2
+慣用句追加C2-2,از دل برود هر آنکه از دیده برفت,az del beravad har anke az dide beraft,目に見えなくなれば心からも消える,out of sight out of mind,ことわざ,C2
