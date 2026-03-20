@@ -95,17 +95,19 @@ export async function POST(req: NextRequest) {
       confidence: w.Confidence ?? nbest.Confidence ?? 0,
     }));
 
-    // Match each reference word to best spoken word
+    // Match each reference word to spoken words (order-aware)
+    // Only search forward from last matched index to preserve word order
     const wordResults: { word: string; accuracyScore: number }[] = [];
-    const usedIndices = new Set<number>();
+    let searchStart = 0;
 
     for (const refWord of refWords) {
       let bestScore = 0;
       let bestConfidence = 0;
       let bestIdx = -1;
 
-      for (let i = 0; i < spkWords.length; i++) {
-        if (usedIndices.has(i)) continue;
+      // Search forward from last match, with a small lookback window (2) for minor reordering
+      const windowStart = Math.max(0, searchStart - 2);
+      for (let i = windowStart; i < spkWords.length; i++) {
         const sim = wordSimilarity(refWord, spkWords[i].normalized);
         if (sim > bestScore) {
           bestScore = sim;
@@ -114,13 +116,13 @@ export async function POST(req: NextRequest) {
         }
       }
 
-      if (bestIdx >= 0 && bestScore >= 0.4) {
-        usedIndices.add(bestIdx);
+      if (bestIdx >= 0 && bestScore >= 0.5) {
+        searchStart = bestIdx + 1;
         // Combine text similarity with STT confidence
-        // confidence is 0-1, convert to 0-100
+        // Text similarity is the stronger signal for pronunciation quality
         const textScore = bestScore * 100;
         const confScore = bestConfidence * 100;
-        const combined = Math.round(textScore * 0.4 + confScore * 0.6);
+        const combined = Math.round(textScore * 0.6 + confScore * 0.4);
         wordResults.push({ word: refWord, accuracyScore: combined });
       } else {
         // Word not found in speech — 0 score
@@ -166,10 +168,14 @@ export async function POST(req: NextRequest) {
 
 function normalizePersian(text: string): string {
   return text
-    .replace(/\u200c/g, "")
-    .replace(/\u0643/g, "\u06A9")
-    .replace(/\u064A/g, "\u06CC")
-    .replace(/[\u064B-\u065F\u0670]/g, "")
+    .replace(/\u200c/g, "")                     // zero-width non-joiner
+    .replace(/\u0643/g, "\u06A9")               // Arabic kaf → Persian kaf
+    .replace(/\u064A/g, "\u06CC")               // Arabic yeh → Persian yeh
+    .replace(/[\u0622\u0623\u0625]/g, "\u0627") // آ أ إ → ا (alef variants)
+    .replace(/\u0624/g, "\u0648")               // ؤ → و
+    .replace(/\u0626/g, "\u06CC")               // ئ → ی
+    .replace(/\u0629/g, "\u0647")               // ة (tā' marbūṭa) → ه
+    .replace(/[\u064B-\u065F\u0670]/g, "")      // diacritics
     .replace(/[.،؟!؛:«»\-\s]+/g, " ")
     .trim();
 }
