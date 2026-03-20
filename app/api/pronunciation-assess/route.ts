@@ -48,11 +48,11 @@ export async function POST(req: NextRequest) {
 
     const pronConfigBase64 = Buffer.from(JSON.stringify(pronConfig)).toString("base64");
 
-    // Detect content type from file
-    const contentType = audioFile.type || "audio/wav";
+    // Azure requires explicit WAV PCM content type
+    const contentType = "audio/wav; codecs=audio/pcm; samplerate=16000";
 
     const assessRes = await fetch(
-      `https://${region}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=fa-IR`,
+      `https://${region}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=fa-IR&format=detailed`,
       {
         method: "POST",
         headers: {
@@ -72,6 +72,7 @@ export async function POST(req: NextRequest) {
     }
 
     const result = await assessRes.json();
+    console.log("Azure response:", JSON.stringify(result).slice(0, 500));
 
     // Parse results
     const nbest = result?.NBest?.[0];
