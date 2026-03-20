@@ -15,6 +15,7 @@ import { getCEFRProgress } from "@/lib/level-manager";
 import { useTTS } from "@/lib/use-tts";
 import { apiUrl } from "@/lib/api-config";
 import { getSupportedMimeType } from "@/lib/audio-utils";
+import { convertToWav } from "@/lib/audio-convert";
 import { recordActivity } from "@/lib/streak";
 import { createNewCard, getAllCards, saveAllCards } from "@/lib/srs";
 import { addXP } from "@/lib/xp";
@@ -170,9 +171,11 @@ function GuidedLessonContent() {
   const runPronunciationAssessment = async (audioBlob: Blob) => {
     if (!currentStep) { setStepState("done"); return; }
     try {
+      // Convert to WAV on client (iOS mp4 → WAV PCM) then send to server
+      const wavBuffer = await convertToWav(audioBlob);
+      const wavBlob = new Blob([wavBuffer], { type: "audio/wav" });
       const formData = new FormData();
-      const ext = audioBlob.type.includes("mp4") ? "mp4" : audioBlob.type.includes("webm") ? "webm" : "wav";
-      formData.append("audio", audioBlob, `recording.${ext}`);
+      formData.append("audio", wavBlob, "recording.wav");
       formData.append("referenceText", currentStep.phrase);
 
       const res = await fetch(apiUrl("/api/pronunciation-assess"), {
