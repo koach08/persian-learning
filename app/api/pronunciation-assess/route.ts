@@ -1,19 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
+import OpenAI from "openai";
+
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 /**
- * Server-side pronunciation assessment using Azure REST API.
- * Sends audio with its REAL content type (mp4/webm/wav).
- * Azure Speech API may accept multiple formats.
- * Falls back to SDK if REST fails.
+ * Pronunciation assessment using Whisper transcription + text similarity.
+ * Azure Pronunciation Assessment does NOT support fa-IR (Persian),
+ * so we use Whisper to transcribe and compare against the reference text.
  */
 export async function POST(req: NextRequest) {
-  const key = process.env.AZURE_SPEECH_KEY;
-  const region = process.env.AZURE_SPEECH_REGION;
-
-  if (!key || !region) {
-    return NextResponse.json({ error: "Azure credentials not configured" }, { status: 500 });
-  }
-
   try {
     const formData = await req.formData();
     const audioFile = formData.get("audio") as File | null;
@@ -23,105 +18,161 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "audio and referenceText required" }, { status: 400 });
     }
 
-    const audioBuffer = await audioFile.arrayBuffer();
-    const fileName = audioFile.name || "recording";
-    const realContentType = audioFile.type || "audio/wav";
+    console.log(`[pron-assess] file size: ${audioFile.size}, ref: "${referenceText}"`);
 
-    console.log(`[pron-assess] file: ${fileName}, size: ${audioBuffer.byteLength}, type: ${realContentType}, ref: "${referenceText}"`);
+    // Transcribe with Whisper
+    const transcription = await openai.audio.transcriptions.create({
+      file: audioFile,
+      model: "whisper-1",
+      language: "fa",
+    });
 
-    // Get Azure token
-    const tokenRes = await fetch(
-      `https://${region}.api.cognitive.microsoft.com/sts/v1.0/issueToken`,
-      { method: "POST", headers: { "Ocp-Apim-Subscription-Key": key, "Content-Length": "0" } }
-    );
-    if (!tokenRes.ok) {
-      return NextResponse.json({ error: "Token fetch failed" }, { status: 500 });
+    const spokenText = transcription.text?.trim() || "";
+    console.log(`[pron-assess] Whisper result: "${spokenText}"`);
+
+    if (!spokenText) {
+      return NextResponse.json({
+        accuracyScore: 0,
+        fluencyScore: 0,
+        completenessScore: 0,
+        words: [],
+        recognizedText: "",
+      });
     }
-    const token = await tokenRes.text();
 
-    // Pronunciation assessment config
-    const pronConfig = {
-      ReferenceText: referenceText,
-      GradingSystem: "HundredMark",
-      Granularity: "Word",
-      Dimension: "Comprehensive",
-      EnableMiscue: true,
-    };
-    const pronConfigBase64 = Buffer.from(JSON.stringify(pronConfig)).toString("base64");
+    // Normalize and score
+    const refWords = normalizePersian(referenceText).split(" ").filter(Boolean);
+    const spkWords = normalizePersian(spokenText).split(" ").filter(Boolean);
 
-    // Client now sends WAV directly — try WAV first, then original type
-    const contentTypesToTry = [
-      "audio/wav; codecs=audio/pcm; samplerate=16000",
-      "audio/wav",
-      realContentType,
-    ];
+    if (refWords.length === 0) {
+      return NextResponse.json({
+        accuracyScore: 0,
+        fluencyScore: 0,
+        completenessScore: 0,
+        words: [],
+        recognizedText: spokenText,
+      });
+    }
 
-    let lastError = "";
-    for (const contentType of contentTypesToTry) {
-      try {
-        const assessRes = await fetch(
-          `https://${region}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=fa-IR&format=detailed`,
-          {
-            method: "POST",
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": contentType,
-              "Pronunciation-Assessment": pronConfigBase64,
-              Accept: "application/json",
-            },
-            body: audioBuffer,
-          }
-        );
+    // Per-word scoring: for each reference word, find best match in spoken words
+    const wordResults: { word: string; accuracyScore: number }[] = [];
+    const usedIndices = new Set<number>();
 
-        if (!assessRes.ok) {
-          lastError = `${contentType}: ${assessRes.status} ${await assessRes.text().catch(() => "")}`;
-          console.log(`[pron-assess] Failed with ${contentType}: ${assessRes.status}`);
-          continue;
+    for (const refWord of refWords) {
+      let bestScore = 0;
+      let bestIdx = -1;
+
+      for (let i = 0; i < spkWords.length; i++) {
+        if (usedIndices.has(i)) continue;
+        const score = wordSimilarity(refWord, spkWords[i]);
+        if (score > bestScore) {
+          bestScore = score;
+          bestIdx = i;
         }
-
-        const result = await assessRes.json();
-        console.log(`[pron-assess] Success with ${contentType}:`, JSON.stringify(result).slice(0, 300));
-
-        const nbest = result?.NBest?.[0];
-        if (!nbest) {
-          return NextResponse.json({
-            accuracyScore: 0, fluencyScore: 0, completenessScore: 0,
-            words: [], recognizedText: result?.DisplayText || "",
-            debug: `RecognitionStatus: ${result?.RecognitionStatus}`,
-          });
-        }
-
-        const pa = nbest.PronunciationAssessment || {};
-        const words = (nbest.Words || []).map((w: {
-          Word: string;
-          PronunciationAssessment?: { AccuracyScore: number };
-        }) => ({
-          word: w.Word,
-          accuracyScore: Math.round(w.PronunciationAssessment?.AccuracyScore ?? 0),
-        }));
-
-        return NextResponse.json({
-          accuracyScore: Math.round(pa.AccuracyScore ?? 0),
-          fluencyScore: Math.round(pa.FluencyScore ?? 0),
-          completenessScore: Math.round(pa.CompletenessScore ?? 0),
-          words,
-          recognizedText: nbest.Display || result?.DisplayText || "",
-        });
-      } catch (e) {
-        lastError = `${contentType}: ${e instanceof Error ? e.message : String(e)}`;
-        continue;
       }
+
+      if (bestIdx >= 0 && bestScore >= 0.4) {
+        usedIndices.add(bestIdx);
+      }
+
+      wordResults.push({
+        word: refWord,
+        accuracyScore: Math.round(bestScore * 100),
+      });
     }
 
-    // All content types failed
+    // Accuracy: average of per-word scores
+    const accuracyScore = Math.round(
+      wordResults.reduce((sum, w) => sum + w.accuracyScore, 0) / wordResults.length
+    );
+
+    // Completeness: % of reference words that had a decent match (>= 50%)
+    const matchedCount = wordResults.filter((w) => w.accuracyScore >= 50).length;
+    const completenessScore = Math.round((matchedCount / refWords.length) * 100);
+
+    // Fluency: combination of completeness and word order
+    const orderScore = calculateOrderScore(refWords, spkWords);
+    const fluencyScore = Math.round(completenessScore * 0.6 + orderScore * 0.4);
+
+    // Map word results back to original (non-normalized) reference words
+    const originalRefWords = referenceText
+      .replace(/[.،؟!؛:«»\-]/g, "")
+      .split(/\s+/)
+      .filter(Boolean);
+    const finalWords = wordResults.map((w, i) => ({
+      word: originalRefWords[i] || w.word,
+      accuracyScore: w.accuracyScore,
+    }));
+
     return NextResponse.json({
-      error: "All format attempts failed",
-      debug: lastError,
-      accuracyScore: 0, fluencyScore: 0, completenessScore: 0,
-      words: [], recognizedText: "",
+      accuracyScore,
+      fluencyScore,
+      completenessScore,
+      words: finalWords,
+      recognizedText: spokenText,
     });
   } catch (e) {
     console.error("[pron-assess] Error:", e);
     return NextResponse.json({ error: "Assessment failed" }, { status: 500 });
   }
+}
+
+function normalizePersian(text: string): string {
+  return text
+    .replace(/\u200c/g, "")
+    .replace(/\u0643/g, "\u06A9")
+    .replace(/\u064A/g, "\u06CC")
+    .replace(/[\u064B-\u065F\u0670]/g, "")
+    .replace(/[.،؟!؛:«»\-\s]+/g, " ")
+    .trim();
+}
+
+function wordSimilarity(a: string, b: string): number {
+  if (a === b) return 1;
+  const maxLen = Math.max(a.length, b.length);
+  if (maxLen === 0) return 0;
+  const dist = levenshtein(a, b);
+  return (maxLen - dist) / maxLen;
+}
+
+function levenshtein(a: string, b: string): number {
+  const m: number[][] = [];
+  for (let i = 0; i <= a.length; i++) m[i] = [i];
+  for (let j = 0; j <= b.length; j++) m[0][j] = j;
+  for (let i = 1; i <= a.length; i++) {
+    for (let j = 1; j <= b.length; j++) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      m[i][j] = Math.min(m[i - 1][j] + 1, m[i][j - 1] + 1, m[i - 1][j - 1] + cost);
+    }
+  }
+  return m[a.length][b.length];
+}
+
+function calculateOrderScore(refWords: string[], spkWords: string[]): number {
+  // Check how many reference words appear in the correct relative order in spoken text
+  const normalizedSpk = spkWords.map((w) => w);
+  let lastFoundIdx = -1;
+  let inOrder = 0;
+  let found = 0;
+
+  for (const rw of refWords) {
+    let bestIdx = -1;
+    let bestSim = 0;
+    for (let i = 0; i < normalizedSpk.length; i++) {
+      const sim = wordSimilarity(rw, normalizedSpk[i]);
+      if (sim > bestSim && sim >= 0.5) {
+        bestSim = sim;
+        bestIdx = i;
+      }
+    }
+    if (bestIdx >= 0) {
+      found++;
+      if (bestIdx > lastFoundIdx) {
+        inOrder++;
+        lastFoundIdx = bestIdx;
+      }
+    }
+  }
+
+  return found > 0 ? (inOrder / found) * 100 : 0;
 }
