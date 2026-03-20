@@ -49,11 +49,11 @@ export async function POST(req: NextRequest) {
     };
     const pronConfigBase64 = Buffer.from(JSON.stringify(pronConfig)).toString("base64");
 
-    // Try Azure REST API with multiple content types
+    // Client now sends WAV directly — try WAV first, then original type
     const contentTypesToTry = [
-      realContentType,                    // audio/mp4, audio/webm etc.
-      "audio/wav",                        // fallback
-      "application/octet-stream",         // generic binary
+      "audio/wav; codecs=audio/pcm; samplerate=16000",
+      "audio/wav",
+      realContentType,
     ];
 
     let lastError = "";

@@ -14,8 +14,7 @@ import {
 import { getCEFRProgress } from "@/lib/level-manager";
 import { useTTS } from "@/lib/use-tts";
 import { apiUrl } from "@/lib/api-config";
-import { getSupportedMimeType } from "@/lib/audio-utils";
-import { convertToWav } from "@/lib/audio-convert";
+import { startWavRecording, stopWavRecording } from "@/lib/wav-recorder";
 import { recordActivity } from "@/lib/streak";
 import { createNewCard, getAllCards, saveAllCards } from "@/lib/srs";
 import { addXP } from "@/lib/xp";
@@ -55,10 +54,8 @@ function GuidedLessonContent() {
   const [dictationInput, setDictationInput] = useState("");
   const [interactiveResult, setInteractiveResult] = useState<"correct" | "wrong" | null>(null);
 
-  // Recording
+  // Recording (WAV direct — no MediaRecorder, no mp4)
   const [isRecording, setIsRecording] = useState(false);
-  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
-  const audioChunksRef = useRef<Blob[]>([]);
 
   const { isPlaying, play: playTTS, playJa: playJaTTS, unlock: unlockAudio } = useTTS();
   const autoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -128,43 +125,30 @@ function GuidedLessonContent() {
     } else { setStepIndex(stepIndex + 1); }
   }, [lesson, stepIndex]);
 
-  // ─── iOS-compatible recording → Azure Pronunciation Assessment ───
-  const startRec = async () => {
+  // ─── WAV recording (bypasses MediaRecorder / mp4 entirely) ───
+  const handleRecord = async () => {
     unlockAudio();
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const { mimeType } = getSupportedMimeType();
-      const options: MediaRecorderOptions = {};
-      if (mimeType) options.mimeType = mimeType;
-      const recorder = new MediaRecorder(stream, options);
-      mediaRecorderRef.current = recorder;
-      audioChunksRef.current = [];
-      recorder.ondataavailable = (e) => { if (e.data.size > 0) audioChunksRef.current.push(e.data); };
-      recorder.onstop = async () => {
-        stream.getTracks().forEach((t) => t.stop());
-        const blob = new Blob(audioChunksRef.current, { type: mimeType || "audio/webm" });
-        if (blob.size < 500) { setStepState("done"); return; }
+    if (isRecording) {
+      // Stop recording → get WAV blob → evaluate
+      setIsRecording(false);
+      try {
+        const wavBlob = stopWavRecording();
+        if (wavBlob.size < 1000) { setStepState("done"); return; }
         setStepState("evaluating");
-        await runPronunciationAssessment(blob);
-      };
-      recorder.start();
-      setIsRecording(true);
-    } catch {
-      // Mic denied → go to done so user can retry or advance
-      setStepState("done");
+        await runPronunciationAssessment(wavBlob);
+      } catch {
+        setStepState("done");
+      }
+    } else {
+      // Start recording
+      try {
+        await startWavRecording();
+        setIsRecording(true);
+        setStepState("recording");
+      } catch {
+        setStepState("done");
+      }
     }
-  };
-
-  const stopRec = () => {
-    if (mediaRecorderRef.current?.state === "recording") {
-      mediaRecorderRef.current.stop();
-    }
-    setIsRecording(false);
-  };
-
-  const handleRecord = () => {
-    if (isRecording) { stopRec(); }
-    else { startRec(); setStepState("recording"); }
   };
 
   // Debug info for troubleshooting
@@ -455,7 +439,7 @@ function GuidedLessonContent() {
         {/* SPEAK: done → retry or next (NEVER blocked) */}
         {(currentStep?.type === "speak" || currentStep?.type === "speak-cloze") && stepState === "done" && (
           <div className="flex gap-3">
-            <button onClick={() => { resetState(); setStepState("ready"); playTTS(currentStep!.phrase).then(() => setStepState("ready")); }}
+            <button onClick={() => { resetState(); setStepState("playing"); playTTS(currentStep!.phrase).then(() => setStepState("ready")); }}
               className="flex-1 py-4 rounded-2xl bg-white border-2 border-purple-200 text-purple-600 font-bold text-sm active:scale-95">もう一度</button>
             <button onClick={goNext} className="flex-1 py-4 rounded-2xl bg-purple-600 text-white font-bold text-sm active:scale-95">次へ</button>
           </div>
