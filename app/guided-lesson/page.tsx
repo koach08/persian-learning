@@ -167,11 +167,15 @@ function GuidedLessonContent() {
     else { startRec(); setStepState("recording"); }
   };
 
-  // Server-side pronunciation assessment (avoids all WebView/format issues)
+  // Debug info for troubleshooting
+  const [debugInfo, setDebugInfo] = useState("");
+
+  // Server-side pronunciation assessment
   const runPronunciationAssessment = async (audioBlob: Blob) => {
     if (!currentStep) { setStepState("done"); return; }
+    const sizeKB = Math.round(audioBlob.size / 1024);
+    setDebugInfo(`送信中... ${sizeKB}KB (${audioBlob.type})`);
     try {
-      // Send raw audio to server — server handles format conversion
       const formData = new FormData();
       const ext = audioBlob.type.includes("mp4") ? "mp4" : audioBlob.type.includes("webm") ? "webm" : "bin";
       formData.append("audio", audioBlob, `recording.${ext}`);
@@ -182,17 +186,19 @@ function GuidedLessonContent() {
         body: formData,
       });
 
-      if (res.ok) {
-        const data = await res.json();
-        setOverallAccuracy(data.accuracyScore ?? 0);
+      const data = await res.json();
+      setDebugInfo(`${res.status} | 認識:"${data.recognizedText || "なし"}" | 正確さ:${data.accuracyScore ?? "?"} | ${data.error || ""}`);
+
+      if (res.ok && data.accuracyScore !== undefined) {
+        setOverallAccuracy(data.accuracyScore);
         setWordScores(data.words ?? []);
         if (data.accuracyScore > 0) addXP("lessonStep");
         if (data.accuracyScore < 40) {
           recordMistake(currentStep.phrase, currentStep.romanization, currentStep.translation, "guided-lesson", data.accuracyScore);
         }
       }
-    } catch {
-      // Server failed — still allow retry/advance
+    } catch (e) {
+      setDebugInfo(`エラー: ${e instanceof Error ? e.message : String(e)}`);
     }
     setStepState("done");
   };
@@ -426,6 +432,9 @@ function GuidedLessonContent() {
         )}
         {/* Evaluating spinner */}
         {stepState === "evaluating" && <div className="mt-4"><div className="w-8 h-8 border-3 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto" /><p className="text-xs text-gray-400 mt-2">発音をチェック中...</p></div>}
+
+        {/* Debug info (temporary) */}
+        {debugInfo && <p className="text-[10px] text-gray-300 mt-2 text-center break-all">{debugInfo}</p>}
       </div>
 
       {/* ─── Bottom Actions ─── */}
