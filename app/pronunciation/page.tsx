@@ -16,6 +16,7 @@ interface PronunciationResult {
     accuracyScore: number;
     errorType: string;
   }[];
+  feedback?: string;
 }
 
 export default function PronunciationPage() {
@@ -74,6 +75,7 @@ export default function PronunciationPage() {
             accuracyScore: w.accuracyScore,
             errorType: "None",
           })),
+          feedback: data.feedback ?? "",
         });
         setEvaluating(false);
       } catch (e) {
@@ -259,6 +261,10 @@ export default function PronunciationPage() {
                 ))}
               </div>
             </div>
+          )}
+
+          {result.feedback && (
+            <p className="text-sm text-purple-700 bg-purple-50 rounded-xl px-4 py-3 mt-4">{result.feedback}</p>
           )}
 
           <div className="mt-4 w-full bg-gray-200 rounded-full h-2">

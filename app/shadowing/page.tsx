@@ -64,7 +64,7 @@ export default function ShadowingPage() {
   const [showRoman, setShowRoman] = useState(true);
   const [showJapanese, setShowJapanese] = useState(true);
   const [playbackSpeed, setPlaybackSpeed] = useState(1.0);
-  const [pronScore, setPronScore] = useState<{ accuracy: number; fluency: number; completeness: number } | null>(null);
+  const [pronScore, setPronScore] = useState<{ accuracy: number; fluency: number; completeness: number; feedback?: string } | null>(null);
   const [attempts, setAttempts] = useState(0);
   const [sessionStats, setSessionStats] = useState({ practiced: 0, totalScore: 0 });
 
@@ -141,6 +141,7 @@ export default function ShadowingPage() {
           accuracy: Math.round(data.accuracyScore),
           fluency: Math.round(data.fluencyScore ?? 0),
           completeness: Math.round(data.completenessScore ?? 0),
+          feedback: data.feedback ?? "",
         });
       }
     } catch {
@@ -336,7 +337,10 @@ export default function ShadowingPage() {
             </div>
           </div>
 
-          {pronScore.accuracy < 70 && (
+          {pronScore.feedback && (
+            <p className="text-sm text-purple-700 bg-purple-50 rounded-xl px-3 py-2 mt-3">{pronScore.feedback}</p>
+          )}
+          {!pronScore.feedback && pronScore.accuracy < 70 && (
             <p className="text-sm text-orange-600 text-center mt-3">
               もう一度お手本を聞いてから挑戦してみましょう!
             </p>

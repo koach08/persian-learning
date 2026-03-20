@@ -25,6 +25,7 @@ import { normalizePersian, levenshteinDistance } from "@/lib/persian-utils";
 type StepState = "playing" | "ready" | "recording" | "evaluating" | "done";
 
 interface WordScore { word: string; accuracy: number; }
+interface AssessmentResult { accuracyScore: number; words: { word: string; accuracyScore: number }[]; recognizedText?: string; feedback?: string; error?: string; }
 
 export default function GuidedLessonPage() {
   return (
@@ -43,9 +44,10 @@ function GuidedLessonContent() {
   const [stepState, setStepState] = useState<StepState>("playing");
   const [completed, setCompleted] = useState(false);
 
-  // Azure pronunciation results (reference only, never blocks)
+  // Pronunciation results (reference only, never blocks)
   const [wordScores, setWordScores] = useState<WordScore[]>([]);
   const [overallAccuracy, setOverallAccuracy] = useState<number | null>(null);
+  const [feedback, setFeedback] = useState<string>("");
 
   // Interactive step states
   const [chosenIndex, setChosenIndex] = useState<number | null>(null);
@@ -85,6 +87,7 @@ function GuidedLessonContent() {
     setInteractiveResult(null);
     setWordScores([]);
     setOverallAccuracy(null);
+    setFeedback("");
   }, []);
 
   // ─── Step Flow ───
@@ -170,12 +173,13 @@ function GuidedLessonContent() {
         body: formData,
       });
 
-      const data = await res.json();
-      setDebugInfo(`${res.status} | 認識:"${data.recognizedText || "なし"}" | 正確さ:${data.accuracyScore ?? "?"} | ${data.error || ""}`);
+      const data: AssessmentResult = await res.json();
+      setDebugInfo(`${res.status} | 認識:"${data.recognizedText || "なし"}" | 正確さ:${data.accuracyScore ?? "?"}`);
 
       if (res.ok && data.accuracyScore !== undefined) {
         setOverallAccuracy(data.accuracyScore);
-        setWordScores(data.words ?? []);
+        setWordScores((data.words ?? []).map((w) => ({ word: w.word, accuracy: w.accuracyScore })));
+        setFeedback(data.feedback ?? "");
         if (data.accuracyScore > 0) addXP("lessonStep");
         if (data.accuracyScore < 40) {
           recordMistake(currentStep.phrase, currentStep.romanization, currentStep.translation, "guided-lesson", data.accuracyScore);
@@ -346,6 +350,7 @@ function GuidedLessonContent() {
                 </div>
                 <p className="text-xs text-gray-400">単語をタップでお手本再生</p>
                 {overallAccuracy !== null && <p className="text-xs text-gray-400 mt-1">総合: {overallAccuracy}点</p>}
+                {feedback && <p className="text-sm text-purple-700 bg-purple-50 rounded-xl px-3 py-2 mt-2">{feedback}</p>}
                 <p className="text-sm text-gray-500 mt-2">{currentStep.translation}</p>
               </div>
             ) : stepState === "done" ? (
