@@ -1,16 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
-import OpenAI from "openai";
-
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 /**
- * Server-side pronunciation assessment.
- * 1. Receive raw audio (any format — mp4, webm, wav)
- * 2. Use Whisper to transcribe (handles all formats reliably)
- * 3. Compare transcription with reference text word-by-word
- * 4. Return per-word accuracy + overall scores
+ * Server-side pronunciation assessment using Azure REST API.
+ * Sends audio with its REAL content type (mp4/webm/wav).
+ * Azure Speech API may accept multiple formats.
+ * Falls back to SDK if REST fails.
  */
 export async function POST(req: NextRequest) {
+  const key = process.env.AZURE_SPEECH_KEY;
+  const region = process.env.AZURE_SPEECH_REGION;
+
+  if (!key || !region) {
+    return NextResponse.json({ error: "Azure credentials not configured" }, { status: 500 });
+  }
+
   try {
     const formData = await req.formData();
     const audioFile = formData.get("audio") as File | null;
@@ -20,93 +23,105 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "audio and referenceText required" }, { status: 400 });
     }
 
-    // Step 1: Whisper transcription (accepts any audio format)
-    let transcription = "";
-    try {
-      const result = await openai.audio.transcriptions.create({
-        file: audioFile,
-        model: "whisper-1",
-        language: "fa",
-      });
-      transcription = result.text?.trim() || "";
-    } catch (e) {
-      console.error("Whisper error:", e);
-      return NextResponse.json({
-        accuracyScore: 0, fluencyScore: 0, completenessScore: 0,
-        words: [], recognizedText: "",
-      });
+    const audioBuffer = await audioFile.arrayBuffer();
+    const fileName = audioFile.name || "recording";
+    const realContentType = audioFile.type || "audio/wav";
+
+    console.log(`[pron-assess] file: ${fileName}, size: ${audioBuffer.byteLength}, type: ${realContentType}, ref: "${referenceText}"`);
+
+    // Get Azure token
+    const tokenRes = await fetch(
+      `https://${region}.api.cognitive.microsoft.com/sts/v1.0/issueToken`,
+      { method: "POST", headers: { "Ocp-Apim-Subscription-Key": key, "Content-Length": "0" } }
+    );
+    if (!tokenRes.ok) {
+      return NextResponse.json({ error: "Token fetch failed" }, { status: 500 });
+    }
+    const token = await tokenRes.text();
+
+    // Pronunciation assessment config
+    const pronConfig = {
+      ReferenceText: referenceText,
+      GradingSystem: "HundredMark",
+      Granularity: "Word",
+      Dimension: "Comprehensive",
+      EnableMiscue: true,
+    };
+    const pronConfigBase64 = Buffer.from(JSON.stringify(pronConfig)).toString("base64");
+
+    // Try Azure REST API with multiple content types
+    const contentTypesToTry = [
+      realContentType,                    // audio/mp4, audio/webm etc.
+      "audio/wav",                        // fallback
+      "application/octet-stream",         // generic binary
+    ];
+
+    let lastError = "";
+    for (const contentType of contentTypesToTry) {
+      try {
+        const assessRes = await fetch(
+          `https://${region}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=fa-IR&format=detailed`,
+          {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": contentType,
+              "Pronunciation-Assessment": pronConfigBase64,
+              Accept: "application/json",
+            },
+            body: audioBuffer,
+          }
+        );
+
+        if (!assessRes.ok) {
+          lastError = `${contentType}: ${assessRes.status} ${await assessRes.text().catch(() => "")}`;
+          console.log(`[pron-assess] Failed with ${contentType}: ${assessRes.status}`);
+          continue;
+        }
+
+        const result = await assessRes.json();
+        console.log(`[pron-assess] Success with ${contentType}:`, JSON.stringify(result).slice(0, 300));
+
+        const nbest = result?.NBest?.[0];
+        if (!nbest) {
+          return NextResponse.json({
+            accuracyScore: 0, fluencyScore: 0, completenessScore: 0,
+            words: [], recognizedText: result?.DisplayText || "",
+            debug: `RecognitionStatus: ${result?.RecognitionStatus}`,
+          });
+        }
+
+        const pa = nbest.PronunciationAssessment || {};
+        const words = (nbest.Words || []).map((w: {
+          Word: string;
+          PronunciationAssessment?: { AccuracyScore: number };
+        }) => ({
+          word: w.Word,
+          accuracyScore: Math.round(w.PronunciationAssessment?.AccuracyScore ?? 0),
+        }));
+
+        return NextResponse.json({
+          accuracyScore: Math.round(pa.AccuracyScore ?? 0),
+          fluencyScore: Math.round(pa.FluencyScore ?? 0),
+          completenessScore: Math.round(pa.CompletenessScore ?? 0),
+          words,
+          recognizedText: nbest.Display || result?.DisplayText || "",
+        });
+      } catch (e) {
+        lastError = `${contentType}: ${e instanceof Error ? e.message : String(e)}`;
+        continue;
+      }
     }
 
-    console.log("Whisper heard:", transcription, "| Expected:", referenceText);
-
-    // Step 2: Word-by-word comparison
-    const refWords = normalize(referenceText).split(/\s+/).filter(Boolean);
-    const spkWords = normalize(transcription).split(/\s+/).filter(Boolean);
-
-    // Match each reference word against spoken words
-    const words = refWords.map((rw) => {
-      let bestScore = 0;
-      for (const sw of spkWords) {
-        if (rw === sw) { bestScore = 100; break; }
-        const maxLen = Math.max(rw.length, sw.length);
-        if (maxLen > 0) {
-          const dist = levenshtein(rw, sw);
-          bestScore = Math.max(bestScore, Math.round(((maxLen - dist) / maxLen) * 100));
-        }
-      }
-      // Find original script word
-      const origWords = referenceText.replace(/\u200c/g, "").split(/\s+/).filter(Boolean);
-      const origWord = origWords.find((ow) => normalize(ow) === rw) || rw;
-      return { word: origWord, accuracyScore: bestScore };
-    });
-
-    // Overall scores
-    const totalWords = words.length;
-    const accuracyScore = totalWords > 0
-      ? Math.round(words.reduce((sum, w) => sum + w.accuracyScore, 0) / totalWords)
-      : 0;
-
-    // Completeness: how many reference words were spoken (>50% match)
-    const spokenCount = words.filter((w) => w.accuracyScore >= 50).length;
-    const completenessScore = totalWords > 0 ? Math.round((spokenCount / totalWords) * 100) : 0;
-
-    // Fluency: based on word count ratio (did they say roughly the right amount?)
-    const wordCountRatio = spkWords.length / Math.max(refWords.length, 1);
-    const fluencyScore = Math.round(Math.min(wordCountRatio, 1) * 100);
-
+    // All content types failed
     return NextResponse.json({
-      accuracyScore,
-      fluencyScore,
-      completenessScore,
-      words,
-      recognizedText: transcription,
+      error: "All format attempts failed",
+      debug: lastError,
+      accuracyScore: 0, fluencyScore: 0, completenessScore: 0,
+      words: [], recognizedText: "",
     });
   } catch (e) {
-    console.error("Assessment error:", e);
+    console.error("[pron-assess] Error:", e);
     return NextResponse.json({ error: "Assessment failed" }, { status: 500 });
   }
-}
-
-function normalize(text: string): string {
-  return text
-    .replace(/\u200c/g, "")
-    .replace(/\u0643/g, "\u06A9")
-    .replace(/\u064A/g, "\u06CC")
-    .replace(/[\u064B-\u065F\u0670]/g, "")
-    .replace(/[.،؟!؛:«»\-\s]+/g, " ")
-    .trim()
-    .toLowerCase();
-}
-
-function levenshtein(a: string, b: string): number {
-  const m: number[][] = [];
-  for (let i = 0; i <= a.length; i++) m[i] = [i];
-  for (let j = 0; j <= b.length; j++) m[0][j] = j;
-  for (let i = 1; i <= a.length; i++) {
-    for (let j = 1; j <= b.length; j++) {
-      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
-      m[i][j] = Math.min(m[i - 1][j] + 1, m[i][j - 1] + 1, m[i - 1][j - 1] + cost);
-    }
-  }
-  return m[a.length][b.length];
 }
