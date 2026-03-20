@@ -171,11 +171,10 @@ function GuidedLessonContent() {
   const runPronunciationAssessment = async (audioBlob: Blob) => {
     if (!currentStep) { setStepState("done"); return; }
     try {
-      // Convert to WAV on client (iOS mp4 → WAV PCM) then send to server
-      const wavBuffer = await convertToWav(audioBlob);
-      const wavBlob = new Blob([wavBuffer], { type: "audio/wav" });
+      // Send raw audio to server — server handles format conversion
       const formData = new FormData();
-      formData.append("audio", wavBlob, "recording.wav");
+      const ext = audioBlob.type.includes("mp4") ? "mp4" : audioBlob.type.includes("webm") ? "webm" : "bin";
+      formData.append("audio", audioBlob, `recording.${ext}`);
       formData.append("referenceText", currentStep.phrase);
 
       const res = await fetch(apiUrl("/api/pronunciation-assess"), {
