@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { getCEFRProgress } from "@/lib/level-manager";
 import type { CEFRLevel } from "@/lib/level-manager";
 import PersianText from "@/components/PersianText";
 import { apiUrl } from "@/lib/api-config";
+import { startWavRecording, stopWavRecording } from "@/lib/wav-recorder";
 
 interface ShadowPhrase {
   persian: string;
@@ -66,8 +67,6 @@ export default function ShadowingPage() {
   const [pronScore, setPronScore] = useState<{ accuracy: number; fluency: number; completeness: number } | null>(null);
   const [attempts, setAttempts] = useState(0);
   const [sessionStats, setSessionStats] = useState({ practiced: 0, totalScore: 0 });
-  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
-  const audioChunksRef = useRef<Blob[]>([]);
 
   useEffect(() => {
     const l = getCEFRProgress().currentLevel;
@@ -107,120 +106,47 @@ export default function ShadowingPage() {
 
   const startRecording = async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const mediaRecorder = new MediaRecorder(stream);
-      mediaRecorderRef.current = mediaRecorder;
-      audioChunksRef.current = [];
-
-      mediaRecorder.ondataavailable = (e) => {
-        audioChunksRef.current.push(e.data);
-      };
-
-      mediaRecorder.onstop = async () => {
-        stream.getTracks().forEach((t) => t.stop());
-        const blob = new Blob(audioChunksRef.current, { type: "audio/webm" });
-        await evaluatePronunciation(blob);
-      };
-
-      mediaRecorder.start();
+      await startWavRecording();
       setIsRecording(true);
     } catch {
       // microphone access denied
     }
   };
 
-  const stopRecording = () => {
-    if (mediaRecorderRef.current && isRecording) {
-      mediaRecorderRef.current.stop();
-      setIsRecording(false);
+  const stopRecording = async () => {
+    if (!isRecording) return;
+    setIsRecording(false);
+    try {
+      const wavBlob = stopWavRecording();
+      await evaluatePronunciation(wavBlob);
+    } catch {
+      // recording error
     }
   };
 
   const evaluatePronunciation = async (audioBlob: Blob) => {
     try {
-      // Get Azure token
-      const tokenRes = await fetch(apiUrl("/api/pronunciation"));
-      const { token, region } = await tokenRes.json();
-      if (!token) {
-        // Fallback: use Whisper for basic comparison
-        await fallbackEvaluation(audioBlob);
-        return;
-      }
+      const formData = new FormData();
+      formData.append("audio", audioBlob, "recording.wav");
+      formData.append("referenceText", current.persian);
 
-      const SpeechSDK = await import("microsoft-cognitiveservices-speech-sdk");
-      const speechConfig = SpeechSDK.SpeechConfig.fromAuthorizationToken(token, region);
-      speechConfig.speechRecognitionLanguage = "fa-IR";
-
-      const pronConfig = new SpeechSDK.PronunciationAssessmentConfig(
-        current.persian,
-        SpeechSDK.PronunciationAssessmentGradingSystem.HundredMark,
-        SpeechSDK.PronunciationAssessmentGranularity.Word,
-        true
-      );
-
-      // Convert blob to ArrayBuffer
-      const arrayBuffer = await audioBlob.arrayBuffer();
-      const pushStream = SpeechSDK.AudioInputStream.createPushStream();
-      pushStream.write(arrayBuffer);
-      pushStream.close();
-
-      const audioConfig = SpeechSDK.AudioConfig.fromStreamInput(pushStream);
-      const recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
-      pronConfig.applyTo(recognizer);
-
-      recognizer.recognizeOnceAsync(
-        (result) => {
-          if (result.reason === SpeechSDK.ResultReason.RecognizedSpeech) {
-            const pronResult = SpeechSDK.PronunciationAssessmentResult.fromResult(result);
-            setPronScore({
-              accuracy: Math.round(pronResult.accuracyScore),
-              fluency: Math.round(pronResult.fluencyScore),
-              completeness: Math.round(pronResult.completenessScore),
-            });
-          }
-          setAttempts((a) => a + 1);
-          recognizer.close();
-        },
-        (err) => {
-          console.error("Pronunciation assessment error:", err);
-          recognizer.close();
-        }
-      );
-    } catch {
-      await fallbackEvaluation(audioBlob);
-    }
-  };
-
-  const fallbackEvaluation = async (audioBlob: Blob) => {
-    // Use Whisper to transcribe and do text comparison
-    const formData = new FormData();
-    formData.append("file", audioBlob, "recording.webm");
-    formData.append("language", "fa");
-    try {
-      const res = await fetch(apiUrl("/api/whisper"), { method: "POST", body: formData });
+      const res = await fetch(apiUrl("/api/pronunciation-assess"), {
+        method: "POST",
+        body: formData,
+      });
       const data = await res.json();
-      if (data.text) {
-        const similarity = textSimilarity(current.persian, data.text);
+
+      if (data.accuracyScore !== undefined) {
         setPronScore({
-          accuracy: Math.round(similarity * 100),
-          fluency: Math.round(similarity * 90),
-          completeness: Math.round(similarity * 95),
+          accuracy: Math.round(data.accuracyScore),
+          fluency: Math.round(data.fluencyScore ?? 0),
+          completeness: Math.round(data.completenessScore ?? 0),
         });
       }
     } catch {
       // silent fail
     }
     setAttempts((a) => a + 1);
-  };
-
-  const textSimilarity = (a: string, b: string): number => {
-    const wordsA = a.replace(/[^\u0600-\u06FF\s]/g, "").split(/\s+/);
-    const wordsB = b.replace(/[^\u0600-\u06FF\s]/g, "").split(/\s+/);
-    let matches = 0;
-    for (const w of wordsA) {
-      if (wordsB.includes(w)) matches++;
-    }
-    return wordsA.length > 0 ? matches / wordsA.length : 0;
   };
 
   const nextPhrase = () => {

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useCallback } from "react";
+import { startWavRecording, stopWavRecording } from "@/lib/wav-recorder";
 
 interface AudioRecorderProps {
   onRecordingComplete: (audioBlob: Blob) => void;
@@ -12,43 +13,26 @@ export default function AudioRecorder({
   className = "",
 }: AudioRecorderProps) {
   const [recording, setRecording] = useState(false);
-  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
-  const chunksRef = useRef<Blob[]>([]);
 
   const startRecording = useCallback(async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const mediaRecorder = new MediaRecorder(stream, {
-        mimeType: MediaRecorder.isTypeSupported("audio/webm;codecs=opus")
-          ? "audio/webm;codecs=opus"
-          : "audio/webm",
-      });
-      mediaRecorderRef.current = mediaRecorder;
-      chunksRef.current = [];
-
-      mediaRecorder.ondataavailable = (e) => {
-        if (e.data.size > 0) chunksRef.current.push(e.data);
-      };
-
-      mediaRecorder.onstop = () => {
-        const blob = new Blob(chunksRef.current, { type: "audio/webm" });
-        onRecordingComplete(blob);
-        stream.getTracks().forEach((t) => t.stop());
-      };
-
-      mediaRecorder.start();
+      await startWavRecording();
       setRecording(true);
     } catch (e) {
       console.error("Microphone error:", e);
     }
-  }, [onRecordingComplete]);
+  }, []);
 
   const stopRecording = useCallback(() => {
-    if (mediaRecorderRef.current?.state === "recording") {
-      mediaRecorderRef.current.stop();
-      setRecording(false);
+    if (!recording) return;
+    setRecording(false);
+    try {
+      const wavBlob = stopWavRecording();
+      onRecordingComplete(wavBlob);
+    } catch (e) {
+      console.error("Stop recording error:", e);
     }
-  }, []);
+  }, [recording, onRecordingComplete]);
 
   return (
     <button

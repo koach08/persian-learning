@@ -48,63 +48,34 @@ export default function PronunciationPage() {
       setResult(null);
 
       try {
-        const tokenRes = await fetch(apiUrl("/api/pronunciation"));
-        const { token, region } = await tokenRes.json();
+        const formData = new FormData();
+        formData.append("audio", audioBlob, "recording.wav");
+        formData.append("referenceText", targetText);
 
-        if (!token) {
-          setError("Azure認証に失敗しました");
+        const res = await fetch(apiUrl("/api/pronunciation-assess"), {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await res.json();
+
+        if (data.error && !data.accuracyScore) {
+          setError(`評価エラー: ${data.error}`);
           setEvaluating(false);
           return;
         }
 
-        const sdk = await import("microsoft-cognitiveservices-speech-sdk");
-
-        const speechConfig = sdk.SpeechConfig.fromAuthorizationToken(token, region);
-        speechConfig.speechRecognitionLanguage = "fa-IR";
-
-        const arrayBuffer = await audioBlob.arrayBuffer();
-        const audioFormat = sdk.AudioStreamFormat.getWaveFormatPCM(16000, 16, 1);
-        const pushStream = sdk.AudioInputStream.createPushStream(audioFormat);
-        pushStream.write(arrayBuffer);
-        pushStream.close();
-
-        const audioConfig = sdk.AudioConfig.fromStreamInput(pushStream);
-        const recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
-
-        const pronunciationConfig = new sdk.PronunciationAssessmentConfig(
-          targetText,
-          sdk.PronunciationAssessmentGradingSystem.HundredMark,
-          sdk.PronunciationAssessmentGranularity.Word
-        );
-        pronunciationConfig.applyTo(recognizer);
-
-        recognizer.recognizeOnceAsync(
-          (speechResult) => {
-            const pronResult = sdk.PronunciationAssessmentResult.fromResult(speechResult);
-            const detailResult = pronResult.detailResult;
-
-            setResult({
-              accuracyScore: pronResult.accuracyScore,
-              fluencyScore: pronResult.fluencyScore,
-              completenessScore: pronResult.completenessScore,
-              words:
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                detailResult?.Words?.map((w: any) => ({
-                    word: w.Word as string,
-                    accuracyScore: (w.PronunciationAssessment?.AccuracyScore as number) ?? 0,
-                    errorType: (w.PronunciationAssessment?.ErrorType as string) ?? "None",
-                  })
-                ) ?? [],
-            });
-            setEvaluating(false);
-            recognizer.close();
-          },
-          (err) => {
-            setError(`認識エラー: ${err}`);
-            setEvaluating(false);
-            recognizer.close();
-          }
-        );
+        setResult({
+          accuracyScore: data.accuracyScore ?? 0,
+          fluencyScore: data.fluencyScore ?? 0,
+          completenessScore: data.completenessScore ?? 0,
+          words: (data.words ?? []).map((w: { word: string; accuracyScore: number }) => ({
+            word: w.word,
+            accuracyScore: w.accuracyScore,
+            errorType: "None",
+          })),
+        });
+        setEvaluating(false);
       } catch (e) {
         setError(`エラー: ${e instanceof Error ? e.message : String(e)}`);
         setEvaluating(false);
