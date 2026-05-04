@@ -1,13 +1,15 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { useMergedVocabulary } from "@/lib/use-merged-data";
 import { getAllCards } from "@/lib/srs";
 import type { SRSCard } from "@/lib/srs";
 import { getCEFRProgress, getLevelMasteryStats, CEFR_LEVELS, CEFR_LABELS } from "@/lib/level-manager";
 import type { CEFRLevel } from "@/lib/level-manager";
-import { getStreak } from "@/lib/streak";
+import { getStreak, getLongestStreak, getFreezesRemaining } from "@/lib/streak";
+import { getTodayXP, getDailyGoal, getTotalXP } from "@/lib/xp";
 import { getLevelLessonStats } from "@/lib/guided-lessons";
+import { downloadBackup, restoreFromFile } from "@/lib/data-backup";
 
 const LEVEL_COLORS: Record<CEFRLevel, { bg: string; bar: string; text: string }> = {
   A1: { bg: "bg-emerald-50", bar: "bg-emerald-500", text: "text-emerald-700" },
@@ -48,13 +50,25 @@ export default function DashboardPage() {
   const [cards, setCards] = useState<Record<string, SRSCard>>({});
   const [currentLevel, setCurrentLevel] = useState<CEFRLevel>("A1");
   const [streak, setStreak] = useState(0);
+  const [longestStreak, setLongestStreak] = useState(0);
+  const [freezes, setFreezes] = useState(0);
+  const [todayXP, setTodayXP] = useState(0);
+  const [dailyGoal, setDailyGoal] = useState(100);
+  const [totalXP, setTotalXP] = useState(0);
   const [studyDates, setStudyDates] = useState<Set<string>>(new Set());
   const [lessonStats, setLessonStats] = useState<Record<CEFRLevel, { completed: number; total: number }> | null>(null);
+  const [backupMsg, setBackupMsg] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     setCards(getAllCards());
     setCurrentLevel(getCEFRProgress().currentLevel);
     setStreak(getStreak());
+    setLongestStreak(getLongestStreak());
+    setFreezes(getFreezesRemaining());
+    setTodayXP(getTodayXP());
+    setDailyGoal(getDailyGoal());
+    setTotalXP(getTotalXP());
     setStudyDates(getStudyDates());
     // Lesson stats per level
     const ls: Record<string, { completed: number; total: number }> = {};
@@ -96,11 +110,13 @@ export default function DashboardPage() {
     const listening = JSON.parse(localStorage.getItem("listening-history") || "[]").length;
     const srsCount = Object.keys(cards).length;
     const lessonCount = Object.values(getLessonStatsFromStorage()).filter(Boolean).length;
+    const listeningHist = JSON.parse(localStorage.getItem("listening-history") || "[]");
+    const dictationCount = listeningHist.filter((h: { type?: string }) => h.type?.includes("dictation")).length;
     return {
       speaking: convo + lessonCount,
       listening,
       reading: srsCount,
-      writing: 0,
+      writing: dictationCount,
     };
   }, [cards]);
 
@@ -119,8 +135,8 @@ export default function DashboardPage() {
             </div>
           </div>
           <div className="text-right">
-            <p className="text-sm font-semibold text-gray-700">{currentLevel}</p>
-            <p className="text-xs text-gray-400">{CEFR_LABELS[currentLevel]}</p>
+            <p className="text-xs text-gray-400">最長 {longestStreak}日 | ❄️ {freezes}</p>
+            <p className="text-sm font-semibold text-gray-700">{currentLevel} {CEFR_LABELS[currentLevel]}</p>
           </div>
         </div>
         {/* Week heatmap */}
@@ -137,6 +153,39 @@ export default function DashboardPage() {
           })}
         </div>
       </div>
+
+      {/* Daily XP progress */}
+      <div className="bg-white rounded-2xl shadow-sm p-4 border border-gray-100 mb-4">
+        <div className="flex items-center justify-between mb-2">
+          <p className="text-sm font-semibold text-gray-700">今日のXP</p>
+          <p className="text-sm font-bold text-amber-500">⚡ {todayXP}/{dailyGoal}</p>
+        </div>
+        <div className="h-2.5 bg-gray-100 rounded-full overflow-hidden mb-2">
+          <div className={`h-full rounded-full transition-all ${todayXP >= dailyGoal ? "bg-emerald-500" : "bg-amber-400"}`}
+            style={{ width: `${Math.min((todayXP / dailyGoal) * 100, 100)}%` }} />
+        </div>
+        <div className="flex justify-between text-xs text-gray-400">
+          <span>累計 {totalXP} XP</span>
+          {todayXP >= dailyGoal && <span className="text-emerald-600 font-semibold">達成！</span>}
+        </div>
+      </div>
+
+      {/* Lesson completion summary */}
+      {lessonStats && (() => {
+        const totalLessons = Object.values(lessonStats).reduce((a, s) => a + s.total, 0);
+        const completedLessons = Object.values(lessonStats).reduce((a, s) => a + s.completed, 0);
+        return totalLessons > 0 ? (
+          <div className="bg-gradient-to-r from-teal-50 to-emerald-50 rounded-2xl p-4 border border-teal-100 mb-4">
+            <div className="flex items-center justify-between">
+              <p className="text-sm font-semibold text-teal-700">レッスン進捗</p>
+              <p className="text-sm font-bold text-teal-600">{completedLessons}/{totalLessons}</p>
+            </div>
+            <div className="mt-2 h-2 bg-teal-100 rounded-full overflow-hidden">
+              <div className="h-full bg-teal-500 rounded-full transition-all" style={{ width: `${(completedLessons / totalLessons) * 100}%` }} />
+            </div>
+          </div>
+        ) : null;
+      })()}
 
       {/* Summary stats */}
       <div className="grid grid-cols-3 gap-2 mb-4">
@@ -248,6 +297,54 @@ export default function DashboardPage() {
         <p className="text-xs text-gray-400 mt-2">
           マスター = SRSで3回以上正解した単語
         </p>
+      </div>
+
+      {/* Data Backup */}
+      <div className="bg-white rounded-2xl shadow-sm p-4 border border-gray-100 mt-4">
+        <p className="text-sm font-semibold text-gray-700 mb-3">データ管理</p>
+        <p className="text-xs text-gray-500 mb-3">
+          学習データをバックアップ・復元できます。アプリ再インストール時に進捗を引き継げます。
+        </p>
+        <div className="flex gap-2">
+          <button
+            onClick={() => {
+              downloadBackup();
+              setBackupMsg("バックアップをダウンロードしました");
+              setTimeout(() => setBackupMsg(null), 3000);
+            }}
+            className="flex-1 py-2.5 rounded-xl bg-emerald-600 text-white text-sm font-semibold active:bg-emerald-700"
+          >
+            エクスポート
+          </button>
+          <button
+            onClick={() => fileInputRef.current?.click()}
+            className="flex-1 py-2.5 rounded-xl bg-gray-100 text-gray-700 text-sm font-semibold active:bg-gray-200"
+          >
+            インポート
+          </button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".json"
+            className="hidden"
+            onChange={async (e) => {
+              const file = e.target.files?.[0];
+              if (!file) return;
+              try {
+                const result = await restoreFromFile(file);
+                setBackupMsg(`${result.restored}件のデータを復元しました。リロードします...`);
+                setTimeout(() => window.location.reload(), 1500);
+              } catch (err) {
+                setBackupMsg(err instanceof Error ? err.message : "復元に失敗しました");
+                setTimeout(() => setBackupMsg(null), 3000);
+              }
+              e.target.value = "";
+            }}
+          />
+        </div>
+        {backupMsg && (
+          <p className="text-xs text-emerald-600 mt-2 text-center">{backupMsg}</p>
+        )}
       </div>
     </div>
   );
