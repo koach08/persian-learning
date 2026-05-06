@@ -38,15 +38,37 @@ function saveData(data: XPData): void {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
+const GOAL_MET_FLAG = "xp-goal-just-met";
+
 export function addXP(action: XPAction): number {
   const data = loadData();
   const points = XP_VALUES[action];
   const today = getToday();
 
+  const beforeXP = data.dailyXP[today] || 0;
   data.totalXP += points;
-  data.dailyXP[today] = (data.dailyXP[today] || 0) + points;
+  data.dailyXP[today] = beforeXP + points;
   saveData(data);
+
+  // Detect first-time daily goal crossing
+  if (beforeXP < data.dailyGoal && data.dailyXP[today] >= data.dailyGoal) {
+    if (typeof window !== "undefined") {
+      localStorage.setItem(GOAL_MET_FLAG, today);
+    }
+  }
+
   return points;
+}
+
+/** Check and consume the "goal just met" flag. Returns true once per day. */
+export function consumeGoalMetFlag(): boolean {
+  if (typeof window === "undefined") return false;
+  const flag = localStorage.getItem(GOAL_MET_FLAG);
+  if (flag === getToday()) {
+    localStorage.removeItem(GOAL_MET_FLAG);
+    return true;
+  }
+  return false;
 }
 
 export function getTodayXP(): number {

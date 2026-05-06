@@ -64,6 +64,8 @@ export const SCENARIO_LIST: ScenarioMeta[] = [
   { id: "a1-taxi", title: "タクシーに乗る", titlePersian: "سوار تاکسی شدن", level: "A1", icon: "🚕" },
   { id: "a1-food", title: "食べ物の好みを言う", titlePersian: "صحبت درباره غذا", level: "A1", icon: "🍽️" },
   { id: "a1-shopping", title: "買い物をする", titlePersian: "خرید کردن", level: "A1", icon: "🛒" },
+  { id: "a1-family-dinner", title: "家族の食事で話す", titlePersian: "صحبت سر میز شام", level: "A1", icon: "🍚" },
+  { id: "a1-inlaws", title: "義家族と挨拶する", titlePersian: "سلام و احوالپرسی با خانواده همسر", level: "A1", icon: "🤗" },
   // A2
   { id: "a2-restaurant", title: "レストランで注文する", titlePersian: "سفارش دادن در رستوران", level: "A2", icon: "🍕" },
   { id: "a2-directions", title: "道を聞く", titlePersian: "پرسیدن آدرس", level: "A2", icon: "🗺️" },
@@ -71,6 +73,7 @@ export const SCENARIO_LIST: ScenarioMeta[] = [
   { id: "a2-weekend", title: "週末の予定を話す", titlePersian: "برنامه آخر هفته", level: "A2", icon: "📅" },
   { id: "a2-hotel", title: "ホテルにチェックインする", titlePersian: "ورود به هتل", level: "A2", icon: "🏨" },
   { id: "a2-phone", title: "電話で予約する", titlePersian: "رزرو تلفنی", level: "A2", icon: "📞" },
+  { id: "a2-family-gathering", title: "家族の集まりで話す", titlePersian: "صحبت در مهمانی خانوادگی", level: "A2", icon: "🎉" },
   // B1
   { id: "b1-travel", title: "旅行計画を話し合う", titlePersian: "برنامه‌ریزی سفر", level: "B1", icon: "✈️" },
   { id: "b1-opinion", title: "意見を交換する", titlePersian: "تبادل نظر", level: "B1", icon: "💬" },
@@ -78,6 +81,7 @@ export const SCENARIO_LIST: ScenarioMeta[] = [
   { id: "b1-culture", title: "イラン文化について話す", titlePersian: "صحبت درباره فرهنگ ایران", level: "B1", icon: "🕌" },
   { id: "b1-moving", title: "引越しの相談", titlePersian: "مشورت درباره اسباب‌کشی", level: "B1", icon: "📦" },
   { id: "b1-movie", title: "映画の感想を話す", titlePersian: "نظر درباره فیلم", level: "B1", icon: "🎬" },
+  { id: "b1-family-plans", title: "家族の将来を話し合う", titlePersian: "صحبت درباره آینده خانواده", level: "B1", icon: "👨‍👩‍👧‍👦" },
   // B2
   { id: "b2-social", title: "社会問題を議論する", titlePersian: "بحث درباره مسائل اجتماعی", level: "B2", icon: "📰" },
   { id: "b2-debate", title: "ディベートする", titlePersian: "مناظره", level: "B2", icon: "⚖️" },

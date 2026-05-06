@@ -27,8 +27,12 @@ export default function AudioRecorder({
     if (!recording) return;
     setRecording(false);
     try {
-      const wavBlob = stopWavRecording();
-      onRecordingComplete(wavBlob);
+      const { blob, rms } = stopWavRecording();
+      if (rms < 0.008) {
+        alert("音声が検出されませんでした。もう一度録音してください。");
+        return;
+      }
+      onRecordingComplete(blob);
     } catch (e) {
       console.error("Stop recording error:", e);
     }

@@ -80,7 +80,7 @@ Rules:
   - speakerName must match one of the names in the speakers array`;
 
       const completion = await openai.chat.completions.create({
-        model: "gpt-4o",
+        model: "gpt-4.1",
         max_tokens: 2000,
         temperature: 0.8,
         messages: [{ role: "user", content: prompt }],
@@ -119,7 +119,7 @@ Scoring guide:
 - 0-29: Very different from expected or incomprehensible`;
 
       const completion = await openai.chat.completions.create({
-        model: "gpt-4o",
+        model: "gpt-4.1",
         max_tokens: 300,
         temperature: 0.3,
         messages: [{ role: "user", content: prompt }],

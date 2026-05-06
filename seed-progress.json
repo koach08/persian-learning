@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "exportedAt": "2026-05-04T00:00:00.000Z",
+  "data": {
+    "guided-lesson-progress": "{\"a1-greetings\":{\"lessonId\":\"a1-greetings\",\"completedSteps\":10,\"completed\":true,\"lastDate\":\"2026-04-01\",\"phrasesLearned\":4},\"a1-self-intro\":{\"lessonId\":\"a1-self-intro\",\"completedSteps\":10,\"completed\":true,\"lastDate\":\"2026-04-02\",\"phrasesLearned\":4},\"a1-numbers-shopping\":{\"lessonId\":\"a1-numbers-shopping\",\"completedSteps\":10,\"completed\":true,\"lastDate\":\"2026-04-03\",\"phrasesLearned\":4}}",
+    "cefr-progress": "{\"currentLevel\":\"A1\",\"unlockedLevels\":[\"A1\"]}",
+    "xp-data": "{\"totalXP\":300,\"dailyXP\":{},\"dailyGoal\":100}"
+  }
+}

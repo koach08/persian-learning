@@ -26,6 +26,30 @@ export async function POST(req: NextRequest) {
     }
 
     const audioBuffer = await audioFile.arrayBuffer();
+
+    // Server-side silence detection: check RMS of PCM samples in WAV
+    const wavView = new DataView(audioBuffer);
+    if (audioBuffer.byteLength > 44) {
+      let sumSq = 0;
+      const numSamples = (audioBuffer.byteLength - 44) / 2;
+      for (let i = 0; i < numSamples; i++) {
+        const sample = wavView.getInt16(44 + i * 2, true) / 32768;
+        sumSq += sample * sample;
+      }
+      const rms = Math.sqrt(sumSq / numSamples);
+      console.log(`[pron-assess] RMS: ${rms.toFixed(4)}`);
+      if (rms < 0.008) {
+        return NextResponse.json({
+          accuracyScore: 0,
+          fluencyScore: 0,
+          completenessScore: 0,
+          words: [],
+          recognizedText: "",
+          feedback: "音声が検出されませんでした。マイクに向かって発声してから録音を停止してください。",
+        });
+      }
+    }
+
     const base64Audio = Buffer.from(audioBuffer).toString("base64");
     console.log(`[pron-assess] GPT-4o audio, size: ${audioBuffer.byteLength}, ref: "${referenceText}"`);
 

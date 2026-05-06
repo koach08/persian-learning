@@ -35,7 +35,14 @@ export async function startWavRecording(): Promise<void> {
   workletNode.connect(audioContext.destination);
 }
 
-export function stopWavRecording(): Blob {
+export interface WavRecordingResult {
+  blob: Blob;
+  /** Root-mean-square amplitude (0–1). Below ~0.01 is effectively silence. */
+  rms: number;
+  durationMs: number;
+}
+
+export function stopWavRecording(): WavRecordingResult {
   recording = false;
 
   if (workletNode) {
@@ -79,10 +86,22 @@ export function stopWavRecording(): Blob {
     }
   }
 
+  // Calculate RMS amplitude to detect silence
+  let sumSq = 0;
+  for (let i = 0; i < samples.length; i++) {
+    sumSq += samples[i] * samples[i];
+  }
+  const rms = samples.length > 0 ? Math.sqrt(sumSq / samples.length) : 0;
+  const durationMs = (samples.length / 16000) * 1000;
+
   // Encode WAV
   const wavBuffer = encodeWav(samples, 16000);
   chunks = [];
-  return new Blob([wavBuffer], { type: "audio/wav" });
+  return {
+    blob: new Blob([wavBuffer], { type: "audio/wav" }),
+    rms,
+    durationMs,
+  };
 }
 
 function encodeWav(samples: Float32Array, sampleRate: number): ArrayBuffer {

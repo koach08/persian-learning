@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import BottomNav from "@/components/BottomNav";
+import DailyGoalToast from "@/components/DailyGoalToast";
 
 const vazirmatn = localFont({
   src: "../public/fonts/Vazirmatn-Variable.woff2",
@@ -43,6 +44,7 @@ export default function RootLayout({
           {children}
         </main>
         <BottomNav />
+        <DailyGoalToast />
         <script
           dangerouslySetInnerHTML={{
             __html: `

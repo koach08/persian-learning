@@ -44,7 +44,8 @@ type ConversationState =
   | "recording"
   | "transcribing"
   | "ai-thinking"
-  | "summary";
+  | "summary"
+  | "error";
 
 interface ScenarioTheme {
   label: string;
@@ -381,9 +382,9 @@ function ConversationPageInner() {
         return displayText;
       } catch {
         setMessages([
-          { role: "assistant", content: "エラーが発生しました。もう一度お試しください。" },
+          { role: "assistant", content: "接続エラーが発生しました。「再接続」ボタンで再試行できます。" },
         ]);
-        setConversationState("user-turn");
+        setConversationState("error");
       }
     },
     [processAIResponse]
@@ -983,8 +984,35 @@ function ConversationPageInner() {
         </div>
       )}
 
+      {/* Error recovery */}
+      {conversationState === "error" && (
+        <div className="px-4 py-4 bg-red-50 border-t border-red-100">
+          <p className="text-sm text-red-600 mb-3 text-center">接続に失敗しました</p>
+          <div className="flex gap-2">
+            <button
+              onClick={() => {
+                if (currentTheme && session) {
+                  const themes = THEMES_BY_LEVEL[level] || [];
+                  const theme = themes.find((t) => t.label === currentTheme);
+                  if (theme) startThemeDirect(theme, level);
+                }
+              }}
+              className="flex-1 py-2.5 bg-purple-500 text-white rounded-xl text-sm font-semibold"
+            >
+              再接続
+            </button>
+            <button
+              onClick={() => { setConversationState("idle"); setMessages([]); }}
+              className="flex-1 py-2.5 bg-gray-100 text-gray-600 rounded-xl text-sm font-semibold"
+            >
+              テーマ選択に戻る
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Input area — Voice-first */}
-      <div className="px-4 py-3 bg-white border-t border-gray-200">
+      {conversationState !== "error" && <div className="px-4 py-3 bg-white border-t border-gray-200">
         <div className="flex flex-col items-center gap-2">
           {/* Main mic button */}
           <button
@@ -1053,7 +1081,7 @@ function ConversationPageInner() {
             </div>
           )}
         </div>
-      </div>
+      </div>}
     </div>
   );
 }

@@ -46,6 +46,8 @@ export default function ReadingPage() {
   const [phase, setPhase] = useState<Phase>("select");
   const [reading, setReading] = useState<ReadingData | null>(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [lastTopic, setLastTopic] = useState("");
   const [showRoman, setShowRoman] = useState(true);
   const [showTranslation, setShowTranslation] = useState(false);
   const [expandedVocab, setExpandedVocab] = useState<Set<number>>(new Set());
@@ -66,8 +68,10 @@ export default function ReadingPage() {
 
   const generatePassage = async (topic: string) => {
     setLoading(true);
-    setPhase("reading");
+    setError("");
+    setLastTopic(topic);
     setReading(null);
+    setPhase("reading");
     try {
       const res = await fetch(apiUrl("/api/reading"), {
         method: "POST",
@@ -77,9 +81,11 @@ export default function ReadingPage() {
       const data = await res.json();
       if (data.passage) {
         setReading(data);
+      } else {
+        setError("文章の生成に失敗しました。");
       }
     } catch {
-      // Show error state
+      setError("通信エラーが発生しました。ネットワーク接続を確認してください。");
     } finally {
       setLoading(false);
     }
@@ -218,7 +224,17 @@ export default function ReadingPage() {
           </div>
         )}
 
-        {reading && !loading && (
+        {error && !loading && (
+          <div className="flex flex-col items-center justify-center h-48 gap-4">
+            <p className="text-red-500 text-sm">{error}</p>
+            <div className="flex gap-2">
+              <button onClick={() => generatePassage(lastTopic)} className="px-4 py-2 bg-teal-500 text-white rounded-xl text-sm font-semibold">再試行</button>
+              <button onClick={() => { setPhase("select"); setError(""); }} className="px-4 py-2 bg-gray-100 text-gray-600 rounded-xl text-sm font-semibold">トピック選択に戻る</button>
+            </div>
+          </div>
+        )}
+
+        {reading && !loading && !error && (
           <div className="animate-slide-in">
             <h2 className="text-lg font-bold text-gray-900 mb-1">{reading.titleJapanese}</h2>
             <PersianText size="lg" className="text-teal-600 mb-4 block">

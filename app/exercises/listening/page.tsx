@@ -226,7 +226,7 @@ function MaterialDetail({
       setDictationResult(data);
       saveHistory({ type: "dictation", title: material.titleJa, score: data.accuracy });
     } catch {
-      // ignore
+      setDictationResult({ accuracy: 0, corrections: [], feedback: "チェックに失敗しました。もう一度お試しください。", tips: [] });
     } finally {
       setCheckingDictation(false);
     }
@@ -522,12 +522,14 @@ function DictationTab({ level }: { level: CEFRLevel }) {
   const [result, setResult] = useState<DictationResult | null>(null);
   const [checking, setChecking] = useState(false);
   const [playCount, setPlayCount] = useState(0);
+  const [error, setError] = useState("");
 
   const loadNew = async () => {
     setLoading(true);
     setResult(null);
     setDictationInput("");
     setPlayCount(0);
+    setError("");
     try {
       const res = await fetch(apiUrl("/api/listening/generate-practice"), {
         method: "POST",
@@ -538,9 +540,11 @@ function DictationTab({ level }: { level: CEFRLevel }) {
       const data = await res.json();
       if (data.materials?.length > 0) {
         setMaterial(data.materials[0]);
+      } else {
+        setError("素材の読み込みに失敗しました。");
       }
     } catch {
-      // ignore
+      setError("素材の読み込みに失敗しました。ネットワーク接続を確認してください。");
     } finally {
       setLoading(false);
     }
@@ -560,7 +564,7 @@ function DictationTab({ level }: { level: CEFRLevel }) {
       setResult(data);
       saveHistory({ type: "dictation-standalone", title: material.titleJa, score: data.accuracy });
     } catch {
-      // ignore
+      setError("チェックに失敗しました。もう一度お試しください。");
     } finally {
       setChecking(false);
     }
@@ -579,6 +583,8 @@ function DictationTab({ level }: { level: CEFRLevel }) {
       >
         {loading ? "読み込み中..." : material ? "新しい素材を読み込む" : "ディクテーション素材を読み込む"}
       </button>
+
+      {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
 
       {material && (
         <div className="animate-slide-in">

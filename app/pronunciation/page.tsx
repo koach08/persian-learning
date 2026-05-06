@@ -6,6 +6,7 @@ import PersianText from "@/components/PersianText";
 import AudioPlayer from "@/components/AudioPlayer";
 import AudioRecorder from "@/components/AudioRecorder";
 import { apiUrl } from "@/lib/api-config";
+import BackButton from "@/components/BackButton";
 
 interface PronunciationResult {
   accuracyScore: number;
@@ -100,6 +101,7 @@ export default function PronunciationPage() {
 
   return (
     <div className="px-4 pt-6">
+      <BackButton href="/" label="ホーム" />
       <h1 className="text-xl font-bold text-gray-900 mb-4">発音評価</h1>
 
       <div className="flex gap-2 mb-4">

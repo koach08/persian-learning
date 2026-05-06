@@ -11,7 +11,7 @@ import {
   type LessonStep,
   type Lesson,
 } from "@/lib/guided-lessons";
-import { getCEFRProgress } from "@/lib/level-manager";
+import { getCEFRProgress, tryUnlockByLessons } from "@/lib/level-manager";
 import { useTTS } from "@/lib/use-tts";
 import { apiUrl } from "@/lib/api-config";
 import { startWavRecording, stopWavRecording } from "@/lib/wav-recorder";
@@ -124,6 +124,13 @@ function GuidedLessonContent() {
     if (!lesson) return;
     if (stepIndex + 1 >= lesson.steps.length) {
       saveLessonProgress(lesson.id, lesson.steps.length, lesson.steps.length);
+      // Auto-add speak phrases to SRS
+      const cards = getAllCards();
+      for (const s of lesson.steps.filter((s) => s.type === "speak" || s.type === "speak-cloze")) {
+        if (!cards[s.phrase]) cards[s.phrase] = createNewCard(s.phrase);
+      }
+      saveAllCards(cards);
+      tryUnlockByLessons();
       recordActivity(); addXP("sessionComplete"); setCompleted(true);
     } else { setStepIndex(stepIndex + 1); }
   }, [lesson, stepIndex]);
@@ -135,8 +142,8 @@ function GuidedLessonContent() {
       // Stop recording → get WAV blob → evaluate
       setIsRecording(false);
       try {
-        const wavBlob = stopWavRecording();
-        if (wavBlob.size < 1000) { setStepState("done"); return; }
+        const { blob: wavBlob, rms } = stopWavRecording();
+        if (rms < 0.008) { setStepState("done"); return; }
         setStepState("evaluating");
         await runPronunciationAssessment(wavBlob);
       } catch {
@@ -290,9 +297,10 @@ function GuidedLessonContent() {
               <div className="flex-1 min-w-0"><p className="persian-text text-sm font-bold text-gray-900" dir="rtl">{s.phrase}</p><p className="text-xs text-gray-400">{s.translation}</p></div>
             </div>))}
         </div>
+        <p className="text-xs text-center text-emerald-600 mb-4">フレーズはSRSに自動追加されました</p>
         <div className="space-y-2">
-          <button onClick={handleAddToSRS} className="w-full py-3.5 rounded-2xl bg-emerald-500 text-white font-bold">SRSに追加</button>
-          {nl && <Link href={`/guided-lesson?id=${nl.id}`} className="block w-full py-3.5 rounded-2xl bg-purple-600 text-white font-bold text-center">次のレッスンへ</Link>}
+          {nl && <Link href={`/guided-lesson?id=${nl.id}`} className="block w-full py-3.5 rounded-2xl bg-purple-600 text-white font-bold text-center">次のレッスンへ →</Link>}
+          <Link href="/today" className="block w-full py-3.5 rounded-2xl bg-emerald-500 text-white font-bold text-center">今日の学習を続ける</Link>
           <Link href="/" className="block w-full py-3.5 rounded-2xl bg-gray-100 text-gray-600 font-bold text-center">ホームへ</Link>
         </div>
       </div>

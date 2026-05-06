@@ -75,7 +75,7 @@ Rules:
 
   try {
     const completion = await openai.chat.completions.create({
-      model: "gpt-4o",
+      model: "gpt-4.1",
       max_tokens: 1200,
       temperature: 0.8,
       messages: [{ role: "user", content: prompt }],

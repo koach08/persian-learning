@@ -1,5 +1,6 @@
 import type { SRSCard } from "./srs";
 import { isMastered } from "./srs";
+import { getLevelLessonStats } from "./guided-lessons";
 
 export type CEFRLevel = "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
 
@@ -61,15 +62,43 @@ export function checkAndUnlockLevels(
   for (let i = 0; i < CEFR_LEVELS.length - 1; i++) {
     const level = CEFR_LEVELS[i];
     const nextLevel = CEFR_LEVELS[i + 1];
+    if (progress.unlockedLevels.includes(nextLevel)) continue;
+
+    // Condition 1: SRS vocabulary mastery (80%)
     const words = wordsByLevel[level] || [];
-    if (words.length === 0) continue;
+    let srsUnlock = false;
+    if (words.length > 0) {
+      const masteredCount = words.filter(
+        (w) => srsCards[w] && isMastered(srsCards[w])
+      ).length;
+      srsUnlock = masteredCount / words.length >= UNLOCK_THRESHOLD;
+    }
 
-    const masteredCount = words.filter(
-      (w) => srsCards[w] && isMastered(srsCards[w])
-    ).length;
-    const ratio = masteredCount / words.length;
+    // Condition 2: Lesson completion (60% of level's lessons)
+    const lessonStats = getLevelLessonStats(level);
+    const lessonUnlock = lessonStats.total > 0 && lessonStats.completed / lessonStats.total >= 0.6;
 
-    if (ratio >= UNLOCK_THRESHOLD && !progress.unlockedLevels.includes(nextLevel)) {
+    // Either condition unlocks the next level
+    if (srsUnlock || lessonUnlock) {
+      progress.unlockedLevels.push(nextLevel);
+    }
+  }
+
+  saveCEFRProgress(progress);
+  return progress.unlockedLevels;
+}
+
+/** Lightweight unlock check based on lesson completion only (no vocabulary data needed) */
+export function tryUnlockByLessons(): CEFRLevel[] {
+  const progress = getCEFRProgress();
+
+  for (let i = 0; i < CEFR_LEVELS.length - 1; i++) {
+    const level = CEFR_LEVELS[i];
+    const nextLevel = CEFR_LEVELS[i + 1];
+    if (progress.unlockedLevels.includes(nextLevel)) continue;
+
+    const stats = getLevelLessonStats(level);
+    if (stats.total > 0 && stats.completed / stats.total >= 0.6) {
       progress.unlockedLevels.push(nextLevel);
     }
   }

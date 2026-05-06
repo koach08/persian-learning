@@ -6,6 +6,7 @@ import type { CEFRLevel } from "@/lib/level-manager";
 import PersianText from "@/components/PersianText";
 import { apiUrl } from "@/lib/api-config";
 import { startWavRecording, stopWavRecording } from "@/lib/wav-recorder";
+import BackButton from "@/components/BackButton";
 
 interface ShadowPhrase {
   persian: string;
@@ -117,7 +118,11 @@ export default function ShadowingPage() {
     if (!isRecording) return;
     setIsRecording(false);
     try {
-      const wavBlob = stopWavRecording();
+      const { blob: wavBlob, rms } = stopWavRecording();
+      if (rms < 0.008) {
+        setPronScore({ accuracy: 0, fluency: 0, completeness: 0, feedback: "音声が検出されませんでした。もう一度録音してください。" });
+        return;
+      }
       await evaluatePronunciation(wavBlob);
     } catch {
       // recording error
@@ -168,6 +173,7 @@ export default function ShadowingPage() {
   if (phase === "select") {
     return (
       <div className="px-4 pt-6 pb-8">
+        <BackButton href="/" label="ホーム" />
         <h1 className="text-xl font-bold text-gray-900 mb-2">シャドーイング</h1>
         <p className="text-sm text-gray-500 mb-4">モデル音声を聞いて、真似して発声しよう。発音の精度を評価します。</p>
 

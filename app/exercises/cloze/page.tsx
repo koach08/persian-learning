@@ -8,6 +8,7 @@ import { getAllCards, saveAllCards, calculateSRS, createNewCard } from "@/lib/sr
 import type { SRSCard } from "@/lib/srs";
 import { addXP } from "@/lib/xp";
 import { recordMistake } from "@/lib/mistake-tracker";
+import BackButton from "@/components/BackButton";
 import PersianText from "@/components/PersianText";
 import AudioPlayer from "@/components/AudioPlayer";
 import { extractRoman } from "@/lib/parse-cell";
@@ -97,6 +98,7 @@ export default function ClozePage() {
 
   return (
     <div className="px-4 pt-6">
+      <BackButton href="/exercises" label="練習ドリル" />
       <h1 className="text-xl font-bold text-gray-900 mb-4">穴埋め問題</h1>
       <div className="text-sm text-gray-500 mb-4 text-right">
         正解率: {score.total > 0 ? Math.round((score.correct / score.total) * 100) : 0}% ({score.correct}/{score.total})

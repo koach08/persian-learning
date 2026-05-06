@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { getCEFRProgress } from "@/lib/level-manager";
 import type { CEFRLevel } from "@/lib/level-manager";
+import BackButton from "@/components/BackButton";
 import {
   getTopicsByLevel,
   getGrammarProgress,
@@ -169,6 +170,7 @@ export default function GrammarPage() {
   if (phase === "topics") {
     return (
       <div className="px-4 pt-6 pb-8">
+        <BackButton href="/" label="ホーム" />
         <h1 className="text-xl font-bold text-gray-900 mb-2">文法クイズ</h1>
         <p className="text-sm text-gray-500 mb-4">レベル別の文法トピックを学習・テスト</p>
 

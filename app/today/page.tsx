@@ -1,8 +1,11 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { buildTodaySession, type TodaySession } from "@/lib/today-session";
+import { buildTodaySession, buildMicroSession, type TodaySession } from "@/lib/today-session";
+import { saveLessonProgress } from "@/lib/guided-lessons";
+import { tryUnlockByLessons } from "@/lib/level-manager";
 import { useMergedVocabulary } from "@/lib/use-merged-data";
 import { useTTS } from "@/lib/use-tts";
 import { useAudioRecorder } from "@/lib/use-audio-recorder";
@@ -16,6 +19,16 @@ import Confetti from "@/components/Confetti";
 type Phase = "loading" | "srs" | "lesson" | "conversation" | "complete";
 
 export default function TodayPage() {
+  return (
+    <Suspense fallback={<div className="px-4 pt-6 text-center text-gray-400">...</div>}>
+      <TodayContent />
+    </Suspense>
+  );
+}
+
+function TodayContent() {
+  const searchParams = useSearchParams();
+  const isMicro = searchParams.get("mode") === "micro";
   const [phase, setPhase] = useState<Phase>("loading");
   const [session, setSession] = useState<TodaySession | null>(null);
   const [completedSubSteps, setCompletedSubSteps] = useState(0);
@@ -46,7 +59,7 @@ export default function TodayPage() {
   }, [allItems]);
 
   useEffect(() => {
-    const s = buildTodaySession();
+    const s = isMicro ? buildMicroSession() : buildTodaySession();
     setSession(s);
 
     // Skip empty phases
@@ -103,7 +116,9 @@ export default function TodayPage() {
     setCompletedSubSteps((prev) => prev + 1);
 
     if (nextIdx >= session.lesson.steps.length) {
-      // Lesson done
+      // Lesson done — save progress so next session picks up the next lesson
+      saveLessonProgress(session.lesson.id, session.lesson.steps.length, session.lesson.steps.length);
+      tryUnlockByLessons();
       addXP("sessionComplete");
       recordActivity();
       if (session.conversationPhrases.length > 0) {
@@ -439,6 +454,10 @@ export default function TodayPage() {
           )}
 
           <div className="w-full max-w-xs space-y-2">
+            <Link href="/lessons"
+              className="block w-full py-3.5 rounded-2xl bg-purple-600 text-white font-bold text-center active:scale-95 transition-transform">
+              次のレッスンへ →
+            </Link>
             <Link href="/today"
               className="block w-full py-3.5 rounded-2xl bg-emerald-500 text-white font-bold text-center active:scale-95 transition-transform">
               もう1セッション

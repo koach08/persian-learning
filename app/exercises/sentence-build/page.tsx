@@ -5,9 +5,26 @@ import { getCEFRProgress } from "@/lib/level-manager";
 import type { CEFRLevel } from "@/lib/level-manager";
 import { addXP } from "@/lib/xp";
 import { recordMistake } from "@/lib/mistake-tracker";
+import BackButton from "@/components/BackButton";
 import PersianText from "@/components/PersianText";
 import AudioPlayer from "@/components/AudioPlayer";
 import { apiUrl } from "@/lib/api-config";
+import { fetchWithTimeout } from "@/lib/fetch-with-timeout";
+
+const FALLBACK_DATA: Record<string, { sentence: string; words: string[]; romanization: string; translation: string }[]> = {
+  A1: [
+    { sentence: "من خوبم", words: ["خوبم", "من"], romanization: "man khubam", translation: "私は元気です" },
+    { sentence: "اسم من علی است", words: ["است", "من", "اسم", "علی"], romanization: "esme man ali ast", translation: "私の名前はアリです" },
+    { sentence: "این کتاب است", words: ["است", "کتاب", "این"], romanization: "in ketaab ast", translation: "これは本です" },
+    { sentence: "من ایرانی هستم", words: ["هستم", "ایرانی", "من"], romanization: "man iraani hastam", translation: "私はイラン人です" },
+    { sentence: "آب می‌خوام", words: ["می‌خوام", "آب"], romanization: "aab mikhaam", translation: "水が欲しい" },
+  ],
+  A2: [
+    { sentence: "من فردا به مدرسه می‌رم", words: ["می‌رم", "مدرسه", "به", "فردا", "من"], romanization: "man fardaa be madrese miram", translation: "明日学校に行きます" },
+    { sentence: "هوا خیلی سرده", words: ["سرده", "خیلی", "هوا"], romanization: "havaa kheyli sarde", translation: "とても寒いです" },
+    { sentence: "غذا خوشمزه بود", words: ["بود", "خوشمزه", "غذا"], romanization: "ghazaa khoshmazze bud", translation: "料理は美味しかった" },
+  ],
+};
 
 interface SentenceData {
   sentence: string;
@@ -36,7 +53,7 @@ export default function SentenceBuildPage() {
     setResult(null);
 
     try {
-      const res = await fetch(apiUrl("/api/exercise"), {
+      const res = await fetchWithTimeout(apiUrl("/api/exercise"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ mode: "sentence-build", level }),
@@ -45,9 +62,15 @@ export default function SentenceBuildPage() {
       if (json.words && json.sentence) {
         setData(json);
         setAvailable([...json.words]);
+      } else {
+        throw new Error("Invalid response");
       }
     } catch {
-      // fallback
+      // Use static fallback
+      const pool = FALLBACK_DATA[level] || FALLBACK_DATA.A1;
+      const item = pool[Math.floor(Math.random() * pool.length)];
+      setData(item);
+      setAvailable([...item.words]);
     } finally {
       setLoading(false);
     }
@@ -88,6 +111,7 @@ export default function SentenceBuildPage() {
 
   return (
     <div className="px-4 pt-6">
+      <BackButton href="/exercises" label="練習ドリル" />
       <h1 className="text-xl font-bold text-gray-900 mb-4">語順並べ替え</h1>
       <div className="text-sm text-gray-500 mb-4 text-right">
         正解率: {score.total > 0 ? Math.round((score.correct / score.total) * 100) : 0}% ({score.correct}/{score.total})

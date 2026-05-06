@@ -59,6 +59,29 @@ export function buildTodaySession(): TodaySession {
   };
 }
 
+/** Build a micro session (5 minutes) — for busy days */
+export function buildMicroSession(): TodaySession {
+  const progress = getCEFRProgress();
+  const level = progress.currentLevel;
+
+  // Minimal SRS (5 cards max)
+  const allCards = getAllCards();
+  const dueCards = Object.values(allCards).filter(isDue).slice(0, 5);
+
+  // No lesson — too long for micro
+  // 2 conversation phrases only
+  const conversationPhrases = getQuickPhrases(level).slice(0, 2);
+
+  return {
+    level,
+    srsCards: dueCards,
+    lesson: null,
+    conversationPhrases,
+    scenarioTitle: "マイクロセッション",
+    totalSubSteps: dueCards.length + conversationPhrases.length,
+  };
+}
+
 /** Quick conversation phrases by level (no API needed) */
 function getQuickPhrases(level: CEFRLevel): { persian: string; romanization: string; japanese: string }[] {
   const phrases: Record<CEFRLevel, { persian: string; romanization: string; japanese: string }[]> = {

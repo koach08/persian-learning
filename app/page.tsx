@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { getCEFRProgress, setCurrentLevel, CEFR_LEVELS } from "@/lib/level-manager";
+import { getCEFRProgress, setCurrentLevel, CEFR_LEVELS, tryUnlockByLessons } from "@/lib/level-manager";
 import type { CEFRLevel } from "@/lib/level-manager";
 import { getAllCards, getDueCount } from "@/lib/srs";
 import { getStreak, hasStudiedToday } from "@/lib/streak";
@@ -13,7 +13,7 @@ const SCENARIOS = [
   { label: "カフェで注文", emoji: "☕", scenario: "cafe-order" },
   { label: "道を聞く", emoji: "🗺️", scenario: "ask-directions" },
   { label: "自己紹介", emoji: "👋", scenario: "self-intro" },
-  { label: "買い物", emoji: "🛒", scenario: "bazaar-shopping" },
+  { label: "家族の食事", emoji: "🍚", scenario: "family-dinner" },
 ];
 
 const SKILLS = [
@@ -25,6 +25,7 @@ const SKILLS = [
   { href: "/pronunciation", icon: "🎤", label: "発音" },
   { href: "/shadowing", icon: "🎙️", label: "シャドー" },
   { href: "/conversation", icon: "👩‍🏫", label: "会話" },
+  { href: "/passive-listen", icon: "🎧", label: "聞き流し" },
   { href: "/my-words", icon: "📋", label: "マイ単語" },
   { href: "/dashboard", icon: "📊", label: "進捗" },
 ];
@@ -37,8 +38,11 @@ export default function Home() {
   const [todayXP, setTodayXP] = useState(0);
   const [dailyGoal, setDailyGoal] = useState(100);
   const [lessonInfo, setLessonInfo] = useState<{ id: string; title: string; completed: number; total: number } | null>(null);
+  const [levelComplete, setLevelComplete] = useState<{ nextLevel: CEFRLevel | null; nextLevelUnlocked: boolean } | null>(null);
 
   useEffect(() => {
+    // Run lesson-based level unlock on every home load to catch any stale state
+    tryUnlockByLessons();
     const p = getCEFRProgress();
     setProgress(p);
     setDueCount(getDueCount(getAllCards()));
@@ -50,8 +54,22 @@ export default function Home() {
     const stats = getLevelLessonStats(p.currentLevel);
     if (next) {
       setLessonInfo({ id: next.id, title: next.title, completed: stats.completed, total: stats.total });
+    } else {
+      // All lessons in this level are complete
+      const idx = CEFR_LEVELS.indexOf(p.currentLevel);
+      const nextLevel = idx < CEFR_LEVELS.length - 1 ? CEFR_LEVELS[idx + 1] : null;
+      setLevelComplete({
+        nextLevel,
+        nextLevelUnlocked: nextLevel ? p.unlockedLevels.includes(nextLevel) : false,
+      });
     }
   }, []);
+
+  const advanceToNextLevel = () => {
+    if (!levelComplete?.nextLevel) return;
+    setCurrentLevel(levelComplete.nextLevel);
+    window.location.reload();
+  };
 
   const handleLevelChange = (level: CEFRLevel) => {
     if (progress.unlockedLevels.includes(level)) {
@@ -130,28 +148,85 @@ export default function Home() {
         </div>
       </Link>
 
-      {/* Lesson Progress */}
-      {lessonInfo && (
-        <Link
-          href={`/guided-lesson?id=${lessonInfo.id}`}
-          className="block mb-5 p-4 bg-white rounded-2xl shadow-sm active:scale-[0.98] transition-transform"
-        >
-          <div className="flex items-center gap-3">
-            <span className="text-2xl">🎓</span>
+      {/* Quick micro session */}
+      <Link
+        href="/today?mode=micro"
+        className="block mb-3 p-3.5 bg-white rounded-2xl shadow-sm border border-gray-100 active:scale-[0.97] transition-transform"
+      >
+        <div className="flex items-center gap-3">
+          <span className="text-xl">⏱️</span>
+          <div className="flex-1">
+            <p className="text-sm font-bold text-gray-800">5分だけ学習</p>
+            <p className="text-xs text-gray-400">SRS復習 + 会話フレーズ</p>
+          </div>
+          <svg className="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+      </Link>
+
+      {/* Level Complete — All lessons in current level done */}
+      {levelComplete && !lessonInfo && (
+        <div className="mb-5 p-5 bg-gradient-to-br from-amber-400 via-orange-500 to-rose-500 rounded-2xl shadow-lg text-white">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center text-3xl">🎉</div>
             <div className="flex-1">
-              <p className="font-bold text-gray-900 text-sm">{lessonInfo.title}</p>
-              <div className="flex items-center gap-2 mt-1.5">
-                <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+              <p className="text-[10px] text-white/80 font-semibold uppercase tracking-wide">{progress.currentLevel} レベル完了</p>
+              <p className="font-black text-lg leading-tight">全{getLevelLessonStats(progress.currentLevel).total}レッスン達成！</p>
+            </div>
+          </div>
+          {levelComplete.nextLevel && levelComplete.nextLevelUnlocked ? (
+            <button
+              onClick={advanceToNextLevel}
+              className="w-full py-3 rounded-xl bg-white text-orange-600 font-bold text-sm active:scale-95 transition-transform"
+            >
+              {levelComplete.nextLevel}レベルに進む →
+            </button>
+          ) : levelComplete.nextLevel ? (
+            <div className="bg-white/15 rounded-xl p-3 text-center">
+              <p className="text-xs text-white/90">SRS語彙マスターで{levelComplete.nextLevel}解放</p>
+              <Link href="/flashcard" className="text-xs font-bold underline mt-1 inline-block">復習に進む →</Link>
+            </div>
+          ) : (
+            <p className="text-xs text-white/80 text-center">すべてのレベルをマスターしました！</p>
+          )}
+        </div>
+      )}
+
+      {/* Lesson Progress — Next lesson with path indicator */}
+      {lessonInfo && (
+        <div className="mb-5">
+          <div className="flex items-center justify-between mb-2">
+            <p className="text-xs text-gray-400 font-semibold uppercase tracking-wide">レッスン</p>
+            <Link href="/lessons" className="text-xs text-emerald-600 font-semibold flex items-center gap-0.5">
+              全レッスン ({lessonInfo.completed}/{lessonInfo.total})
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" /></svg>
+            </Link>
+          </div>
+          <Link
+            href={`/guided-lesson?id=${lessonInfo.id}`}
+            className="block p-4 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl shadow-md text-white active:scale-[0.98] transition-transform"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center text-2xl shrink-0">
+                🎓
+              </div>
+              <div className="flex-1">
+                <p className="text-[10px] text-white/70 font-semibold uppercase tracking-wide">次のレッスン {lessonInfo.completed + 1}/{lessonInfo.total}</p>
+                <p className="font-black text-base">{lessonInfo.title}</p>
+                <div className="mt-1.5 h-1 bg-white/20 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-emerald-500 rounded-full"
+                    className="h-full bg-white/80 rounded-full"
                     style={{ width: `${lessonInfo.total > 0 ? (lessonInfo.completed / lessonInfo.total) * 100 : 0}%` }}
                   />
                 </div>
-                <span className="text-xs text-gray-400">{lessonInfo.completed}/{lessonInfo.total}</span>
               </div>
+              <svg className="w-5 h-5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+              </svg>
             </div>
-          </div>
-        </Link>
+          </Link>
+        </div>
       )}
 
       {/* Scenarios */}

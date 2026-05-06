@@ -23,9 +23,9 @@ export function useAudioRecorder() {
     setIsRecording(false);
 
     try {
-      const wavBlob = stopWavRecording();
+      const { blob: wavBlob, rms } = stopWavRecording();
 
-      if (wavBlob.size < 1000) {
+      if (rms < 0.008 || wavBlob.size < 1000) {
         setTranscribedText("");
         return;
       }
