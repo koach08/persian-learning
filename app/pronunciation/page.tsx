@@ -17,6 +17,7 @@ interface PronunciationResult {
     accuracyScore: number;
     errorType: string;
   }[];
+  recognizedText?: string;
   feedback?: string;
 }
 
@@ -59,9 +60,21 @@ export default function PronunciationPage() {
           body: formData,
         });
 
-        const data = await res.json();
+        const data = await res.json().catch(() => null);
 
-        if (data.error && !data.accuracyScore) {
+        if (!res.ok) {
+          setError(`評価エラー (${res.status}): ${data?.error ?? "サーバーで処理に失敗しました"}`);
+          setEvaluating(false);
+          return;
+        }
+
+        if (!data) {
+          setError("評価エラー: サーバーから結果を取得できませんでした");
+          setEvaluating(false);
+          return;
+        }
+
+        if (data.error && typeof data.accuracyScore !== "number") {
           setError(`評価エラー: ${data.error}`);
           setEvaluating(false);
           return;
@@ -76,6 +89,7 @@ export default function PronunciationPage() {
             accuracyScore: w.accuracyScore,
             errorType: "None",
           })),
+          recognizedText: data.recognizedText ?? "",
           feedback: data.feedback ?? "",
         });
         setEvaluating(false);
@@ -262,6 +276,13 @@ export default function PronunciationPage() {
                   </div>
                 ))}
               </div>
+            </div>
+          )}
+
+          {result.recognizedText && (
+            <div className="mt-4 rounded-xl bg-gray-50 px-4 py-3">
+              <p className="text-xs font-medium text-gray-500 mb-1">認識された音声</p>
+              <p className="persian-text text-gray-900" dir="rtl">{result.recognizedText}</p>
             </div>
           )}
 

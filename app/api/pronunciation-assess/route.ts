@@ -1,7 +1,113 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
+import { getSimilarity, normalizePersian } from "@/lib/persian-utils";
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const PRONUNCIATION_MODEL = process.env.OPENAI_PRONUNCIATION_MODEL || "gpt-4o-audio-preview";
+const TRANSCRIPTION_MODEL = process.env.OPENAI_TRANSCRIPTION_MODEL || "whisper-1";
+
+export const runtime = "nodejs";
+
+type WordScore = {
+  word: string;
+  accuracyScore: number;
+};
+
+type AssessmentResult = {
+  accuracyScore: number;
+  fluencyScore: number;
+  completenessScore: number;
+  words: WordScore[];
+  recognizedText: string;
+  feedback: string;
+};
+
+function clampScore(score: unknown, fallback = 0): number {
+  const n = typeof score === "number" ? score : Number(score);
+  if (!Number.isFinite(n)) return fallback;
+  return Math.max(0, Math.min(100, Math.round(n)));
+}
+
+function getReferenceWords(referenceText: string): string[] {
+  return referenceText
+    .replace(/[.،؟!؛:«»\-\u200c]/g, " ")
+    .split(/\s+/)
+    .filter(Boolean);
+}
+
+function getWavStats(audioBuffer: ArrayBuffer): { rms: number; durationMs: number } | null {
+  if (audioBuffer.byteLength <= 44) return null;
+
+  const view = new DataView(audioBuffer);
+  const channels = view.getUint16(22, true) || 1;
+  const sampleRate = view.getUint32(24, true) || 16000;
+  const bitsPerSample = view.getUint16(34, true) || 16;
+  if (bitsPerSample !== 16) return null;
+
+  const dataOffset = 44;
+  const bytesPerSample = bitsPerSample / 8;
+  const sampleCount = Math.floor((audioBuffer.byteLength - dataOffset) / bytesPerSample);
+  if (sampleCount <= 0) return null;
+
+  let sumSq = 0;
+  for (let offset = dataOffset; offset + 1 < audioBuffer.byteLength; offset += bytesPerSample) {
+    const sample = view.getInt16(offset, true) / 32768;
+    sumSq += sample * sample;
+  }
+
+  return {
+    rms: Math.sqrt(sumSq / sampleCount),
+    durationMs: (sampleCount / Math.max(1, sampleRate * channels)) * 1000,
+  };
+}
+
+function scoreFromTranscription(referenceText: string, recognizedText: string): AssessmentResult {
+  const refWords = getReferenceWords(referenceText);
+  const normalizedRecognizedWords = normalizePersian(recognizedText).split(" ").filter(Boolean);
+  const accuracyScore = clampScore(getSimilarity(referenceText, recognizedText));
+
+  const words = refWords.map((word) => {
+    const best = Math.max(
+      ...normalizedRecognizedWords.map((spoken) => getSimilarity(word, spoken)),
+      recognizedText ? 10 : 0
+    );
+    return { word, accuracyScore: clampScore(best) };
+  });
+
+  const matchedWords = words.filter((w) => w.accuracyScore >= 55).length;
+  const completenessScore = refWords.length > 0
+    ? clampScore((matchedWords / refWords.length) * 100)
+    : accuracyScore;
+  const fluencyScore = recognizedText
+    ? clampScore((accuracyScore * 0.7) + (completenessScore * 0.3))
+    : 0;
+
+  const feedback = recognizedText
+    ? accuracyScore >= 75
+      ? "よく発音できています。語尾と母音の長さを意識すると、さらに自然に聞こえます。"
+      : accuracyScore >= 45
+        ? "一部は認識できています。お手本を聞きながら、母音の長さと子音の出だしをもう一度練習しましょう。"
+        : "発音の一部だけ認識できました。まずは短い単語に分けて、ゆっくりはっきり発声してみてください。"
+    : "音声を認識できませんでした。マイク音量を確認し、もう少し長めにはっきり録音してください。";
+
+  return {
+    accuracyScore,
+    fluencyScore,
+    completenessScore,
+    words,
+    recognizedText,
+    feedback,
+  };
+}
+
+async function transcribeAndScore(audioFile: File, referenceText: string): Promise<AssessmentResult> {
+  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  const transcription = await openai.audio.transcriptions.create({
+    file: audioFile,
+    model: TRANSCRIPTION_MODEL,
+    language: "fa",
+  });
+  return scoreFromTranscription(referenceText, transcription.text || "");
+}
 
 /**
  * Pronunciation assessment using GPT-4o audio.
@@ -27,23 +133,15 @@ export async function POST(req: NextRequest) {
 
     const audioBuffer = await audioFile.arrayBuffer();
 
-    // Server-side silence detection: check RMS of PCM samples in WAV
-    const wavView = new DataView(audioBuffer);
-    if (audioBuffer.byteLength > 44) {
-      let sumSq = 0;
-      const numSamples = (audioBuffer.byteLength - 44) / 2;
-      for (let i = 0; i < numSamples; i++) {
-        const sample = wavView.getInt16(44 + i * 2, true) / 32768;
-        sumSq += sample * sample;
-      }
-      const rms = Math.sqrt(sumSq / numSamples);
-      console.log(`[pron-assess] RMS: ${rms.toFixed(4)}`);
-      if (rms < 0.008) {
+    const wavStats = getWavStats(audioBuffer);
+    if (wavStats) {
+      console.log(`[pron-assess] RMS: ${wavStats.rms.toFixed(4)}, duration: ${Math.round(wavStats.durationMs)}ms`);
+      if (wavStats.durationMs < 350 || wavStats.rms < 0.008) {
         return NextResponse.json({
           accuracyScore: 0,
           fluencyScore: 0,
           completenessScore: 0,
-          words: [],
+          words: getReferenceWords(referenceText).map((word) => ({ word, accuracyScore: 0 })),
           recognizedText: "",
           feedback: "音声が検出されませんでした。マイクに向かって発声してから録音を停止してください。",
         });
@@ -53,17 +151,17 @@ export async function POST(req: NextRequest) {
     const base64Audio = Buffer.from(audioBuffer).toString("base64");
     console.log(`[pron-assess] GPT-4o audio, size: ${audioBuffer.byteLength}, ref: "${referenceText}"`);
 
-    const refWords = referenceText
-      .replace(/[.،؟!؛:«»\-\u200c]/g, "")
-      .split(/\s+/)
-      .filter(Boolean);
+    const refWords = getReferenceWords(referenceText);
 
-    const completion = await openai.chat.completions.create({
-      model: "gpt-4o-audio-preview",
-      messages: [
-        {
-          role: "system",
-          content: `You are a Persian (Farsi) pronunciation evaluator for a Japanese learner.
+    let raw = "";
+    try {
+      const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+      const completion = await openai.chat.completions.create({
+        model: PRONUNCIATION_MODEL,
+        messages: [
+          {
+            role: "system",
+            content: `You are a Persian (Farsi) pronunciation evaluator for a Japanese learner.
 You will receive audio of someone attempting to say a Persian phrase, plus the reference text.
 
 Your task:
@@ -94,54 +192,75 @@ Respond ONLY with a JSON object (no markdown, no code fences):
   "recognizedText": "<what you think they said in Persian script>",
   "feedback": "<1-2 sentences in Japanese: what was good, what to improve, specific sounds to focus on>"
 }`,
-        },
-        {
-          role: "user",
-          content: [
-            {
-              type: "text",
-              text: `The learner attempted to say: ${referenceText}`,
-            },
-            {
-              type: "input_audio",
-              input_audio: { data: base64Audio, format: "wav" },
-            },
-          ],
-        },
-      ],
-      max_tokens: 500,
-    });
+          },
+          {
+            role: "user",
+            content: [
+              {
+                type: "text",
+                text: `The learner attempted to say: ${referenceText}`,
+              },
+              {
+                type: "input_audio",
+                input_audio: { data: base64Audio, format: "wav" },
+              },
+            ],
+          },
+        ],
+        max_tokens: 500,
+      });
 
-    const raw = completion.choices[0]?.message?.content || "";
+      raw = completion.choices[0]?.message?.content || "";
+    } catch (e) {
+      console.error("[pron-assess] Audio model failed; falling back to transcription:", e);
+      try {
+        return NextResponse.json(await transcribeAndScore(audioFile, referenceText));
+      } catch (fallbackError) {
+        console.error("[pron-assess] Transcription fallback failed:", fallbackError);
+        return NextResponse.json({
+          accuracyScore: 0,
+          fluencyScore: 0,
+          completenessScore: 0,
+          words: refWords.map((word) => ({ word, accuracyScore: 0 })),
+          recognizedText: "",
+          feedback: "音声評価サービスで一時的なエラーが発生しました。少し時間をおいてもう一度お試しください。",
+        });
+      }
+    }
+
     console.log(`[pron-assess] GPT-4o response:`, raw.slice(0, 500));
 
     try {
       const cleaned = raw.replace(/```json\s*/g, "").replace(/```\s*/g, "").trim();
       const parsed = JSON.parse(cleaned);
       return NextResponse.json({
-        accuracyScore: parsed.accuracyScore ?? 0,
-        fluencyScore: parsed.fluencyScore ?? 0,
-        completenessScore: parsed.completenessScore ?? 0,
+        accuracyScore: clampScore(parsed.accuracyScore),
+        fluencyScore: clampScore(parsed.fluencyScore),
+        completenessScore: clampScore(parsed.completenessScore),
         words: (parsed.words ?? []).map((w: { word: string; accuracyScore: number }) => ({
           word: w.word,
-          accuracyScore: w.accuracyScore ?? 0,
+          accuracyScore: clampScore(w.accuracyScore),
         })),
         recognizedText: parsed.recognizedText ?? "",
         feedback: parsed.feedback ?? "",
       });
     } catch {
       console.error("[pron-assess] Failed to parse GPT-4o response:", raw);
-      return NextResponse.json({
-        accuracyScore: 20,
-        fluencyScore: 20,
-        completenessScore: 20,
-        words: refWords.map((w) => ({ word: w, accuracyScore: 20 })),
-        recognizedText: "",
-        feedback: raw || "評価を処理できませんでした。もう一度試してください。",
-      });
+      try {
+        return NextResponse.json(await transcribeAndScore(audioFile, referenceText));
+      } catch {
+        return NextResponse.json({
+          accuracyScore: 20,
+          fluencyScore: 20,
+          completenessScore: 20,
+          words: refWords.map((w) => ({ word: w, accuracyScore: 20 })),
+          recognizedText: "",
+          feedback: raw || "評価を処理できませんでした。もう一度試してください。",
+        });
+      }
     }
   } catch (e) {
     console.error("[pron-assess] Error:", e);
-    return NextResponse.json({ error: "Assessment failed" }, { status: 500 });
+    return NextResponse.json({ error: "Assessment failed. Please try again." }, { status: 500 });
   }
 }
