@@ -6542,6 +6542,12 @@ export function saveLessonProgress(lessonId: string, completedSteps: number, tot
   localStorage.setItem(LESSON_PROGRESS_KEY, JSON.stringify(all));
 }
 
+export function markLessonComplete(lessonId: string): void {
+  const lesson = getLessonById(lessonId);
+  if (!lesson) return;
+  saveLessonProgress(lesson.id, lesson.steps.length, lesson.steps.length);
+}
+
 export function getNextLesson(level: CEFRLevel): Lesson | undefined {
   const progress = getLessonProgress();
   const lessons = getLessonsByLevel(level);

@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { getLessonsByLevel, getLessonProgress, type Lesson, type LessonProgress } from "@/lib/guided-lessons";
-import { getCEFRProgress, CEFR_LEVELS, CEFR_LABELS } from "@/lib/level-manager";
+import { getLessonsByLevel, getLessonProgress, markLessonComplete, type Lesson, type LessonProgress } from "@/lib/guided-lessons";
+import { getCEFRProgress, CEFR_LEVELS, CEFR_LABELS, tryUnlockByLessons } from "@/lib/level-manager";
 import type { CEFRLevel } from "@/lib/level-manager";
 import BackButton from "@/components/BackButton";
 
@@ -24,6 +24,14 @@ export default function LessonsPage() {
   const handleLevelChange = (l: CEFRLevel) => {
     setLevel(l);
     setLessons(getLessonsByLevel(l));
+  };
+
+  const handleMarkComplete = (lessonId: string) => {
+    markLessonComplete(lessonId);
+    tryUnlockByLessons();
+    setProgress(getLessonProgress());
+    const p = getCEFRProgress();
+    setUnlocked(p.unlockedLevels);
   };
 
   const completedCount = lessons.filter((l) => progress[l.id]?.completed).length;
@@ -109,9 +117,8 @@ export default function LessonsPage() {
                   <p className="text-xs text-gray-400">前のレッスンを完了すると解放</p>
                 </div>
               ) : (
-                <Link
-                  href={`/guided-lesson?id=${lesson.id}`}
-                  className={`flex-1 block rounded-2xl p-4 border transition-all active:scale-[0.98] ${
+                <div
+                  className={`flex-1 rounded-2xl p-4 border transition-all ${
                     isCurrent
                       ? "bg-white border-purple-200 shadow-md"
                       : isCompleted
@@ -119,21 +126,35 @@ export default function LessonsPage() {
                         : "bg-white border-gray-100"
                   }`}
                 >
-                  <div className="flex items-center justify-between mb-1">
-                    <p className="font-bold text-gray-900 text-sm">{lesson.title}</p>
-                    {isCurrent && (
-                      <span className="text-[10px] bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full font-bold">次へ</span>
-                    )}
-                    {isCompleted && (
-                      <span className="text-[10px] bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-bold">完了</span>
-                    )}
-                  </div>
-                  <p className="text-xs text-gray-500" dir="rtl">{lesson.titlePersian}</p>
-                  <div className="flex items-center gap-3 mt-2 text-xs text-gray-400">
-                    <span>🗣️ {speakSteps}フレーズ</span>
-                    <span>📝 {lesson.steps.length}ステップ</span>
-                  </div>
-                </Link>
+                  <Link
+                    href={`/guided-lesson?id=${lesson.id}`}
+                    className="block active:scale-[0.98] transition-transform"
+                  >
+                    <div className="flex items-center justify-between mb-1">
+                      <p className="font-bold text-gray-900 text-sm">{lesson.title}</p>
+                      {isCurrent && (
+                        <span className="text-[10px] bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full font-bold">次へ</span>
+                      )}
+                      {isCompleted && (
+                        <span className="text-[10px] bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-bold">完了</span>
+                      )}
+                    </div>
+                    <p className="text-xs text-gray-500" dir="rtl">{lesson.titlePersian}</p>
+                    <div className="flex items-center gap-3 mt-2 text-xs text-gray-400">
+                      <span>🗣️ {speakSteps}フレーズ</span>
+                      <span>📝 {lesson.steps.length}ステップ</span>
+                    </div>
+                  </Link>
+                  {isCurrent && !isCompleted && (
+                    <button
+                      type="button"
+                      onClick={() => handleMarkComplete(lesson.id)}
+                      className="mt-3 w-full py-2 rounded-xl bg-gray-100 text-gray-600 text-xs font-semibold active:bg-gray-200"
+                    >
+                      完了済みにする
+                    </button>
+                  )}
+                </div>
               )}
             </div>
           );
